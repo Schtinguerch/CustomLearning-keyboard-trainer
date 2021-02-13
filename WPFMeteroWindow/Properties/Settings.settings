@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="LoadedLessonFile" Type="System.String" Scope="User">
-      <Value Profile="(Default)">222.lml</Value>
+      <Value Profile="(Default)">JustLessons\fishtext.lml</Value>
     </Setting>
     <Setting Name="LoadedCourseFile" Type="System.String" Scope="User">
       <Value Profile="(Default)">TestCourse</Value>

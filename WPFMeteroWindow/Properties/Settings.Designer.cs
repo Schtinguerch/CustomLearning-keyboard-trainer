@@ -25,7 +25,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("222.lml")]
+        [global::System.Configuration.DefaultSettingValueAttribute("JustLessons\\fishtext.lml")]
         public string LoadedLessonFile {
             get {
                 return ((string)(this["LoadedLessonFile"]));
