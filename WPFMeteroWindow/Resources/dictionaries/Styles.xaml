@@ -1,0 +1,34 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WPFMeteroWindow"
+                    xmlns:prop="clr-namespace:WPFMeteroWindow.Properties">
+    
+    <Style TargetType="TextBox" x:Key="MainEditorStyle">
+        <Setter Property="FontFamily" Value="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"></Setter>
+        <Setter Property="FontSize" Value="{Binding Path=LessonLettersFontSize ,Source={x:Static prop:Settings.Default}}"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="BorderBrush" Value="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"></Setter>
+        <Setter Property="AcceptsTab" Value="False"></Setter>
+        <Setter Property="Background" Value="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"></Setter>
+        <Setter Property="MaxLines" Value="1"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="Foreground" Value="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}"></Setter>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="MainTextStyle">
+        <Setter Property="FontFamily" Value="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"></Setter>
+        <Setter Property="FontSize" Value="{Binding Path=LessonLettersFontSize ,Source={x:Static prop:Settings.Default}}"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        <Setter Property="Foreground" Value="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}"></Setter>
+        <Setter Property="Margin" Value="-2 0 0 0"></Setter>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="SummaryTextStyle">
+        <Setter Property="Foreground" Value="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"></Setter>
+        <Setter Property="FontFamily" Value="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+    </Style>
+</ResourceDictionary>

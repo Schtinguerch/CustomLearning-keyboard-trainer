@@ -1,0 +1,84 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WPFMeteroWindow.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="LoadedLessonFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">222.lml</Value>
+    </Setting>
+    <Setting Name="LoadedCourseFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TestCourse</Value>
+    </Setting>
+    <Setting Name="CourseLessonNumber" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="KeyboardLayoutFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Dvorak.lml</Value>
+    </Setting>
+    <Setting Name="LessonLettersFont" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Courier New</Value>
+    </Setting>
+    <Setting Name="KeyboardFont" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Courier New</Value>
+    </Setting>
+    <Setting Name="FontContext" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="IsCourseOpened" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="CourseName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LessonLettersFontSize" Type="System.String" Scope="User">
+      <Value Profile="(Default)">36</Value>
+    </Setting>
+    <Setting Name="MainFontColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="RaidedFontColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#646464</Value>
+    </Setting>
+    <Setting Name="SummaryFont" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Bahnschrift</Value>
+    </Setting>
+    <Setting Name="MainBackground" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#282828</Value>
+    </Setting>
+    <Setting Name="SecondBackground" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#222222</Value>
+    </Setting>
+    <Setting Name="ThirdBackground" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#1A1A1A</Value>
+    </Setting>
+    <Setting Name="ThirdSecBackground" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#202020</Value>
+    </Setting>
+    <Setting Name="SummaryFontColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="KeyboardBackgroundColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#2A2A2A</Value>
+    </Setting>
+    <Setting Name="KeyboardFontColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="KeyboardBorderColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#202020</Value>
+    </Setting>
+    <Setting Name="KeyboardHighlightColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#80F6FF</Value>
+    </Setting>
+    <Setting Name="LessonName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TypingTime" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="TypingLength" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="TypingErrors" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,426 @@
+﻿<controls:MetroWindow x:Class="WPFMeteroWindow.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
+                      xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+                      Title="CustomLearning" Width="900" Height="620"
+                      GlowBrush="#202020"
+                      WindowStartupLocation="CenterScreen"
+                      KeyDown="MainWindow_OnKeyDown">
+
+    <controls:MetroWindow.RightWindowCommands>
+        <controls:WindowCommands>
+
+        </controls:WindowCommands>
+    </controls:MetroWindow.RightWindowCommands>
+
+    <Grid x:Name="MainGrid" Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="800"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!-- SmoothGradients -->
+        <Grid
+            Grid.Row="0"
+            Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="21*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}" Offset="1"></GradientStop>
+                    <GradientStop Color="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" Offset="0"></GradientStop>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <TextBox 
+                Width="0" Height="0" 
+                x:Name="bufferTextBox"
+                TextChanged="BufferTextBox_OnTextChanged" 
+                Margin="23,2,2,2"
+                TabIndex="0">
+            </TextBox>
+        </Grid>
+
+        <Grid
+            Grid.Row="0"
+            Grid.Column="2">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}" Offset="0"></GradientStop>
+                    <GradientStop Color="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Grid.Background>
+        </Grid>
+
+        <Grid
+            Grid.Row="3"
+            Grid.Column="0">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}" Offset="1"></GradientStop>
+                    <GradientStop Color="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" Offset="0"></GradientStop>
+                </LinearGradientBrush>
+            </Grid.Background>
+        </Grid>
+
+        <Grid
+            Grid.Row="3"
+            Grid.Column="2">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}" Offset="0"></GradientStop>
+                    <GradientStop Color="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Grid.Background>
+        </Grid>
+
+
+        <!-- Content -->
+        <Grid x:Name="MenuBlock"
+              Grid.Row="0"
+              Grid.Column="1" Grid.ColumnSpan="1">
+            <Menu 
+                FontFamily="{Binding Path=SummaryFont ,Source={x:Static prop:Settings.Default}}"
+                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
+                <MenuItem 
+                    Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                    Header="Уроки" >
+                    <MenuItem 
+                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Header="Открыть новый урок" ></MenuItem>
+                    <MenuItem 
+                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Header="Открыть новый курс"></MenuItem>
+                    <MenuItem
+                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Header="Предыдущий урок"></MenuItem>
+                    <MenuItem 
+                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Header="Следующий урок"></MenuItem>
+                </MenuItem>
+
+                <MenuItem 
+                    Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                    Header="Настройки">
+                    <MenuItem 
+                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Header="Шрифты">
+                        <MenuItem 
+                            Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                            Header="Текст урока" InputGestureText="Alt+F"></MenuItem>
+                        <MenuItem 
+                            Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                            Header="Клавиатура" InputGestureText="Alt+Shift+F"></MenuItem>
+                    </MenuItem>
+                    <MenuItem 
+                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Header="Раскладка клавиатуры" InputGestureText="Alt+L"></MenuItem>
+                    <MenuItem 
+                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        IsCheckable="True" Header="Показывать статистику"></MenuItem>
+                </MenuItem>
+
+                <MenuItem 
+                    Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                    Header="Редактор">
+                    <MenuItem 
+                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Header="Изменить текущий урок"></MenuItem>
+                    <MenuItem 
+                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Header="Изменить текущий курс"></MenuItem>
+                    <MenuItem 
+                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Header="Редактор уроков"></MenuItem>
+                    <MenuItem 
+                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Header="Редактор курсов"></MenuItem>
+                </MenuItem>
+            </Menu>
+        </Grid>
+
+        <Grid
+            Grid.Row="1"
+            Grid.Column="1" Grid.ColumnSpan="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="600"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <StackPanel Orientation="Horizontal" Margin="6">
+                    <Button 
+                        Width="54" 
+                        BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
+                        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
+                        FontSize="20"
+                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                        Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+                        x:Name="PrevLessonButton"
+                        Click="PrevLessonButton_OnClick">
+                        🢀
+                    </Button>
+                    <Button 
+                        Width="54" 
+                        BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
+                        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
+                        FontSize="20"
+                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                        Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+                        Click="ReLesson_OnClick">
+                        ⭯
+                    </Button>
+                    <Button 
+                        Width="54" 
+                        BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
+                        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
+                        FontSize="20"
+                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                        Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+                        x:Name="NextLessonButton"
+                        Click="NextLessonButton_OnClick">
+                        🢂
+                    </Button>
+                    <TextBlock 
+                        Style="{StaticResource SummaryTextStyle}"
+                        Margin="10 0 0 0"
+                        FontSize="20"
+                        HorizontalAlignment="Center"
+                        x:Name="lessonHeaderTextBlock">
+                        
+                    </TextBlock>
+                </StackPanel>
+                
+            </Grid>
+
+            <Grid Grid.Column="1" x:Name="StatisticsGrid">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="6">
+                    <TextBlock 
+                        Style="{StaticResource SummaryTextStyle}"
+                        Margin="0 0 10 0"
+                        FontSize="20"
+                        HorizontalAlignment="Right"
+                        x:Name="TimerTextBlock"
+                        Text="aoei">
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <Grid Height="100" VerticalAlignment="Bottom" Margin="0 0 0 1"
+            Grid.Row="2"
+            Grid.Column="0" Grid.ColumnSpan="3"
+            MouseDown="UIElement_OnMouseDown">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="1"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock 
+                Style="{StaticResource MainTextStyle}" 
+                x:Name="inputTextBox"
+                TextAlignment="Right"
+                HorizontalAlignment="Right"
+                Foreground="{Binding RaidedFontColor, Source={x:Static prop:Settings.Default}}"
+                FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                TextWrapping="NoWrap"
+                Width="100000"></TextBlock>
+
+            <Rectangle Grid.Column="1" HorizontalAlignment="Right" Width="1" Height="36" Fill="#909090"></Rectangle>
+
+            <TextBlock 
+                Width="100000" 
+                TextWrapping="NoWrap"
+                Style="{StaticResource MainTextStyle}"
+                FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                Grid.Column="2" 
+                x:Name="inputTextBlock"></TextBlock>
+        </Grid>
+
+        <Grid Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+              Grid.Row="3"
+              Grid.Column="1" Grid.ColumnSpan="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <TextBlock
+                    x:Name="leftHandTextBlock" 
+                    HorizontalAlignment="Left"
+                    Style="{StaticResource SummaryTextStyle}">Левым указательным на "У"</TextBlock>
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <TextBlock
+                    x:Name="rightHandTextBlock"
+                    HorizontalAlignment="Right"
+                    TextAlignment="Right"
+                    Style="{StaticResource SummaryTextStyle}">Правым мизинцем на Shift</TextBlock>
+            </Grid>
+        </Grid>
+
+        <Grid
+            x:Name="keyboardGrid"
+            Height="265" 
+            VerticalAlignment="Top"
+            Margin="0 10 0 0"
+            Grid.Row="4"
+            Grid.Column="1" Grid.ColumnSpan="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" x:Name="rowZeroGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            </Grid>
+
+            <Grid Grid.Row="1" x:Name="rowOneGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            </Grid>
+
+            <Grid Grid.Row="2" x:Name="rowTwoGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.75*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2.25*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            </Grid>
+
+            <Grid Grid.Row="3" x:Name="rowThreeGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2.25*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2.75*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            </Grid>
+
+            <Grid Grid.Row="4" x:Name="rowFourGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.25*"></ColumnDefinition>
+                    <ColumnDefinition Width="1.25*"></ColumnDefinition>
+                    <ColumnDefinition Width="1.25*"></ColumnDefinition>
+                    <ColumnDefinition Width="6.25*"></ColumnDefinition>
+                    <ColumnDefinition Width="1.25*"></ColumnDefinition>
+                    <ColumnDefinition Width="1.25*"></ColumnDefinition>
+                    <ColumnDefinition Width="1.25*"></ColumnDefinition>
+                    <ColumnDefinition Width="1.25*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.RowSpan="5" Background="Black" Opacity="0">
+
+            </Grid>
+        </Grid>
+        
+        <Grid Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
+              Grid.Row="2"
+              Grid.Column="0">
+            <Grid.OpacityMask>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Offset="0" Color="Black"></GradientStop>
+                    <GradientStop Offset="0.4" Color="Black"></GradientStop>
+                    <GradientStop Offset="1" Color="Transparent"></GradientStop>
+                </LinearGradientBrush>
+            </Grid.OpacityMask>
+        </Grid>
+        
+        <Grid Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
+              Grid.Row="2"
+              Grid.Column="2">
+            <Grid.OpacityMask>
+                <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
+                    <GradientStop Offset="0" Color="Black"></GradientStop>
+                    <GradientStop Offset="0.4" Color="Black"></GradientStop>
+                    <GradientStop Offset="1" Color="Transparent"></GradientStop>
+                </LinearGradientBrush>
+            </Grid.OpacityMask>
+        </Grid>
+
+        <Grid 
+            Grid.Row="0" Grid.Column="0"
+            Grid.RowSpan="5" Grid.ColumnSpan="3"
+            Visibility="Hidden" x:Name="aoeiGrid">
+
+            <Grid.Background>
+                <SolidColorBrush Color="Black" Opacity="0.5"></SolidColorBrush>
+            </Grid.Background>
+    
+            <Frame x:Name="SettingFrame" NavigationUIVisibility="Hidden">
+
+            </Frame>
+        </Grid>
+
+    </Grid>
+
+</controls:MetroWindow>

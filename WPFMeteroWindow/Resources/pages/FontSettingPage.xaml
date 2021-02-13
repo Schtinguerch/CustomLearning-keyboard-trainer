@@ -1,0 +1,41 @@
+﻿<Page x:Class="WPFMeteroWindow.Resources.pages.FontSettingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
+      xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
+      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+      mc:Ignorable="d" 
+      d:DesignHeight="80" d:DesignWidth="500"
+      Title="FontSettingPage"
+      HorizontalAlignment="Center"
+      VerticalAlignment="Center"
+      Background="{Binding ThirdSecBackground, Source={x:Static prop:Settings.Default}}"
+      IsVisibleChanged="FontSettingPage_OnIsVisibleChanged"
+      KeyDown="FontSettingPage_OnKeyDown">
+
+    <Grid Width="500" Height="80">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock 
+            Grid.Row="0"
+            Style="{StaticResource SummaryTextStyle}"
+            Text="Введите название шрифта"
+            Margin="10 0 0 0">
+        </TextBlock>
+
+        <TextBox 
+            Grid.Row="1"
+            Style="{StaticResource MainEditorStyle}"
+            Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+            Foreground="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}"
+            TextAlignment="Center"
+            FontSize="28"
+            x:Name="FontTextBox">
+        </TextBox>
+    </Grid>
+</Page>

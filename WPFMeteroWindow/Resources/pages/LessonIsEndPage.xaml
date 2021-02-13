@@ -1,0 +1,264 @@
+﻿<Page x:Class="WPFMeteroWindow.Resources.pages.LessonIsEndPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
+      xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="700"
+      Title="LessonIsEndPage">
+
+    <Grid
+        Width="700"
+        Height="400"
+        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+        
+        <Grid 
+            Grid.Row="0" 
+            Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
+            <StackPanel
+                Orientation="Horizontal"
+                Margin="10 20 10 6">
+                <TextBlock 
+                    Style="{StaticResource SummaryTextStyle}"
+                    Margin="20 0 0 0"
+                    FontSize="32"
+                    HorizontalAlignment="Center"
+                    x:Name="EndedLessonHeaderTextBlock">
+                        
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+        
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.618*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Rectangle
+                Grid.Row="1"
+                Grid.RowSpan="5"
+                HorizontalAlignment="Right"
+                Width="1"
+                Fill="{Binding Path=SummaryFontColor ,Source={x:Static prop:Settings.Default}}">
+            </Rectangle>
+            
+            <Grid 
+                Grid.Column="0"
+                Grid.Row="1"
+                Margin="0 0 0 0">
+                <TextBlock 
+                    Style="{StaticResource SummaryTextStyle}"
+                    Margin="30 0 0 0"
+                    FontSize="24"
+                    HorizontalAlignment="Left"
+                    x:Name="WPMtextBlock"/>
+            </Grid>
+            
+            <Grid 
+                Grid.Column="0"
+                Grid.Row="2">
+                <TextBlock 
+                    Style="{StaticResource SummaryTextStyle}"
+                    Margin="30 0 0 0"
+                    FontSize="24"
+                    HorizontalAlignment="Left"
+                    x:Name="WPStextBlock"/>
+            </Grid>
+            
+            <Grid 
+                Grid.Column="0"
+                Grid.Row="3">
+                <TextBlock 
+                    Style="{StaticResource SummaryTextStyle}"
+                    Margin="30 0 0 0"
+                    FontSize="24"
+                    HorizontalAlignment="Left"
+                    x:Name="ErrorsTextBlock"/>
+            </Grid>
+            
+            <Grid 
+                Grid.Column="0"
+                Grid.Row="4">
+                <TextBlock 
+                    Style="{StaticResource SummaryTextStyle}"
+                    Margin="30 0 0 0"
+                    FontSize="24"
+                    HorizontalAlignment="Left"
+                    x:Name="TypingTimeTextBlock"/>
+            </Grid>
+            
+            <Grid 
+                Grid.Column="0"
+                Grid.Row="5">
+                <TextBlock 
+                    Style="{StaticResource SummaryTextStyle}"
+                    Margin="30 0 0 0"
+                    FontSize="24"
+                    HorizontalAlignment="Left"
+                    x:Name="CharactersCountTextBlock"/>
+            </Grid>
+            
+            
+            
+            <Grid
+                Grid.Row="1"
+                Grid.RowSpan="5"
+                Grid.Column="1">
+                <Canvas
+                    x:Name="ChartCanvas"
+                    Margin="20 0 20 0">
+                    
+                    <TextBlock
+                        Canvas.Top="-30"
+                        Canvas.Left="0"
+                        Style="{StaticResource SummaryTextStyle}"
+                        FontSize="12"
+                        Text="симв/сек">
+                    </TextBlock>
+                    
+                    <TextBlock
+                        Canvas.Top="0"
+                        Canvas.Left="0"
+                        Style="{StaticResource SummaryTextStyle}"
+                        FontSize="12"
+                        x:Name="MaxCPMtextBlock">
+                    </TextBlock>
+                    
+                    <TextBlock
+                        Canvas.Top="180"
+                        Canvas.Left="0"
+                        Style="{StaticResource SummaryTextStyle}"
+                        FontSize="12"
+                        Text="0">
+                    </TextBlock>
+                    
+                    <Polyline 
+                        Canvas.Left="20"
+                        x:Name="TypingSpeedPolyline"
+                        StrokeThickness="2"
+                        StrokeEndLineCap="Round"
+                        Stroke="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
+                    </Polyline>
+                    
+                    <Polyline
+                        Canvas.Left="20"
+                        x:Name="AverageTypingSpeedPolyline"
+                        StrokeThickness="2"
+                        StrokeEndLineCap="Round"
+                        Stroke="{Binding Path=SummaryFontColor ,Source={x:Static prop:Settings.Default}}">
+                    </Polyline>
+                    
+                    <Polyline
+                        Canvas.Left="20"
+                        x:Name="AverapeCPMpunctierPolyline"
+                        StrokeThickness="2"
+                        StrokeEndLineCap="Round"
+                        StrokeDashArray="1 2"
+                        Stroke="{Binding Path=SummaryFontColor ,Source={x:Static prop:Settings.Default}}">
+                    </Polyline>
+                    
+                    <TextBlock
+                        x:Name="AverapeCPMtextBlock"
+                        Style="{StaticResource SummaryTextStyle}"
+                        FontSize="12"
+                        Canvas.Left="-10">
+                    </TextBlock>
+                    
+                    <Rectangle
+                        Canvas.Top="200"
+                        Canvas.Left="0"
+                        Fill="{Binding Path=SummaryFontColor ,Source={x:Static prop:Settings.Default}}"
+                        Width="20"
+                        Height="2">
+                    </Rectangle>
+                    
+                    <TextBlock
+                        Canvas.Top="194"
+                        Canvas.Left="30"
+                        Style="{StaticResource SummaryTextStyle}"
+                        FontSize="12"
+                        Text="Средняя скорость">
+                    </TextBlock>
+                    
+                    <Rectangle
+                        Canvas.Top="220"
+                        Canvas.Left="0"
+                        Fill="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Width="20"
+                        Height="2">
+                    </Rectangle>
+                    
+                    <TextBlock
+                        Canvas.Top="214"
+                        Canvas.Left="30"
+                        Style="{StaticResource SummaryTextStyle}"
+                        FontSize="12"
+                        Text="Скорость на каждой секунде">
+                    </TextBlock>
+                </Canvas>
+            </Grid>
+        </Grid>
+        
+        <Grid 
+            Grid.Row="2" 
+            Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
+            <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Margin="0 6 12 6">
+                <Button 
+                    Width="60"
+                    Height="40"
+                    Margin="0 0 3 0" 
+                    HorizontalAlignment="Right" 
+                    Content="🢀" 
+                    FontSize="16"
+                    Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                    Foreground="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}"
+                    BorderBrush="{Binding MainBackground, Source={x:Static prop:Settings.Default}}">
+                </Button>
+                <Button 
+                    Width="60"
+                    Margin="0 0 3 0" 
+                    HorizontalAlignment="Right" 
+                    Content="⭯" 
+                    FontSize="16"
+                    Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                    Foreground="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}"
+                    BorderBrush="{Binding MainBackground, Source={x:Static prop:Settings.Default}}">
+                </Button>
+                <Button
+                    Width="60"
+                    Margin="0 0 3 0" 
+                    HorizontalAlignment="Right" 
+                    Content="🢂" 
+                    FontSize="16"
+                    Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                    Foreground="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}"
+                    BorderBrush="{Binding MainBackground, Source={x:Static prop:Settings.Default}}">
+                </Button>
+            </StackPanel>
+        </Grid>
+        
+    </Grid>
+</Page>
