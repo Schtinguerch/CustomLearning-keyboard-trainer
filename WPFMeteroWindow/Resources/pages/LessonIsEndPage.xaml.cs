@@ -79,6 +79,34 @@ namespace WPFMeteroWindow.Resources.pages
             
             Canvas.SetTop(AverapeCPMtextBlock, AverapeCPMpunctierPolyline.Points[0].Y - 8d);
             AverapeCPMtextBlock.Text = averageCPM.ToString("N");
+
+            try
+            {
+                PrevLessonButton.Visibility = (Settings.Default.CourseLessonNumber == 0) || !Settings.Default.IsCourseOpened ? Visibility.Hidden : Visibility.Visible;
+                NextLessonButton.Visibility = NextLessonButton.Visibility = (Settings.Default.CourseLessonNumber == Actions.TheWindow.LessonsCount - 1) || !Settings.Default.IsCourseOpened ? Visibility.Hidden : Visibility.Visible;
+            }
+            catch
+            {
+                
+            }
+        }
+
+        private void PrevLessonButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            Actions.TheWindow.HideSettingGrid();
+            Actions.TheWindow.StartPreviouslesson();
+        }
+
+        private void CurrLessonButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            Actions.TheWindow.HideSettingGrid();
+            Actions.TheWindow.RestartLesson();
+        }
+
+        private void NextLessonButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            Actions.TheWindow.HideSettingGrid();
+            Actions.TheWindow.StartNextLesson();
         }
     }
 }

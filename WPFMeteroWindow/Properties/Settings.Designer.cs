@@ -61,7 +61,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Dvorak.lml")]
+        [global::System.Configuration.DefaultSettingValueAttribute("KeyboardLayouts\\Dvorak.lml")]
         public string KeyboardLayoutFile {
             get {
                 return ((string)(this["KeyboardLayoutFile"]));
@@ -289,7 +289,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("...")]
         public string LessonName {
             get {
                 return ((string)(this["LessonName"]));
@@ -332,6 +332,30 @@ namespace WPFMeteroWindow.Properties {
             }
             set {
                 this["TypingErrors"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml")]
+        public string ThemeResourceDictionary {
+            get {
+                return ((string)(this["ThemeResourceDictionary"]));
+            }
+            set {
+                this["ThemeResourceDictionary"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("pack://application:,,,/MahApps.Metro;component/Styles/Accents/steel.xaml")]
+        public string ColorSchemeResourceDictionary {
+            get {
+                return ((string)(this["ColorSchemeResourceDictionary"]));
+            }
+            set {
+                this["ColorSchemeResourceDictionary"] = value;
             }
         }
     }

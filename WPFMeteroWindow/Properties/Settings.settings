@@ -12,7 +12,7 @@
       <Value Profile="(Default)">2</Value>
     </Setting>
     <Setting Name="KeyboardLayoutFile" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Dvorak.lml</Value>
+      <Value Profile="(Default)">KeyboardLayouts\Dvorak.lml</Value>
     </Setting>
     <Setting Name="LessonLettersFont" Type="System.String" Scope="User">
       <Value Profile="(Default)">Courier New</Value>
@@ -69,7 +69,7 @@
       <Value Profile="(Default)">#80F6FF</Value>
     </Setting>
     <Setting Name="LessonName" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">...</Value>
     </Setting>
     <Setting Name="TypingTime" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
@@ -79,6 +79,12 @@
     </Setting>
     <Setting Name="TypingErrors" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ThemeResourceDictionary" Type="System.String" Scope="User">
+      <Value Profile="(Default)">pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml</Value>
+    </Setting>
+    <Setting Name="ColorSchemeResourceDictionary" Type="System.String" Scope="User">
+      <Value Profile="(Default)">pack://application:,,,/MahApps.Metro;component/Styles/Accents/steel.xaml</Value>
     </Setting>
   </Settings>
 </SettingsFile>

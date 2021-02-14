@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Windows.Media;
 using LmlLibrary;
 using WPFMeteroWindow.Properties;
+using Application = System.Windows.Application;
 using Button = System.Windows.Controls.Button;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.MessageBox;
@@ -43,6 +44,8 @@ namespace WPFMeteroWindow
 
         public List<SpeedPoint> AveragePoints;
 
+        public int LessonsCount { get; private set; } = 0;
+
         private int _typingErrors = 0;
 
         private Timer _typingTimer;
@@ -69,15 +72,27 @@ namespace WPFMeteroWindow
                     
                         
 
-                    PrevLessonButton.Visibility = (value == 0) ? Visibility.Hidden : Visibility.Visible;
-                    NextLessonButton.Visibility = (value == _lessons.Count - 1) ? Visibility.Hidden : Visibility.Visible;
+                    PrevLessonButton.Visibility = (value == 0) || !Settings.Default.IsCourseOpened ? Visibility.Hidden : Visibility.Visible;
+                    NextLessonButton.Visibility = (value == _lessons.Count - 1) || !Settings.Default.IsCourseOpened ? Visibility.Hidden : Visibility.Visible;
                 }
                 catch
                 {
                     
                 }
-               
             }
+        }
+
+        public void InitiateResourceDictionaries()
+        {
+            var appDictionary = Application.Current.Resources.MergedDictionaries;
+            appDictionary[appDictionary.Count - 2] = new ResourceDictionary()
+            {
+                Source = new Uri(Settings.Default.ThemeResourceDictionary, UriKind.RelativeOrAbsolute)
+            };
+            appDictionary[appDictionary.Count - 3] = new ResourceDictionary()
+            {
+                Source = new Uri(Settings.Default.ColorSchemeResourceDictionary, UriKind.RelativeOrAbsolute)
+            };
         }
 
         public void SetNewLetterFont()
@@ -98,10 +113,20 @@ namespace WPFMeteroWindow
             SettingFrame.Source = null;
         }
 
+        public void RestartLesson() =>
+            _currentLessonIndex = _currentLessonIndex;
+
+        public void StartPreviouslesson() =>
+            _currentLessonIndex--;
+
+        public void StartNextLesson() =>
+            _currentLessonIndex++;
+
         public MainWindow()
         {
             InitializeComponent();
             Actions.FindMainWindow();
+            InitiateResourceDictionaries();
             PrevLessonButton.Visibility = Actions.IsVisible(Settings.Default.IsCourseOpened);
             NextLessonButton.Visibility = Actions.IsVisible(Settings.Default.IsCourseOpened);
 
@@ -379,6 +404,7 @@ namespace WPFMeteroWindow
                 lessonFiles[i] = new DirectoryInfo(filename).FullName + "\\" + lessonFiles[i];
 
             _lessons = lessonFiles;
+            LessonsCount = _lessons.Count;
 
             LoadLesson(lessonFiles[Settings.Default.CourseLessonNumber]);
             Settings.Default.LoadedLessonFile = lessonFiles[Settings.Default.CourseLessonNumber];
@@ -507,7 +533,7 @@ namespace WPFMeteroWindow
             }
             else if (e.Key == Key.Escape)
             {
-                aoeiGrid.Visibility = Visibility.Hidden;
+                HideSettingGrid();
             }
         }
 

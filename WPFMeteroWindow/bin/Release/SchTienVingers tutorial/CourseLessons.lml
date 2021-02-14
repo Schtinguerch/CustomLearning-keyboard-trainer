@@ -1,0 +1,16 @@
+<<Course:
+    <Name SchTienVingers>>
+
+    <LessonList {
+        Lessons\1 Гласные Е О А И У.lml
+        Lessons\2 Согласные К Т Н С Д.lml
+    }>>
+:Course>>
+
+<<Author:
+    <Name Lev Shumilov>>
+    <Email schtinguerch@gmail.com>>
+    <References {
+        vk.com/schtinguerch
+    }>>
+:Author>>

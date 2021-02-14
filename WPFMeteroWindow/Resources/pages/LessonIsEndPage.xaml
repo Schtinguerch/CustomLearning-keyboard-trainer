@@ -29,7 +29,7 @@
                 <TextBlock 
                     Style="{StaticResource SummaryTextStyle}"
                     Margin="20 0 0 0"
-                    FontSize="32"
+                    FontSize="24"
                     HorizontalAlignment="Center"
                     x:Name="EndedLessonHeaderTextBlock">
                         
@@ -233,9 +233,11 @@
                     HorizontalAlignment="Right" 
                     Content="🢀" 
                     FontSize="16"
+                    x:Name="PrevLessonButton"
                     Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
                     Foreground="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}"
-                    BorderBrush="{Binding MainBackground, Source={x:Static prop:Settings.Default}}">
+                    BorderBrush="{Binding MainBackground, Source={x:Static prop:Settings.Default}}"
+                    Click="PrevLessonButton_OnClick">
                 </Button>
                 <Button 
                     Width="60"
@@ -243,9 +245,11 @@
                     HorizontalAlignment="Right" 
                     Content="⭯" 
                     FontSize="16"
+                    x:Name="CurrLessonButton"
                     Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
                     Foreground="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}"
-                    BorderBrush="{Binding MainBackground, Source={x:Static prop:Settings.Default}}">
+                    BorderBrush="{Binding MainBackground, Source={x:Static prop:Settings.Default}}"
+                    Click="CurrLessonButton_OnClick">
                 </Button>
                 <Button
                     Width="60"
@@ -253,9 +257,11 @@
                     HorizontalAlignment="Right" 
                     Content="🢂" 
                     FontSize="16"
+                    x:Name="NextLessonButton"
                     Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
                     Foreground="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}"
-                    BorderBrush="{Binding MainBackground, Source={x:Static prop:Settings.Default}}">
+                    BorderBrush="{Binding MainBackground, Source={x:Static prop:Settings.Default}}"
+                    Click="NextLessonButton_OnClick">
                 </Button>
             </StackPanel>
         </Grid>
