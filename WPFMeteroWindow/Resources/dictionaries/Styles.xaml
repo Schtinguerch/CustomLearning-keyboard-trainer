@@ -31,4 +31,9 @@
         <Setter Property="FontFamily" Value="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"></Setter>
         <Setter Property="VerticalAlignment" Value="Center"></Setter>
     </Style>
+
+    <Style TargetType="Grid" x:Key="SettingsItemStyle">
+        <Setter Property="Margin" Value="0 10 0 10"></Setter>
+        <Setter Property="Height" Value="60"></Setter>
+    </Style>
 </ResourceDictionary>
