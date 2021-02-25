@@ -7,7 +7,8 @@
       xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
       mc:Ignorable="d" 
       d:DesignHeight="400" d:DesignWidth="700"
-      Title="LessonIsEndPage">
+      Title="LessonIsEndPage"
+      KeyDown="LessonIsEndPage_OnKeyDown">
 
     <Grid
         Width="700"

@@ -87,7 +87,8 @@ namespace WPFMeteroWindow.Resources.pages
             }
             catch
             {
-                
+                PrevLessonButton.Visibility = Visibility.Hidden;
+                NextLessonButton.Visibility = Visibility.Hidden;
             }
         }
 
@@ -107,6 +108,14 @@ namespace WPFMeteroWindow.Resources.pages
         {
             Actions.TheWindow.HideSettingGrid();
             Actions.TheWindow.StartNextLesson();
+        }
+
+        private void LessonIsEndPage_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                Actions.TheWindow.HideSettingGrid();
+            }
         }
     }
 }

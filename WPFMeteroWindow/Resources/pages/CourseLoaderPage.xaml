@@ -11,31 +11,16 @@
       KeyDown="CourseLoaderPage_OnKeyDown">
 
     <Grid Width="700" Height="170" Background="{Binding ThirdSecBackground, Source={x:Static prop:Settings.Default}}">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="30" ></DropShadowEffect>
+        </Grid.Effect>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
-
-        <TextBlock 
-            Grid.Row="0"
-            Style="{StaticResource SummaryTextStyle}"
-            Text="Введите путь к папке с курсом"
-            Margin="10 0 0 0">
-        </TextBlock>
-
-        <Button 
-            Grid.Row="0" 
-            Width="100"
-            Height="20" 
-            Margin="0 0 2.5 0" 
-            HorizontalAlignment="Right" 
-            Content="Проводник" 
-            Foreground="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}"
-            BorderBrush="{Binding MainBackground, Source={x:Static prop:Settings.Default}}"
-            Click="ButtonBase_OnClick">
-        </Button>
 
         <TextBox 
             Grid.Row="1"
@@ -63,7 +48,32 @@
             FontSize="20"
             FontWeight="Bold"
             Text="Выберите урок, с которого желаете начать">
-
         </ComboBox>
+        
+        <Grid Grid.Row="0"
+              Background="{Binding ThirdSecBackground, Source={x:Static prop:Settings.Default}}">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="10" Opacity="0.2"></DropShadowEffect>
+            </Grid.Effect>
+            
+            <TextBlock 
+                Grid.Row="0"
+                Style="{StaticResource SummaryTextStyle}"
+                Text="Введите путь к папке с курсом"
+                Margin="10 0 0 0">
+            </TextBlock>
+
+            <Button 
+                Grid.Row="0" 
+                Width="100"
+                Height="20" 
+                Margin="0 0 2.5 0" 
+                HorizontalAlignment="Right" 
+                Content="Проводник" 
+                Foreground="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}"
+                BorderBrush="{Binding MainBackground, Source={x:Static prop:Settings.Default}}"
+                Click="ButtonBase_OnClick">
+            </Button>
+        </Grid>
     </Grid>
 </Page>

@@ -11,28 +11,14 @@
       KeyDown="LessonLoaderPage_OnKeyDown">
 
     <Grid Width="700" Height="80" Background="{Binding ThirdSecBackground, Source={x:Static prop:Settings.Default}}">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="30" ></DropShadowEffect>
+        </Grid.Effect>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-
-        <TextBlock 
-            Grid.Row="0"
-            Style="{StaticResource SummaryTextStyle}"
-            Text="Введите путь к к файлу с уроком"
-            Margin="10 0 0 0">
-        </TextBlock>
-
-        <Button 
-            Grid.Row="0" 
-            Width="100"
-            Height="20" 
-            Margin="0 0 2.5 0" 
-            HorizontalAlignment="Right" 
-            Content="Проводник" 
-            BorderBrush="{Binding MainBackground, Source={x:Static prop:Settings.Default}}"
-            Click="ButtonBase_OnClick">
-        </Button>
 
         <TextBox 
             Grid.Row="1"
@@ -43,5 +29,30 @@
             x:Name="LessonTextBox"
             FontSize="20">
         </TextBox>
+        
+        <Grid Grid.Row="0"
+              Background="{Binding ThirdSecBackground, Source={x:Static prop:Settings.Default}}">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="10" Opacity="0.2"></DropShadowEffect>
+            </Grid.Effect>
+            
+            <TextBlock 
+                Grid.Row="0"
+                Style="{StaticResource SummaryTextStyle}"
+                Text="Введите путь к к файлу с уроком"
+                Margin="10 0 0 0">
+            </TextBlock>
+
+            <Button 
+                Grid.Row="0" 
+                Width="100"
+                Height="20" 
+                Margin="0 0 2.5 0" 
+                HorizontalAlignment="Right" 
+                Content="Проводник" 
+                BorderBrush="{Binding MainBackground, Source={x:Static prop:Settings.Default}}"
+                Click="ButtonBase_OnClick">
+            </Button>
+        </Grid>
     </Grid>
 </Page>

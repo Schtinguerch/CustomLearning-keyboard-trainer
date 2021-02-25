@@ -11,17 +11,14 @@
       KeyDown="CommandLinePage_OnKeyDown">
 
     <Grid Width="700" Height="80" Background="{Binding ThirdSecBackground, Source={x:Static prop:Settings.Default}}" Name="hh">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="30" ></DropShadowEffect>
+        </Grid.Effect>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-
-        <TextBlock 
-            Grid.Row="0"
-            Style="{StaticResource SummaryTextStyle}"
-            Text="Введите команду"
-            Margin="10 0 0 0">
-        </TextBlock>
 
         <TextBox 
             Grid.Row="1"
@@ -32,5 +29,19 @@
             x:Name="CommandTextBox"
             FontSize="28">
         </TextBox>
+
+        <Grid Grid.Row="0"
+              Background="{Binding ThirdSecBackground, Source={x:Static prop:Settings.Default}}">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="10" Opacity="0.2"></DropShadowEffect>
+            </Grid.Effect>
+
+            <TextBlock 
+                Grid.Row="0"
+                Style="{StaticResource SummaryTextStyle}"
+                Text="Введите команду"
+                Margin="10 0 0 0">
+            </TextBlock>
+        </Grid>
     </Grid>
 </Page>
