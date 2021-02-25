@@ -3,17 +3,13 @@
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
                       xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
+                      xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
                       xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+                      xmlns:globalization="clr-namespace:System.Globalization;assembly=mscorlib"
                       Title="CustomLearning" Width="900" Height="620"
                       GlowBrush="#202020"
                       WindowStartupLocation="CenterScreen"
                       KeyDown="MainWindow_OnKeyDown">
-
-    <controls:MetroWindow.RightWindowCommands>
-        <controls:WindowCommands>
-
-        </controls:WindowCommands>
-    </controls:MetroWindow.RightWindowCommands>
 
     <Grid x:Name="MainGrid" Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
         <Grid.RowDefinitions>
@@ -97,40 +93,29 @@
                 Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
                 <MenuItem 
                     Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                    Header="Уроки" >
+                    Header="{x:Static res:Resources.uMenuLessons}" >
                     <MenuItem 
                         Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                        Header="Открыть новый урок" ></MenuItem>
+                        Header="{x:Static res:Resources.uMenuOpenNewLesson}" ></MenuItem>
                     <MenuItem 
                         Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                        Header="Открыть новый курс"></MenuItem>
+                        Header="{x:Static res:Resources.uMenuOpenNewCourse}"></MenuItem>
                     <MenuItem
                         Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                        Header="Предыдущий урок"></MenuItem>
+                        Header="{x:Static res:Resources.uMenuPrevLesson}"></MenuItem>
                     <MenuItem 
                         Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                        Header="Следующий урок"></MenuItem>
+                        Header="{x:Static res:Resources.uMenuNextLesson}"></MenuItem>
+                    <MenuItem 
+                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Header="{x:Static res:Resources.uMenuQuit}"></MenuItem>
                 </MenuItem>
 
                 <MenuItem 
                     Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                    Header="Настройки">
-                    <MenuItem 
-                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                        Header="Шрифты">
-                        <MenuItem 
-                            Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                            Header="Текст урока" InputGestureText="Alt+F"></MenuItem>
-                        <MenuItem 
-                            Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                            Header="Клавиатура" InputGestureText="Alt+Shift+F"></MenuItem>
-                    </MenuItem>
-                    <MenuItem 
-                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                        Header="Раскладка клавиатуры" InputGestureText="Alt+L"></MenuItem>
-                    <MenuItem 
-                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                        IsCheckable="True" Header="Показывать статистику"></MenuItem>
+                    Header="{x:Static res:Resources.uMenuSettings}"
+                    Click="MenuItem_OnClick">
+                    
                 </MenuItem>
 
                 <MenuItem 
@@ -138,16 +123,16 @@
                     Header="Редактор">
                     <MenuItem 
                         Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                        Header="Изменить текущий урок"></MenuItem>
+                        Header="{x:Static res:Resources.uMenuEditCurrentLesson}"></MenuItem>
                     <MenuItem 
                         Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                        Header="Изменить текущий курс"></MenuItem>
+                        Header="{x:Static res:Resources.uMenuEditCurrentCourse}"></MenuItem>
                     <MenuItem 
                         Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                        Header="Редактор уроков"></MenuItem>
+                        Header="{x:Static res:Resources.uMenuNewLesson}"></MenuItem>
                     <MenuItem 
                         Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                        Header="Редактор курсов"></MenuItem>
+                        Header="{x:Static res:Resources.uMenuNewCourse}"></MenuItem>
                 </MenuItem>
             </Menu>
         </Grid>
@@ -172,7 +157,7 @@
                         Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
                         x:Name="PrevLessonButton"
                         Click="PrevLessonButton_OnClick">
-                        🢀
+                        ⮜
                     </Button>
                     <Button 
                         Width="54" 
@@ -193,7 +178,7 @@
                         Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
                         x:Name="NextLessonButton"
                         Click="NextLessonButton_OnClick">
-                        🢂
+                        ⮞
                     </Button>
                     <TextBlock 
                         Style="{StaticResource SummaryTextStyle}"

@@ -81,6 +81,14 @@
     <Compile Include="Commands\FileOpener.cs" />
     <Compile Include="Commands\FontSetter.cs" />
     <Compile Include="GraphDrawer.cs" />
+    <Compile Include="Resources\localizations\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\pages\ApplicationUserSettingsPage.xaml.cs">
+      <DependentUpon>ApplicationUserSettingsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\pages\CommandLinePage.xaml.cs">
       <DependentUpon>CommandLinePage.xaml</DependentUpon>
     </Compile>
@@ -117,6 +125,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Resources\dictionaries\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\pages\ApplicationUserSettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -161,6 +173,10 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\localizations\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />

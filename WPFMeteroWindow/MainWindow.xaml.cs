@@ -14,6 +14,7 @@ using Application = System.Windows.Application;
 using Button = System.Windows.Controls.Button;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.MessageBox;
+using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 
 namespace WPFMeteroWindow
 {
@@ -201,30 +202,29 @@ namespace WPFMeteroWindow
 
                 if (keyIndex == 56)
                 {
-                    rightHandTextBlock.Text = "Большим пальцем на \"Пробел\"";
+                    rightHandTextBlock.Text = $"{Localization.uThumb} {Localization.uSpace}";
                     leftHandTextBlock.Text = "";
                 }
                 else if (keyIndex.IsInRange(0, 6) || keyIndex.IsInRange(15, 19) || keyIndex.IsInRange(29, 33) ||
                          keyIndex.IsInRange(42, 46))
                 {
                     rightHandTextBlock.Text = "";
-                    leftHandTextBlock.Text = "Левым";
+                    leftHandTextBlock.Text = Localization.uLeft;
                     if (keyIndex.IsEqualOr(0, 1, 15, 29, 42))
                     {
-                        leftHandTextBlock.Text += " мизинцем на " + _keyData.keys[keyIndex][0].ToUpper();
-                        //TODO: реализовать подсветку кружков для каждого пальца и отрисовку самих пальцев
+                        leftHandTextBlock.Text += Localization.uPinky + _keyData.keys[keyIndex][0].ToUpper();
                     }
                     else if (keyIndex.IsEqualOr(2, 16, 30, 43))
                     {
-                        leftHandTextBlock.Text += " безымянным на " + _keyData.keys[keyIndex][0].ToUpper();
+                        leftHandTextBlock.Text += Localization.uRing + _keyData.keys[keyIndex][0].ToUpper();
                     }
                     else if (keyIndex.IsEqualOr(3, 17, 31, 44))
                     {
-                        leftHandTextBlock.Text += " средним на " + _keyData.keys[keyIndex][0].ToUpper();
+                        leftHandTextBlock.Text += Localization.uMiddle + _keyData.keys[keyIndex][0].ToUpper();
                     }
                     else
                     {
-                        leftHandTextBlock.Text += " указательным на " + _keyData.keys[keyIndex][0].ToUpper();
+                        leftHandTextBlock.Text += Localization.uIndex + _keyData.keys[keyIndex][0].ToUpper();
                     }
 
                     if (statusIndex == 0)
@@ -233,38 +233,37 @@ namespace WPFMeteroWindow
                     }
                     else if (statusIndex == 1)
                     {
-                        rightHandTextBlock.Text = "+ Правым мизинцем Shift";
+                        rightHandTextBlock.Text = $"+ {Localization.uRight}{Localization.uPinky}Shift";
                     }
                     else if (statusIndex == 2)
                     {
-                        rightHandTextBlock.Text = "+ Правым большим пальцем на AltGr";
+                        rightHandTextBlock.Text = $"+ {Localization.uRight}{Localization.uThumb}AltGr";
                     }
                     else if (statusIndex == 3)
                     {
-                        rightHandTextBlock.Text = "+ Правым мизинцем Shift + Правым большим пальцем на AltGr";
+                        rightHandTextBlock.Text = $"+ {Localization.uRight}{Localization.uPinky}Shift + {Localization.uRight}{Localization.uThumb}AltGr";
                     }
                 }
                 else
                 {
                     leftHandTextBlock.Text = "";
-                    rightHandTextBlock.Text = "Правым";
+                    rightHandTextBlock.Text = Localization.uRight;
 
                     if (keyIndex.IsEqualOr(13, 12, 11, 10, 27, 26, 25, 24, 40, 39, 38, 52, 51))
                     {
-                        rightHandTextBlock.Text += " мизинцем на " + _keyData.keys[keyIndex][0].ToUpper();
-                        //TODO: реализовать подсветку кружков для каждого пальца и отрисовку самих пальцев
+                        rightHandTextBlock.Text += Localization.uPinky + _keyData.keys[keyIndex][0].ToUpper();
                     }
                     else if (keyIndex.IsEqualOr(9, 23, 37, 50))
                     {
-                        rightHandTextBlock.Text += " безымянным на " + _keyData.keys[keyIndex][0].ToUpper();
+                        rightHandTextBlock.Text += Localization.uRing + _keyData.keys[keyIndex][0].ToUpper();
                     }
                     else if (keyIndex.IsEqualOr(8, 22, 36, 49))
                     {
-                        rightHandTextBlock.Text += " средним на " + _keyData.keys[keyIndex][0].ToUpper();
+                        rightHandTextBlock.Text += Localization.uMiddle + _keyData.keys[keyIndex][0].ToUpper();
                     }
                     else
                     {
-                        rightHandTextBlock.Text += " указательным на " + _keyData.keys[keyIndex][0].ToUpper();
+                        rightHandTextBlock.Text += Localization.uIndex + _keyData.keys[keyIndex][0].ToUpper();
                     }
 
 
@@ -274,15 +273,15 @@ namespace WPFMeteroWindow
                     }
                     else if (statusIndex == 1)
                     {
-                        rightHandTextBlock.Text += " + Левым мизинцем Shift";
+                        leftHandTextBlock.Text += $" + {Localization.uLeft}{Localization.uPinky}Shift";
                     }
                     else if (statusIndex == 2)
                     {
-                        rightHandTextBlock.Text += " + Правым большим пальцем на AltGr";
+                        leftHandTextBlock.Text += $" + {Localization.uRight}{Localization.uThumb}AltGr";
                     }
                     else if (statusIndex == 3)
                     {
-                        rightHandTextBlock.Text += " + Левым мизинцем Shift + Правым большим пальцем на AltGr";
+                        leftHandTextBlock.Text += $" + {Localization.uLeft}{Localization.uPinky}Shift + {Localization.uRight}{Localization.uThumb}AltGr";
                     }
                 }
 

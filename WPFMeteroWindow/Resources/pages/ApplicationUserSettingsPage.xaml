@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
+      xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
       xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="800"
@@ -34,7 +35,7 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
-                            Text="Основные цвета"
+                            Text="{x:Static res:Resources.uSettBaseColors}"
                             FontSize="24">
                         </TextBlock>
                     </Grid>
@@ -44,7 +45,7 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
-                            Text="Цвет окна"
+                            Text="{x:Static res:Resources.uSettWindowColor}"
                             FontSize="18">
                         </TextBlock>
 
@@ -86,7 +87,7 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
-                            Text="Основной цвет (фон)"
+                            Text="{x:Static res:Resources.uSettMainColor}"
                             FontSize="18">
                         </TextBlock>
 
@@ -128,7 +129,7 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
-                            Text="Вторичный цвет (меню)"
+                            Text="{x:Static res:Resources.uSettSecondColor}"
                             FontSize="18">
                         </TextBlock>
 
@@ -170,7 +171,7 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
-                            Text="Цвет текстовых полей"
+                            Text="{x:Static res:Resources.uSettTextBoxColor}"
                             FontSize="18">
                         </TextBlock>
 
@@ -212,7 +213,7 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
-                            Text="Цвет вторичных меню"
+                            Text="{x:Static res:Resources.uSettSecondMenuColor}"
                             FontSize="18">
                         </TextBlock>
 
@@ -748,7 +749,7 @@
                 Style="{StaticResource SummaryTextStyle}"
                 FontSize="20"
                 Margin="20 0 0 0"
-                Text="Настройки"
+                Text="{x:Static res:Resources.uSettHeader}"
                 Width="160"
                 HorizontalAlignment="Left">
             </TextBlock>
