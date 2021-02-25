@@ -14,6 +14,10 @@
         Width="700"
         Height="400"
         Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
+        
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="30" ></DropShadowEffect>
+        </Grid.Effect>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
@@ -232,7 +236,7 @@
                     Height="40"
                     Margin="0 0 3 0" 
                     HorizontalAlignment="Right" 
-                    Content="🢀" 
+                    Content="⮜" 
                     FontSize="16"
                     x:Name="PrevLessonButton"
                     Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
@@ -256,7 +260,7 @@
                     Width="60"
                     Margin="0 0 3 0" 
                     HorizontalAlignment="Right" 
-                    Content="🢂" 
+                    Content="⮞" 
                     FontSize="16"
                     x:Name="NextLessonButton"
                     Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
@@ -266,6 +270,5 @@
                 </Button>
             </StackPanel>
         </Grid>
-        
     </Grid>
 </Page>
