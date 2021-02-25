@@ -545,6 +545,11 @@ namespace WPFMeteroWindow
 
         private void ReLesson_OnClick(object sender, RoutedEventArgs e) =>
             _currentLessonIndex = _currentLessonIndex;
-        
+
+        private void MenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            aoeiGrid.Visibility = Visibility.Visible;
+            SettingFrame.Source = new Uri("Resources/pages/ApplicationUserSettingsPage.xaml", UriKind.Relative);
+        }
     }
 }
