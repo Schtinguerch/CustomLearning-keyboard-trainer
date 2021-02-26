@@ -196,6 +196,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Нет.
+        /// </summary>
+        public static string uNo {
+            get {
+                return ResourceManager.GetString("uNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на мизинцем на .
         /// </summary>
         public static string uPinky {
@@ -241,11 +250,110 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Цвет границы клавиш.
+        /// </summary>
+        public static string uSettKbBorderColor {
+            get {
+                return ResourceManager.GetString("uSettKbBorderColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Цвет клавиш.
+        /// </summary>
+        public static string uSettKbButtonsColor {
+            get {
+                return ResourceManager.GetString("uSettKbButtonsColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Цвет ошибочно нажатых клавиш.
+        /// </summary>
+        public static string uSettKbErrorHighlightColor {
+            get {
+                return ResourceManager.GetString("uSettKbErrorHighlightColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Шрифт символов.
+        /// </summary>
+        public static string uSettKbFontFamily {
+            get {
+                return ResourceManager.GetString("uSettKbFontFamily", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Цвет выделения клавиш.
+        /// </summary>
+        public static string uSettKbHighlightColor {
+            get {
+                return ResourceManager.GetString("uSettKbHighlightColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Файл раскладки.
+        /// </summary>
+        public static string uSettKbLayoutFile {
+            get {
+                return ResourceManager.GetString("uSettKbLayoutFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Цвет символов.
+        /// </summary>
+        public static string uSettKbTextColor {
+            get {
+                return ResourceManager.GetString("uSettKbTextColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Клавиатура.
+        /// </summary>
+        public static string uSettKeyboard {
+            get {
+                return ResourceManager.GetString("uSettKeyboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Уроки и курсы.
+        /// </summary>
+        public static string uSettLessonsAndCourses {
+            get {
+                return ResourceManager.GetString("uSettLessonsAndCourses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Цвет символов урока.
+        /// </summary>
+        public static string uSettLessonSymbolsColor {
+            get {
+                return ResourceManager.GetString("uSettLessonSymbolsColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Основной цвет (фон).
         /// </summary>
         public static string uSettMainColor {
             get {
                 return ResourceManager.GetString("uSettMainColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Требовать выполнение упражнений с заданной скоростью.
+        /// </summary>
+        public static string uSettRequireWPM {
+            get {
+                return ResourceManager.GetString("uSettRequireWPM", resourceCulture);
             }
         }
         
@@ -268,11 +376,29 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Отображать статистику во время прохождения урока.
+        /// </summary>
+        public static string uSettShowStatistics {
+            get {
+                return ResourceManager.GetString("uSettShowStatistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Цвет текстовых полей.
         /// </summary>
         public static string uSettTextBoxColor {
             get {
                 return ResourceManager.GetString("uSettTextBoxColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Цвет текста интерфейса.
+        /// </summary>
+        public static string uSettUItextColor {
+            get {
+                return ResourceManager.GetString("uSettUItextColor", resourceCulture);
             }
         }
         
@@ -300,6 +426,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uThumb {
             get {
                 return ResourceManager.GetString("uThumb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Да.
+        /// </summary>
+        public static string uYes {
+            get {
+                return ResourceManager.GetString("uYes", resourceCulture);
             }
         }
     }

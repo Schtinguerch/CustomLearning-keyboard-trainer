@@ -6,6 +6,7 @@
       xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
       xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
       xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
+      xmlns:ext="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="800"
       Title="ApplicationUserSettingsPage">
@@ -23,7 +24,8 @@
         
         <Grid Grid.Row="1">
             <ScrollViewer
-                VerticalScrollBarVisibility="Visible">
+                VerticalScrollBarVisibility="Visible"
+                x:Name="wrapPanel">
                 <StackPanel
                     Orientation="Vertical"
                     Width="400"
@@ -65,7 +67,8 @@
                                 TextAlignment="Center"
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
                                 FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                                BorderBrush="#121212">
+                                BorderBrush="#121212"
+                                x:Name="WindowColorTextBox">
                             </TextBox>
 
                             <Button 
@@ -76,7 +79,8 @@
                                 FontSize="12"
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                                >
+                                Click="WindowColorButton_OnClick"
+                                x:Name="WindowColorButton">
                                 🖌
                             </Button>
                         </StackPanel>
@@ -107,7 +111,8 @@
                                 TextAlignment="Center"
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
                                 FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                                BorderBrush="#121212">
+                                BorderBrush="#121212"
+                                x:Name="MainColorTextBox">
                             </TextBox>
 
                             <Button 
@@ -118,7 +123,8 @@
                                 FontSize="12"
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                                >
+                                x:Name="MainColorButton"
+                                Click="MainColorButton_OnClick">
                                 🖌
                             </Button>
                         </StackPanel>
@@ -149,7 +155,8 @@
                                 TextAlignment="Center"
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
                                 FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                                BorderBrush="#121212">
+                                BorderBrush="#121212"
+                                x:Name="SecondColorTextBox">
                             </TextBox>
 
                             <Button 
@@ -160,7 +167,8 @@
                                 FontSize="12"
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                                >
+                                x:Name="SecondColorButton"
+                                Click="SecondColorButton_OnClick">
                                 🖌
                             </Button>
                         </StackPanel>
@@ -191,7 +199,8 @@
                                 TextAlignment="Center"
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
                                 FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                                BorderBrush="#121212">
+                                BorderBrush="#121212"
+                                x:Name="TextBoxColorTextBox">
                             </TextBox>
 
                             <Button 
@@ -202,7 +211,8 @@
                                 FontSize="12"
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                                >
+                                x:Name="TextBoxColorButton"
+                                Click="TextBoxColorButton_OnClick">
                                 🖌
                             </Button>
                         </StackPanel>
@@ -233,7 +243,8 @@
                                 TextAlignment="Center"
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
                                 FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                                BorderBrush="#121212">
+                                BorderBrush="#121212"
+                                x:Name="SecondMenuColorTextBox">
                             </TextBox>
 
                             <Button 
@@ -244,7 +255,8 @@
                                 FontSize="12"
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                                >
+                                x:Name="SecondMenuColorButton"
+                                Click="SecondMenuColorButton_OnClick">
                                 🖌
                             </Button>
                         </StackPanel>
@@ -255,7 +267,7 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
-                            Text="Цвет символов урока"
+                            Text="{x:Static res:Resources.uSettLessonSymbolsColor}"
                             FontSize="18">
                         </TextBlock>
 
@@ -275,7 +287,8 @@
                                 TextAlignment="Center"
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
                                 FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                                BorderBrush="#121212">
+                                BorderBrush="#121212"
+                                x:Name="LessonSymbolsColorTextBox">
                             </TextBox>
 
                             <Button 
@@ -286,7 +299,8 @@
                                 FontSize="12"
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                                >
+                                x:Name="LessonSymbolsColorButton"
+                                Click="LessonSymbolsColorButton_OnClick">
                                 🖌
                             </Button>
                         </StackPanel>
@@ -297,7 +311,7 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
-                            Text="Цвет текста интерфейса"
+                            Text="{x:Static res:Resources.uSettUItextColor}"
                             FontSize="18">
                         </TextBlock>
 
@@ -317,7 +331,8 @@
                                 TextAlignment="Center"
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
                                 FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                                BorderBrush="#121212">
+                                BorderBrush="#121212"
+                                x:Name="UItextColorTextBox">
                             </TextBox>
 
                             <Button 
@@ -328,7 +343,8 @@
                                 FontSize="12"
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                                >
+                                x:Name="UItextColorButton"
+                                Click="UItextColorButton_OnClick">
                                 🖌
                             </Button>
                         </StackPanel>
@@ -341,7 +357,7 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
-                            Text="Клавиатура"
+                            Text="{x:Static res:Resources.uSettKeyboard}"
                             FontSize="24">
                         </TextBlock>
                     </Grid>
@@ -351,7 +367,7 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
-                            Text="Файл раскладки"
+                            Text="{x:Static res:Resources.uSettKbLayoutFile}"
                             FontSize="18">
                         </TextBlock>
 
@@ -371,7 +387,8 @@
                                 TextAlignment="Center"
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
                                 FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                                BorderBrush="#121212">
+                                BorderBrush="#121212"
+                                x:Name="KeyboardLayoutTextBox">
                             </TextBox>
 
                             <Button 
@@ -382,7 +399,8 @@
                                 FontSize="12"
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                                >
+                                x:Name="KeyboardLayoutButton"
+                                Click="KeyboardLayoutButton_OnClick">
                                 🖌
                             </Button>
                         </StackPanel>
@@ -393,7 +411,7 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
-                            Text="Цвет клавиш"
+                            Text="{x:Static res:Resources.uSettKbButtonsColor}"
                             FontSize="18">
                         </TextBlock>
 
@@ -413,7 +431,8 @@
                                 TextAlignment="Center"
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
                                 FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                                BorderBrush="#121212">
+                                BorderBrush="#121212"
+                                x:Name="KeyboardButtonsColorTextBox">
                             </TextBox>
 
                             <Button 
@@ -424,7 +443,8 @@
                                 FontSize="12"
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                                >
+                                x:Name="KeyboardButtonsColorButton"
+                                Click="KeyboardButtonsColorButton_OnClick">
                                 🖌
                             </Button>
                         </StackPanel>
@@ -435,7 +455,7 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
-                            Text="Цвет символов"
+                            Text="{x:Static res:Resources.uSettKbTextColor}"
                             FontSize="18">
                         </TextBlock>
 
@@ -455,7 +475,8 @@
                                 TextAlignment="Center"
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
                                 FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                                BorderBrush="#121212">
+                                BorderBrush="#121212"
+                                x:Name="KeyboardTextColorTextBox">
                             </TextBox>
 
                             <Button 
@@ -466,7 +487,8 @@
                                 FontSize="12"
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                                >
+                                x:Name="KeyboardTextColorButton"
+                                Click="KeyboardTextColorButton_OnClick">
                                 🖌
                             </Button>
                         </StackPanel>
@@ -477,7 +499,7 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
-                            Text="Шрифт символов"
+                            Text="{x:Static res:Resources.uSettKbFontFamily}"
                             FontSize="18">
                         </TextBlock>
 
@@ -497,7 +519,8 @@
                                 TextAlignment="Center"
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
                                 FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                                BorderBrush="#121212">
+                                BorderBrush="#121212"
+                                x:Name="KeyboardFontFamilyTextBox">
                             </TextBox>
 
                             <Button 
@@ -508,7 +531,8 @@
                                 FontSize="12"
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                                >
+                                x:Name="KeyboardFontFamilyButton"
+                                Click="KeyboardFontFamilyButton_OnClick">
                                 🖌
                             </Button>
                         </StackPanel>
@@ -519,7 +543,7 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
-                            Text="Цвет границы клавиш"
+                            Text="{x:Static res:Resources.uSettKbBorderColor}"
                             FontSize="18">
                         </TextBlock>
 
@@ -539,7 +563,8 @@
                                 TextAlignment="Center"
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
                                 FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                                BorderBrush="#121212">
+                                BorderBrush="#121212"
+                                x:Name="KeyboardBorderColorTextBox">
                             </TextBox>
 
                             <Button 
@@ -550,7 +575,8 @@
                                 FontSize="12"
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                                >
+                                x:Name="KeyboardBorderColorButton"
+                                Click="KeyboardBorderColorButton_OnClick">
                                 🖌
                             </Button>
                         </StackPanel>
@@ -561,7 +587,7 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
-                            Text="Цвет выледения клавиш"
+                            Text="{x:Static res:Resources.uSettKbHighlightColor}"
                             FontSize="18">
                         </TextBlock>
 
@@ -581,7 +607,8 @@
                                 TextAlignment="Center"
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
                                 FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                                BorderBrush="#121212">
+                                BorderBrush="#121212"
+                                x:Name="KeyboardHighLightColorTextBox">
                             </TextBox>
 
                             <Button 
@@ -592,7 +619,8 @@
                                 FontSize="12"
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                                >
+                                x:Name="KeyboardHighLightColorButton"
+                                Click="KeyboardHighLightColorButton_OnClick">
                                 🖌
                             </Button>
                         </StackPanel>
@@ -603,7 +631,7 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
-                            Text="Цвет ошибочно нажатых клавиш"
+                            Text="{x:Static res:Resources.uSettKbErrorHighlightColor}"
                             FontSize="18">
                         </TextBlock>
 
@@ -623,7 +651,8 @@
                                 TextAlignment="Center"
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
                                 FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                                BorderBrush="#121212">
+                                BorderBrush="#121212"
+                                x:Name="KeyboardErrorHighLightColorTextBox">
                             </TextBox>
 
                             <Button 
@@ -634,7 +663,8 @@
                                 FontSize="12"
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                                >
+                                x:Name="KeyboardErrorHighLightColorButton"
+                                Click="KeyboardErrorHighLightColorButton_OnClick">
                                 🖌
                             </Button>
                         </StackPanel>
@@ -646,7 +676,7 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
-                            Text="Уроки и курсы"
+                            Text="{x:Static res:Resources.uSettLessonsAndCourses}"
                             FontSize="24">
                         </TextBlock>
                     </Grid>
@@ -656,7 +686,7 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
-                            Text="Требовать выполнение упражнений с заданной скоростью"
+                            Text="{x:Static res:Resources.uSettRequireWPM}"
                             FontSize="14">
                         </TextBlock>
 
@@ -667,17 +697,20 @@
                             HorizontalAlignment="Left"
                             Orientation="Horizontal">
 
-                            <TextBox
+                            <ComboBox
                                 FontSize="18"
                                 Height="32"
                                 Width="350"
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
-                                TextAlignment="Center"
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
                                 FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                                BorderBrush="#121212">
-                            </TextBox>
+                                BorderBrush="#121212"
+                                x:Name="RequireWPMtextBox">
+
+                                <TextBlock Text="{x:Static res:Resources.uYes}"></TextBlock>
+                                <TextBlock Text="{x:Static res:Resources.uNo}"></TextBlock>
+                            </ComboBox>
 
                             <Button 
                                 Margin="10 0 0 0"
@@ -687,7 +720,8 @@
                                 FontSize="12"
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                                >
+                                x:Name="RequireWPMbutton"
+                                Click="RequireWPMbutton_OnClick">
                                 🖌
                             </Button>
                         </StackPanel>
@@ -698,7 +732,7 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
-                            Text="Отображать статистику во время прохождения урока"
+                            Text="{x:Static res:Resources.uSettShowStatistics}"
                             FontSize="14">
                         </TextBlock>
 
@@ -709,17 +743,20 @@
                             HorizontalAlignment="Left"
                             Orientation="Horizontal">
 
-                            <TextBox
+                            <ComboBox
                                 FontSize="18"
                                 Height="32"
                                 Width="350"
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
-                                TextAlignment="Center"
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
                                 FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                                BorderBrush="#121212">
-                            </TextBox>
+                                BorderBrush="#121212"
+                                x:Name="ShowStatisticsTextBox">
+
+                                <TextBlock Text="{x:Static res:Resources.uYes}"></TextBlock>
+                                <TextBlock Text="{x:Static res:Resources.uNo}"></TextBlock>
+                            </ComboBox>
 
                             <Button 
                                 Margin="10 0 0 0"
@@ -729,15 +766,28 @@
                                 FontSize="12"
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                                >
+                                x:Name="ShowStatisticsButton"
+                                Click="ShowStatisticsButton_OnClick">
                                 🖌
                             </Button>
                         </StackPanel>
                     </Grid>
                     
                 </StackPanel>
+
             </ScrollViewer>
         </Grid>
+
+        <ext:ColorPicker
+            Grid.Row="1"
+            Width="0"
+            Height="0"
+            Background="#202020"
+            UsingAlphaChannel="False"
+            x:Name="SetupColorPicker"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top">
+        </ext:ColorPicker>
 
         <Grid Grid.Row="0"
               Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">

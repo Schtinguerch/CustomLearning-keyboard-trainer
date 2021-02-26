@@ -162,6 +162,9 @@
   <data name="uMiddle" xml:space="preserve">
     <value>средним на </value>
   </data>
+  <data name="uNo" xml:space="preserve">
+    <value>Нет</value>
+  </data>
   <data name="uPinky" xml:space="preserve">
     <value>мизинцем на </value>
   </data>
@@ -177,8 +180,41 @@
   <data name="uSettHeader" xml:space="preserve">
     <value>Настройки</value>
   </data>
+  <data name="uSettKbBorderColor" xml:space="preserve">
+    <value>Цвет границы клавиш</value>
+  </data>
+  <data name="uSettKbButtonsColor" xml:space="preserve">
+    <value>Цвет клавиш</value>
+  </data>
+  <data name="uSettKbErrorHighlightColor" xml:space="preserve">
+    <value>Цвет ошибочно нажатых клавиш</value>
+  </data>
+  <data name="uSettKbFontFamily" xml:space="preserve">
+    <value>Шрифт символов</value>
+  </data>
+  <data name="uSettKbHighlightColor" xml:space="preserve">
+    <value>Цвет выделения клавиш</value>
+  </data>
+  <data name="uSettKbLayoutFile" xml:space="preserve">
+    <value>Файл раскладки</value>
+  </data>
+  <data name="uSettKbTextColor" xml:space="preserve">
+    <value>Цвет символов</value>
+  </data>
+  <data name="uSettKeyboard" xml:space="preserve">
+    <value>Клавиатура</value>
+  </data>
+  <data name="uSettLessonsAndCourses" xml:space="preserve">
+    <value>Уроки и курсы</value>
+  </data>
+  <data name="uSettLessonSymbolsColor" xml:space="preserve">
+    <value>Цвет символов урока</value>
+  </data>
   <data name="uSettMainColor" xml:space="preserve">
     <value>Основной цвет (фон)</value>
+  </data>
+  <data name="uSettRequireWPM" xml:space="preserve">
+    <value>Требовать выполнение упражнений с заданной скоростью</value>
   </data>
   <data name="uSettSecondColor" xml:space="preserve">
     <value>Вторичный цвет (меню)</value>
@@ -186,8 +222,14 @@
   <data name="uSettSecondMenuColor" xml:space="preserve">
     <value>Цвет вторичных меню</value>
   </data>
+  <data name="uSettShowStatistics" xml:space="preserve">
+    <value>Отображать статистику во время прохождения урока</value>
+  </data>
   <data name="uSettTextBoxColor" xml:space="preserve">
     <value>Цвет текстовых полей</value>
+  </data>
+  <data name="uSettUItextColor" xml:space="preserve">
+    <value>Цвет текста интерфейса</value>
   </data>
   <data name="uSettWindowColor" xml:space="preserve">
     <value>Цвет окна</value>
@@ -197,5 +239,8 @@
   </data>
   <data name="uThumb" xml:space="preserve">
     <value>большим на </value>
+  </data>
+  <data name="uYes" xml:space="preserve">
+    <value>Да</value>
   </data>
 </root>
