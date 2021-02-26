@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
+      xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
       xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
       mc:Ignorable="d" 
       d:DesignHeight="170" d:DesignWidth="700"
@@ -35,7 +36,7 @@
         <TextBlock 
             Grid.Row="2"
             Style="{StaticResource SummaryTextStyle}"
-            Text="Выберите урок, с которого желаете начать"
+            Text="{x:Static res:Resources.uChooseTheBeginLesson}"
             Margin="10 0 0 0">
         </TextBlock>
 
@@ -46,8 +47,7 @@
             x:Name="LessonsComboBox"
             FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
             FontSize="20"
-            FontWeight="Bold"
-            Text="Выберите урок, с которого желаете начать">
+            FontWeight="Bold">
         </ComboBox>
         
         <Grid Grid.Row="0"
@@ -59,7 +59,7 @@
             <TextBlock 
                 Grid.Row="0"
                 Style="{StaticResource SummaryTextStyle}"
-                Text="Введите путь к папке с курсом"
+                Text="{x:Static res:Resources.uEnterCourseFolder}"
                 Margin="10 0 0 0">
             </TextBlock>
 
@@ -69,7 +69,7 @@
                 Height="20" 
                 Margin="0 0 2.5 0" 
                 HorizontalAlignment="Right" 
-                Content="Проводник" 
+                Content="{x:Static res:Resources.uFileExplorer}" 
                 Foreground="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}"
                 BorderBrush="{Binding MainBackground, Source={x:Static prop:Settings.Default}}"
                 Click="ButtonBase_OnClick">

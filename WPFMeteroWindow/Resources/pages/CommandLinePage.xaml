@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
+      xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
       xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
       mc:Ignorable="d" 
       d:DesignHeight="80" d:DesignWidth="700"
@@ -39,7 +40,7 @@
             <TextBlock 
                 Grid.Row="0"
                 Style="{StaticResource SummaryTextStyle}"
-                Text="Введите команду"
+                Text="{x:Static res:Resources.uEnterTheCommand}"
                 Margin="10 0 0 0">
             </TextBlock>
         </Grid>

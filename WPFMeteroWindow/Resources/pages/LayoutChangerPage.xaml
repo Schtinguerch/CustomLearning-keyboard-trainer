@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
       xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
+      xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
       mc:Ignorable="d" 
       d:DesignHeight="80" d:DesignWidth="700"
       Title="LayoutChangerPage"
@@ -40,7 +41,7 @@
             <TextBlock 
                 Grid.Row="0"
                 Style="{StaticResource SummaryTextStyle}"
-                Text="Введите путь к раскладке"
+                Text="{x:Static res:Resources.uEnterThePathToKeyboardLayout}"
                 Margin="10 0 0 0">
             </TextBlock>
 
@@ -50,7 +51,7 @@
                 Height="20" 
                 Margin="0 0 2.5 0" 
                 HorizontalAlignment="Right" 
-                Content="Проводник" 
+                Content="{x:Static res:Resources.uFileExplorer}" 
                 BorderBrush="{Binding MainBackground, Source={x:Static prop:Settings.Default}}"
                 Click="ButtonBase_OnClick">
             </Button>

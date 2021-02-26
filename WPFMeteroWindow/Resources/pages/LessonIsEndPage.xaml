@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
+      xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
       xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
       mc:Ignorable="d" 
       d:DesignHeight="400" d:DesignWidth="700"
@@ -137,7 +138,7 @@
                         Canvas.Left="0"
                         Style="{StaticResource SummaryTextStyle}"
                         FontSize="12"
-                        Text="симв/сек">
+                        Text="{x:Static res:Resources.uCPS}">
                     </TextBlock>
                     
                     <TextBlock
@@ -201,7 +202,7 @@
                         Canvas.Left="30"
                         Style="{StaticResource SummaryTextStyle}"
                         FontSize="12"
-                        Text="Средняя скорость">
+                        Text="{x:Static res:Resources.uMiddleSpeed}">
                     </TextBlock>
                     
                     <Rectangle
@@ -217,7 +218,7 @@
                         Canvas.Left="30"
                         Style="{StaticResource SummaryTextStyle}"
                         FontSize="12"
-                        Text="Скорость на каждой секунде">
+                        Text="{x:Static res:Resources.uSpeedInEverySecond}">
                     </TextBlock>
                 </Canvas>
             </Grid>
