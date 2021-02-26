@@ -117,8 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="uCharactersCount" xml:space="preserve">
+    <value>Кол-во симв</value>
+  </data>
+  <data name="uChooseTheBeginLesson" xml:space="preserve">
+    <value>Выберите урок, с которого желаете начать</value>
+  </data>
+  <data name="uCPM" xml:space="preserve">
+    <value>симв/мин</value>
+  </data>
+  <data name="uCPS" xml:space="preserve">
+    <value>симв/сек</value>
+  </data>
+  <data name="uEnterCourseFolder" xml:space="preserve">
+    <value>Введить путь к папке с курсом</value>
+  </data>
+  <data name="uEnterFontFamily" xml:space="preserve">
+    <value>Введите название шрифта</value>
+  </data>
+  <data name="uEnterTheCommand" xml:space="preserve">
+    <value>Введите команду</value>
+  </data>
+  <data name="uEnterThePathToKeyboardLayout" xml:space="preserve">
+    <value>Введить путь к раскладке</value>
+  </data>
+  <data name="uFileExplorer" xml:space="preserve">
+    <value>Проводник</value>
+  </data>
   <data name="uIndex" xml:space="preserve">
     <value>указательным на </value>
+  </data>
+  <data name="uIsFinished" xml:space="preserve">
+    <value>Завершён</value>
   </data>
   <data name="uLeft" xml:space="preserve">
     <value>Левым </value>
@@ -161,6 +191,9 @@
   </data>
   <data name="uMiddle" xml:space="preserve">
     <value>средним на </value>
+  </data>
+  <data name="uMiddleSpeed" xml:space="preserve">
+    <value>Средняя скорость</value>
   </data>
   <data name="uNo" xml:space="preserve">
     <value>Нет</value>
@@ -237,8 +270,17 @@
   <data name="uSpace" xml:space="preserve">
     <value>"Пробел"</value>
   </data>
+  <data name="uSpeedInEverySecond" xml:space="preserve">
+    <value>Скорость на каждой секунде</value>
+  </data>
+  <data name="uTheLesson" xml:space="preserve">
+    <value>Урок</value>
+  </data>
   <data name="uThumb" xml:space="preserve">
     <value>большим на </value>
+  </data>
+  <data name="uTime" xml:space="preserve">
+    <value>Время</value>
   </data>
   <data name="uYes" xml:space="preserve">
     <value>Да</value>

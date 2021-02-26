@@ -61,11 +61,101 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Кол-во симв.
+        /// </summary>
+        public static string uCharactersCount {
+            get {
+                return ResourceManager.GetString("uCharactersCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Выберите урок, с которого желаете начать.
+        /// </summary>
+        public static string uChooseTheBeginLesson {
+            get {
+                return ResourceManager.GetString("uChooseTheBeginLesson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на симв/мин.
+        /// </summary>
+        public static string uCPM {
+            get {
+                return ResourceManager.GetString("uCPM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на симв/сек.
+        /// </summary>
+        public static string uCPS {
+            get {
+                return ResourceManager.GetString("uCPS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Введить путь к папке с курсом.
+        /// </summary>
+        public static string uEnterCourseFolder {
+            get {
+                return ResourceManager.GetString("uEnterCourseFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Введите название шрифта.
+        /// </summary>
+        public static string uEnterFontFamily {
+            get {
+                return ResourceManager.GetString("uEnterFontFamily", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Введите команду.
+        /// </summary>
+        public static string uEnterTheCommand {
+            get {
+                return ResourceManager.GetString("uEnterTheCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Введить путь к раскладке.
+        /// </summary>
+        public static string uEnterThePathToKeyboardLayout {
+            get {
+                return ResourceManager.GetString("uEnterThePathToKeyboardLayout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Проводник.
+        /// </summary>
+        public static string uFileExplorer {
+            get {
+                return ResourceManager.GetString("uFileExplorer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на указательным на .
         /// </summary>
         public static string uIndex {
             get {
                 return ResourceManager.GetString("uIndex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Завершён.
+        /// </summary>
+        public static string uIsFinished {
+            get {
+                return ResourceManager.GetString("uIsFinished", resourceCulture);
             }
         }
         
@@ -192,6 +282,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uMiddle {
             get {
                 return ResourceManager.GetString("uMiddle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Средняя скорость.
+        /// </summary>
+        public static string uMiddleSpeed {
+            get {
+                return ResourceManager.GetString("uMiddleSpeed", resourceCulture);
             }
         }
         
@@ -421,11 +520,38 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Скорость на каждой секунде.
+        /// </summary>
+        public static string uSpeedInEverySecond {
+            get {
+                return ResourceManager.GetString("uSpeedInEverySecond", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Урок.
+        /// </summary>
+        public static string uTheLesson {
+            get {
+                return ResourceManager.GetString("uTheLesson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на большим на .
         /// </summary>
         public static string uThumb {
             get {
                 return ResourceManager.GetString("uThumb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Время.
+        /// </summary>
+        public static string uTime {
+            get {
+                return ResourceManager.GetString("uTime", resourceCulture);
             }
         }
         
