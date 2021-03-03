@@ -55,6 +55,8 @@ namespace WPFMeteroWindow
 
         private int _stoppedDoneRoad;
 
+        private bool _isFirstMistake = true;
+
         private int _currentLessonIndex
         {
             get => Settings.Default.CourseLessonNumber;
@@ -451,6 +453,8 @@ namespace WPFMeteroWindow
                         var lastCharacter = bufferTextBox.Text[bufferTextBox.Text.Length - 1];
                         if (lastCharacter == _leftRoad[0])
                         {
+                            _isFirstMistake = true;
+
                             _doneRoad += lastCharacter;
                             _leftRoad = _leftRoad.Substring(1, _leftRoad.Length - 1);
 
@@ -468,7 +472,12 @@ namespace WPFMeteroWindow
                         else
                         {
                             ShowError(lastCharacter);
-                            _typingErrors++;
+
+                            if (_isFirstMistake)
+                            {
+                                _typingErrors++;
+                                _isFirstMistake = false;
+                            }
                         }
                     }
                 }
