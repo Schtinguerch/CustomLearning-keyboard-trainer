@@ -48,49 +48,16 @@ namespace WPFMeteroWindow.Commands
                     switch (args[1].ToString())
                     {
                         case "lt":
-                            appDictionaries[appDictionaries.Count - 2] = new ResourceDictionary()
-                            {
-                                Source = new Uri("pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml", UriKind.RelativeOrAbsolute)
-                            };
-                            Settings.Default.ThemeResourceDictionary =
-                                "pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml";
+                            SetColor.ColorScheme(Theme.Light);
                             break;
                 
                         case "dt":
-                            appDictionaries[appDictionaries.Count - 2] = new ResourceDictionary()
-                            {
-                                Source = new Uri("pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml", UriKind.RelativeOrAbsolute)
-                            };
-                            Settings.Default.ThemeResourceDictionary =
-                                "pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml";
+                            SetColor.ColorScheme(Theme.Dark);
                             break;
                         
                         default:
-                            var colorScheme = args[1].ToString();
-                            try
-                            {
-                                appDictionaries[appDictionaries.Count - 3] = new ResourceDictionary()
-                                {
-                                    Source = new Uri(
-                                        "pack://application:,,,/MahApps.Metro;component/Styles/Accents/" + colorScheme +
-                                        ".xaml", UriKind.RelativeOrAbsolute)
-                                };
-
-                                Settings.Default.ColorSchemeResourceDictionary =
-                                    "pack://application:,,,/MahApps.Metro;component/Styles/Accents/" + colorScheme +
-                                    ".xaml";
-                            }
-                            catch
-                            {
-                                appDictionaries[appDictionaries.Count - 3] = new ResourceDictionary()
-                                {
-                                    Source = new Uri(
-                                        "pack://application:,,,/MahApps.Metro;component/Styles/Accents/steel.xaml", UriKind.RelativeOrAbsolute)
-                                };
-
-                                Settings.Default.ColorSchemeResourceDictionary =
-                                    "pack://application:,,,/MahApps.Metro;component/Styles/Accents/steel.xaml";
-                            }
+                            var color = args[1].ToString();
+                            SetColor.WindowColor(color);
                             break;
                     }
                     break;
