@@ -193,7 +193,10 @@ namespace WPFMeteroWindow
                             _keyData.buttons[i].Background =
                                 new BrushConverter().ConvertFromString(Settings.Default.KeyboardBackgroundColor)
                                     as SolidColorBrush;
-                            if (_keyData.keys[i][j][0] == character && _keyData.keys[i][j].Length < 2)
+
+                            var keyCode = _keyData.keys[i][j];
+                            
+                            if (keyCode[0] == character && keyCode.Length < 2 || (keyCode.Length == 2 && keyCode[1] == character))
                             {
                                 keyIndex = i;
                                 statusIndex = j;
@@ -235,14 +238,30 @@ namespace WPFMeteroWindow
                     }
                     else if (statusIndex == 1)
                     {
+                        _keyData.buttons[52].Background =
+                            new BrushConverter().ConvertFromString(Settings.Default.KeyboardHighlightColor)
+                                as SolidColorBrush;
+                        
                         rightHandTextBlock.Text = $"+ {Localization.uRight}{Localization.uPinky}Shift";
                     }
                     else if (statusIndex == 2)
                     {
+                        _keyData.buttons[57].Background =
+                            new BrushConverter().ConvertFromString(Settings.Default.KeyboardHighlightColor)
+                                as SolidColorBrush;
+                        
                         rightHandTextBlock.Text = $"+ {Localization.uRight}{Localization.uThumb}AltGr";
                     }
                     else if (statusIndex == 3)
                     {
+                        _keyData.buttons[52].Background =
+                            new BrushConverter().ConvertFromString(Settings.Default.KeyboardHighlightColor)
+                                as SolidColorBrush;
+                        
+                        _keyData.buttons[57].Background =
+                            new BrushConverter().ConvertFromString(Settings.Default.KeyboardHighlightColor)
+                                as SolidColorBrush;
+                        
                         rightHandTextBlock.Text = $"+ {Localization.uRight}{Localization.uPinky}Shift + {Localization.uRight}{Localization.uThumb}AltGr";
                     }
                 }
@@ -275,14 +294,30 @@ namespace WPFMeteroWindow
                     }
                     else if (statusIndex == 1)
                     {
+                        _keyData.buttons[41].Background =
+                            new BrushConverter().ConvertFromString(Settings.Default.KeyboardHighlightColor)
+                                as SolidColorBrush;
+                        
                         leftHandTextBlock.Text += $" + {Localization.uLeft}{Localization.uPinky}Shift";
                     }
                     else if (statusIndex == 2)
                     {
+                        _keyData.buttons[57].Background =
+                            new BrushConverter().ConvertFromString(Settings.Default.KeyboardHighlightColor)
+                                as SolidColorBrush;
+                        
                         leftHandTextBlock.Text += $" + {Localization.uRight}{Localization.uThumb}AltGr";
                     }
                     else if (statusIndex == 3)
                     {
+                        _keyData.buttons[41].Background =
+                            new BrushConverter().ConvertFromString(Settings.Default.KeyboardHighlightColor)
+                                as SolidColorBrush;
+                        
+                        _keyData.buttons[57].Background =
+                            new BrushConverter().ConvertFromString(Settings.Default.KeyboardHighlightColor)
+                                as SolidColorBrush;
+                        
                         leftHandTextBlock.Text += $" + {Localization.uLeft}{Localization.uPinky}Shift + {Localization.uRight}{Localization.uThumb}AltGr";
                     }
                 }
