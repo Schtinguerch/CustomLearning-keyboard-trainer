@@ -140,18 +140,18 @@ namespace WPFMeteroWindow
             if (isModifierKey)
             {
                 defaultTextBlock = new TextBlock()
-                    { Text = defaultKey.ToUpper(), Style = textBlockStyle };
+                    { Text = defaultKey, Style = textBlockStyle };
             }
             else
             {
                 defaultTextBlock = new TextBlock()
-                    { Text = defaultKey.ToUpper(), Style = textBlockStyle, FontSize = 22d };
+                    { Text = (defaultKey.Length != 2)? defaultKey.ToUpper() : defaultKey[1].ToString(), Style = textBlockStyle, FontSize = 22d };
             }
 
             TextBlock
-                shiftTextBlock = new TextBlock() { Text = (defaultKey.ToUpper() != shiftKey)? shiftKey : "", Style = smallTextBlockStyle },
-                altGrTextBlock = new TextBlock() { Text = altGrKey, Style = smallTextBlockStyle },
-                shiftAltGrTextBlock = new TextBlock() { Text = shiftAltGrKey, Style = smallTextBlockStyle };
+                shiftTextBlock = new TextBlock() { Text = (defaultKey.Length != 2)? (defaultKey.ToUpper() != shiftKey)? shiftKey : "" : defaultKey[1].ToString(), Style = smallTextBlockStyle },
+                altGrTextBlock = new TextBlock() { Text = (altGrKey.Length != 2)? altGrKey : altGrKey[1].ToString(), Style = smallTextBlockStyle },
+                shiftAltGrTextBlock = new TextBlock() { Text = (shiftAltGrKey.Length != 2)? shiftAltGrKey : shiftAltGrKey[1].ToString(), Style = smallTextBlockStyle };
 
             Grid.SetColumn(defaultTextBlock, 0);
             Grid.SetRow(defaultTextBlock, 0);
