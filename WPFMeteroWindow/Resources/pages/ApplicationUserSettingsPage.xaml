@@ -58,31 +58,17 @@
                             HorizontalAlignment="Left"
                             Orientation="Horizontal">
 
-                            <TextBox
+                            <ComboBox
                                 FontSize="18"
                                 Height="32"
                                 Width="350"
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
-                                TextAlignment="Center"
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
                                 FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
-                                x:Name="WindowColorTextBox">
-                            </TextBox>
-
-                            <Button 
-                                Margin="10 0 0 0"
-                                Width="38"
-                                BorderBrush="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}" 
-                                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                                FontSize="12"
-                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                                Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                                Click="WindowColorButton_OnClick"
-                                x:Name="WindowColorButton">
-                                🖌
-                            </Button>
+                                x:Name="WindowColors">
+                            </ComboBox>
                         </StackPanel>
                     </Grid>
                     
@@ -712,18 +698,7 @@
                                 <TextBlock Text="{x:Static res:Resources.uNo}"></TextBlock>
                             </ComboBox>
 
-                            <Button 
-                                Margin="10 0 0 0"
-                                Width="38"
-                                BorderBrush="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}" 
-                                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                                FontSize="12"
-                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                                Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                                x:Name="RequireWPMbutton"
-                                Click="RequireWPMbutton_OnClick">
-                                🖌
-                            </Button>
+                            
                         </StackPanel>
                     </Grid>
                     
@@ -758,18 +733,7 @@
                                 <TextBlock Text="{x:Static res:Resources.uNo}"></TextBlock>
                             </ComboBox>
 
-                            <Button 
-                                Margin="10 0 0 0"
-                                Width="38"
-                                BorderBrush="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}" 
-                                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                                FontSize="12"
-                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                                Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                                x:Name="ShowStatisticsButton"
-                                Click="ShowStatisticsButton_OnClick">
-                                🖌
-                            </Button>
+                            
                         </StackPanel>
                     </Grid>
                     
