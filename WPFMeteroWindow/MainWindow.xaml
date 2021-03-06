@@ -142,7 +142,7 @@
             Grid.Column="1" Grid.ColumnSpan="1">
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="600"></ColumnDefinition>
+                <ColumnDefinition Width="580"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
@@ -199,8 +199,17 @@
                         Margin="0 0 10 0"
                         FontSize="20"
                         HorizontalAlignment="Right"
+                        x:Name="WPMTextBlock"
+                        Text="0 CPM">
+                    </TextBlock>
+
+                    <TextBlock 
+                        Style="{StaticResource SummaryTextStyle}"
+                        Margin="0 0 10 0"
+                        FontSize="20"
+                        HorizontalAlignment="Right"
                         x:Name="TimerTextBlock"
-                        Text="aoei">
+                        Text="0:0">
                     </TextBlock>
                 </StackPanel>
             </Grid>

@@ -397,6 +397,9 @@ namespace WPFMeteroWindow
             ShowTheNecessaryButtons(_leftRoad[0]);
             _typingErrors = 0;
             ReloadTimer();
+
+            TimerTextBlock.Text = "0:0";
+            WPMTextBlock.Text = $"0 {Localization.uCPM}";
         }
 
         public void ReloadTimer()
@@ -409,7 +412,6 @@ namespace WPFMeteroWindow
             _typingTimer.Tick += TickTuck;
 
             _typingMilliseconds = 0;
-            TimerTextBlock.Text = "0:0";
         }
 
         private void TickTuck(object sender, EventArgs e)
@@ -423,7 +425,8 @@ namespace WPFMeteroWindow
                 AveragePoints.Add(new SpeedPoint(_typingMilliseconds / 10 -1, (float) _doneRoad.Length / _typingMilliseconds * 10));
                 _stoppedDoneRoad = _doneRoad.Length;
             }
-                
+
+            WPMTextBlock.Text = (_doneRoad.Length / (double)_typingMilliseconds * 10d * 60).ToString("N") + $" {Localization.uCPM}";
         }
         
         public void LoadCourse(string filename)
