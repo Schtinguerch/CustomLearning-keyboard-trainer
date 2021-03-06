@@ -358,5 +358,41 @@ namespace WPFMeteroWindow.Properties {
                 this["ColorSchemeResourceDictionary"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RequireWPM {
+            get {
+                return ((bool)(this["RequireWPM"]));
+            }
+            set {
+                this["RequireWPM"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowStatistics {
+            get {
+                return ((bool)(this["ShowStatistics"]));
+            }
+            set {
+                this["ShowStatistics"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Red")]
+        public string KeyboardErrorHighlightColor {
+            get {
+                return ((string)(this["KeyboardErrorHighlightColor"]));
+            }
+            set {
+                this["KeyboardErrorHighlightColor"] = value;
+            }
+        }
     }
 }

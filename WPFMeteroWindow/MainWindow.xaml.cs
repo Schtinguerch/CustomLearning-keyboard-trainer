@@ -350,7 +350,7 @@ namespace WPFMeteroWindow
                     }
                 }
 
-                _keyData.buttons[keyIndex].Background = Brushes.Red;
+                _keyData.buttons[keyIndex].Background = new BrushConverter().ConvertFromString(Settings.Default.KeyboardErrorHighlightColor) as SolidColorBrush;
             }
             catch
             {
