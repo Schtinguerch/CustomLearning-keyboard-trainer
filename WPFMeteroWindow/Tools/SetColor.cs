@@ -34,19 +34,27 @@ namespace WPFMeteroWindow
         public static void KeyboardBackground(string color)
         {
             Settings.Default.KeyboardBackgroundColor = color;
-            Actions.TheWindow.ReloadKeyboard();
         }
+
+        public static void KeyboardFontColor(string color)
+        {
+            Settings.Default.KeyboardFontColor = color;
+        }
+        
 
         public static void KeyboardBorder(string color)
         {
             Settings.Default.KeyboardBorderColor = color;
-            Actions.TheWindow.ReloadKeyboard();
         }
 
         public static void KeyboardHighlight(string color)
         {
             Settings.Default.KeyboardHighlightColor = color;
-            Actions.TheWindow.ReloadKeyboard();
+        }
+
+        public static void KeyboardErrorHighlight(string color)
+        {
+            Settings.Default.KeyboardErrorHighlightColor = color;
         }
 
         public static void WindowColor(string color)

@@ -35,16 +35,24 @@ namespace WPFMeteroWindow.Commands
                 
                 case "kbbg":
                     SetColor.KeyboardBackground(args[1].ToString());
+                    Actions.TheWindow.ReloadKeyboard();
                     break;
                 
                 case "kbbr":
                     SetColor.KeyboardBorder(args[1].ToString());
+                    Actions.TheWindow.ReloadKeyboard();
                     break;
                 
                 case "kbhl":
                     SetColor.KeyboardHighlight(args[1].ToString());
+                    Actions.TheWindow.ReloadKeyboard();
                     break;
-                
+
+                case "kber":
+                    SetColor.KeyboardErrorHighlight(args[1].ToString());
+                    Actions.TheWindow.ReloadKeyboard();
+                    break;
+
                 case "t":
                     switch (args[1].ToString())
                     {
