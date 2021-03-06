@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,11 +8,18 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
+using WPFMeteroWindow.Properties;
+using Color = System.Windows.Media.Color;
+using MessageBox = System.Windows.MessageBox;
+using Point = System.Windows.Point;
+using TextBox = System.Windows.Controls.TextBox;
 
 namespace WPFMeteroWindow.Resources.pages
 {
@@ -22,10 +30,88 @@ namespace WPFMeteroWindow.Resources.pages
     {
         private UIElement _chosenTextBox;
 
-        private void ShowColorPicker()
+        private readonly List<string> _windowColors = new List<string>()
         {
-            var relativePoint = _chosenTextBox.TransformToAncestor(wrapPanel).Transform(new Point(0, 0));
-            SetupColorPicker.Margin = new Thickness(-206, relativePoint.Y + _chosenTextBox.RenderSize.Height, 0, 0);
+            "amber",
+            "blue",
+            "brown",
+            "cobalt",
+            "crimson",
+            "cyan",
+            "emerald",
+            "green",
+            "indigo",
+            "lime",
+            "magenta",
+            "mauve",
+            "olive",
+            "orange",
+            "pink",
+            "purple",
+            "red",
+            "sienna",
+            "steel",
+            "taupe",
+            "teal",
+            "violet",
+            "yellow"
+        };
+
+        private void SetYesOrNo(string target, string text)
+        {
+            var state = true;
+            var selectedText = text.ToLower();
+
+            if ((selectedText == "no") || (selectedText == "нет"))
+                state = false;
+
+            switch (target)
+            {
+                case "WPM":
+                    Settings.Default.RequireWPM = state;
+                    break;
+
+                case "Stats":
+                    Settings.Default.ShowStatistics = state;
+                    break;
+            }
+        }
+
+        private void SetFontFamily(string target)
+        {
+            var fontDialog = new FontDialog();
+            fontDialog.ShowColor = false;
+            fontDialog.ShowEffects = false;
+
+            if (fontDialog.ShowDialog() == DialogResult.OK)
+            {
+                var converter = new FontConverter();
+                var fontFamily = converter.ConvertToString(fontDialog.Font).Split(new char[] {';'})[0];
+
+                switch (target)
+                {
+                    case "keyboard":
+                        SetFont.Keyboard(fontFamily);
+                        break;
+
+                    case "main":
+                        SetFont.MainLetters(fontFamily);
+                        break;
+
+                    case "UI":
+                        SetFont.SummaryLetters(fontFamily);
+                        break;
+                }
+            }
+        }
+
+        private void ShowColorPicker(UIElement targetControl)
+        {
+            _chosenTextBox = targetControl;
+
+            var relativePoint = targetControl.TransformToAncestor(wrapPanel).Transform(new Point(0, 0));
+            SetupColorPicker.Margin = 
+                new Thickness(-206, relativePoint.Y + targetControl.RenderSize.Height, 0, 0);
 
             SetupColorPicker.IsOpen = true;
         }
@@ -33,97 +119,28 @@ namespace WPFMeteroWindow.Resources.pages
         public ApplicationUserSettingsPage()
         {
             InitializeComponent();
-        }
-
-        private void WindowColorButton_OnClick(object sender, RoutedEventArgs e)
-        {
             
+            WindowColors.Items.Clear();
+            foreach (var color in _windowColors)
+                WindowColors.Items.Add(color);
         }
 
-        private void MainColorButton_OnClick(object sender, RoutedEventArgs e)
+        private void SetupColorPicker_OnSelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
         {
-            _chosenTextBox = MainColorTextBox;
-            ShowColorPicker();
+            ((TextBox) _chosenTextBox).Text = SetupColorPicker.SelectedColorText;
         }
 
-        private void SecondColorButton_OnClick(object sender, RoutedEventArgs e)
+        private void ApplyButton_OnClick(object sender, RoutedEventArgs e)
         {
-            _chosenTextBox = SecondColorTextBox;
-            ShowColorPicker();
+            Settings.Default.Save();
+            Actions.TheWindow.ReloadKeyboard();
+            Actions.TheWindow.HideSettingGrid();
         }
 
-        private void TextBoxColorButton_OnClick(object sender, RoutedEventArgs e)
+        private void DiscardButton_Click(object sender, RoutedEventArgs e)
         {
-            _chosenTextBox = TextBoxColorTextBox;
-            ShowColorPicker();
-        }
-
-        private void SecondMenuColorButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            _chosenTextBox = SecondMenuColorTextBox;
-            ShowColorPicker();
-        }
-
-        private void LessonSymbolsColorButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            _chosenTextBox = LessonSymbolsColorTextBox;
-            ShowColorPicker();
-        }
-
-        private void UItextColorButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            _chosenTextBox = UItextColorTextBox;
-            ShowColorPicker();
-        }
-
-        private void KeyboardLayoutButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void KeyboardButtonsColorButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            _chosenTextBox = KeyboardButtonsColorTextBox;
-            ShowColorPicker();
-        }
-
-        private void KeyboardTextColorButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            _chosenTextBox = KeyboardTextColorTextBox;
-            ShowColorPicker();
-        }
-
-        private void KeyboardFontFamilyButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void KeyboardBorderColorButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            _chosenTextBox = KeyboardBorderColorTextBox;
-            ShowColorPicker();
-        }
-
-        private void KeyboardHighLightColorButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            _chosenTextBox = KeyboardHighLightColorTextBox;
-            ShowColorPicker();
-        }
-
-        private void KeyboardErrorHighLightColorButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            _chosenTextBox = KeyboardErrorHighLightColorTextBox;
-            ShowColorPicker();
-        }
-
-        private void RequireWPMbutton_OnClick(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void ShowStatisticsButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            
+            Settings.Default.Reload();
+            Actions.TheWindow.HideSettingGrid();
         }
     }
 }
