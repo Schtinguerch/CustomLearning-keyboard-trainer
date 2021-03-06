@@ -210,6 +210,9 @@
   <data name="uSettBaseColors" xml:space="preserve">
     <value>Основные цвета</value>
   </data>
+  <data name="uSettFonts" xml:space="preserve">
+    <value>Шрифты</value>
+  </data>
   <data name="uSettHeader" xml:space="preserve">
     <value>Настройки</value>
   </data>
@@ -237,6 +240,9 @@
   <data name="uSettKeyboard" xml:space="preserve">
     <value>Клавиатура</value>
   </data>
+  <data name="uSettLessonLettersFont" xml:space="preserve">
+    <value>Шрифт символов урока</value>
+  </data>
   <data name="uSettLessonsAndCourses" xml:space="preserve">
     <value>Уроки и курсы</value>
   </data>
@@ -245,6 +251,9 @@
   </data>
   <data name="uSettMainColor" xml:space="preserve">
     <value>Основной цвет (фон)</value>
+  </data>
+  <data name="uSettRaidedLessonSymbolsColor" xml:space="preserve">
+    <value>Цвет успешно введённых символов урока</value>
   </data>
   <data name="uSettRequireWPM" xml:space="preserve">
     <value>Требовать выполнение упражнений с заданной скоростью</value>
@@ -260,6 +269,9 @@
   </data>
   <data name="uSettTextBoxColor" xml:space="preserve">
     <value>Цвет текстовых полей</value>
+  </data>
+  <data name="uSettUItext" xml:space="preserve">
+    <value>Шрифт текста интерфейса</value>
   </data>
   <data name="uSettUItextColor" xml:space="preserve">
     <value>Цвет текста интерфейса</value>

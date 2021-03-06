@@ -210,6 +210,9 @@
   <data name="uSettBaseColors" xml:space="preserve">
     <value>Main colors</value>
   </data>
+  <data name="uSettFonts" xml:space="preserve">
+    <value>Fonts</value>
+  </data>
   <data name="uSettHeader" xml:space="preserve">
     <value>Settings</value>
   </data>
@@ -237,6 +240,9 @@
   <data name="uSettKeyboard" xml:space="preserve">
     <value>Keyboard</value>
   </data>
+  <data name="uSettLessonLettersFont" xml:space="preserve">
+    <value>Lesson's symbols font family</value>
+  </data>
   <data name="uSettLessonsAndCourses" xml:space="preserve">
     <value>Lessons and courses</value>
   </data>
@@ -245,6 +251,9 @@
   </data>
   <data name="uSettMainColor" xml:space="preserve">
     <value>Main background color</value>
+  </data>
+  <data name="uSettRaidedLessonSymbolsColor" xml:space="preserve">
+    <value>Lesson's raided symbols font color</value>
   </data>
   <data name="uSettRequireWPM" xml:space="preserve">
     <value>Require do exersises at the necessary WPM</value>
@@ -260,6 +269,9 @@
   </data>
   <data name="uSettTextBoxColor" xml:space="preserve">
     <value>Text boxes backgroud</value>
+  </data>
+  <data name="uSettUItext" xml:space="preserve">
+    <value>UI text font family</value>
   </data>
   <data name="uSettUItextColor" xml:space="preserve">
     <value>UI text color</value>

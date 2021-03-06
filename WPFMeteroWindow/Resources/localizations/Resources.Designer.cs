@@ -340,6 +340,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Шрифты.
+        /// </summary>
+        public static string uSettFonts {
+            get {
+                return ResourceManager.GetString("uSettFonts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Настройки.
         /// </summary>
         public static string uSettHeader {
@@ -421,6 +430,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Шрифт символов урока.
+        /// </summary>
+        public static string uSettLessonLettersFont {
+            get {
+                return ResourceManager.GetString("uSettLessonLettersFont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Уроки и курсы.
         /// </summary>
         public static string uSettLessonsAndCourses {
@@ -444,6 +462,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uSettMainColor {
             get {
                 return ResourceManager.GetString("uSettMainColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Цвет успешно введённых символов урока.
+        /// </summary>
+        public static string uSettRaidedLessonSymbolsColor {
+            get {
+                return ResourceManager.GetString("uSettRaidedLessonSymbolsColor", resourceCulture);
             }
         }
         
@@ -489,6 +516,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uSettTextBoxColor {
             get {
                 return ResourceManager.GetString("uSettTextBoxColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Шрифт текста интерфейса.
+        /// </summary>
+        public static string uSettUItext {
+            get {
+                return ResourceManager.GetString("uSettUItext", resourceCulture);
             }
         }
         
