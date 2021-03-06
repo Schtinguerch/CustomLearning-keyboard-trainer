@@ -104,7 +104,7 @@ namespace WPFMeteroWindow.Resources.pages
                 }
             }
         }
-
+        
         private void ShowColorPicker(UIElement targetControl)
         {
             _chosenTextBox = targetControl;
@@ -141,6 +141,20 @@ namespace WPFMeteroWindow.Resources.pages
         {
             Settings.Default.Reload();
             Actions.TheWindow.HideSettingGrid();
+        }
+
+        private void LessonlettersFontSizeTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                var fontsize = Convert.ToDouble(LessonlettersFontSizeTextBox.Text);
+                SetFont.MainLetters_Size(fontsize);
+            }
+            
+            catch
+            {
+                
+            }
         }
     }
 }

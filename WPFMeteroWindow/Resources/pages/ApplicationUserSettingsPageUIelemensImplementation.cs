@@ -62,6 +62,13 @@ namespace WPFMeteroWindow.Resources.pages
         private void LessonRaidedSymbolsColorButton_OnClick(object sender, RoutedEventArgs e) =>
             ShowColorPicker(LessonRaidedSymbolsColorTextBox);
         
+        private void LessonlettersFontButton_OnClick(object sender, RoutedEventArgs e) =>
+            SetFontFamily("main");
+        
+        private void UIfontButton_OnClick(object sender, RoutedEventArgs e) =>
+            SetFontFamily("UI");
+        
+        
         #endregion
 
         #region Color picker (color choosen)

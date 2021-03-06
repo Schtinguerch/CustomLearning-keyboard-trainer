@@ -65,9 +65,10 @@
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                                FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
-                                x:Name="WindowColors">
+                                x:Name="WindowColors"
+                                SelectionChanged="WindowColors_OnSelectionChanged">
                             </ComboBox>
                         </StackPanel>
                     </Grid>
@@ -94,11 +95,12 @@
                                 Width="350"
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
-                                TextAlignment="Center"
+                                
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                                FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
-                                x:Name="MainColorTextBox">
+                                x:Name="MainColorTextBox"
+                                TextChanged="MainColorTextBox_OnTextChanged">
                             </TextBox>
 
                             <Button 
@@ -138,11 +140,12 @@
                                 Width="350"
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
-                                TextAlignment="Center"
+                                
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                                FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
-                                x:Name="SecondColorTextBox">
+                                x:Name="SecondColorTextBox"
+                                TextChanged="SecondColorTextBox_OnTextChanged">
                             </TextBox>
 
                             <Button 
@@ -182,11 +185,12 @@
                                 Width="350"
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
-                                TextAlignment="Center"
+                                
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                                FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
-                                x:Name="TextBoxColorTextBox">
+                                x:Name="TextBoxColorTextBox"
+                                TextChanged="TextBoxColorTextBox_OnTextChanged">
                             </TextBox>
 
                             <Button 
@@ -226,11 +230,12 @@
                                 Width="350"
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
-                                TextAlignment="Center"
+                                
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                                FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
-                                x:Name="SecondMenuColorTextBox">
+                                x:Name="SecondMenuColorTextBox"
+                                TextChanged="SecondMenuColorTextBox_OnTextChanged">
                             </TextBox>
 
                             <Button 
@@ -270,11 +275,12 @@
                                 Width="350"
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
-                                TextAlignment="Center"
+                                
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                                FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
-                                x:Name="LessonSymbolsColorTextBox">
+                                x:Name="LessonSymbolsColorTextBox"
+                                TextChanged="LessonSymbolsColorTextBox_OnTextChanged">
                             </TextBox>
 
                             <Button 
@@ -287,6 +293,51 @@
                                 Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
                                 x:Name="LessonSymbolsColorButton"
                                 Click="LessonSymbolsColorButton_OnClick">
+                                🖌
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                    
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                    >
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uSettRaidedLessonSymbolsColor}"
+                            FontSize="18">
+                        </TextBlock>
+
+                        <StackPanel
+                            Height="32"
+                            Width="400"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+
+                            <TextBox
+                                FontSize="18"
+                                Height="32"
+                                Width="350"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="LessonRaidedSymbolsColorTextBox"
+                                TextChanged="LessonRaidedSymbolsColorTextBox_OnTextChanged">
+                            </TextBox>
+
+                            <Button 
+                                Margin="10 0 0 0"
+                                Width="38"
+                                BorderBrush="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}" 
+                                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                                FontSize="12"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+                                x:Name="LessonRaidedSymbolsColorButton"
+                                Click="LessonRaidedSymbolsColorButton_OnClick">
                                 🖌
                             </Button>
                         </StackPanel>
@@ -314,11 +365,12 @@
                                 Width="350"
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
-                                TextAlignment="Center"
+                                
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                                FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
-                                x:Name="UItextColorTextBox">
+                                x:Name="UItextColorTextBox"
+                                TextChanged="UItextColorTextBox_OnTextChanged">
                             </TextBox>
 
                             <Button 
@@ -331,6 +383,140 @@
                                 Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
                                 x:Name="UItextColorButton"
                                 Click="UItextColorButton_OnClick">
+                                🖌
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                    
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                          Margin="0 24 0 10"
+                          Height="30">
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uSettFonts}"
+                            FontSize="24">
+                        </TextBlock>
+                    </Grid>
+                    
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                          >
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uSettLessonLettersFont}"
+                            FontSize="18">
+                        </TextBlock>
+
+                        <StackPanel
+                            Height="32"
+                            Width="400"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+
+                            <TextBox
+                                FontSize="18"
+                                Height="32"
+                                Width="350"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="LessonlettersFontTextBox">
+                            </TextBox>
+
+                            <Button 
+                                Margin="10 0 0 0"
+                                Width="38"
+                                BorderBrush="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}" 
+                                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                                FontSize="12"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+                                x:Name="LessonlettersFontButton"
+                                Click="LessonlettersFontButton_OnClick">
+                                🖌
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                    
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                          >
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uSettLessonLettonFontSize}"
+                            FontSize="18">
+                        </TextBlock>
+
+                        <StackPanel
+                            Height="32"
+                            Width="400"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+
+                            <TextBox
+                                FontSize="18"
+                                Height="32"
+                                Width="350"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="LessonlettersFontSizeTextBox"
+                                TextChanged="LessonlettersFontSizeTextBox_OnTextChanged">
+                            </TextBox>
+                            
+                            
+                        </StackPanel>
+                    </Grid>
+                    
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                          >
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uSettUItext}"
+                            FontSize="18">
+                        </TextBlock>
+
+                        <StackPanel
+                            Height="32"
+                            Width="400"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+
+                            <TextBox
+                                FontSize="18"
+                                Height="32"
+                                Width="350"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="UIfontTextBox"
+                                >
+                            </TextBox>
+
+                            <Button 
+                                Margin="10 0 0 0"
+                                Width="38"
+                                BorderBrush="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}" 
+                                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                                FontSize="12"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+                                x:Name="UIfontButton"
+                                Click="UIfontButton_OnClick">
                                 🖌
                             </Button>
                         </StackPanel>
@@ -365,16 +551,20 @@
                             Orientation="Horizontal">
 
                             <TextBox
-                                FontSize="18"
+                                FontSize="12"
                                 Height="32"
                                 Width="350"
+                                IsReadOnly="True"
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
-                                TextAlignment="Center"
+                                TextAlignment="Right"
+                                VerticalContentAlignment="Center"
+                                
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                                FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
-                                x:Name="KeyboardLayoutTextBox">
+                                x:Name="KeyboardLayoutTextBox"
+                                TextChanged="KeyboardLayoutTextBox_OnTextChanged">
                             </TextBox>
 
                             <Button 
@@ -414,11 +604,12 @@
                                 Width="350"
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
-                                TextAlignment="Center"
+                                
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                                FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
-                                x:Name="KeyboardButtonsColorTextBox">
+                                x:Name="KeyboardButtonsColorTextBox"
+                                TextChanged="KeyboardButtonsColorTextBox_OnTextChanged">
                             </TextBox>
 
                             <Button 
@@ -458,11 +649,12 @@
                                 Width="350"
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
-                                TextAlignment="Center"
+                                
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                                FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
-                                x:Name="KeyboardTextColorTextBox">
+                                x:Name="KeyboardTextColorTextBox"
+                                TextChanged="KeyboardTextColorTextBox_OnTextChanged">
                             </TextBox>
 
                             <Button 
@@ -502,11 +694,12 @@
                                 Width="350"
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
-                                TextAlignment="Center"
+                                
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                                FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
-                                x:Name="KeyboardFontFamilyTextBox">
+                                x:Name="KeyboardFontFamilyTextBox"
+                                TextChanged="KeyboardFontFamilyTextBox_OnTextChanged">
                             </TextBox>
 
                             <Button 
@@ -546,11 +739,12 @@
                                 Width="350"
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
-                                TextAlignment="Center"
+                                
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                                FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
-                                x:Name="KeyboardBorderColorTextBox">
+                                x:Name="KeyboardBorderColorTextBox"
+                                TextChanged="KeyboardBorderColorTextBox_OnTextChanged">
                             </TextBox>
 
                             <Button 
@@ -590,11 +784,12 @@
                                 Width="350"
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
-                                TextAlignment="Center"
+                                
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                                FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
-                                x:Name="KeyboardHighLightColorTextBox">
+                                x:Name="KeyboardHighLightColorTextBox"
+                                TextChanged="KeyboardHighLightColorTextBox_OnTextChanged">
                             </TextBox>
 
                             <Button 
@@ -634,11 +829,12 @@
                                 Width="350"
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
-                                TextAlignment="Center"
+                                
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                                FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
-                                x:Name="KeyboardErrorHighLightColorTextBox">
+                                x:Name="KeyboardErrorHighLightColorTextBox"
+                                TextChanged="KeyboardErrorHighLightColorTextBox_OnTextChanged">
                             </TextBox>
 
                             <Button 
@@ -690,9 +886,10 @@
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                                FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
-                                x:Name="RequireWPMtextBox">
+                                x:Name="RequireWPMtextBox"
+                                SelectionChanged="RequireWPMtextBox_OnSelectionChanged">
 
                                 <TextBlock Text="{x:Static res:Resources.uYes}"></TextBlock>
                                 <TextBlock Text="{x:Static res:Resources.uNo}"></TextBlock>
@@ -725,9 +922,10 @@
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                                FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
-                                x:Name="ShowStatisticsTextBox">
+                                x:Name="ShowStatisticsTextBox"
+                                SelectionChanged="ShowStatisticsTextBox_OnSelectionChanged">
 
                                 <TextBlock Text="{x:Static res:Resources.uYes}"></TextBlock>
                                 <TextBlock Text="{x:Static res:Resources.uNo}"></TextBlock>
@@ -749,9 +947,11 @@
             Background="#202020"
             UsingAlphaChannel="False"
             x:Name="SetupColorPicker"
+            SelectedColorChanged="SetupColorPicker_OnSelectedColorChanged"
             HorizontalAlignment="Center"
             VerticalAlignment="Top">
         </ext:ColorPicker>
+
 
         <Grid Grid.Row="0"
               Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
@@ -773,9 +973,9 @@
                 Margin="0 10 0 10"
                 Width="400"
                 x:Name="SearchPropertyTextBox"
-                TextAlignment="Center"
+                
                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                 BorderBrush="#121212">
             </TextBox>
 
@@ -790,7 +990,8 @@
                     FontSize="16"
                     FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                     Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                    x:Name="ApplyButton">
+                    x:Name="ApplyButton"
+                    Click="ApplyButton_OnClick">
                     ✓
                 </Button>
                 <Button 
@@ -801,7 +1002,7 @@
                     FontSize="16"
                     FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                     Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                    x:Name="DiscardButton">
+                    x:Name="DiscardButton" Click="DiscardButton_Click">
                     ✖
                 </Button>
             </StackPanel>
