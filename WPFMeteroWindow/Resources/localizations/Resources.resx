@@ -243,6 +243,9 @@
   <data name="uSettLessonLettersFont" xml:space="preserve">
     <value>Шрифт символов урока</value>
   </data>
+  <data name="uSettLessonLettonFontSize" xml:space="preserve">
+    <value>Размер шрифта символов урока</value>
+  </data>
   <data name="uSettLessonsAndCourses" xml:space="preserve">
     <value>Уроки и курсы</value>
   </data>

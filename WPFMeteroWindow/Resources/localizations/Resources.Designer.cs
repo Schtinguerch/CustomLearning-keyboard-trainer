@@ -439,6 +439,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Размер шрифта символов урока.
+        /// </summary>
+        public static string uSettLessonLettonFontSize {
+            get {
+                return ResourceManager.GetString("uSettLessonLettonFontSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Уроки и курсы.
         /// </summary>
         public static string uSettLessonsAndCourses {
