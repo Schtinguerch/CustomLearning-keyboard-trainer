@@ -129,6 +129,9 @@
   <data name="uCPS" xml:space="preserve">
     <value>CPS</value>
   </data>
+  <data name="uDark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
   <data name="uEnterCourseFolder" xml:space="preserve">
     <value>Enter the path of the course folder</value>
   </data>
@@ -152,6 +155,9 @@
   </data>
   <data name="uLeft" xml:space="preserve">
     <value>Left </value>
+  </data>
+  <data name="uLight" xml:space="preserve">
+    <value>Light</value>
   </data>
   <data name="uMenuEditCurrentCourse" xml:space="preserve">
     <value>Edit the currrent course</value>
@@ -290,6 +296,9 @@
   </data>
   <data name="uTheLesson" xml:space="preserve">
     <value>The lesson</value>
+  </data>
+  <data name="uTheme" xml:space="preserve">
+    <value>App theme</value>
   </data>
   <data name="uThumb" xml:space="preserve">
     <value>thumb on </value>

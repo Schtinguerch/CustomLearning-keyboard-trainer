@@ -129,6 +129,9 @@
   <data name="uCPS" xml:space="preserve">
     <value>симв/сек</value>
   </data>
+  <data name="uDark" xml:space="preserve">
+    <value>Тёмная</value>
+  </data>
   <data name="uEnterCourseFolder" xml:space="preserve">
     <value>Введить путь к папке с курсом</value>
   </data>
@@ -152,6 +155,9 @@
   </data>
   <data name="uLeft" xml:space="preserve">
     <value>Левым </value>
+  </data>
+  <data name="uLight" xml:space="preserve">
+    <value>Светлая</value>
   </data>
   <data name="uMenuEditCurrentCourse" xml:space="preserve">
     <value>Изменить текущий курс</value>
@@ -290,6 +296,9 @@
   </data>
   <data name="uTheLesson" xml:space="preserve">
     <value>Урок</value>
+  </data>
+  <data name="uTheme" xml:space="preserve">
+    <value>Тема</value>
   </data>
   <data name="uThumb" xml:space="preserve">
     <value>большим на </value>

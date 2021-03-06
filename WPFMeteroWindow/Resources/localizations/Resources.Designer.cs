@@ -97,6 +97,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Тёмная.
+        /// </summary>
+        public static string uDark {
+            get {
+                return ResourceManager.GetString("uDark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Введить путь к папке с курсом.
         /// </summary>
         public static string uEnterCourseFolder {
@@ -165,6 +174,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uLeft {
             get {
                 return ResourceManager.GetString("uLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Светлая.
+        /// </summary>
+        public static string uLight {
+            get {
+                return ResourceManager.GetString("uLight", resourceCulture);
             }
         }
         
@@ -579,6 +597,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uTheLesson {
             get {
                 return ResourceManager.GetString("uTheLesson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Тема.
+        /// </summary>
+        public static string uTheme {
+            get {
+                return ResourceManager.GetString("uTheme", resourceCulture);
             }
         }
         

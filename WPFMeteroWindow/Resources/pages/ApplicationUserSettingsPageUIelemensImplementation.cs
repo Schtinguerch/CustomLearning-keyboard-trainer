@@ -122,7 +122,20 @@ namespace WPFMeteroWindow.Resources.pages
         
         private void LessonRaidedSymbolsColorTextBox_OnTextChanged(object sender, TextChangedEventArgs e) =>
             SetFont.MainRaidedLetters_Color(LessonRaidedSymbolsColorTextBox.Text);
-        #endregion
 
+        private void WindowTheme_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (WindowTheme.SelectedIndex)
+            {
+                case 0:
+                    SetColor.ColorScheme(Theme.Light);
+                    break;
+
+                case 1:
+                    SetColor.ColorScheme(Theme.Dark);
+                    break;
+            }
+        }
+        #endregion
     }
 }
