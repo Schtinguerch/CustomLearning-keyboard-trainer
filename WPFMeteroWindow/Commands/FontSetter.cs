@@ -1,4 +1,5 @@
 ﻿using CommandMakerLibrary;
+using WPFMeteroWindow.Properties;
 
 namespace WPFMeteroWindow.Commands
 {
@@ -11,6 +12,8 @@ namespace WPFMeteroWindow.Commands
         public void Execute(object[] args)
         {
             var fontProperty = args[2].ToString();
+            var areSettingsChanged = true;
+            
             for (int i = 3; i < args.Length; i++)
                 fontProperty += ' ' + args[i].ToString();
             
@@ -62,7 +65,14 @@ namespace WPFMeteroWindow.Commands
                             break;
                     }
                     break;
+                
+                default:
+                    areSettingsChanged = false;
+                    break;
             }
+            
+            if (areSettingsChanged)
+                Settings.Default.Save();
         }
     }
 }

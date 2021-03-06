@@ -32,7 +32,7 @@ namespace WPFMeteroWindow.Commands
                 default:
                     if (args[0].ToString().ToLower().Contains("c"))
                         Opener.NewCourse(fileName, 
-                            Convert.ToInt32(args[0].ToString().Replace("c", "")));
+                            Convert.ToInt32(args[0].ToString().Replace("c", "")) - 1);
                     break;
             }
         }

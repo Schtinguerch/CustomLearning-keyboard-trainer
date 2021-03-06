@@ -13,7 +13,8 @@ namespace WPFMeteroWindow.Commands
         
         public void Execute(object[] args)
         {
-            var appDictionaries = Application.Current.Resources.MergedDictionaries;
+            var areSettingChanged = true;
+             
             switch (args[0].ToString())
             {
                 case "main":
@@ -61,9 +62,14 @@ namespace WPFMeteroWindow.Commands
                             break;
                     }
                     break;
+                
+                default:
+                    areSettingChanged = false;
+                    break;
             }
             
-            Settings.Default.Save();
+            if (areSettingChanged)
+                Settings.Default.Save();
         }
     }
 }
