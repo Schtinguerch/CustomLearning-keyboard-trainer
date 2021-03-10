@@ -144,6 +144,9 @@
   <data name="uEnterThePathToKeyboardLayout" xml:space="preserve">
     <value>Enter the path to the keyboard layout</value>
   </data>
+  <data name="uFail" xml:space="preserve">
+    <value>Fail!</value>
+  </data>
   <data name="uFileExplorer" xml:space="preserve">
     <value>File explorer</value>
   </data>
@@ -200,6 +203,9 @@
   </data>
   <data name="uMiddleSpeed" xml:space="preserve">
     <value>Average speed</value>
+  </data>
+  <data name="uMistakes" xml:space="preserve">
+    <value>mistakes</value>
   </data>
   <data name="uNo" xml:space="preserve">
     <value>No</value>
@@ -293,6 +299,9 @@
   </data>
   <data name="uSpeedInEverySecond" xml:space="preserve">
     <value>Speed in every second</value>
+  </data>
+  <data name="uSuccess" xml:space="preserve">
+    <value>Success!</value>
   </data>
   <data name="uTheLesson" xml:space="preserve">
     <value>The lesson</value>

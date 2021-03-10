@@ -142,6 +142,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Провал!.
+        /// </summary>
+        public static string uFail {
+            get {
+                return ResourceManager.GetString("uFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Проводник.
         /// </summary>
         public static string uFileExplorer {
@@ -309,6 +318,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uMiddleSpeed {
             get {
                 return ResourceManager.GetString("uMiddleSpeed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на ошибок.
+        /// </summary>
+        public static string uMistakes {
+            get {
+                return ResourceManager.GetString("uMistakes", resourceCulture);
             }
         }
         
@@ -588,6 +606,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uSpeedInEverySecond {
             get {
                 return ResourceManager.GetString("uSpeedInEverySecond", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Успех!.
+        /// </summary>
+        public static string uSuccess {
+            get {
+                return ResourceManager.GetString("uSuccess", resourceCulture);
             }
         }
         

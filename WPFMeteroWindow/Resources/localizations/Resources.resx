@@ -144,6 +144,9 @@
   <data name="uEnterThePathToKeyboardLayout" xml:space="preserve">
     <value>Введить путь к раскладке</value>
   </data>
+  <data name="uFail" xml:space="preserve">
+    <value>Провал!</value>
+  </data>
   <data name="uFileExplorer" xml:space="preserve">
     <value>Проводник</value>
   </data>
@@ -200,6 +203,9 @@
   </data>
   <data name="uMiddleSpeed" xml:space="preserve">
     <value>Средняя скорость</value>
+  </data>
+  <data name="uMistakes" xml:space="preserve">
+    <value>ошибок</value>
   </data>
   <data name="uNo" xml:space="preserve">
     <value>Нет</value>
@@ -293,6 +299,9 @@
   </data>
   <data name="uSpeedInEverySecond" xml:space="preserve">
     <value>Скорость на каждой секунде</value>
+  </data>
+  <data name="uSuccess" xml:space="preserve">
+    <value>Успех!</value>
   </data>
   <data name="uTheLesson" xml:space="preserve">
     <value>Урок</value>
