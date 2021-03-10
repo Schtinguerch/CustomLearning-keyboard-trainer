@@ -95,5 +95,11 @@
     <Setting Name="KeyboardErrorHighlightColor" Type="System.String" Scope="User">
       <Value Profile="(Default)">Red</Value>
     </Setting>
+    <Setting Name="NecessaryCPM" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="MaxAcceptableMistakes" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1000000</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

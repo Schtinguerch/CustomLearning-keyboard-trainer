@@ -394,5 +394,29 @@ namespace WPFMeteroWindow.Properties {
                 this["KeyboardErrorHighlightColor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int NecessaryCPM {
+            get {
+                return ((int)(this["NecessaryCPM"]));
+            }
+            set {
+                this["NecessaryCPM"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000000")]
+        public int MaxAcceptableMistakes {
+            get {
+                return ((int)(this["MaxAcceptableMistakes"]));
+            }
+            set {
+                this["MaxAcceptableMistakes"] = value;
+            }
+        }
     }
 }
