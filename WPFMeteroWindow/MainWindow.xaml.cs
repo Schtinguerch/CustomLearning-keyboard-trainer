@@ -362,7 +362,6 @@ namespace WPFMeteroWindow
         {
             var reader = new Lml(filename, Lml.Open.FromFile);
             string lessonText, lessonName;
-            int necessaryWPM;
             try
             {
                 if (Settings.Default.IsCourseOpened)
@@ -371,12 +370,13 @@ namespace WPFMeteroWindow
                     lessonName = reader.GetString("Lesson>Name");
                 
                 lessonText = Regex.Replace(reader.GetString("Lesson>Text"), "\\s+", " ");
-                necessaryWPM = reader.GetInt("Lesson>NecessaryWPM");
+                Settings.Default.NecessaryCPM = reader.GetInt("Lesson>NecessaryCPM");
             }
             catch
             {
                 lessonName = "...";
                 lessonText = File.ReadAllText(filename).Replace("\n", " ");
+                Settings.Default.NecessaryCPM = -1;
             }
 
             _doneRoad = "";
@@ -433,7 +433,11 @@ namespace WPFMeteroWindow
         {
             if (filename.Contains(".lml"))
             {
-                filename = new DirectoryInfo(filename).Parent.Name;
+                while (!File.Exists(filename + "\\CourseLessons.lml"))
+                {
+                    MessageBox.Show(filename);
+                    filename = new DirectoryInfo(filename).Parent.FullName;
+                }
             }
             
             var reader = new Lml(filename + "\\CourseLessons.lml", Lml.Open.FromFile);
