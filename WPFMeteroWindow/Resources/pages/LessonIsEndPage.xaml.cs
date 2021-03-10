@@ -35,7 +35,7 @@ namespace WPFMeteroWindow.Resources.pages
             WPMtextBlock.Text = $"{typingSpeed.ToString("N")} {Localization.uCPM}";
             WPStextBlock.Text = $"{(typingSpeed / 60f).ToString("N")} {Localization.uCPS}";
             ErrorsTextBlock.Text = 
-                $"{Settings.Default.TypingErrors} ошибок: {((float)Settings.Default.TypingErrors / Settings.Default.TypingLength * 100).ToString("N")}%";
+                $"{Settings.Default.TypingErrors} {Localization.uMistakes}: {((float)Settings.Default.TypingErrors / Settings.Default.TypingLength * 100).ToString("N")}%";
             TypingTimeTextBlock.Text =
                 $"{Localization.uTime}: {Settings.Default.TypingTime / 600}:{(Settings.Default.TypingTime / 10) % 60}";
             CharactersCountTextBlock.Text = $"{Localization.uCharactersCount}: {Settings.Default.TypingLength}";
@@ -65,10 +65,53 @@ namespace WPFMeteroWindow.Resources.pages
             Canvas.SetTop(AverapeCPMtextBlock, AverapeCPMpunctierPolyline.Points[0].Y - 8d);
             AverapeCPMtextBlock.Text = averageCPM.ToString("N");
 
+            var statusText = Localization.uCPM + ": ";
+            
+            var reqCPM = Settings.Default.NecessaryCPM;
+            var reqMistakes = Settings.Default.MaxAcceptableMistakes;
+            var mistakes = Settings.Default.TypingErrors;
+            var raidLessonStatus = false;
+
+            if ((reqCPM != -1) && (reqMistakes != -1))
+            {
+                statusText += (typingSpeed > reqCPM) ? $"{typingSpeed} > {reqCPM}; " :
+                    (typingSpeed == reqCPM) ? $"{typingSpeed} = {reqCPM}!!!; " :
+                    $"{typingSpeed} < {reqCPM}!!!; ";
+
+                statusText += Localization.uMistakes + ": ";
+
+                statusText += (mistakes < reqMistakes) ? $"{mistakes} < {reqMistakes} -> " :
+                    (mistakes == reqMistakes) ? $"{mistakes} = {reqMistakes}!!! -> " : 
+                    $"{mistakes} > {reqMistakes}!!! -> " ;
+                
+                if ((typingSpeed >= reqCPM) && (mistakes <= reqMistakes))
+                {
+                    statusText += Localization.uSuccess;
+                    raidLessonStatus = true;
+                }
+                else
+                    statusText += Localization.uFail;
+
+                LessonStatusTextBlock.Text = statusText;
+            }
+            else
+            {
+                raidLessonStatus = true;
+                LessonStatusTextBlock.Text = "";
+            }
+            
             try
             {
-                PrevLessonButton.Visibility = (Settings.Default.CourseLessonNumber == 0) || !Settings.Default.IsCourseOpened ? Visibility.Hidden : Visibility.Visible;
-                NextLessonButton.Visibility = NextLessonButton.Visibility = (Settings.Default.CourseLessonNumber == Actions.TheWindow.LessonsCount - 1) || !Settings.Default.IsCourseOpened ? Visibility.Hidden : Visibility.Visible;
+                PrevLessonButton.Visibility = 
+                    (Settings.Default.CourseLessonNumber == 0) 
+                    || !Settings.Default.IsCourseOpened ? 
+                        Visibility.Hidden : Visibility.Visible;
+                
+                NextLessonButton.Visibility = 
+                    (Settings.Default.CourseLessonNumber == Actions.TheWindow.LessonsCount - 1) 
+                    || !Settings.Default.IsCourseOpened 
+                    || !raidLessonStatus ? 
+                        Visibility.Hidden : Visibility.Visible;
             }
             catch
             {

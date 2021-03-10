@@ -371,12 +371,14 @@ namespace WPFMeteroWindow
                 
                 lessonText = Regex.Replace(reader.GetString("Lesson>Text"), "\\s+", " ");
                 Settings.Default.NecessaryCPM = reader.GetInt("Lesson>NecessaryCPM");
+                Settings.Default.MaxAcceptableMistakes = reader.GetInt("Lesson>MaximumMistakes");
             }
             catch
             {
                 lessonName = "...";
                 lessonText = File.ReadAllText(filename).Replace("\n", " ");
                 Settings.Default.NecessaryCPM = -1;
+                Settings.Default.MaxAcceptableMistakes = -1;
             }
 
             _doneRoad = "";
