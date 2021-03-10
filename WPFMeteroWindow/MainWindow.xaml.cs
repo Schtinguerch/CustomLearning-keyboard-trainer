@@ -434,10 +434,8 @@ namespace WPFMeteroWindow
             if (filename.Contains(".lml"))
             {
                 while (!File.Exists(filename + "\\CourseLessons.lml"))
-                {
-                    MessageBox.Show(filename);
                     filename = new DirectoryInfo(filename).Parent.FullName;
-                }
+                
             }
             
             var reader = new Lml(filename + "\\CourseLessons.lml", Lml.Open.FromFile);
