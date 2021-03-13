@@ -74,6 +74,10 @@ namespace WPFMeteroWindow.Resources.pages
                 case "Stats":
                     Settings.Default.ShowStatistics = state;
                     break;
+
+                case "Hands":
+                    Settings.Default.ShowHands = state;
+                    break;
             }
         }
 
@@ -155,6 +159,6 @@ namespace WPFMeteroWindow.Resources.pages
             {
                 
             }
-        }
+        }      
     }
 }

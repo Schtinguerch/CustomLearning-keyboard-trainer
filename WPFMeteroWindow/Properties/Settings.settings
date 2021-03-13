@@ -101,5 +101,17 @@
     <Setting Name="MaxAcceptableMistakes" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1000000</Value>
     </Setting>
+    <Setting Name="HandsColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="HandsOpacity" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0.5</Value>
+    </Setting>
+    <Setting Name="HandsThickness" Type="System.String" Scope="User">
+      <Value Profile="(Default)">6</Value>
+    </Setting>
+    <Setting Name="ShowHands" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -67,12 +67,14 @@ namespace WPFMeteroWindow.Resources.pages
         
         private void UIfontButton_OnClick(object sender, RoutedEventArgs e) =>
             SetFontFamily("UI");
-        
-        
+
+        private void HandsColorButton_Click(object sender, RoutedEventArgs e) =>
+            ShowColorPicker(HandsColorHighLightColorTextBox);
+
         #endregion
 
         #region Color picker (color choosen)
-        
+
         private void WindowColors_OnSelectionChanged(object sender, SelectionChangedEventArgs e) =>
             SetColor.WindowColor(WindowColors.SelectedItem.ToString());
         
@@ -119,9 +121,15 @@ namespace WPFMeteroWindow.Resources.pages
 
         private void ShowStatisticsTextBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e) =>
             SetYesOrNo("Stats", ShowStatisticsTextBox.SelectedItem.ToString());
-        
+
+        private void ShowHandsTextBox_SelectionChanged(object sender, SelectionChangedEventArgs e) =>
+            SetYesOrNo("Hands", ShowHandsTextBox.SelectedItem.ToString());
+
         private void LessonRaidedSymbolsColorTextBox_OnTextChanged(object sender, TextChangedEventArgs e) =>
             SetFont.MainRaidedLetters_Color(LessonRaidedSymbolsColorTextBox.Text);
+
+        private void HandsColorHighLightColorTextBox_TextChanged(object sender, TextChangedEventArgs e) =>
+           SetColor.Hands(HandsColorHighLightColorTextBox.Text);
 
         private void WindowTheme_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {

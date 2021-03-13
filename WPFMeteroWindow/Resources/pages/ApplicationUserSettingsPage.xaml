@@ -967,7 +967,96 @@
                             
                         </StackPanel>
                     </Grid>
-                    
+
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                          Margin="0 24 0 10"
+                          Height="30">
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uHands}"
+                            FontSize="24">
+                        </TextBlock>
+                    </Grid>
+
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                          >
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uShowHands}"
+                            FontSize="14">
+                        </TextBlock>
+
+                        <StackPanel
+                            Height="32"
+                            Width="400"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+
+                            <ComboBox
+                                FontSize="18"
+                                Height="32"
+                                Width="350"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="ShowHandsTextBox"
+                                SelectionChanged="ShowHandsTextBox_SelectionChanged">
+
+                                <TextBlock Text="{x:Static res:Resources.uYes}"></TextBlock>
+                                <TextBlock Text="{x:Static res:Resources.uNo}"></TextBlock>
+                            </ComboBox>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                          >
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uHandsColor}"
+                            FontSize="18">
+                        </TextBlock>
+
+                        <StackPanel
+                            Height="32"
+                            Width="400"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+
+                            <TextBox
+                                FontSize="18"
+                                Height="32"
+                                Width="350"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="HandsColorHighLightColorTextBox"
+                                TextChanged="HandsColorHighLightColorTextBox_TextChanged">
+                            </TextBox>
+
+                            <Button 
+                                Margin="10 0 0 0"
+                                Width="38"
+                                BorderBrush="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}" 
+                                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                                FontSize="12"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+                                x:Name="HandsColorButton"
+                                Click="HandsColorButton_Click">
+                                🖌
+                            </Button>
+                        </StackPanel>
+                    </Grid>
                 </StackPanel>
 
             </ScrollViewer>

@@ -96,6 +96,18 @@
     <Compile Include="Commands\ColorSetter.cs" />
     <Compile Include="Commands\FileOpener.cs" />
     <Compile Include="Commands\FontSetter.cs" />
+    <Compile Include="Resources\Hands\LeftHand\Key18.xaml.cs">
+      <DependentUpon>Key18.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key21.xaml.cs">
+      <DependentUpon>Key21.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\StandardPositionLeft.xaml.cs">
+      <DependentUpon>StandardPositionLeft.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\StandardPositionRight.xaml.cs">
+      <DependentUpon>StandardPositionRight.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\localizations\Resources.en-US.Designer.cs">
       <DependentUpon>Resources.en-US.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -130,6 +142,7 @@
       <DependentUpon>LessonLoaderPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tools\Actions.cs" />
+    <Compile Include="Tools\HandPresenter.cs" />
     <Compile Include="Tools\Opener.cs" />
     <Compile Include="Tools\SetColor.cs" />
     <Compile Include="Tools\SetFont.cs" />
@@ -146,6 +159,22 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Resources\dictionaries\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\LeftHand\Key18.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key21.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\StandardPositionLeft.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\StandardPositionRight.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
