@@ -150,6 +150,18 @@
   <data name="uFileExplorer" xml:space="preserve">
     <value>Проводник</value>
   </data>
+  <data name="uHands" xml:space="preserve">
+    <value>Руки</value>
+  </data>
+  <data name="uHandsColor" xml:space="preserve">
+    <value>Цвет рук</value>
+  </data>
+  <data name="uHandsOpacity" xml:space="preserve">
+    <value>Прозрачность рук</value>
+  </data>
+  <data name="uHandsThickness" xml:space="preserve">
+    <value>Толщина линий на руках</value>
+  </data>
   <data name="uIndex" xml:space="preserve">
     <value>указательным на </value>
   </data>
@@ -293,6 +305,9 @@
   </data>
   <data name="uSettWindowColor" xml:space="preserve">
     <value>Цвет окна</value>
+  </data>
+  <data name="uShowHands" xml:space="preserve">
+    <value>Показывать руки</value>
   </data>
   <data name="uSpace" xml:space="preserve">
     <value>"Пробел"</value>

@@ -160,6 +160,42 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Руки.
+        /// </summary>
+        public static string uHands {
+            get {
+                return ResourceManager.GetString("uHands", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Цвет рук.
+        /// </summary>
+        public static string uHandsColor {
+            get {
+                return ResourceManager.GetString("uHandsColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Прозрачность рук.
+        /// </summary>
+        public static string uHandsOpacity {
+            get {
+                return ResourceManager.GetString("uHandsOpacity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Толщина линий на руках.
+        /// </summary>
+        public static string uHandsThickness {
+            get {
+                return ResourceManager.GetString("uHandsThickness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на указательным на .
         /// </summary>
         public static string uIndex {
@@ -588,6 +624,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uSettWindowColor {
             get {
                 return ResourceManager.GetString("uSettWindowColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Показывать руки.
+        /// </summary>
+        public static string uShowHands {
+            get {
+                return ResourceManager.GetString("uShowHands", resourceCulture);
             }
         }
         

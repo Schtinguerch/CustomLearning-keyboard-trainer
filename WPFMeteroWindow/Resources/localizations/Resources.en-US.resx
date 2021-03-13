@@ -150,6 +150,18 @@
   <data name="uFileExplorer" xml:space="preserve">
     <value>File explorer</value>
   </data>
+  <data name="uHands" xml:space="preserve">
+    <value>Hands</value>
+  </data>
+  <data name="uHandsColor" xml:space="preserve">
+    <value>Hands color</value>
+  </data>
+  <data name="uHandsOpacity" xml:space="preserve">
+    <value>Hands opacity</value>
+  </data>
+  <data name="uHandsThickness" xml:space="preserve">
+    <value>Hands line thickness</value>
+  </data>
   <data name="uIndex" xml:space="preserve">
     <value>index on </value>
   </data>
@@ -293,6 +305,9 @@
   </data>
   <data name="uSettWindowColor" xml:space="preserve">
     <value>Window color</value>
+  </data>
+  <data name="uShowHands" xml:space="preserve">
+    <value>Show hands</value>
   </data>
   <data name="uSpace" xml:space="preserve">
     <value>"Space"</value>
