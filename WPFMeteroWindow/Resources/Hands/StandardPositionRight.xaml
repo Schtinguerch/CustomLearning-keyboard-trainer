@@ -1,0 +1,73 @@
+﻿<Page x:Class="WPFMeteroWindow.Resources.Hands.StandardPositionRight"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
+      xmlns:local="clr-namespace:WPFMeteroWindow.Resources.Hands"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="900"
+      Title="StandardPositionRight">
+
+    <Grid Margin="366 116 0 0" VerticalAlignment="Top">
+            <Grid.RenderTransform>
+                <ScaleTransform ScaleX="-1" />
+            </Grid.RenderTransform>
+        <Path Stroke="{Binding Path=HandsColor, Source={x:Static prop:Settings.Default}}" StrokeThickness="{Binding Path=HandsThickness , Source={x:Static prop:Settings.Default}}"
+                  Canvas.Top="0">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathGeometry.Figures>
+                            <PathFigureCollection>
+                                <PathFigure StartPoint="10,404">
+                                    <PathFigure.Segments>
+                                        <PathSegmentCollection>
+                                            <PolyQuadraticBezierSegment Points="10,404 24,372 38,290 39,236 42,218 53,188 61,146 73,110 92,77 121,28 129,16 145,21 151,31 151,31" />
+                                        </PathSegmentCollection>
+                                    </PathFigure.Segments>
+                                </PathFigure>
+                            </PathFigureCollection>
+                        </PathGeometry.Figures>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+
+        <Path Stroke="{Binding Path=HandsColor, Source={x:Static prop:Settings.Default}}" StrokeThickness="{Binding Path=HandsThickness , Source={x:Static prop:Settings.Default}}"
+              Canvas.Top="0">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathGeometry.Figures>
+                            <PathFigureCollection>
+                                <PathFigure StartPoint="82,166">
+                                    <PathFigure.Segments>
+                                        <PathSegmentCollection>
+                                            <PolyQuadraticBezierSegment Points="82,166 92,111 99,77 110,61 151,32 184,12 202,14 206,24 204,40 204,40" />
+                                        </PathSegmentCollection>
+                                    </PathFigure.Segments>
+                                </PathFigure>
+                            </PathFigureCollection>
+                        </PathGeometry.Figures>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+
+        <Path Stroke="{Binding Path=HandsColor, Source={x:Static prop:Settings.Default}}" StrokeThickness="{Binding Path=HandsThickness , Source={x:Static prop:Settings.Default}}"
+              Canvas.Top="0">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathGeometry.Figures>
+                            <PathFigureCollection>
+                                <PathFigure StartPoint="128,160">
+                                    <PathFigure.Segments>
+                                        <PathSegmentCollection>
+                                            <PolyQuadraticBezierSegment Points="128,160 138,146 153,100 161,76 167,63 178,54 200,45 219,25 226,14 235,12 247,14 254,23 252,50 244,68 235,78 223,88 208,128 200,159 208,153 216,127 237,94 251,75 260,60 264,41 276,21 288,12 300,15 310,34 304,67 295,90 285,122 257,194 254,237 254,237 255,229 263,210 273,198 273,198 266,186 271,165 289,132 302,122 321,126 323,147 317,164 326,195 310,242 303,277 290,310 255,345 198,404 198,404" />
+                                        </PathSegmentCollection>
+                                    </PathFigure.Segments>
+                                </PathFigure>
+                            </PathFigureCollection>
+                        </PathGeometry.Figures>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+        </Grid>
+</Page>

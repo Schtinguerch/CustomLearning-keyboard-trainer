@@ -1,0 +1,70 @@
+﻿<Page x:Class="WPFMeteroWindow.Resources.Hands.LeftHand.Key18"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
+      xmlns:local="clr-namespace:WPFMeteroWindow.Resources.Hands.LeftHand"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="Key18">
+
+    <Grid Margin="-10 60 0 0" VerticalAlignment="Top">
+        <Path Stroke="{Binding Path=HandsColor, Source={x:Static prop:Settings.Default}}" StrokeThickness="{Binding Path=HandsThickness , Source={x:Static prop:Settings.Default}}"
+              Canvas.Top="0">
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure StartPoint="22,458">
+                                <PathFigure.Segments>
+                                    <PathSegmentCollection>
+                                        <PolyQuadraticBezierSegment Points="22,458 52,403 58,381 59,351 55,291 56,242 58,188 63,148 86,110 98,94 121,84 136,75 142,70 149,74 156,84 156,84" />
+                                    </PathSegmentCollection>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+
+        <Path Stroke="{Binding Path=HandsColor, Source={x:Static prop:Settings.Default}}" StrokeThickness="{Binding Path=HandsThickness , Source={x:Static prop:Settings.Default}}"
+              Canvas.Top="0">
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure StartPoint="95,175">
+                                <PathFigure.Segments>
+                                    <PathSegmentCollection>
+                                        <PolyQuadraticBezierSegment Points="95,175 99,133 104,115 111,108 146,88 172,75 190,69 208,73" />
+                                    </PathSegmentCollection>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+
+        <Path Stroke="{Binding Path=HandsColor, Source={x:Static prop:Settings.Default}}" StrokeThickness="{Binding Path=HandsThickness , Source={x:Static prop:Settings.Default}}"
+              Canvas.Top="0">
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure StartPoint="127,212 ">
+                                <PathFigure.Segments>
+                                    <PathSegmentCollection>
+                                        <PolyQuadraticBezierSegment Points="127,212 142,194 151,151 157,116 163,99 175,88 200,80 212,68 225,56 239,55 251,75 251,75 243,108 225,125 225,125 216,152 217,175 212,204 199,215 212,204 216,184 228,148 240,118 252,84 254,59 261,33 268,23 276,20 289,25 296,34 300,68 294,109 288,153 275,211 272,259 275,275 286,262 301,226 301,226 300,210 305,196 318,172 330,160 347,153 360,157 360,157 352,192 353,235 334,305 327,335 300,360 255,407 220,440 207,459" />
+                                    </PathSegmentCollection>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+    </Grid>
+</Page>
