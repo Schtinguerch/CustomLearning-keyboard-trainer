@@ -176,6 +176,9 @@ namespace WPFMeteroWindow
                                 (isNecessaryFileExists? 
                                     "ошибка доступа" : "файл не существует!!!"));
             }
+
+            var presenter = new HandPresenter(LeftHandFrame, RightHandFrame);
+            presenter.ShowHands(21, 0);
         }
 
         private void ShowTheNecessaryButtons(char character)
@@ -402,6 +405,7 @@ namespace WPFMeteroWindow
 
             TimerTextBlock.Text = "0:0";
             WPMTextBlock.Text = $"0 {Localization.uCPM}";
+            MistakesTextBloxck.Text = "0 " + Localization.uMistakes;
         }
 
         public void ReloadTimer()
@@ -429,6 +433,7 @@ namespace WPFMeteroWindow
             }
 
             WPMTextBlock.Text = (_doneRoad.Length / (double)_typingMilliseconds * 10d * 60).ToString("N") + $" {Localization.uCPM}";
+            MistakesTextBloxck.Text = _typingErrors.ToString() + ' ' + Localization.uMistakes;
         }
         
         public void LoadCourse(string filename)

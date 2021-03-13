@@ -135,6 +135,14 @@
                         Header="{x:Static res:Resources.uMenuNewCourse}"></MenuItem>
                 </MenuItem>
             </Menu>
+            
+            <TextBlock
+                x:Name="MistakesTextBloxck"
+                Style="{StaticResource SummaryTextStyle}"
+                HorizontalAlignment="Right"
+                Text=""
+                FontSize="14"
+            ></TextBlock>
         </Grid>
 
         <Grid
@@ -193,7 +201,7 @@
             </Grid>
 
             <Grid Grid.Column="1" x:Name="StatisticsGrid">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="6">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0">
                     <TextBlock 
                         Style="{StaticResource SummaryTextStyle}"
                         Margin="0 0 10 0"
@@ -205,7 +213,7 @@
 
                     <TextBlock 
                         Style="{StaticResource SummaryTextStyle}"
-                        Margin="0 0 10 0"
+                        Margin="0 0 12 0"
                         FontSize="20"
                         HorizontalAlignment="Right"
                         x:Name="TimerTextBlock"
@@ -371,12 +379,39 @@
                     <ColumnDefinition Width="1.25*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
             </Grid>
-
-            <Grid Grid.Row="0" Grid.RowSpan="5" Background="Black" Opacity="0">
-
-            </Grid>
         </Grid>
-        
+
+        <Grid 
+            Grid.Column="1"
+            Grid.Row="4"
+            Background="Transparent" 
+            Opacity="{Binding Path=HandsOpacity, Source={x:Static prop:Settings.Default}}"
+            Height="500"
+            VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="5.8*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Frame
+                Grid.Column="0"
+                x:Name="LeftHandFrame"
+                NavigationUIVisibility="Hidden"
+                Height="506"
+                VerticalAlignment="Top">
+            </Frame>
+
+            <Frame
+                Grid.Column="1"
+                x:Name="RightHandFrame"
+                NavigationUIVisibility="Hidden"
+                Height="506"
+                HorizontalAlignment="Left"
+                Width="1000"
+                VerticalAlignment="Top">
+            </Frame>
+        </Grid>
+
         <Grid Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
               Grid.Row="2"
               Grid.Column="0">
