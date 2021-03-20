@@ -8,8 +8,8 @@ namespace WPFMeteroWindow
         public static void MainLetters(string fontFamily)
         {
             Settings.Default.LessonLettersFont = fontFamily;
-            Actions.TheWindow.inputTextBlock.FontFamily = new FontFamily(fontFamily);
-            Actions.TheWindow.inputTextBox.FontFamily = new FontFamily(fontFamily);
+            AppManager.Window.inputTextBlock.FontFamily = new FontFamily(fontFamily);
+            AppManager.Window.inputTextBox.FontFamily = new FontFamily(fontFamily);
         }
 
         public static void MainLetters_Color(string fontColor)
@@ -45,13 +45,11 @@ namespace WPFMeteroWindow
         public static void Keyboard(string fontFamily)
         {
             Settings.Default.KeyboardFont = fontFamily;
-            Actions.TheWindow.ReloadKeyboard();
         }
 
         public static void Keyboard_Color(string fontColor)
         {
             Settings.Default.KeyboardFontColor = fontColor;
-            Actions.TheWindow.ReloadKeyboard();
         }
     }
 }

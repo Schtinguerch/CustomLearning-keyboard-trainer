@@ -12,16 +12,16 @@ using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 
 namespace WPFMeteroWindow
 {
-    public static class Actions
+    public static class AppManager
     {
-        public static MainWindow TheWindow;
+        public static MainWindow Window;
 
         public static void FindMainWindow()
         {
             foreach (Window window in Application.Current.Windows)
                 if (window.GetType() == typeof(MainWindow))
                 {
-                    TheWindow = window as MainWindow;
+                    Window = window as MainWindow;
                     break;
                 }
         }
@@ -62,7 +62,7 @@ namespace WPFMeteroWindow
             return (keyData, buttons);
         }
 
-        public static string ToBeCorrected(this string s)
+        private static string ToBeCorrected(this string s)
         {
             var val = s;
 
@@ -76,7 +76,7 @@ namespace WPFMeteroWindow
             return val;
         }
 
-        public static Button NewKeyboardButton(string defaultKey, string shiftKey, string altGrKey, string shiftAltGrKey)
+        private static Button NewKeyboardButton(string defaultKey, string shiftKey, string altGrKey, string shiftAltGrKey)
         {
             var padding = 1d;
             var button = new Button()

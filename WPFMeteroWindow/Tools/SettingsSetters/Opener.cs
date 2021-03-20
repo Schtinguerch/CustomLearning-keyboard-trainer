@@ -15,7 +15,7 @@ namespace WPFMeteroWindow
                 Settings.Default.CourseLessonNumber = lessonIndex;
                 Settings.Default.Save();
             
-                Actions.TheWindow.LoadCourse(fileName);
+                AppManager.Window.LoadCourse(fileName);
             }
             else
             {
@@ -30,7 +30,7 @@ namespace WPFMeteroWindow
                 Settings.Default.KeyboardLayoutFile = fileName;
                 Settings.Default.Save();
 
-                Actions.TheWindow.ReloadKeyboard();
+                AppManager.Window.ReloadKeyboard();
             }
             else
             {
@@ -46,7 +46,7 @@ namespace WPFMeteroWindow
                 Settings.Default.LoadedLessonFile = fileName;
                 Settings.Default.Save();
                 
-                Actions.TheWindow.LoadLesson(fileName);
+                AppManager.Window.LoadLesson(fileName);
             }
             else
             {
