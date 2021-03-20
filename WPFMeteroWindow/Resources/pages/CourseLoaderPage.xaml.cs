@@ -4,9 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
-using WPFMeteroWindow.Properties;
 using LmlLibrary;
-using Microsoft.Win32;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.MessageBox;
 
@@ -45,7 +43,7 @@ namespace WPFMeteroWindow.Resources.pages
                     {
                         Opener.NewCourse(_courseRef,
                             (LessonsComboBox.SelectedIndex == -1) ? 0 : LessonsComboBox.SelectedIndex);
-                        Actions.TheWindow.HideSettingGrid();
+                        PageManager.HidePages();
                     }
                         
                 }
@@ -59,7 +57,7 @@ namespace WPFMeteroWindow.Resources.pages
         private void LoadCourseData(string filename)
         {
             var reader = new Lml(filename, Lml.Open.FromFile);
-            var lessonFiles = Actions.GetFileList(reader.GetArray("Course>LessonList"));
+            var lessonFiles = AppManager.GetFileList(reader.GetArray("Course>LessonList"));
             _courseName = reader.GetString("Course>Name");
             _courseRef = filename;
 

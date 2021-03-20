@@ -28,7 +28,7 @@ namespace WPFMeteroWindow.Resources.pages
             if (openDialog.ShowDialog() == true)
             {
                 Opener.NewLesson(openDialog.FileName);
-                Actions.TheWindow.HideSettingGrid();
+                PageManager.HidePages();
             }
         }
 
@@ -37,7 +37,7 @@ namespace WPFMeteroWindow.Resources.pages
             if (e.Key == Key.Enter)
             {
                 Opener.NewLesson(LessonTextBox.Text);
-                Actions.TheWindow.HideSettingGrid();
+                PageManager.HidePages();
             }
         }
     }

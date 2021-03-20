@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using WPFMeteroWindow.Properties;
+using MessageBox = System.Windows.MessageBox;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 
 namespace WPFMeteroWindow.Resources.pages
@@ -38,7 +39,10 @@ namespace WPFMeteroWindow.Resources.pages
             };
 
             if (openDialog.ShowDialog() == true)
+            {
                 KeyboardLayoutTextBox.Text = openDialog.FileName;
+                Settings.Default.KeyboardLayoutFile = openDialog.FileName;
+            }
         }
 
         private void KeyboardButtonsColorButton_OnClick(object sender, RoutedEventArgs e) =>

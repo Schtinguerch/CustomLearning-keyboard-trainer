@@ -114,7 +114,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Resources\pages\ApplicationUserSettingsPageUIelemensImplementation.cs" />
-    <Compile Include="Tools\GraphDrawer.cs" />
     <Compile Include="Resources\localizations\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -141,11 +140,20 @@
     <Compile Include="Resources\pages\LessonLoaderPage.xaml.cs">
       <DependentUpon>LessonLoaderPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Tools\Actions.cs" />
-    <Compile Include="Tools\HandPresenter.cs" />
-    <Compile Include="Tools\Opener.cs" />
-    <Compile Include="Tools\SetColor.cs" />
-    <Compile Include="Tools\SetFont.cs" />
+    <Compile Include="Tools\Common\Intermediary.cs" />
+    <Compile Include="Tools\Managers\AppManager.cs" />
+    <Compile Include="Tools\Managers\CourseManager.cs" />
+    <Compile Include="Tools\Managers\KeyboardManager.cs" />
+    <Compile Include="Tools\Managers\LessonManager.cs" />
+    <Compile Include="Tools\Managers\PageManager.cs" />
+    <Compile Include="Tools\Managers\StatisticsManager.cs" />
+    <Compile Include="Tools\PresentTools\GraphDrawer.cs" />
+    <Compile Include="Tools\PresentTools\HandPresenter.cs" />
+    <Compile Include="Tools\PresentTools\KeyboardPresenter.cs" />
+    <Compile Include="Tools\SettingsSetters\KeyboardLoader.cs" />
+    <Compile Include="Tools\SettingsSetters\Opener.cs" />
+    <Compile Include="Tools\SettingsSetters\SetColor.cs" />
+    <Compile Include="Tools\SettingsSetters\SetFont.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

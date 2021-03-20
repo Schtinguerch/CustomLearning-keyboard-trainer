@@ -27,7 +27,9 @@ namespace WPFMeteroWindow.Resources.pages
             if (openDialog.ShowDialog() == true)
             {
                 Opener.NewKeyboardLayout(openDialog.FileName); 
-                Actions.TheWindow.HideSettingGrid();
+                PageManager.HidePages();
+                
+                Settings.Default.Save();
                 LayoutTextBox.Text = "";
             }
         }
@@ -36,9 +38,19 @@ namespace WPFMeteroWindow.Resources.pages
         {
             if (e.Key == Key.Enter)
             {
-                Opener.NewKeyboardLayout(LayoutTextBox.Text);
-                Actions.TheWindow.HideSettingGrid();
-                LayoutTextBox.Text = "";
+                try
+                {
+                    Opener.NewKeyboardLayout(LayoutTextBox.Text);
+                    PageManager.HidePages();
+                    
+                    Settings.Default.Save();
+                    LayoutTextBox.Text = "";
+                }
+
+                catch
+                {
+                    
+                }
             }
                 
         }

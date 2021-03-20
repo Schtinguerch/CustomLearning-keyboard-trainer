@@ -137,14 +137,15 @@ namespace WPFMeteroWindow.Resources.pages
         private void ApplyButton_OnClick(object sender, RoutedEventArgs e)
         {
             Settings.Default.Save();
-            Actions.TheWindow.ReloadKeyboard();
-            Actions.TheWindow.HideSettingGrid();
+            KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
+            PageManager.HidePages();
         }
 
         private void DiscardButton_Click(object sender, RoutedEventArgs e)
         {
             Settings.Default.Reload();
-            Actions.TheWindow.HideSettingGrid();
+            KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
+            PageManager.HidePages();
         }
 
         private void LessonlettersFontSizeTextBox_OnTextChanged(object sender, TextChangedEventArgs e)

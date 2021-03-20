@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Globalization;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
+using WPFMeteroWindow.Properties;
 
 namespace WPFMeteroWindow
 {
@@ -15,9 +9,22 @@ namespace WPFMeteroWindow
     /// </summary>
     public partial class App : Application
     {
+        public void LoadUserResourceDictionaries()
+        {
+            var appDictionary = Application.Current.Resources.MergedDictionaries;
+            appDictionary[appDictionary.Count - 2] = new ResourceDictionary()
+            {
+                Source = new Uri(Settings.Default.ThemeResourceDictionary, UriKind.RelativeOrAbsolute)
+            };
+            appDictionary[appDictionary.Count - 3] = new ResourceDictionary()
+            {
+                Source = new Uri(Settings.Default.ColorSchemeResourceDictionary, UriKind.RelativeOrAbsolute)
+            };
+        }
+        
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
-            
+            LoadUserResourceDictionaries();
         }
     }
 }

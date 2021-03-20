@@ -35,22 +35,22 @@ namespace WPFMeteroWindow.Commands
                 
                 case "kbbg":
                     SetColor.KeyboardBackground(args[1].ToString());
-                    Actions.TheWindow.ReloadKeyboard();
+                    KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
                     break;
                 
                 case "kbbr":
                     SetColor.KeyboardBorder(args[1].ToString());
-                    Actions.TheWindow.ReloadKeyboard();
+                    KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
                     break;
                 
                 case "kbhl":
                     SetColor.KeyboardHighlight(args[1].ToString());
-                    Actions.TheWindow.ReloadKeyboard();
+                    KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
                     break;
 
                 case "kber":
                     SetColor.KeyboardErrorHighlight(args[1].ToString());
-                    Actions.TheWindow.ReloadKeyboard();
+                    KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
                     break;
 
                 case "t":

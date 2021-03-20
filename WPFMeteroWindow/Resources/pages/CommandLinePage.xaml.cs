@@ -49,7 +49,7 @@ namespace WPFMeteroWindow.Resources.pages
                     _commandManager.ExecuteCommand(commandName, arguments);
                 }
                 
-                Actions.TheWindow.HideSettingGrid();
+                PageManager.HidePages();
             }
         }
     }

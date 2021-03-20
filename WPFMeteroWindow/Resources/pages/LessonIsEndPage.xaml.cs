@@ -1,17 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WPFMeteroWindow.Properties;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 
@@ -40,13 +31,13 @@ namespace WPFMeteroWindow.Resources.pages
                 $"{Localization.uTime}: {Settings.Default.TypingTime / 600}:{(Settings.Default.TypingTime / 10) % 60}";
             CharactersCountTextBlock.Text = $"{Localization.uCharactersCount}: {Settings.Default.TypingLength}";
             
-            var drawer = new GraphDrawer(Actions.TheWindow.ChartPoints, 180, 380);
+            var drawer = new GraphDrawer(StatisticsManager.ChartPoints, 180, 380);
             drawer.DrawSpeedGraph(ref TypingSpeedPolyline);
             
             var maxCPM = drawer.MaxCPM;
             MaxCPMtextBlock.Text = maxCPM.ToString();
             
-            drawer = new GraphDrawer(Actions.TheWindow.AveragePoints, 180, 380);
+            drawer = new GraphDrawer(StatisticsManager.AveragePoints, 180, 380);
             drawer.MaxCPM = maxCPM;
             drawer.DrawSpeedGraph(ref AverageTypingSpeedPolyline);
 
@@ -108,7 +99,7 @@ namespace WPFMeteroWindow.Resources.pages
                         Visibility.Hidden : Visibility.Visible;
                 
                 NextLessonButton.Visibility = 
-                    (Settings.Default.CourseLessonNumber == Actions.TheWindow.LessonsCount - 1) 
+                    (Settings.Default.CourseLessonNumber == CourseManager.LessonsCount - 1) 
                     || !Settings.Default.IsCourseOpened 
                     || !raidLessonStatus ? 
                         Visibility.Hidden : Visibility.Visible;
@@ -122,27 +113,28 @@ namespace WPFMeteroWindow.Resources.pages
 
         private void PrevLessonButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Actions.TheWindow.HideSettingGrid();
-            Actions.TheWindow.StartPreviouslesson();
+            PageManager.HidePages();
+            CourseManager.CurrentLessonIndex--;
         }
 
         private void CurrLessonButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Actions.TheWindow.HideSettingGrid();
-            Actions.TheWindow.RestartLesson();
+            PageManager.HidePages();
+            CourseManager.CurrentLessonIndex = CourseManager.CurrentLessonIndex;
         }
 
         private void NextLessonButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Actions.TheWindow.HideSettingGrid();
-            Actions.TheWindow.StartNextLesson();
+            PageManager.HidePages();
+            CourseManager.CurrentLessonIndex++;
         }
 
         private void LessonIsEndPage_OnKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Escape)
             {
-                Actions.TheWindow.HideSettingGrid();
+                PageManager.HidePages();
+                CourseManager.CurrentLessonIndex = CourseManager.CurrentLessonIndex;
             }
         }
     }

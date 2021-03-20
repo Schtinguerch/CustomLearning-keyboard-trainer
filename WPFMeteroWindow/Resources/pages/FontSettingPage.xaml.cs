@@ -35,17 +35,14 @@ namespace WPFMeteroWindow.Resources.pages
                 var fontFamily = Regex.Replace(FontTextBox.Text, "^\\s*(l:|k:)\\s*", "");
                 if (FontTextBox.Text.Contains("l:"))
                 {
-                    Settings.Default.LessonLettersFont = fontFamily;
-
-                    Actions.TheWindow.SetNewLetterFont();
-                    Actions.TheWindow.HideSettingGrid();
+                    SetFont.MainLetters(fontFamily);
+                    PageManager.HidePages();
                 }
                 else if (FontTextBox.Text.Contains("k:"))
                 {
-                    Settings.Default.KeyboardFont = fontFamily;
-                    
-                    Actions.TheWindow.ReloadKeyboard();
-                    Actions.TheWindow.HideSettingGrid();
+                    SetFont.Keyboard(fontFamily);
+                    KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
+                    PageManager.HidePages();
                 }
 
                 Settings.Default.Save();

@@ -80,6 +80,28 @@ namespace WPFMeteroWindow
         public void ShowHandsInStandardPosition() =>
             ShowHands(30, 0);
 
+        public void ShowHandsOnBackspace()
+        {
+            try
+            {
+                int keyIndex = -1;
+                
+                for (int i = 0; i < 61; i++)
+                    for (int j = 0; j < 4; j++)
+                        if ((Intermediary.KeyboardData.keys[i][j] != "") && (Intermediary.KeyboardData.keys[i][j] != null))
+                            if (Intermediary.KeyboardData.keys[i][j] == "Backspace")
+                                keyIndex = i;
+
+                if (keyIndex != -1)
+                    ShowHands(keyIndex, 0);
+            }
+
+            catch
+            {
+                ShowHandsInStandardPosition();
+            }
+        }
+
         public void ShowHands(int charIndex, int modifierStatus)
         {
             if (IsSpace(charIndex))
