@@ -22,6 +22,9 @@ namespace WPFMeteroWindow.Resources.pages
             lessonName = (lessonName == "...") ? "" : $"\"{lessonName}\"";
             EndedLessonHeaderTextBlock.Text = $"{Localization.uTheLesson} {lessonName} {Localization.uIsFinished}!!!";
 
+            if (Settings.Default.ItTypingTest)
+                EndedLessonHeaderTextBlock.Text = $"Typing test {Localization.uIsFinished}!!!";
+
             var typingSpeed = Settings.Default.TypingLength / ((float) Settings.Default.TypingTime / 10) * 60f;
             WPMtextBlock.Text = $"{typingSpeed.ToString("N")} {Localization.uCPM}";
             WPStextBlock.Text = $"{(typingSpeed / 60f).ToString("N")} {Localization.uCPS}";
@@ -63,7 +66,7 @@ namespace WPFMeteroWindow.Resources.pages
             var mistakes = Settings.Default.TypingErrors;
             var raidLessonStatus = false;
 
-            if ((reqCPM != -1) && (reqMistakes != -1))
+            if ((reqCPM != -1) && (reqMistakes != -1) || Settings.Default.ItTypingTest)
             {
                 statusText += (typingSpeed > reqCPM) ? $"{typingSpeed} > {reqCPM}; " :
                     (typingSpeed == reqCPM) ? $"{typingSpeed} = {reqCPM}!!!; " :
@@ -120,7 +123,11 @@ namespace WPFMeteroWindow.Resources.pages
         private void CurrLessonButton_OnClick(object sender, RoutedEventArgs e)
         {
             PageManager.HidePages();
-            CourseManager.CurrentLessonIndex = CourseManager.CurrentLessonIndex;
+            
+            if (Settings.Default.ItTypingTest)
+                TestManager.RestartTest();
+            else 
+                CourseManager.CurrentLessonIndex = CourseManager.CurrentLessonIndex;
         }
 
         private void NextLessonButton_OnClick(object sender, RoutedEventArgs e)
@@ -134,7 +141,11 @@ namespace WPFMeteroWindow.Resources.pages
             if (e.Key == Key.Escape)
             {
                 PageManager.HidePages();
-                CourseManager.CurrentLessonIndex = CourseManager.CurrentLessonIndex;
+
+                if (Settings.Default.ItTypingTest)
+                    TestManager.RestartTest();
+                else 
+                    CourseManager.CurrentLessonIndex = CourseManager.CurrentLessonIndex;
             }
         }
     }

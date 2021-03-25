@@ -26,12 +26,6 @@ namespace WPFMeteroWindow
         private bool _breakTextProcessing = false;
 
         private bool _isFirstMistake = true;
-        
-        public void HideSettingGrid()
-        {
-            aoeiGrid.Visibility = Visibility.Hidden;
-            SettingFrame.Source = null;
-        }
 
         public void RestartLesson() =>
             CourseManager.CurrentLessonIndex = CourseManager.CurrentLessonIndex;
@@ -50,8 +44,16 @@ namespace WPFMeteroWindow
             KeyboardManager.KeyboardPresenter = new KeyboardPresenter();
             KeyboardManager.HandPresenter = new HandPresenter(LeftHandFrame, RightHandFrame);
             
+            PageManager.PageGrid = aoeiGrid;
+            PageManager.PageFrame = SettingFrame;
+
+            Intermediary.RichPresentManager = new DiscordManager();
+            Intermediary.RichPresentManager.Initialize();
+
             AppManager.InitializeApplication();
             
+            TestManager.LoadWords("JustLessons\\topWords.txt");
+            TestManager.StartTest(TestWords.Top1000, TestAdditional.None);
         }
 
         private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
@@ -113,57 +115,58 @@ namespace WPFMeteroWindow
 
         private void MainWindow_OnKeyDown(object sender, KeyEventArgs e)
         {
-            if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.F))
-            {
-                e.Handled = true;
+            var selectedPage = TabPage.EmptyPage;
 
-                if (AppManager.IsComboKeyDown(e, Key.LeftShift) || AppManager.IsComboKeyDown(e, Key.RightShift))
+            if ((e.Key != Key.LeftCtrl) && (e.Key != Key.RightCtrl))
+            {
+                if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.F))
                 {
-                    Settings.Default.FontContext = "k:";
+                    e.Handled = true;
+
+                    if (AppManager.IsComboKeyDown(e, Key.LeftShift) || AppManager.IsComboKeyDown(e, Key.RightShift))
+                        Settings.Default.FontContext = "k:";
+                    else
+                        Settings.Default.FontContext = "l:";
+
+                    selectedPage = TabPage.FontSetterShell;
                 }
-                else
+            
+                else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.C))
                 {
-                    Settings.Default.FontContext = "l:";
+                    e.Handled = true;
+                    selectedPage = TabPage.CommandLine;
                 }
-
-                Settings.Default.Save();
-
-                aoeiGrid.Visibility = Visibility.Visible;
-                SettingFrame.Source = new Uri(@"Resources/pages/FontSettingPage.xaml", UriKind.Relative);
-
-            }
-            else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.C))
-            {
-                e.Handled = true;
-
-                aoeiGrid.Visibility = Visibility.Visible;
-                SettingFrame.Source = new Uri(@"Resources/pages/CommandLinePage.xaml", UriKind.Relative);
-            }
-            else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.L))
-            {
-                e.Handled = true;
-
-                aoeiGrid.Visibility = Visibility.Visible;
-                SettingFrame.Source = new Uri(@"Resources/pages/LayoutChangerPage.xaml", UriKind.Relative);
-            }
-            else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.N))
-            {
-                e.Handled = true;
-                aoeiGrid.Visibility = Visibility.Visible;
-
-                if (AppManager.IsComboKeyDown(e, Key.LeftShift) || AppManager.IsComboKeyDown(e, Key.RightShift))
+            
+                else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.L))
                 {
-                    SettingFrame.Source = new Uri("Resources/pages/CourseLoaderPage.xaml", UriKind.Relative);
+                    e.Handled = true;
+                    selectedPage = TabPage.LayoutLoaderShell;
                 }
-                else
+            
+                else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.N))
                 {
-                    SettingFrame.Source = new Uri(@"Resources/pages/LessonLoaderPage.xaml", UriKind.Relative);
+                    e.Handled = true;
+
+                    if (AppManager.IsComboKeyDown(e, Key.LeftShift) || AppManager.IsComboKeyDown(e, Key.RightShift))
+                        selectedPage = TabPage.CourseLoaderShell;
+                    else
+                        selectedPage = TabPage.LessonLoaderShell;
                 }
             }
-            else if (e.Key == Key.Escape)
+
+            if (e.Key == Key.Escape)
             {
-                HideSettingGrid();
+                if(Settings.Default.ItTypingTest)
+                    Intermediary.RichPresentManager.Update("Typing test", "Ending: watching results", "");
+                else 
+                    Intermediary.RichPresentManager.Update(Settings.Default.LessonName, "Ending: watching results", "");
+                
+                PageManager.HidePages();
             }
+                
+            
+            if (selectedPage != TabPage.EmptyPage)
+                PageManager.OpenPage(selectedPage);
         }
 
         private void PrevLessonButton_OnClick(object sender, RoutedEventArgs e) =>
