@@ -41,6 +41,10 @@
     <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
     </Reference>
+    <Reference Include="DiscordRPC, Version=1.0.175.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\DiscordRichPresence.1.0.175\lib\net35\DiscordRPC.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="ICSharpCode.AvalonEdit, Version=6.0.1.278, Culture=neutral, PublicKeyToken=9cc39be672370310, processorArchitecture=MSIL">
       <HintPath>..\packages\AvalonEdit.6.0.1\lib\net45\ICSharpCode.AvalonEdit.dll</HintPath>
     </Reference>
@@ -49,6 +53,9 @@
     </Reference>
     <Reference Include="MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.6.5\lib\net46\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -143,10 +150,13 @@
     <Compile Include="Tools\Common\Intermediary.cs" />
     <Compile Include="Tools\Managers\AppManager.cs" />
     <Compile Include="Tools\Managers\CourseManager.cs" />
+    <Compile Include="Tools\Managers\DiscordManager.cs" />
     <Compile Include="Tools\Managers\KeyboardManager.cs" />
     <Compile Include="Tools\Managers\LessonManager.cs" />
+    <Compile Include="Tools\Managers\LogManager.cs" />
     <Compile Include="Tools\Managers\PageManager.cs" />
     <Compile Include="Tools\Managers\StatisticsManager.cs" />
+    <Compile Include="Tools\Managers\TestManager.cs" />
     <Compile Include="Tools\PresentTools\GraphDrawer.cs" />
     <Compile Include="Tools\PresentTools\HandPresenter.cs" />
     <Compile Include="Tools\PresentTools\KeyboardPresenter.cs" />
