@@ -466,5 +466,17 @@ namespace WPFMeteroWindow.Properties {
                 this["ShowHands"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ItTypingTest {
+            get {
+                return ((bool)(this["ItTypingTest"]));
+            }
+            set {
+                this["ItTypingTest"] = value;
+            }
+        }
     }
 }
