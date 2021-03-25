@@ -44,6 +44,8 @@ namespace WPFMeteroWindow
             {
                 Settings.Default.IsCourseOpened = false;
                 Settings.Default.LoadedLessonFile = fileName;
+                Settings.Default.ItTypingTest = false;
+                 
                 Settings.Default.Save();
                 
                 LessonManager.LoadLesson(fileName);
@@ -51,6 +53,36 @@ namespace WPFMeteroWindow
             else
             {
                 MessageBox.Show("Ошибка: файл, который Вы пытаетесь открыть не существует!");
+            }
+        }
+
+        public static void NewTest(TestWords testWords, TestAdditional additional)
+        {
+            Settings.Default.ItTypingTest = true;
+            Settings.Default.Save();
+
+            try
+            {
+                TestManager.StartTest(testWords, additional);
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка: файл с тестом не существует!");
+            }
+        }
+
+        public static void NewTest(int first, int last, TestAdditional additional)
+        {
+            Settings.Default.ItTypingTest = true;
+            Settings.Default.Save();
+
+            try
+            {
+                TestManager.StartTest(first, last, additional);
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка: файл с тестом не существует!");
             }
         }
     }
