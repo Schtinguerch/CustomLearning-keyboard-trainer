@@ -1,10 +1,10 @@
 ﻿using WPFMeteroWindow.Properties;
 using LmlLibrary;
-using System;
 using System.IO;
 using System.Text.RegularExpressions;
-using System.Windows;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
+using System;
+using System.Windows;
 
 namespace WPFMeteroWindow
 {
@@ -34,7 +34,7 @@ namespace WPFMeteroWindow
             catch
             {
                 lessonName = "...";
-                lessonText = File.ReadAllText(filename).Replace("\n", " ");
+                lessonText = File.ReadAllText(filename).Replace("\n", " ").Replace("\t", " ");
                 Settings.Default.NecessaryCPM = -1;
                 Settings.Default.MaxAcceptableMistakes = -1;
             }
@@ -58,6 +58,36 @@ namespace WPFMeteroWindow
             Intermediary.App.TimerTextBlock.Text = "0:0";
             Intermediary.App.WPMTextBlock.Text = $"0 {Localization.uCPM}";
             Intermediary.App.MistakesTextBloxck.Text = "0 " + Localization.uMistakes;
+
+            Settings.Default.ItTypingTest = false;
+            Settings.Default.Save();
+
+            Intermediary.RichPresentManager.Update(lessonName, "typing", "");
+        }
+
+        public static void LoadTest(string lessonText)
+        {
+            DoneRoad = "";
+            Intermediary.App.inputTextBox.Text = "";
+            StatisticsManager.ReloadStats();
+
+            LeftRoad = lessonText;
+            Intermediary.App.inputTextBlock.Text = lessonText;
+            Intermediary.App.lessonHeaderTextBlock.Text = "Typing test";
+
+            Intermediary.App.NextLessonButton.Visibility = Visibility.Hidden;
+            Intermediary.App.PrevLessonButton.Visibility = Visibility.Hidden;
+            
+            KeyboardManager.ShowTypingHint(LeftRoad[0]);
+            
+            Intermediary.App.TimerTextBlock.Text = "0:0";
+            Intermediary.App.WPMTextBlock.Text = $"0 {Localization.uCPM}";
+            Intermediary.App.MistakesTextBloxck.Text = "0 " + Localization.uMistakes;
+
+            Settings.Default.ItTypingTest = true;
+            Settings.Default.Save();
+
+            Intermediary.RichPresentManager.Update("Typing test", "typing", "");
         }
         
         public static void EndLesson()
@@ -68,9 +98,12 @@ namespace WPFMeteroWindow
             Settings.Default.Save();
             
             StatisticsManager.ReloadTimer();
+            PageManager.OpenPage(TabPage.EndedLesson);
             
-            Intermediary.App.aoeiGrid.Visibility = Visibility.Visible;
-            Intermediary.App.SettingFrame.Source = new Uri(@"Resources/pages/LessonIsEndPage.xaml", UriKind.Relative);
+            if(Settings.Default.ItTypingTest)
+                Intermediary.RichPresentManager.Update("Typing test", "Ending: watching results", "");
+            else 
+                Intermediary.RichPresentManager.Update(Settings.Default.LessonName, "Ending: watching results", "");
         }
     }
 }
