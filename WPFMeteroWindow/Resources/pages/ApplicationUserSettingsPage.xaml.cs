@@ -127,6 +127,14 @@ namespace WPFMeteroWindow.Resources.pages
             WindowColors.Items.Clear();
             foreach (var color in _windowColors)
                 WindowColors.Items.Add(color);
+
+            Intermediary.RichPresentManager.Update("Settings", "Configuring the application", "");
+
+            this.KeyDown += (s, e) =>
+            {
+                if (e.Key == Key.Escape)
+                    SetTypingStatus();
+            };
         }
 
         private void SetupColorPicker_OnSelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
@@ -139,6 +147,8 @@ namespace WPFMeteroWindow.Resources.pages
             Settings.Default.Save();
             KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
             PageManager.HidePages();
+
+            SetTypingStatus();
         }
 
         private void DiscardButton_Click(object sender, RoutedEventArgs e)
@@ -146,6 +156,16 @@ namespace WPFMeteroWindow.Resources.pages
             Settings.Default.Reload();
             KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
             PageManager.HidePages();
+
+            SetTypingStatus();
+        }
+
+        private void SetTypingStatus()
+        {
+            if (Settings.Default.ItTypingTest)
+                Intermediary.RichPresentManager.Update("Typing test", "typing", "");
+            else
+                Intermediary.RichPresentManager.Update(Settings.Default.LessonName, "typing", "");
         }
 
         private void LessonlettersFontSizeTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
