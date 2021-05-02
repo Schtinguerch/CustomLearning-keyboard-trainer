@@ -123,7 +123,8 @@
                     Header="{x:Static res:Resources.uMenuEditor}">
                     <MenuItem 
                         Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                        Header="{x:Static res:Resources.uMenuEditCurrentLesson}"></MenuItem>
+                        Header="{x:Static res:Resources.uMenuEditCurrentLesson}"
+                        Click="MenuItem_OnClick2"></MenuItem>
                     <MenuItem 
                         Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uMenuEditCurrentCourse}"></MenuItem>
