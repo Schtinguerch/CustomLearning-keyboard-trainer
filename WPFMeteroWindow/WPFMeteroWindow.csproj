@@ -132,6 +132,9 @@
     <Compile Include="Resources\pages\CommandLinePage.xaml.cs">
       <DependentUpon>CommandLinePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\pages\CourseEditorPage.xaml.cs">
+      <DependentUpon>CourseEditorPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\pages\CourseLoaderPage.xaml.cs">
       <DependentUpon>CourseLoaderPage.xaml</DependentUpon>
     </Compile>
@@ -141,6 +144,9 @@
     <Compile Include="Resources\pages\LayoutChangerPage.xaml.cs">
       <DependentUpon>LayoutChangerPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\pages\LessonEditorPage.xaml.cs">
+      <DependentUpon>LessonEditorPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\pages\LessonIsEndPage.xaml.cs">
       <DependentUpon>LessonIsEndPage.xaml</DependentUpon>
     </Compile>
@@ -148,6 +154,8 @@
       <DependentUpon>LessonLoaderPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tools\Common\Intermediary.cs" />
+    <Compile Include="Tools\Editors\CourseEditor.cs" />
+    <Compile Include="Tools\Editors\LessonEditor.cs" />
     <Compile Include="Tools\Managers\AppManager.cs" />
     <Compile Include="Tools\Managers\CourseManager.cs" />
     <Compile Include="Tools\Managers\DiscordManager.cs" />
@@ -204,6 +212,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\pages\CourseEditorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\pages\CourseLoaderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -213,6 +225,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\pages\LayoutChangerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\pages\LessonEditorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
