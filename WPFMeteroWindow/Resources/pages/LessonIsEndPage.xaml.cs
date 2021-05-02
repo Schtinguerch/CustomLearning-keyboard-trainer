@@ -16,7 +16,7 @@ namespace WPFMeteroWindow.Resources.pages
         public LessonIsEndPage()
         {
             InitializeComponent();
-            Focus();
+            CurrLessonButton.Focus();
             
             var lessonName = Settings.Default.LessonName;
             lessonName = (lessonName == "...") ? "" : $"\"{lessonName}\"";
@@ -140,12 +140,13 @@ namespace WPFMeteroWindow.Resources.pages
         {
             if (e.Key == Key.Escape)
             {
-                PageManager.HidePages();
 
                 if (Settings.Default.ItTypingTest)
                     TestManager.RestartTest();
                 else 
                     CourseManager.CurrentLessonIndex = CourseManager.CurrentLessonIndex;
+
+                PageManager.HidePages();
             }
         }
     }
