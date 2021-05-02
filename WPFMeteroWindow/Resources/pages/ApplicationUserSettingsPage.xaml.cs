@@ -2,22 +2,12 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Microsoft.Win32;
 using WPFMeteroWindow.Properties;
 using Color = System.Windows.Media.Color;
-using MessageBox = System.Windows.MessageBox;
 using Point = System.Windows.Point;
 using TextBox = System.Windows.Controls.TextBox;
 
@@ -29,6 +19,9 @@ namespace WPFMeteroWindow.Resources.pages
     public partial class ApplicationUserSettingsPage : Page
     {
         private UIElement _chosenTextBox;
+
+        private string _defaultColorScheme;
+        private Theme _defaultTheme;
 
         private readonly List<string> _windowColors = new List<string>()
         {
@@ -128,6 +121,14 @@ namespace WPFMeteroWindow.Resources.pages
             foreach (var color in _windowColors)
                 WindowColors.Items.Add(color);
 
+            if (Settings.Default.ThemeResourceDictionary.Contains("BaseLight"))
+                _defaultTheme = Theme.Light;
+            else
+                _defaultTheme = Theme.Dark;
+
+            _defaultColorScheme = Settings.Default.ColorSchemeResourceDictionary.Split(new[] {'/'}).Last()
+                .Split(new[] {'.'})[0];
+
             Intermediary.RichPresentManager.Update("Settings", "Configuring the application", "");
 
             this.KeyDown += (s, e) =>
@@ -154,7 +155,14 @@ namespace WPFMeteroWindow.Resources.pages
         private void DiscardButton_Click(object sender, RoutedEventArgs e)
         {
             Settings.Default.Reload();
+
             KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
+
+            SetColor.ColorScheme(_defaultTheme);
+            SetColor.WindowColor(_defaultColorScheme);
+
+            SetFont.MainLetters(Settings.Default.LessonLettersFont);
+
             PageManager.HidePages();
 
             SetTypingStatus();
