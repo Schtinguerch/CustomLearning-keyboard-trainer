@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using WPFMeteroWindow.Properties;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
+using Visibility = System.Windows.Visibility;
 
 namespace WPFMeteroWindow
 {
@@ -27,8 +28,13 @@ namespace WPFMeteroWindow
 
         private bool _isFirstMistake = true;
 
-        public void RestartLesson() =>
-            CourseManager.CurrentLessonIndex = CourseManager.CurrentLessonIndex;
+        public void RestartLesson()
+        {
+            if (Settings.Default.ItTypingTest)
+                TestManager.RestartTest();
+            else 
+                CourseManager.CurrentLessonIndex = CourseManager.CurrentLessonIndex;
+        }
 
         public void StartPreviouslesson() =>
             CourseManager.CurrentLessonIndex--;
@@ -53,7 +59,6 @@ namespace WPFMeteroWindow
             AppManager.InitializeApplication();
             
             TestManager.LoadWords("JustLessons\\topWords.txt");
-            TestManager.StartTest(TestWords.Top1000, TestAdditional.None);
         }
 
         private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
@@ -117,7 +122,7 @@ namespace WPFMeteroWindow
         {
             var selectedPage = TabPage.EmptyPage;
 
-            if ((e.Key != Key.LeftCtrl) && (e.Key != Key.RightCtrl))
+            if ((e.Key != Key.LeftCtrl) && (e.Key != Key.RightCtrl) && (PageManager.PageFrame.Source == null))
             {
                 if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.F))
                 {
@@ -152,6 +157,17 @@ namespace WPFMeteroWindow
                     else
                         selectedPage = TabPage.LessonLoaderShell;
                 }
+
+                else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.E))
+                {
+                    e.Handled = true;
+                    Settings.Default.IsOpenUnderCourse = false;
+
+                    if (AppManager.IsComboKeyDown(e, Key.LeftShift) || AppManager.IsComboKeyDown(e, Key.RightShift))
+                        selectedPage = TabPage.CourseEditor;
+                    else
+                        selectedPage = TabPage.LessonEditor;
+                }
             }
 
             if (e.Key == Key.Escape)
@@ -182,6 +198,12 @@ namespace WPFMeteroWindow
         {
             aoeiGrid.Visibility = Visibility.Visible;
             SettingFrame.Source = new Uri("Resources/pages/ApplicationUserSettingsPage.xaml", UriKind.Relative);
+        }
+
+        private void MenuItem_OnClick2(object sender, RoutedEventArgs e)
+        {
+            aoeiGrid.Visibility = Visibility.Visible;
+            SettingFrame.Source = new Uri("Resources/pages/LessonEditorPage.xaml", UriKind.Relative);
         }
     }
 }
