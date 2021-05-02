@@ -1,0 +1,282 @@
+﻿<Page x:Class="WPFMeteroWindow.Resources.pages.CourseEditorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
+      xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
+      xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="800"
+      Title="CourseEditorPage">
+
+    <Grid 
+        Width="800" Height="550">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid
+            x:Name="CourseEditoGrid"
+            Grid.Row="0"
+            Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
+            KeyDown="CourseEditoGrid_OnKeyDown">
+
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="30"></DropShadowEffect>
+            </Grid.Effect>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid
+                x:Name="ContentGrid"
+                Grid.Row="1">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="360"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="36"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+
+                    Style="{StaticResource SummaryTextStyle}"
+                    Margin="10 0 10 5"
+                    VerticalAlignment="Bottom"
+                    Text="{x:Static res:Resources.uName}"
+                    FontSize="18">
+                </TextBlock>
+
+                <Grid
+                    Grid.Row="1"
+                    Grid.Column="0">
+
+                    <TextBox
+                        FontSize="18"
+                        Height="32"
+                        Margin="10 0 10 5"
+                        Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                        BorderBrush="#121212"
+                        x:Name="CourseNameTextBox"
+                        VerticalAlignment="Top">
+                    </TextBox>
+
+                    <StackPanel
+                        Orientation="Vertical"
+                        VerticalAlignment="Bottom">
+
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            Margin="10 00 10 5"
+                            Text="{x:Static res:Resources.uAuthor}"
+                            FontSize="18">
+                        </TextBlock>
+
+                        <TextBox
+                            FontSize="18"
+                            Height="32"
+                            Margin="10 0 10 10"
+                            Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                            FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                            BorderBrush="#121212"
+                            x:Name="AuthorTextBox">
+                        </TextBox>
+                    </StackPanel>
+                </Grid>
+
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="1"
+
+                    Style="{StaticResource SummaryTextStyle}"
+                    Margin="10 0 10 5"
+                    VerticalAlignment="Bottom"
+                    Text="{x:Static res:Resources.uLessonPathList}"
+                    FontSize="18">
+                </TextBlock>
+
+                <TextBox
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    TextBlock.LineHeight="28" 
+                    TextBlock.LineStackingStrategy="BlockLineHeight"
+                    FontSize="18"
+                    Margin="10 0 10 10"
+                    Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                    FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                    BorderBrush="#121212"
+                    x:Name="LessonListTextBox"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap">
+
+                    <TextBox.ContextMenu>
+                        <ContextMenu
+                            TextBlock.LineHeight="18" 
+                            x:Name="LessonListContextMenu"
+                            FontFamily="{Binding Path=SummaryFont ,Source={x:Static prop:Settings.Default}}"
+                            Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
+
+                            <MenuItem 
+                                x:Name="EditLessonMenuItem"
+                                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                                Header="{x:Static res:Resources.uMenuEditLesson}"
+                                Click="EditLessonMenuItem_OnClick">
+                            </MenuItem>
+
+                            <MenuItem
+                                x:Name="NewLessonMenuItem"
+                                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                                Header="{x:Static res:Resources.uMenuNewLesson}"
+                                Click="NewLessonMenuItem_OnClick">
+                            </MenuItem>
+
+                            <MenuItem
+                                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                                Header="{x:Static res:Resources.uMenuShowInExplorer}"
+                                Click="MenuItem_OnClick">
+                            </MenuItem>
+
+                            <MenuItem 
+                                x:Name="CopyPathMenuItem"
+                                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                                Header="{x:Static res:Resources.uMenuCopyPath}"
+                                Click="CopyPathMenuItem_OnClick">
+                            </MenuItem>
+                            
+                            <MenuItem 
+                                x:Name="DeleteFileMenuItem"
+                                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                                Header="{x:Static res:Resources.uMenuDeleteFile}"
+                                Click="DeleteFileMenuItem_OnClick">
+                            </MenuItem>
+                        </ContextMenu>
+                    </TextBox.ContextMenu>
+                </TextBox>
+
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="2"
+
+                    Style="{StaticResource SummaryTextStyle}"
+                    Margin="10 0 10 5"
+                    VerticalAlignment="Bottom"
+                    Text="{x:Static res:Resources.uOtherReferences}"
+                    FontSize="18">
+                </TextBlock>
+
+                <TextBox
+                    Grid.Row="1"
+                    Grid.Column="2"
+
+                    TextBlock.LineHeight="28"
+                    FontSize="18"
+                    Margin="10 0 10 10"
+                    Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                    FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                    BorderBrush="#121212"
+                    x:Name="ReferencesListTextBox"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap">
+                </TextBox>
+            </Grid>
+
+            <Grid
+                x:Name="HeaderGrid"
+                Grid.Row="0"
+                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
+
+                <Grid.Effect>
+                    <DropShadowEffect BlurRadius="30"></DropShadowEffect>
+                </Grid.Effect>
+
+                <TextBlock 
+                    Style="{StaticResource SummaryTextStyle}"
+                    FontSize="16"
+                    Margin="20 0 0 0"
+                    x:Name="EditorTitleTextBox"
+                    HorizontalAlignment="Left"
+                    Text="{x:Static res:Resources.uCourseEditor}">
+                </TextBlock>
+
+                <StackPanel 
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal"
+                    Margin="10">
+                    <Button 
+                        Width="90" 
+                        BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
+                        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
+                        FontSize="12"
+                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                        Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+                        x:Name="NewLessonButton"
+                        Content="{x:Static res:Resources.uNew}"
+                        Click="NewLessonButton_OnClick">
+                    </Button>
+
+                    <Button 
+                        Width="90" 
+                        Margin="10 0 0 0"
+                        BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
+                        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
+                        FontSize="12"
+                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                        Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+                        x:Name="OpenLessonButton"
+                        Content="{x:Static res:Resources.uOpen}"
+                        Click="OpenLessonButton_OnClick">
+                    </Button>
+
+                    <Button 
+                        Width="90"
+                        Margin="10 0 0 0"
+                        BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
+                        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
+                        FontSize="12"
+                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                        Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+                        x:Name="SaveLessonButton"
+                        Content="{x:Static res:Resources.uSave}"
+                        Click="SaveLessonButton_OnClick">
+                    </Button>
+
+                    <Button 
+                        Width="40"
+                        Margin="10 0 0 0"
+                        BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
+                        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
+                        FontSize="12"
+                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                        Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+                        x:Name="CancelLessonButton"
+                        Click="CancelLessonButton_OnClick"
+                        Content="✖">
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <Grid
+            x:Name="LessonsEditorsGrid"
+            Grid.Row="1"
+            Margin="0 30 0 0">
+            <Frame
+                x:Name="LessonEditorFrame"
+                VerticalAlignment="Top"
+                NavigationUIVisibility="Hidden">
+            </Frame>
+        </Grid>
+    </Grid>
+</Page>
