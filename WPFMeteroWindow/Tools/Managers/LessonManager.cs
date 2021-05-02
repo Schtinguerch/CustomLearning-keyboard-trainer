@@ -61,8 +61,6 @@ namespace WPFMeteroWindow
 
             Settings.Default.ItTypingTest = false;
             Settings.Default.Save();
-
-            Intermediary.RichPresentManager.Update(lessonName, "typing", "");
         }
 
         public static void LoadTest(string lessonText)
@@ -86,8 +84,6 @@ namespace WPFMeteroWindow
 
             Settings.Default.ItTypingTest = true;
             Settings.Default.Save();
-
-            Intermediary.RichPresentManager.Update("Typing test", "typing", "");
         }
         
         public static void EndLesson()
@@ -99,11 +95,6 @@ namespace WPFMeteroWindow
             
             StatisticsManager.ReloadTimer();
             PageManager.OpenPage(TabPage.EndedLesson);
-            
-            if(Settings.Default.ItTypingTest)
-                Intermediary.RichPresentManager.Update("Typing test", "Ending: watching results", "");
-            else 
-                Intermediary.RichPresentManager.Update(Settings.Default.LessonName, "Ending: watching results", "");
         }
     }
 }
