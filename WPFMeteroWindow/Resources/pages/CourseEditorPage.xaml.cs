@@ -25,6 +25,7 @@ namespace WPFMeteroWindow.Resources.pages
             Intermediary.CoursePage = this;
             LessonListTextBox.Focus();
 
+            Intermediary.RichPresentManager.Update("Course editor", "Editing course...", "");
             _editor = new CourseEditor(Settings.Default.LoadedCourseFile, CourseState.NotEmpty);
             DisplayDataFromEditor();
         }
@@ -104,8 +105,12 @@ namespace WPFMeteroWindow.Resources.pages
             LessonEditorFrame.Source = new Uri("LessonEditorPage.xaml", UriKind.Relative);
         }
 
-        public void CloseLessonEditorPage() =>
+        public void CloseLessonEditorPage()
+        {
             LessonEditorFrame.Source = null;
+            Intermediary.RichPresentManager.Update("Course editor", "Editing course...", "");
+        }
+            
         
         private void NewLessonButton_OnClick(object sender, RoutedEventArgs e) =>
             NewCourse();

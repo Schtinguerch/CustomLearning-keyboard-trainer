@@ -15,6 +15,8 @@ namespace WPFMeteroWindow.Resources.pages
         {
             InitializeComponent();
             LayoutTextBox.Focus();
+
+            Intermediary.RichPresentManager.Update("Command line", "Choosing a keyboard layout for learning...", "");
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)

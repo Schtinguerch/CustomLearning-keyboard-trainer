@@ -17,7 +17,10 @@ namespace WPFMeteroWindow.Resources.pages
         {
             InitializeComponent();
             CurrLessonButton.Focus();
-            
+
+            Intermediary.RichPresentManager.Update(
+                Settings.Default.ItTypingTest ? "Typing test" : Settings.Default.LessonName, "Ending: watching results...", "");
+
             var lessonName = Settings.Default.LessonName;
             lessonName = (lessonName == "...") ? "" : $"\"{lessonName}\"";
             EndedLessonHeaderTextBlock.Text = $"{Localization.uTheLesson} {lessonName} {Localization.uIsFinished}!!!";

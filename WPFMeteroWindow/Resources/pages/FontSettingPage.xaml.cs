@@ -16,6 +16,8 @@ namespace WPFMeteroWindow.Resources.pages
             InitializeComponent();
             FontTextBox.Text = Settings.Default.FontContext + ' ';
             FontTextBox.Focus();
+
+            Intermediary.RichPresentManager.Update("Command line", "Configuring font-families...", "");
         }
 
         private void FontSettingPage_OnIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

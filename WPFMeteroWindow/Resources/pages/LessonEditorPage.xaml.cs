@@ -41,6 +41,8 @@ namespace WPFMeteroWindow.Resources.pages
                 _editor = new LessonEditor(Settings.Default.LoadedLessonFile);
                 DisplayDataFromEditor();
             }
+
+            Intermediary.RichPresentManager.Update("Lesson editor", "Editing lesson...", "");
         }
 
         private void DisplayDataFromEditor()

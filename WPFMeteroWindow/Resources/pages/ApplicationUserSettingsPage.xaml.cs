@@ -130,7 +130,7 @@ namespace WPFMeteroWindow.Resources.pages
             _defaultColorScheme = Settings.Default.ColorSchemeResourceDictionary.Split(new[] {'/'}).Last()
                 .Split(new[] {'.'})[0];
 
-            Intermediary.RichPresentManager.Update("Settings", "Configuring the application", "");
+            Intermediary.RichPresentManager.Update("Settings", "Configuring the trainer's setup", "");
 
             this.KeyDown += (s, e) =>
             {

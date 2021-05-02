@@ -16,6 +16,8 @@ namespace WPFMeteroWindow.Resources.pages
         {
             InitializeComponent();
             CourseTextBox.Focus();
+
+            Intermediary.RichPresentManager.Update("Command line", "Choosing a course to passing...", "");
         }
 
         private string _courseName;

@@ -30,6 +30,7 @@ namespace WPFMeteroWindow.Resources.pages
             CommandTextBox.Focus();
             
             _commandManager.AddCommands(_commands);
+            Intermediary.RichPresentManager.Update("Command line", "App management...", "");
         }
 
         private void CommandLinePage_OnKeyDown(object sender, KeyEventArgs e)

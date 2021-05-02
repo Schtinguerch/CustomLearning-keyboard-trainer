@@ -15,6 +15,8 @@ namespace WPFMeteroWindow.Resources.pages
         {
             InitializeComponent();
             LessonTextBox.Focus();
+
+            Intermediary.RichPresentManager.Update("Command line", "Choosing a lesson for passing", "");
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
