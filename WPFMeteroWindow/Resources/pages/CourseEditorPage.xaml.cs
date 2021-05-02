@@ -120,7 +120,7 @@ namespace WPFMeteroWindow.Resources.pages
         {
             if (e.Key == Key.Escape)
             {
-                if (AppManager.IsComboKeyDown(e, Key.LeftCtrl) || (AppManager.IsComboKeyDown(e, Key.RightCtrl)))
+                if (AppManager.IsComboKeyDown(e, Key.LeftShift) || (AppManager.IsComboKeyDown(e, Key.RightShift)))
                     CloseLessonEditorPage();
                 else
                     PageManager.HidePages();

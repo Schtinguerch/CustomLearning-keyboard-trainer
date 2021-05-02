@@ -51,6 +51,9 @@ namespace WPFMeteroWindow.Resources.pages
                 
                 PageManager.HidePages();
             }
+
+            else if (e.Key == Key.Escape)
+                PageManager.HidePages();
         }
     }
 }

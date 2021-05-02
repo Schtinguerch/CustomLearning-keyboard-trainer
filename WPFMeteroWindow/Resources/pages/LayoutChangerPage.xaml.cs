@@ -53,6 +53,8 @@ namespace WPFMeteroWindow.Resources.pages
                 }
             }
                 
+            else if (e.Key == Key.Escape)
+                PageManager.HidePages();
         }
 
         private void LayoutChangerPage_OnIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

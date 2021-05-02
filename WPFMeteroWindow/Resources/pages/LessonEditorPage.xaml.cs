@@ -94,7 +94,7 @@ namespace WPFMeteroWindow.Resources.pages
 
         private void LessonEditorPage_OnKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Escape)
+            if (e.Key == Key.Escape || !Settings.Default.IsOpenUnderCourse)
                 PageManager.HidePages();
 
             else

@@ -39,6 +39,9 @@ namespace WPFMeteroWindow.Resources.pages
                 Opener.NewLesson(LessonTextBox.Text);
                 PageManager.HidePages();
             }
+
+            else if (e.Key == Key.Escape)
+                PageManager.HidePages();
         }
     }
 }

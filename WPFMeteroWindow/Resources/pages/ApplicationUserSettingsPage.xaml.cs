@@ -134,7 +134,7 @@ namespace WPFMeteroWindow.Resources.pages
             this.KeyDown += (s, e) =>
             {
                 if (e.Key == Key.Escape)
-                    SetTypingStatus();
+                    PageManager.HidePages();
             };
         }
 
@@ -147,9 +147,8 @@ namespace WPFMeteroWindow.Resources.pages
         {
             Settings.Default.Save();
             KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
-            PageManager.HidePages();
 
-            SetTypingStatus();
+            PageManager.HidePages();
         }
 
         private void DiscardButton_Click(object sender, RoutedEventArgs e)
@@ -164,16 +163,6 @@ namespace WPFMeteroWindow.Resources.pages
             SetFont.MainLetters(Settings.Default.LessonLettersFont);
 
             PageManager.HidePages();
-
-            SetTypingStatus();
-        }
-
-        private void SetTypingStatus()
-        {
-            if (Settings.Default.ItTypingTest)
-                Intermediary.RichPresentManager.Update("Typing test", "typing", "");
-            else
-                Intermediary.RichPresentManager.Update(Settings.Default.LessonName, "typing", "");
         }
 
         private void LessonlettersFontSizeTextBox_OnTextChanged(object sender, TextChangedEventArgs e)

@@ -52,6 +52,9 @@ namespace WPFMeteroWindow.Resources.pages
                     MessageBox.Show("Error:\n" + ex.Message);
                 }
             }
+
+            else if (e.Key == Key.Escape)
+                PageManager.HidePages();
         }
 
         private void LoadCourseData(string filename)
