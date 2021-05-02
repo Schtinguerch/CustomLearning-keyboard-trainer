@@ -116,6 +116,7 @@ namespace WPFMeteroWindow.Resources.pages
         public ApplicationUserSettingsPage()
         {
             InitializeComponent();
+            WindowColors.Focus();
             
             WindowColors.Items.Clear();
             foreach (var color in _windowColors)
