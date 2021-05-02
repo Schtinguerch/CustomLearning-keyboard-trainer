@@ -46,10 +46,9 @@ namespace WPFMeteroWindow
             PageGrid.Visibility = Visibility.Hidden;
             PageFrame.Source = null;
 
-            if (Settings.Default.ItTypingTest)
-                Intermediary.RichPresentManager.Update("Typing test", "Ending: watching results", "");
-            else
-                Intermediary.RichPresentManager.Update(Settings.Default.LessonName, "Ending: watching results", "");
+            Intermediary.RichPresentManager.Update(
+                Settings.Default.ItTypingTest ? "Typing test" : Settings.Default.LessonName, "Chilling...",
+                "");
         }
 
         public static void OpenPage(TabPage page)

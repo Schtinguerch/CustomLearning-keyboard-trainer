@@ -29,7 +29,7 @@ namespace WPFMeteroWindow
 
         private bool _isTyping;
 
-        private bool isTyping
+        public bool IsTyping
         {
             get => _isTyping;
             set
@@ -46,20 +46,20 @@ namespace WPFMeteroWindow
             else 
                 CourseManager.CurrentLessonIndex = CourseManager.CurrentLessonIndex;
 
-            isTyping = false;
+            IsTyping = false;
         }
 
         public void StartPreviouslesson()
         {
             CourseManager.CurrentLessonIndex--;
-            isTyping = false;
+            IsTyping = false;
         }
 
 
         public void StartNextLesson()
         {
             CourseManager.CurrentLessonIndex++;
-            isTyping = false;
+            IsTyping = false;
         }
             
 
@@ -78,7 +78,7 @@ namespace WPFMeteroWindow
             Intermediary.RichPresentManager.Initialize();
 
             AppManager.InitializeApplication();
-            isTyping = false;
+            IsTyping = false;
             
             TestManager.LoadWords("JustLessons\\topWords.txt");
         }
@@ -90,8 +90,8 @@ namespace WPFMeteroWindow
 
         private void BufferTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!isTyping)
-                isTyping = true;
+            if (!IsTyping)
+                IsTyping = true;
 
             if (!_breakTextProcessing)
             {

@@ -121,6 +121,7 @@ namespace WPFMeteroWindow.Resources.pages
         {
             PageManager.HidePages();
             CourseManager.CurrentLessonIndex--;
+            Intermediary.App.IsTyping = false;
         }
 
         private void CurrLessonButton_OnClick(object sender, RoutedEventArgs e)
@@ -131,25 +132,28 @@ namespace WPFMeteroWindow.Resources.pages
                 TestManager.RestartTest();
             else 
                 CourseManager.CurrentLessonIndex = CourseManager.CurrentLessonIndex;
+
+            Intermediary.App.IsTyping = false;
         }
 
         private void NextLessonButton_OnClick(object sender, RoutedEventArgs e)
         {
             PageManager.HidePages();
             CourseManager.CurrentLessonIndex++;
+            Intermediary.App.IsTyping = false;
         }
 
         private void LessonIsEndPage_OnKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Escape)
             {
-
                 if (Settings.Default.ItTypingTest)
                     TestManager.RestartTest();
                 else 
                     CourseManager.CurrentLessonIndex = CourseManager.CurrentLessonIndex;
 
                 PageManager.HidePages();
+                Intermediary.App.IsTyping = false;
             }
         }
     }
