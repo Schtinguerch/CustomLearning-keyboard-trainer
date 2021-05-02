@@ -116,5 +116,11 @@
     <Setting Name="ItTypingTest" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="IsOpenUnderCourse" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="LessonInCourseFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">empty</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

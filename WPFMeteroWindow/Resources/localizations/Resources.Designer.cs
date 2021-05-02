@@ -61,6 +61,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Автор.
+        /// </summary>
+        public static string uAuthor {
+            get {
+                return ResourceManager.GetString("uAuthor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Кол-во симв.
         /// </summary>
         public static string uCharactersCount {
@@ -75,6 +84,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uChooseTheBeginLesson {
             get {
                 return ResourceManager.GetString("uChooseTheBeginLesson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Редактор курсов.
+        /// </summary>
+        public static string uCourseEditor {
+            get {
+                return ResourceManager.GetString("uCourseEditor", resourceCulture);
             }
         }
         
@@ -223,11 +241,56 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Редактор уроков.
+        /// </summary>
+        public static string uLessonEditor {
+            get {
+                return ResourceManager.GetString("uLessonEditor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Список путей к урокам.
+        /// </summary>
+        public static string uLessonPathList {
+            get {
+                return ResourceManager.GetString("uLessonPathList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Светлая.
         /// </summary>
         public static string uLight {
             get {
                 return ResourceManager.GetString("uLight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Максимум ошибок.
+        /// </summary>
+        public static string uMaxMistakes {
+            get {
+                return ResourceManager.GetString("uMaxMistakes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Копировать путь к файлу.
+        /// </summary>
+        public static string uMenuCopyPath {
+            get {
+                return ResourceManager.GetString("uMenuCopyPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Удалить файл.
+        /// </summary>
+        public static string uMenuDeleteFile {
+            get {
+                return ResourceManager.GetString("uMenuDeleteFile", resourceCulture);
             }
         }
         
@@ -246,6 +309,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uMenuEditCurrentLesson {
             get {
                 return ResourceManager.GetString("uMenuEditCurrentLesson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Редактировать.
+        /// </summary>
+        public static string uMenuEditLesson {
+            get {
+                return ResourceManager.GetString("uMenuEditLesson", resourceCulture);
             }
         }
         
@@ -340,6 +412,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Показать в проводнике.
+        /// </summary>
+        public static string uMenuShowInExplorer {
+            get {
+                return ResourceManager.GetString("uMenuShowInExplorer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на средним на .
         /// </summary>
         public static string uMiddle {
@@ -367,11 +448,56 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Название.
+        /// </summary>
+        public static string uName {
+            get {
+                return ResourceManager.GetString("uName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Новый.
+        /// </summary>
+        public static string uNew {
+            get {
+                return ResourceManager.GetString("uNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Новый курс.
+        /// </summary>
+        public static string uNewCourse {
+            get {
+                return ResourceManager.GetString("uNewCourse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Нет.
         /// </summary>
         public static string uNo {
             get {
                 return ResourceManager.GetString("uNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Открыть.
+        /// </summary>
+        public static string uOpen {
+            get {
+                return ResourceManager.GetString("uOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Доп. ссылки.
+        /// </summary>
+        public static string uOtherReferences {
+            get {
+                return ResourceManager.GetString("uOtherReferences", resourceCulture);
             }
         }
         
@@ -399,6 +525,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uRing {
             get {
                 return ResourceManager.GetString("uRing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Сохранить.
+        /// </summary>
+        public static string uSave {
+            get {
+                return ResourceManager.GetString("uSave", resourceCulture);
             }
         }
         

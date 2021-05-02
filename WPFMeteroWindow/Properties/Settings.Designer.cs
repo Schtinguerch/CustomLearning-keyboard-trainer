@@ -478,5 +478,29 @@ namespace WPFMeteroWindow.Properties {
                 this["ItTypingTest"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsOpenUnderCourse {
+            get {
+                return ((bool)(this["IsOpenUnderCourse"]));
+            }
+            set {
+                this["IsOpenUnderCourse"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("empty")]
+        public string LessonInCourseFileName {
+            get {
+                return ((string)(this["LessonInCourseFileName"]));
+            }
+            set {
+                this["LessonInCourseFileName"] = value;
+            }
+        }
     }
 }
