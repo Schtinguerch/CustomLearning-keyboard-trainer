@@ -1,10 +1,15 @@
 ﻿using System.Windows.Controls;
+using WPFMeteroWindow.Resources.pages;
 
 namespace WPFMeteroWindow
 {
     public static class Intermediary
     {
         public static MainWindow App { get; set; }
+
+        public static CourseEditorPage CoursePage { get; set; }
+
+        public static LessonEditorPage LessonPage { get; set; }
         
         public static DiscordManager RichPresentManager { get; set; }
         
