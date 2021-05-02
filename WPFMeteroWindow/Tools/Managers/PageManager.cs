@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using WPFMeteroWindow.Properties;
 
 namespace WPFMeteroWindow
 {
@@ -44,6 +45,11 @@ namespace WPFMeteroWindow
         {
             PageGrid.Visibility = Visibility.Hidden;
             PageFrame.Source = null;
+
+            if (Settings.Default.ItTypingTest)
+                Intermediary.RichPresentManager.Update("Typing test", "Ending: watching results", "");
+            else
+                Intermediary.RichPresentManager.Update(Settings.Default.LessonName, "Ending: watching results", "");
         }
 
         public static void OpenPage(TabPage page)
