@@ -5,7 +5,6 @@ using MahApps.Metro.Controls;
 using System.Windows.Controls;
 using WPFMeteroWindow.Properties;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
-using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 using Visibility = System.Windows.Visibility;
 
 namespace WPFMeteroWindow
@@ -28,19 +27,41 @@ namespace WPFMeteroWindow
 
         private bool _isFirstMistake = true;
 
+        private bool _isTyping;
+
+        private bool isTyping
+        {
+            get => _isTyping;
+            set
+            {
+                _isTyping = value;
+                Intermediary.RichPresentManager.Update(Settings.Default.ItTypingTest? "Typing test" : Settings.Default.LessonName, !value ? "Chilling..." : "Typing...", "");
+            }
+        }
+
         public void RestartLesson()
         {
             if (Settings.Default.ItTypingTest)
                 TestManager.RestartTest();
             else 
                 CourseManager.CurrentLessonIndex = CourseManager.CurrentLessonIndex;
+
+            isTyping = false;
         }
 
-        public void StartPreviouslesson() =>
+        public void StartPreviouslesson()
+        {
             CourseManager.CurrentLessonIndex--;
+            isTyping = false;
+        }
 
-        public void StartNextLesson() =>
+
+        public void StartNextLesson()
+        {
             CourseManager.CurrentLessonIndex++;
+            isTyping = false;
+        }
+            
 
         public MainWindow()
         {
@@ -57,6 +78,7 @@ namespace WPFMeteroWindow
             Intermediary.RichPresentManager.Initialize();
 
             AppManager.InitializeApplication();
+            isTyping = false;
             
             TestManager.LoadWords("JustLessons\\topWords.txt");
         }
@@ -68,6 +90,9 @@ namespace WPFMeteroWindow
 
         private void BufferTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
         {
+            if (!isTyping)
+                isTyping = true;
+
             if (!_breakTextProcessing)
             {
                 if (LessonManager.DoneRoad.Length == 0)
