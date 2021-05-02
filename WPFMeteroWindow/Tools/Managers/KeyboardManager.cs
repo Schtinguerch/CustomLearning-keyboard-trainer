@@ -25,7 +25,7 @@ namespace WPFMeteroWindow
         public static void LoadKeyboardData(string filename)
         {
             Intermediary.KeyboardData = KeyboardLoader.LoadButtons(Board, filename);
-            try { ShowTypingHint(LessonManager.LeftRoad[0]); } catch {}
+            try { if (LessonManager.LeftRoad != null) ShowTypingHint(LessonManager.LeftRoad[0]); } catch {}
         }
             
 
