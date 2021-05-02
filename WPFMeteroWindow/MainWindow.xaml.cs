@@ -170,17 +170,6 @@ namespace WPFMeteroWindow
                 }
             }
 
-            if (e.Key == Key.Escape)
-            {
-                if(Settings.Default.ItTypingTest)
-                    Intermediary.RichPresentManager.Update("Typing test", "Ending: watching results", "");
-                else 
-                    Intermediary.RichPresentManager.Update(Settings.Default.LessonName, "Ending: watching results", "");
-                
-                PageManager.HidePages();
-            }
-                
-            
             if (selectedPage != TabPage.EmptyPage)
                 PageManager.OpenPage(selectedPage);
         }
