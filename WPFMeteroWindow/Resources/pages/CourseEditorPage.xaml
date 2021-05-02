@@ -11,7 +11,8 @@
       Title="CourseEditorPage">
 
     <Grid 
-        Width="800" Height="550">
+        Width="800" Height="550"
+        KeyDown="CourseEditoGrid_OnKeyDown">
         <Grid.RowDefinitions>
             <RowDefinition Height="200"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -20,8 +21,7 @@
         <Grid
             x:Name="CourseEditoGrid"
             Grid.Row="0"
-            Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
-            KeyDown="CourseEditoGrid_OnKeyDown">
+            Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
 
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="30"></DropShadowEffect>

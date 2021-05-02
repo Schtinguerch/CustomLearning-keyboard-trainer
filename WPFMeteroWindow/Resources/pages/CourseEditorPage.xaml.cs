@@ -125,6 +125,8 @@ namespace WPFMeteroWindow.Resources.pages
         {
             if (e.Key == Key.Escape)
             {
+                e.Handled = true;
+
                 if (AppManager.IsComboKeyDown(e, Key.LeftShift) || (AppManager.IsComboKeyDown(e, Key.RightShift)))
                     CloseLessonEditorPage();
                 else
@@ -133,14 +135,29 @@ namespace WPFMeteroWindow.Resources.pages
 
             else
             {
-                if (AppManager.IsComboKeyDown(e, Key.LeftCtrl, Key.O) || AppManager.IsComboKeyDown(e, Key.RightCtrl, Key.O))
+                if (AppManager.IsComboKeyDown(e, Key.LeftCtrl, Key.O) ||
+                    AppManager.IsComboKeyDown(e, Key.RightCtrl, Key.O))
+                {
+                    e.Handled = true;
                     OpenCourse();
+                }
+                    
 
-                else if (AppManager.IsComboKeyDown(e, Key.LeftCtrl, Key.N) || AppManager.IsComboKeyDown(e, Key.RightCtrl, Key.N))
+                else if (AppManager.IsComboKeyDown(e, Key.LeftCtrl, Key.N) ||
+                         AppManager.IsComboKeyDown(e, Key.RightCtrl, Key.N))
+                {
+                    e.Handled = true;
                     NewCourse();
+                }
+                    
 
-                else if (AppManager.IsComboKeyDown(e, Key.LeftCtrl, Key.S) || AppManager.IsComboKeyDown(e, Key.RightCtrl, Key.S))
+                else if (AppManager.IsComboKeyDown(e, Key.LeftCtrl, Key.S) ||
+                         AppManager.IsComboKeyDown(e, Key.RightCtrl, Key.S))
+                {
+                    e.Handled = true;
                     SaveCourse();
+                }
+                    
             }
         }
 
