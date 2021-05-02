@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="uAuthor" xml:space="preserve">
+    <value>Author</value>
+  </data>
   <data name="uCharactersCount" xml:space="preserve">
     <value>Char count</value>
   </data>
   <data name="uChooseTheBeginLesson" xml:space="preserve">
     <value>Choose the beginning lesson</value>
+  </data>
+  <data name="uCourseEditor" xml:space="preserve">
+    <value>Course editor</value>
   </data>
   <data name="uCPM" xml:space="preserve">
     <value>CPM</value>
@@ -171,14 +177,32 @@
   <data name="uLeft" xml:space="preserve">
     <value>Left </value>
   </data>
+  <data name="uLessonEditor" xml:space="preserve">
+    <value>Lesson editor</value>
+  </data>
+  <data name="uLessonPathList" xml:space="preserve">
+    <value>The List of paths to lessons</value>
+  </data>
   <data name="uLight" xml:space="preserve">
     <value>Light</value>
+  </data>
+  <data name="uMaxMistakes" xml:space="preserve">
+    <value>Max mistakes count</value>
+  </data>
+  <data name="uMenuCopyPath" xml:space="preserve">
+    <value>Copy path</value>
+  </data>
+  <data name="uMenuDeleteFile" xml:space="preserve">
+    <value>Delete file</value>
   </data>
   <data name="uMenuEditCurrentCourse" xml:space="preserve">
     <value>Edit the currrent course</value>
   </data>
   <data name="uMenuEditCurrentLesson" xml:space="preserve">
     <value>Edit the current lesson</value>
+  </data>
+  <data name="uMenuEditLesson" xml:space="preserve">
+    <value>Edit lesson</value>
   </data>
   <data name="uMenuEditor" xml:space="preserve">
     <value>Editor</value>
@@ -210,6 +234,9 @@
   <data name="uMenuSettings" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="uMenuShowInExplorer" xml:space="preserve">
+    <value>Show in explorer</value>
+  </data>
   <data name="uMiddle" xml:space="preserve">
     <value>middle on </value>
   </data>
@@ -219,8 +246,23 @@
   <data name="uMistakes" xml:space="preserve">
     <value>mistakes</value>
   </data>
+  <data name="uName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="uNew" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="uNewCourse" xml:space="preserve">
+    <value>New course</value>
+  </data>
   <data name="uNo" xml:space="preserve">
     <value>No</value>
+  </data>
+  <data name="uOpen" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="uOtherReferences" xml:space="preserve">
+    <value>Add. references</value>
   </data>
   <data name="uPinky" xml:space="preserve">
     <value>pinky on </value>
@@ -230,6 +272,9 @@
   </data>
   <data name="uRing" xml:space="preserve">
     <value>ring on </value>
+  </data>
+  <data name="uSave" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="uSettBaseColors" xml:space="preserve">
     <value>Main colors</value>
