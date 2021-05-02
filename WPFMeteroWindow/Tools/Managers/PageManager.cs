@@ -13,7 +13,9 @@ namespace WPFMeteroWindow
         LayoutLoaderShell,
         FontSetterShell,
         EndedLesson,
-        EmptyPage
+        LessonEditor,
+        CourseEditor,
+        EmptyPage,
     }
     
     public static class PageManager
@@ -33,7 +35,9 @@ namespace WPFMeteroWindow
             _baseFolder + "LayoutChangerPage.xaml",
             _baseFolder + "FontSettingPage.xaml",
             _baseFolder + "LessonIsEndPage.xaml",
-            null
+            _baseFolder + "LessonEditorPage.xaml",
+            _baseFolder + "CourseEditorPage.xaml",
+            null,
         };
         
         public static void HidePages()
