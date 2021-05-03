@@ -1,6 +1,10 @@
-﻿using System.IO;
-using System.Windows;
+﻿using System;
+using System.IO;
+using System.Windows.Forms;
 using WPFMeteroWindow.Properties;
+using MessageBox = System.Windows.MessageBox;
+using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
+using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 
 namespace WPFMeteroWindow
 {
@@ -14,13 +18,33 @@ namespace WPFMeteroWindow
                 Settings.Default.LoadedCourseFile = fileName;
                 Settings.Default.CourseLessonNumber = lessonIndex;
                 Settings.Default.Save();
+
+                try
+                {
+                    CourseManager.LoadCourse(fileName);
+                    LogManager.Log($"Open course: \"{fileName}\" -> success");
+                }
+
+                catch (Exception e)
+                {
+                    MessageBox.Show(Localization.uOpenDataWithErrorsError);
+                    LogManager.Log($"Open course: \"{fileName}\" -> failed, {e.Message}");
+                }
                 
-                CourseManager.LoadCourse(fileName);
             }
             else
             {
-                MessageBox.Show("Ошибка: файл, который Вы пытаетесь открыть не существует!");
+                MessageBox.Show(Localization.uOpenFileMessageError);
+                LogManager.Log($"Open course: \"{fileName}\" -> failed, file does not exist");
             }
+        }
+
+        public static void NewCourseViaExplorer()
+        {
+            var openDialog = new FolderBrowserDialog();
+
+            if (openDialog.ShowDialog() == DialogResult.OK)
+                NewCourse(openDialog.SelectedPath + "\\CourseLessons.lml", 0);
         }
         
         public static void NewKeyboardLayout(string fileName)
@@ -29,12 +53,24 @@ namespace WPFMeteroWindow
             {
                 Settings.Default.KeyboardLayoutFile = fileName;
                 Settings.Default.Save();
+
+                try
+                {
+                    KeyboardManager.LoadKeyboardData(fileName);
+                    LogManager.Log($"Open keyboard layout: \"{fileName}\" -> success");
+                }
+
+                catch (Exception e)
+                {
+                    MessageBox.Show(Localization.uOpenDataWithErrorsError);
+                    LogManager.Log($"Open keyboard layout \"{fileName}\" -> failed, {e.Message}");
+                }
                 
-                KeyboardManager.LoadKeyboardData(fileName);
             }
             else
             {
-                MessageBox.Show("Ошибка: файл, который Вы пытаетесь открыть не существует!");
+                MessageBox.Show(Localization.uOpenFileMessageError);
+                LogManager.Log($"Open keyboard layout: \"{fileName}\" -> failed, file does not exist");
             }
         }
         
@@ -47,12 +83,38 @@ namespace WPFMeteroWindow
                 Settings.Default.ItTypingTest = false;
                  
                 Settings.Default.Save();
-                
-                LessonManager.LoadLesson(fileName);
+
+                try
+                {
+                    LessonManager.LoadLesson(fileName);
+                    LogManager.Log($"Open course: \"{fileName}\" -> success");
+                }
+
+                catch (Exception e)
+                {
+                    MessageBox.Show(Localization.uOpenDataWithErrorsError);
+                    LogManager.Log($"Open lesson: \"{fileName}\" -> failed, {e.Message}");
+                }
             }
             else
             {
-                MessageBox.Show("Ошибка: файл, который Вы пытаетесь открыть не существует!");
+                MessageBox.Show(Localization.uOpenFileMessageError);
+                LogManager.Log($"Open lesson: \"{fileName}\" -> failed, file does not exist");
+            }
+        }
+
+        public static void NewLessonViaExplorer()
+        {
+            var openDialog = new OpenFileDialog
+            {
+                Multiselect = false,
+                RestoreDirectory = true
+            };
+
+            if (openDialog.ShowDialog() == true)
+            {
+                NewLesson(openDialog.FileName);
+                PageManager.HidePages();
             }
         }
 
@@ -64,10 +126,12 @@ namespace WPFMeteroWindow
             try
             {
                 TestManager.StartTest(testWords, additional);
+                LogManager.Log($"Starting test -> success");
             }
             catch
             {
-                MessageBox.Show("Ошибка: файл с тестом не существует!");
+                MessageBox.Show(Localization.uOpenFileMessageError);
+                LogManager.Log($"Starting test -> failed, file does not exist");
             }
         }
 
@@ -79,10 +143,12 @@ namespace WPFMeteroWindow
             try
             {
                 TestManager.StartTest(first, last, additional);
+                LogManager.Log($"Starting test -> success");
             }
             catch
             {
-                MessageBox.Show("Ошибка: файл с тестом не существует!");
+                MessageBox.Show(Localization.uOpenFileMessageError);
+                LogManager.Log($"Starting test -> failed, file does not exist");
             }
         }
     }
