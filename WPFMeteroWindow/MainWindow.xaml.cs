@@ -4,6 +4,9 @@ using System.Windows.Input;
 using MahApps.Metro.Controls;
 using System.Windows.Controls;
 using WPFMeteroWindow.Properties;
+using System.Collections.Generic;
+using System.Windows.Forms;
+using Application = System.Windows.Application;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using Visibility = System.Windows.Visibility;
 
@@ -23,6 +26,8 @@ namespace WPFMeteroWindow
     
     public partial class MainWindow : MetroWindow
     {
+        private List<Key> _keysList = new List<Key>();
+
         private bool _breakTextProcessing = false;
 
         private bool _isFirstMistake = true;
@@ -80,7 +85,7 @@ namespace WPFMeteroWindow
             AppManager.InitializeApplication();
             IsTyping = false;
             
-            TestManager.LoadWords("JustLessons\\topWords.txt");
+            TestManager.LoadWords("JustLessons\\Typing tests\\topWords_EN.txt");
         }
 
         private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
@@ -143,8 +148,32 @@ namespace WPFMeteroWindow
             }
         }
 
+        private void AddTypingKeyToShowList(KeyEventArgs e)
+        {
+            var hasDuplicate = false;
+            foreach (var key in _keysList)
+                if (key == e.Key)
+                {
+                    hasDuplicate = true;
+                    break;
+                }
+
+            if (!hasDuplicate)
+                _keysList.Add(e.Key);
+
+            ClickedKeysTextBlock.Text = _keysList.KeyListToString();
+        }
+
+        private void RemoveTypingKeyFromShowList(KeyEventArgs e)
+        {
+            _keysList.Remove(e.Key);
+            ClickedKeysTextBlock.Text = _keysList.KeyListToString();
+        }
+
         private void MainWindow_OnKeyDown(object sender, KeyEventArgs e)
         {
+            AddTypingKeyToShowList(e);
+
             var selectedPage = TabPage.EmptyPage;
 
             if ((e.Key != Key.LeftCtrl) && (e.Key != Key.RightCtrl) && (PageManager.PageFrame.Source == null))
@@ -199,6 +228,11 @@ namespace WPFMeteroWindow
                 PageManager.OpenPage(selectedPage);
         }
 
+        private void MainWindow_OnKeyUp(object sender, KeyEventArgs e)
+        {
+            RemoveTypingKeyFromShowList(e);
+        }
+
         private void PrevLessonButton_OnClick(object sender, RoutedEventArgs e) =>
             StartPreviouslesson();
 
@@ -208,16 +242,31 @@ namespace WPFMeteroWindow
         private void ReLesson_OnClick(object sender, RoutedEventArgs e) =>
             RestartLesson();
 
-        private void MenuItem_OnClick(object sender, RoutedEventArgs e)
-        {
-            aoeiGrid.Visibility = Visibility.Visible;
-            SettingFrame.Source = new Uri("Resources/pages/ApplicationUserSettingsPage.xaml", UriKind.Relative);
-        }
 
-        private void MenuItem_OnClick2(object sender, RoutedEventArgs e)
-        {
-            aoeiGrid.Visibility = Visibility.Visible;
-            SettingFrame.Source = new Uri("Resources/pages/LessonEditorPage.xaml", UriKind.Relative);
-        }
+
+
+        private void OpenNewLessonMenuItem_OnClick(object sender, RoutedEventArgs e) =>
+            Opener.NewLessonViaExplorer();
+
+        private void OpenNewCourseMenuItem_OnClick(object sender, RoutedEventArgs e) =>
+            Opener.NewCourseViaExplorer();
+
+        private void OpenPreviousLessonMenuItem_OnClick(object sender, RoutedEventArgs e) =>
+            StartPreviouslesson();
+
+        private void OpenNextLessonMenuItem_OnClick(object sender, RoutedEventArgs e) =>
+            StartNextLesson();
+
+        private void QuitAppMenuItem_OnClick(object sender, RoutedEventArgs e) =>
+            Application.Current.Shutdown();
+
+        private void AppSettingsMenuItem_OnClick(object sender, RoutedEventArgs e) =>
+            PageManager.OpenPage(TabPage.UserSettings);
+
+        private void OpenLessonEditorMenuItem_OnClick(object sender, RoutedEventArgs e) =>
+            PageManager.OpenPage(TabPage.LessonEditor);
+
+        private void OpenCourseEditorMenuItem_OnClick(object sender, RoutedEventArgs e) =>
+            PageManager.OpenPage(TabPage.CourseEditor);
     }
 }

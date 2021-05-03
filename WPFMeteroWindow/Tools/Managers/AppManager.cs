@@ -149,6 +149,38 @@ namespace WPFMeteroWindow
             }
         }
 
+        public static string KeyListToString(this List<Key> keys)
+        {
+            var value = "";
+            for (int i = 0; i < keys.Count - 1; i++)
+                value += keys[i].ToString() + " + ";
+
+            if (keys.Count > 0)
+                value += keys[keys.Count - 1].ToString();
+
+            return value;
+        }
+
+        public static string ArgsToString(this object[] args, int startIndex)
+        {
+            var value = "";
+
+            if (args.Length != 0)
+            {
+                value += args[startIndex + 0].ToString();
+
+                for (int i = startIndex + 1; i < args.Length; i++)
+                    value += ' ' + args[i].ToString();
+            }
+
+            return value;
+        }
+
+        public static string StartPath(string basePath)
+        {
+            return basePath.Contains(":\\") ? basePath : System.AppDomain.CurrentDomain.BaseDirectory + $"\\{basePath}";
+        }
+
         public static bool IsComboKeyDown(KeyEventArgs e, params Key[] keys)
         {
             bool isKeyDown = true;
