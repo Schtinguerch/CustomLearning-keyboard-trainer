@@ -493,6 +493,24 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Ошибка: файл, который Вы пытаетесь открыть содержит критические ошибки!.
+        /// </summary>
+        public static string uOpenDataWithErrorsError {
+            get {
+                return ResourceManager.GetString("uOpenDataWithErrorsError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ошибка: файл, который Вы пытаетесь открыть не существует!.
+        /// </summary>
+        public static string uOpenFileMessageError {
+            get {
+                return ResourceManager.GetString("uOpenFileMessageError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Доп. ссылки.
         /// </summary>
         public static string uOtherReferences {

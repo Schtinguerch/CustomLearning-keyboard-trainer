@@ -261,6 +261,12 @@
   <data name="uOpen" xml:space="preserve">
     <value>Открыть</value>
   </data>
+  <data name="uOpenDataWithErrorsError" xml:space="preserve">
+    <value>Ошибка: файл, который Вы пытаетесь открыть содержит критические ошибки!</value>
+  </data>
+  <data name="uOpenFileMessageError" xml:space="preserve">
+    <value>Ошибка: файл, который Вы пытаетесь открыть не существует!</value>
+  </data>
   <data name="uOtherReferences" xml:space="preserve">
     <value>Доп. ссылки</value>
   </data>

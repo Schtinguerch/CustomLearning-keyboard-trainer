@@ -261,6 +261,12 @@
   <data name="uOpen" xml:space="preserve">
     <value>Open</value>
   </data>
+  <data name="uOpenDataWithErrorsError" xml:space="preserve">
+    <value>Error: the openinf file consists critical errors!</value>
+  </data>
+  <data name="uOpenFileMessageError" xml:space="preserve">
+    <value>Error: the opening file does not exist!</value>
+  </data>
   <data name="uOtherReferences" xml:space="preserve">
     <value>Add. references</value>
   </data>
