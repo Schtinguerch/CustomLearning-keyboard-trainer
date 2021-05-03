@@ -122,5 +122,14 @@
     <Setting Name="LessonInCourseFileName" Type="System.String" Scope="User">
       <Value Profile="(Default)">empty</Value>
     </Setting>
+    <Setting Name="PreviousLoadedLesson" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="IsBackgroundImage" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="BackgroundImagePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
