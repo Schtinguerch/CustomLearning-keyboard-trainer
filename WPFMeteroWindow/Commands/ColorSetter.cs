@@ -14,47 +14,48 @@ namespace WPFMeteroWindow.Commands
         public void Execute(object[] args)
         {
             var areSettingChanged = true;
+            var argument = args.ArgsToString(1);
              
             switch (args[0].ToString())
             {
                 case "main":
-                    SetColor.FirstColor(args[1].ToString());
+                    SetColor.FirstColor(argument);
                     break;
                 
                 case "secd":
-                    SetColor.SecondColor(args[1].ToString());
+                    SetColor.SecondColor(argument);
                     break;
                 
                 case "clim":
-                    SetColor.CommandLineFirstColor(args[1].ToString());
+                    SetColor.CommandLineFirstColor(argument);
                     break;
                 
                 case "clis":
-                    SetColor.CommandLineSecondColor(args[1].ToString());
+                    SetColor.CommandLineSecondColor(argument);
                     break;
                 
                 case "kbbg":
-                    SetColor.KeyboardBackground(args[1].ToString());
+                    SetColor.KeyboardBackground(argument);
                     KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
                     break;
                 
                 case "kbbr":
-                    SetColor.KeyboardBorder(args[1].ToString());
+                    SetColor.KeyboardBorder(argument);
                     KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
                     break;
                 
                 case "kbhl":
-                    SetColor.KeyboardHighlight(args[1].ToString());
+                    SetColor.KeyboardHighlight(argument);
                     KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
                     break;
 
                 case "kber":
-                    SetColor.KeyboardErrorHighlight(args[1].ToString());
+                    SetColor.KeyboardErrorHighlight(argument);
                     KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
                     break;
 
                 case "t":
-                    switch (args[1].ToString())
+                    switch (argument)
                     {
                         case "lt":
                             SetColor.ColorScheme(Theme.Light);
@@ -65,7 +66,7 @@ namespace WPFMeteroWindow.Commands
                             break;
                         
                         default:
-                            var color = args[1].ToString();
+                            var color = argument;
                             SetColor.WindowColor(color);
                             break;
                     }
