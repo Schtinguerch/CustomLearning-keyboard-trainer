@@ -9,13 +9,9 @@
                       Title="CustomLearning" Width="900" Height="620"
                       GlowBrush="#202020"
                       WindowStartupLocation="CenterScreen"
-                      KeyDown="MainWindow_OnKeyDown"
-                      KeyUp="MainWindow_OnKeyUp">
+                      KeyDown="MainWindow_OnKeyDown">
 
-    <Grid 
-        x:Name="MainGrid" 
-        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
-        
+    <Grid x:Name="MainGrid" Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="60"></RowDefinition>
@@ -33,19 +29,17 @@
         <!-- SmoothGradients -->
         <Grid
             Grid.Row="0"
-            Grid.Column="0"
-            Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
+            Grid.Column="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="25*"/>
                 <ColumnDefinition Width="21*"/>
             </Grid.ColumnDefinitions>
-
-            <Grid.OpacityMask>
+            <Grid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                    <GradientStop Offset="0" Color="Transparent"></GradientStop>
-                    <GradientStop Offset="1" Color="Black"></GradientStop>
+                    <GradientStop Color="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}" Offset="1"></GradientStop>
+                    <GradientStop Color="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" Offset="0"></GradientStop>
                 </LinearGradientBrush>
-            </Grid.OpacityMask>
+            </Grid.Background>
 
             <TextBox 
                 Width="0" Height="0" 
@@ -58,41 +52,35 @@
 
         <Grid
             Grid.Row="0"
-            Grid.Column="2"
-            Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
-
-            <Grid.OpacityMask>
-                <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
-                    <GradientStop Offset="0" Color="Transparent"></GradientStop>
-                    <GradientStop Offset="1" Color="Black"></GradientStop>
-                </LinearGradientBrush>
-            </Grid.OpacityMask>
-        </Grid>
-
-        <Grid
-            Grid.Row="3"
-            Grid.Column="0"
-            Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
-
-            <Grid.OpacityMask>
+            Grid.Column="2">
+            <Grid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                    <GradientStop Offset="0" Color="Transparent"></GradientStop>
-                    <GradientStop Offset="1" Color="Black"></GradientStop>
+                    <GradientStop Color="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}" Offset="0"></GradientStop>
+                    <GradientStop Color="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" Offset="1"></GradientStop>
                 </LinearGradientBrush>
-            </Grid.OpacityMask>
+            </Grid.Background>
         </Grid>
 
         <Grid
             Grid.Row="3"
-            Grid.Column="2"
-            Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
-
-            <Grid.OpacityMask>
-                <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
-                    <GradientStop Offset="0" Color="Transparent"></GradientStop>
-                    <GradientStop Offset="1" Color="Black"></GradientStop>
+            Grid.Column="0">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}" Offset="1"></GradientStop>
+                    <GradientStop Color="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" Offset="0"></GradientStop>
                 </LinearGradientBrush>
-            </Grid.OpacityMask>
+            </Grid.Background>
+        </Grid>
+
+        <Grid
+            Grid.Row="3"
+            Grid.Column="2">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}" Offset="0"></GradientStop>
+                    <GradientStop Color="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Grid.Background>
         </Grid>
 
 
@@ -105,68 +93,47 @@
                 Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
                 <MenuItem 
                     Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                    Header="{x:Static res:Resources.uMenuLessons}">
-
+                    Header="{x:Static res:Resources.uMenuLessons}" >
                     <MenuItem 
-                        x:Name="OpenNewLessonMenuItem"
                         Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                        Header="{x:Static res:Resources.uMenuOpenNewLesson}"
-                        Click="OpenNewLessonMenuItem_OnClick">
-                    </MenuItem>
-
+                        Header="{x:Static res:Resources.uMenuOpenNewLesson}" ></MenuItem>
                     <MenuItem 
-                        x:Name="OpenNewCourseMenuItem"
                         Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                        Header="{x:Static res:Resources.uMenuOpenNewCourse}"
-                        Click="OpenNewCourseMenuItem_OnClick">
-                    </MenuItem>
-
+                        Header="{x:Static res:Resources.uMenuOpenNewCourse}"></MenuItem>
                     <MenuItem
-                        x:Name="OpenPreviousLessonMenuItem"
                         Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                        Header="{x:Static res:Resources.uMenuPrevLesson}"
-                        Click="OpenPreviousLessonMenuItem_OnClick">
-                    </MenuItem>
-
+                        Header="{x:Static res:Resources.uMenuPrevLesson}"></MenuItem>
                     <MenuItem 
-                        x:Name="OpenNextLessonMenuItem"
                         Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                        Header="{x:Static res:Resources.uMenuNextLesson}"
-                        Click="OpenNextLessonMenuItem_OnClick">
-                    </MenuItem>
-
+                        Header="{x:Static res:Resources.uMenuNextLesson}"></MenuItem>
                     <MenuItem 
-                        x:Name="QuitAppMenuItem"
                         Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                        Header="{x:Static res:Resources.uMenuQuit}"
-                        Click="QuitAppMenuItem_OnClick">
-                    </MenuItem>
+                        Header="{x:Static res:Resources.uMenuQuit}"></MenuItem>
                 </MenuItem>
 
                 <MenuItem 
-                    x:Name="AppSettingsMenuItem"
                     Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
                     Header="{x:Static res:Resources.uMenuSettings}"
-                    Click="AppSettingsMenuItem_OnClick">
+                    Click="MenuItem_OnClick">
+                    
                 </MenuItem>
 
                 <MenuItem 
                     Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
                     Header="{x:Static res:Resources.uMenuEditor}">
-
                     <MenuItem 
-                        x:Name="OpenLessonEditorMenuItem"
                         Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uMenuEditCurrentLesson}"
-                        Click="OpenLessonEditorMenuItem_OnClick">
-                    </MenuItem>
-
+                        Click="MenuItem_OnClick2"></MenuItem>
                     <MenuItem 
-                        x:Name="OpenCourseEditorMenuItem"
                         Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                        Header="{x:Static res:Resources.uMenuEditCurrentCourse}"
-                        Click="OpenCourseEditorMenuItem_OnClick">
-                    </MenuItem>
+                        Header="{x:Static res:Resources.uMenuEditCurrentCourse}"></MenuItem>
+                    <MenuItem 
+                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Header="{x:Static res:Resources.uMenuNewLesson}"></MenuItem>
+                    <MenuItem 
+                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Header="{x:Static res:Resources.uMenuNewCourse}"></MenuItem>
                 </MenuItem>
             </Menu>
             
@@ -452,7 +419,7 @@
             <Grid.OpacityMask>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                     <GradientStop Offset="0" Color="Black"></GradientStop>
-                    <GradientStop Offset="0.3" Color="Black"></GradientStop>
+                    <GradientStop Offset="0.4" Color="Black"></GradientStop>
                     <GradientStop Offset="1" Color="Transparent"></GradientStop>
                 </LinearGradientBrush>
             </Grid.OpacityMask>
@@ -464,7 +431,7 @@
             <Grid.OpacityMask>
                 <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
                     <GradientStop Offset="0" Color="Black"></GradientStop>
-                    <GradientStop Offset="0.3" Color="Black"></GradientStop>
+                    <GradientStop Offset="0.4" Color="Black"></GradientStop>
                     <GradientStop Offset="1" Color="Transparent"></GradientStop>
                 </LinearGradientBrush>
             </Grid.OpacityMask>
@@ -478,25 +445,11 @@
             <Grid.Background>
                 <SolidColorBrush Color="Black" Opacity="0.5"></SolidColorBrush>
             </Grid.Background>
-
+    
             <Frame x:Name="SettingFrame" NavigationUIVisibility="Hidden">
 
             </Frame>
         </Grid>
-
-        <TextBlock 
-            Grid.Row="0" Grid.Column="0"
-            Grid.RowSpan="5" Grid.ColumnSpan="3"
-            
-
-            Style="{StaticResource SummaryTextStyle}"
-            Background="Transparent"
-            FontSize="16"
-            x:Name="ClickedKeysTextBlock"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Bottom"
-            Margin="20">
-        </TextBlock>
 
     </Grid>
 

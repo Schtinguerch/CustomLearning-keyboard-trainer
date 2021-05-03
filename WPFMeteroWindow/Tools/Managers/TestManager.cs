@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.IO;
 using System.Text.RegularExpressions;
-using System.Windows;
-using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 
 namespace WPFMeteroWindow
 {
@@ -60,31 +60,18 @@ namespace WPFMeteroWindow
                 return "; ";
             if (index % 11 == 0)
                 return ": ";
-            if (index % 13 == 0)
-                return " - ";
             else
                 return " ";
         }
 
         public static void LoadWords(string fileName)
         {
-            if (File.Exists(fileName))
-            {
-                var heapData = File.ReadAllText(fileName);
-                _words = heapData.Split(new[] { '\n' },
-                    StringSplitOptions.RemoveEmptyEntries).ToList();
+            var heapData = File.ReadAllText(fileName);
+            _words = heapData.Split(new[] {'\n'}, 
+                StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                for (int i = 0; i < _words.Count; i++)
-                    _words[i] = _words[i].Replace("\r", "");
-
-                LogManager.Log($"Open world list for test: \"{fileName}\" -> success");
-            }
-
-            else
-            {
-                MessageBox.Show(Localization.uOpenFileMessageError);
-                LogManager.Log($"Open world list for test: \"{fileName}\" -> failed: file does not exist");
-            }
+            for (int i = 0; i < _words.Count; i++)
+                _words[i] = _words[i].Replace("\r", "");
         }
 
         private static void FormUpTheLesson(int firstWordIndex, int lastWordIndex, TestAdditional additional)

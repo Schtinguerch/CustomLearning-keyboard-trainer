@@ -19,8 +19,20 @@ namespace WPFMeteroWindow.Resources.pages
             Intermediary.RichPresentManager.Update("Command line", "Choosing a lesson for passing", "");
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e) =>
-            Opener.NewLessonViaExplorer();
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            var openDialog = new OpenFileDialog
+            {
+                Multiselect = false,
+                RestoreDirectory = true
+            };
+
+            if (openDialog.ShowDialog() == true)
+            {
+                Opener.NewLesson(openDialog.FileName);
+                PageManager.HidePages();
+            }
+        }
 
         private void LessonLoaderPage_OnKeyDown(object sender, KeyEventArgs e)
         {
