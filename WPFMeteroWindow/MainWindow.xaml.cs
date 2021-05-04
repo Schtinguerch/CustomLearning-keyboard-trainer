@@ -84,8 +84,6 @@ namespace WPFMeteroWindow
 
             AppManager.InitializeApplication();
             IsTyping = false;
-            
-            TestManager.LoadWords("JustLessons\\Typing tests\\topWords_EN.txt");
         }
 
         private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
