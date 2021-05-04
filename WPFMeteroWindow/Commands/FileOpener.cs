@@ -1,5 +1,6 @@
 ﻿using System;
 using CommandMakerLibrary;
+using LmlLibrary;
 
 namespace WPFMeteroWindow.Commands
 {
@@ -78,16 +79,33 @@ namespace WPFMeteroWindow.Commands
         
         public void Execute(object[] args)
         {
-            var fileName = args[1].ToString();
-            for (int i = 2; i < args.Length; i++)
-                fileName += ' ' + args[i].ToString();
+            bool hasFileName = args.Length > 1;
+
+            var fileName = "";
+
+            if (hasFileName)
+            {
+                fileName = args[1].ToString();
+                for (int i = 2; i < args.Length; i++)
+                    fileName += ' ' + args[i].ToString();
+            }
 
             switch (args[0].ToString().ToLower())
             {
                 case "l":
-                    Opener.NewLesson(fileName);
+                    if (hasFileName) 
+                        Opener.NewLesson(fileName);
+                    else 
+                        Opener.NewLessonViaExplorer();
                     break;
-                
+
+                case "tc":
+                    if (hasFileName)
+                        TestManager.LoadWords(fileName);
+                    else 
+                        TestManager.LoadWordsViaExplorer();
+                    break;
+
                 case "t":
                     if (args.Length == 4)
                         Opener.NewTest(Convert.ToInt32(args[1]), Convert.ToInt32(args[2]), ToAdditional(args[3]));
@@ -100,15 +118,21 @@ namespace WPFMeteroWindow.Commands
                     break;
 
                 case "k":
-                    Opener.NewKeyboardLayout(fileName);
+                    if (hasFileName)
+                        Opener.NewKeyboardLayout(fileName);
+                    else 
+                        Opener.NewKeyboardLayoutViaExplorer();
                     break;
                 
                 case "c":
-                    Opener.NewCourse(fileName, 0);
+                    if (hasFileName)
+                        Opener.NewCourse(fileName, 0);
+                    else 
+                        Opener.NewCourseViaExplorer();
                     break;
                 
                 default:
-                    if (args[0].ToString().ToLower().Contains("c"))
+                    if (args[0].ToString().ToLower().Contains("c") && hasFileName)
                         Opener.NewCourse(fileName, 
                             Convert.ToInt32(args[0].ToString().Replace("c", "")) - 1);
                     break;
