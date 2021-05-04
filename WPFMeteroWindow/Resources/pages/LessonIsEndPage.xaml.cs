@@ -37,15 +37,15 @@ namespace WPFMeteroWindow.Resources.pages
                 $"{Localization.uTime}: {Settings.Default.TypingTime / 600}:{(Settings.Default.TypingTime / 10) % 60}";
             CharactersCountTextBlock.Text = $"{Localization.uCharactersCount}: {Settings.Default.TypingLength}";
             
-            var drawer = new GraphDrawer(StatisticsManager.ChartPoints, 180, 380);
-            drawer.DrawSpeedGraph(ref TypingSpeedPolyline);
+            var drawer = new GraphDrawer(ChartCanvas, StatisticsManager.ChartPoints, 180, 380);
+            drawer.DrawSpeedGraph(TypingSpeedPolyline, true);
             
             var maxCPM = drawer.MaxCPM;
             MaxCPMtextBlock.Text = maxCPM.ToString();
             
-            drawer = new GraphDrawer(StatisticsManager.AveragePoints, 180, 380);
+            drawer = new GraphDrawer(ChartCanvas, StatisticsManager.AveragePoints, 180, 380);
             drawer.MaxCPM = maxCPM;
-            drawer.DrawSpeedGraph(ref AverageTypingSpeedPolyline);
+            drawer.DrawSpeedGraph(AverageTypingSpeedPolyline, true);
 
             var averageCPM = typingSpeed / 60f;
             var PunctierPoints = new List<SpeedPoint>
@@ -55,9 +55,9 @@ namespace WPFMeteroWindow.Resources.pages
                 
             };
             
-            drawer = new GraphDrawer(PunctierPoints, 180, 380);
+            drawer = new GraphDrawer(ChartCanvas, PunctierPoints, 180, 380);
             drawer.MaxCPM = maxCPM;
-            drawer.DrawSpeedGraph(ref AverapeCPMpunctierPolyline);
+            drawer.DrawSpeedGraph(AverapeCPMpunctierPolyline);
             
             Canvas.SetTop(AverapeCPMtextBlock, AverapeCPMpunctierPolyline.Points[0].Y - 8d);
             AverapeCPMtextBlock.Text = averageCPM.ToString("N");
@@ -155,6 +155,12 @@ namespace WPFMeteroWindow.Resources.pages
                 PageManager.HidePages();
                 Intermediary.App.IsTyping = false;
             }
+        }
+
+        private void LessonIsEndPage_OnPreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space)
+                e.Handled = true;
         }
     }
 }
