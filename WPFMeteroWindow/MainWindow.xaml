@@ -192,8 +192,8 @@
                 <StackPanel Orientation="Horizontal" Margin="6">
                     <Button 
                         Width="54" 
-                        BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
-                        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
+                        BorderBrush="Transparent" 
+                        Background="Transparent"
                         FontSize="20"
                         FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                         Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
@@ -203,8 +203,8 @@
                     </Button>
                     <Button 
                         Width="54" 
-                        BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
-                        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
+                        BorderBrush="Transparent" 
+                        Background="Transparent"
                         FontSize="20"
                         FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                         Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
@@ -213,8 +213,8 @@
                     </Button>
                     <Button 
                         Width="54" 
-                        BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
-                        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
+                        BorderBrush="Transparent" 
+                        Background="Transparent"
                         FontSize="20"
                         FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                         Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
@@ -262,10 +262,14 @@
             Grid.Column="0" Grid.ColumnSpan="3"
             MouseDown="UIElement_OnMouseDown">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition x:Name="LeftTextColumn" Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="1"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition x:Name="RightTextColumn" Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
+
+            <Rectangle
+                Fill="Transparent">
+            </Rectangle>
 
             <TextBlock 
                 Style="{StaticResource MainTextStyle}" 
@@ -275,17 +279,19 @@
                 Foreground="{Binding RaidedFontColor, Source={x:Static prop:Settings.Default}}"
                 FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
                 TextWrapping="NoWrap"
-                Width="100000"></TextBlock>
+                Width="{Binding ElementName=LeftTextColumn, Path=Width}">
+            </TextBlock>
 
             <Rectangle Grid.Column="1" HorizontalAlignment="Right" Width="1" Height="36" Fill="#909090"></Rectangle>
 
             <TextBlock 
-                Width="100000" 
+                Width="{Binding ElementName=RightTextColumn, Path=Width}" 
                 TextWrapping="NoWrap"
                 Style="{StaticResource MainTextStyle}"
                 FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
                 Grid.Column="2" 
-                x:Name="inputTextBlock"></TextBlock>
+                x:Name="inputTextBlock">
+            </TextBlock>
         </Grid>
 
         <Grid Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
@@ -446,9 +452,12 @@
             </Frame>
         </Grid>
 
-        <Grid Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
-              Grid.Row="2"
-              Grid.Column="0">
+        <Grid 
+            x:Name="TextOpacityGradientLeft"
+            Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
+            Grid.Row="2"
+            Grid.Column="0">
+
             <Grid.OpacityMask>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                     <GradientStop Offset="0" Color="Black"></GradientStop>
@@ -458,9 +467,12 @@
             </Grid.OpacityMask>
         </Grid>
         
-        <Grid Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
-              Grid.Row="2"
-              Grid.Column="2">
+        <Grid 
+            x:Name="TextOpacityGradientRight"
+            Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
+            Grid.Row="2"
+            Grid.Column="2">
+
             <Grid.OpacityMask>
                 <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
                     <GradientStop Offset="0" Color="Black"></GradientStop>
