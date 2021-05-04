@@ -170,14 +170,26 @@ namespace WPFMeteroWindow.Resources.pages
             return basePath + path;
         }
 
+        private void ExploreFile(string path)
+        {
+            if (!File.Exists(path))
+            {
+                LogManager.Log($"Show file in explorer: \"{path}\" -> failed, file does not exist");
+                return;
+            }
+
+            System.Diagnostics.Process.Start("explorer.exe", string.Format("/select,\"{0}\"", path));
+            LogManager.Log($"Show file in explorer: \"{path}\" -> success");
+        }
+
         private void EditLessonMenuItem_OnClick(object sender, RoutedEventArgs e) =>
             OpenLessonEditorPage(SelectedPath());
         
         private void NewLessonMenuItem_OnClick(object sender, RoutedEventArgs e) =>
             OpenLessonEditorPage("empty");
-        
+
         private void MenuItem_OnClick(object sender, RoutedEventArgs e) =>
-            System.Diagnostics.Process.Start("explorer.exe", $"select \"{SelectedPath()}\"");
+            ExploreFile(SelectedPath());
 
         private void CopyPathMenuItem_OnClick(object sender, RoutedEventArgs e) =>
             Clipboard.SetText(SelectedPath());
