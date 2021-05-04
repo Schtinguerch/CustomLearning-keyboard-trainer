@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Forms;
 using WPFMeteroWindow.Properties;
-using MessageBox = System.Windows.MessageBox;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 
 namespace WPFMeteroWindow.Resources.pages
@@ -148,6 +145,22 @@ namespace WPFMeteroWindow.Resources.pages
                     break;
             }
         }
+
+        private void WindowColorType_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (WindowColorType.SelectedIndex)
+            {
+                case 0:
+                    SetColor.WindowStandardColor();
+                    break;
+
+                case 1:
+                    SetColor.WindowBackgroundImage(Opener.ImageViaExplorer());
+                    break;
+            }
+        }
         #endregion
+
+
     }
 }

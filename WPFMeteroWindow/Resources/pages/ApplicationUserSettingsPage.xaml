@@ -78,6 +78,40 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uSettWindowBackgroundType}"
+                            FontSize="18">
+                        </TextBlock>
+
+                        <StackPanel
+                            Height="32"
+                            Width="400"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+
+                            <ComboBox
+                                FontSize="18"
+                                Height="32"
+                                Width="350"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="WindowColorType"
+                                SelectionChanged="WindowColorType_OnSelectionChanged">
+
+                                <TextBlock Text="{x:Static res:Resources.uSettBrush}"></TextBlock>
+                                <TextBlock Text="{x:Static res:Resources.uSettImage}"></TextBlock>
+                            </ComboBox>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                    >
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
                             Text="{x:Static res:Resources.uTheme}"
                             FontSize="18">
                         </TextBlock>

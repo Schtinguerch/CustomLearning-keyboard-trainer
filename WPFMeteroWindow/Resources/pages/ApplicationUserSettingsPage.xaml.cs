@@ -10,6 +10,7 @@ using WPFMeteroWindow.Properties;
 using Color = System.Windows.Media.Color;
 using Point = System.Windows.Point;
 using TextBox = System.Windows.Controls.TextBox;
+using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 
 namespace WPFMeteroWindow.Resources.pages
 {
@@ -55,7 +56,7 @@ namespace WPFMeteroWindow.Resources.pages
             var state = true;
             var selectedText = text.ToLower();
 
-            if ((selectedText == "no") || (selectedText == "нет"))
+            if (selectedText == Localization.uNo)
                 state = false;
 
             switch (target)
