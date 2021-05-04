@@ -10,6 +10,24 @@ namespace WPFMeteroWindow
 {
     public static class Opener
     {
+        public static string ImageViaExplorer()
+        {
+            var opener = new OpenFileDialog()
+            {
+                Multiselect = false,
+                RestoreDirectory = true,
+                Filter = "images|*.jpg;*.png;*.gif;*.ico;*.jpeg",
+            };
+
+            if (opener.ShowDialog() == true)
+            {
+                LogManager.Log($"Open image: \"{opener.FileName}\" -> success");
+                return opener.FileName;
+            }
+
+            return "";
+        }
+
         public static void NewCourse(string fileName, int lessonIndex)
         {
             if (File.Exists(fileName))
@@ -73,6 +91,21 @@ namespace WPFMeteroWindow
                 LogManager.Log($"Open keyboard layout: \"{fileName}\" -> failed, file does not exist");
             }
         }
+
+        public static void NewKeyboardLayoutViaExplorer()
+        {
+            var openDialog = new OpenFileDialog()
+            {
+                RestoreDirectory = true,
+                DefaultExt = "*.lml"
+            };
+
+            if (openDialog.ShowDialog() == true)
+            {
+                Settings.Default.KeyboardLayoutFile = openDialog.FileName;
+                NewKeyboardLayout(openDialog.FileName);
+            }
+        }
         
         public static void NewLesson(string fileName)
         {
@@ -108,7 +141,9 @@ namespace WPFMeteroWindow
             var openDialog = new OpenFileDialog
             {
                 Multiselect = false,
-                RestoreDirectory = true
+                RestoreDirectory = true,
+                DefaultExt = ".lml",
+                Filter = "LML-files (.lml)|*.lml"
             };
 
             if (openDialog.ShowDialog() == true)
