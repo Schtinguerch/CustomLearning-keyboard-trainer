@@ -285,11 +285,17 @@
   <data name="uSettBaseColors" xml:space="preserve">
     <value>Main colors</value>
   </data>
+  <data name="uSettBrush" xml:space="preserve">
+    <value>Color brush</value>
+  </data>
   <data name="uSettFonts" xml:space="preserve">
     <value>Fonts</value>
   </data>
   <data name="uSettHeader" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="uSettImage" xml:space="preserve">
+    <value>Image</value>
   </data>
   <data name="uSettKbBorderColor" xml:space="preserve">
     <value>Key border color</value>
@@ -353,6 +359,9 @@
   </data>
   <data name="uSettUItextColor" xml:space="preserve">
     <value>UI text color</value>
+  </data>
+  <data name="uSettWindowBackgroundType" xml:space="preserve">
+    <value>Window background type</value>
   </data>
   <data name="uSettWindowColor" xml:space="preserve">
     <value>Window color</value>

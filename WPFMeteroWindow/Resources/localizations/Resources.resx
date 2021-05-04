@@ -285,11 +285,17 @@
   <data name="uSettBaseColors" xml:space="preserve">
     <value>Основные цвета</value>
   </data>
+  <data name="uSettBrush" xml:space="preserve">
+    <value>Сплошной цвет</value>
+  </data>
   <data name="uSettFonts" xml:space="preserve">
     <value>Шрифты</value>
   </data>
   <data name="uSettHeader" xml:space="preserve">
     <value>Настройки</value>
+  </data>
+  <data name="uSettImage" xml:space="preserve">
+    <value>Изображение</value>
   </data>
   <data name="uSettKbBorderColor" xml:space="preserve">
     <value>Цвет границы клавиш</value>
@@ -353,6 +359,9 @@
   </data>
   <data name="uSettUItextColor" xml:space="preserve">
     <value>Цвет текста интерфейса</value>
+  </data>
+  <data name="uSettWindowBackgroundType" xml:space="preserve">
+    <value>Тип фона окна</value>
   </data>
   <data name="uSettWindowColor" xml:space="preserve">
     <value>Цвет окна</value>
