@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Windows;
 using WPFMeteroWindow.Properties;
+using System.IO;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace WPFMeteroWindow
 {
@@ -12,8 +15,46 @@ namespace WPFMeteroWindow
 
     public static class SetColor
     {
-        public static void FirstColor(string color) =>
+        public static void WindowBackgroundImage(string path)
+        {
+            if (!File.Exists(path))
+            {
+                if (!string.IsNullOrEmpty(path))
+                    LogManager.Log($"Set background image: \"{path}\" -> failed, file does not exist");
+
+                return;
+            }
+
+            Settings.Default.IsBackgroundImage = true;
+            Settings.Default.BackgroundImagePath = path;
+
+            var imageBrush = new ImageBrush()
+            {
+                ImageSource = new BitmapImage(new Uri(path, UriKind.Absolute)),
+                Stretch = Stretch.UniformToFill,
+            };
+
+            Intermediary.App.MainGrid.Background = imageBrush;
+            Intermediary.App.TextOpacityGradientLeft.Visibility = Visibility.Hidden;
+            Intermediary.App.TextOpacityGradientRight.Visibility = Visibility.Hidden;
+        }
+
+        public static void WindowStandardColor()
+        {
+            Settings.Default.IsBackgroundImage = false;
+            Settings.Default.BackgroundImagePath = "";
+
+            Intermediary.App.MainGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(Settings.Default.MainBackground));
+            Intermediary.App.TextOpacityGradientLeft.Visibility = Visibility.Visible;
+            Intermediary.App.TextOpacityGradientRight.Visibility = Visibility.Visible;
+        }
+
+        public static void FirstColor(string color)
+        {
             Settings.Default.MainBackground = color;
+            Intermediary.App.MainGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(color));
+        }
+            
 
         public static void SecondColor(string color) =>
             Settings.Default.SecondBackground = color;
