@@ -4,7 +4,9 @@ using System.Linq;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows;
+using WPFMeteroWindow.Properties;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
+using Microsoft.Win32;
 
 namespace WPFMeteroWindow
 {
@@ -29,6 +31,22 @@ namespace WPFMeteroWindow
     
     public static class TestManager
     {
+        private static int _wordCount = Settings.Default.TestWordCount;
+
+        public static int WordCount
+        {
+            get => _wordCount;
+            set
+            {
+                if (value > 0)
+                {
+                    _wordCount = value;
+                    Settings.Default.TestWordCount = value;
+                    Settings.Default.Save();
+                }
+            }
+        }
+
         private static List<string> _words = new List<string>();
 
         private static TestAdditional _testAdditional;
@@ -66,6 +84,19 @@ namespace WPFMeteroWindow
                 return " ";
         }
 
+        public static void LoadWordsViaExplorer()
+        {
+            var opener = new OpenFileDialog()
+            {
+                Multiselect = false,
+                RestoreDirectory = true,
+                Filter = "LML-files|*.lml",
+            };
+
+            if (opener.ShowDialog() == true)
+                LoadWords(opener.FileName);
+        }
+
         public static void LoadWords(string fileName)
         {
             if (File.Exists(fileName))
@@ -76,6 +107,9 @@ namespace WPFMeteroWindow
 
                 for (int i = 0; i < _words.Count; i++)
                     _words[i] = _words[i].Replace("\r", "");
+
+                Settings.Default.TestWordListPath = fileName;
+                Settings.Default.Save();
 
                 LogManager.Log($"Open world list for test: \"{fileName}\" -> success");
             }
@@ -92,7 +126,7 @@ namespace WPFMeteroWindow
             var randomizer = new Random(DateTime.Now.Millisecond);
             var lesson = "";
             
-            for (int i = 0; i < 24; i++)
+            for (int i = 0; i < _wordCount; i++)
             {
                 int index = randomizer.Next(firstWordIndex, lastWordIndex);
                 switch (additional)
@@ -161,6 +195,9 @@ namespace WPFMeteroWindow
 
         public static void StartTest(int firstWordIndex, int lastWordIndex, TestAdditional additional)
         {
+            if ((_words.Count == null) || (_words.Count == 0))
+                LoadWords(Settings.Default.TestWordListPath);
+
             _firstWordIndex = firstWordIndex;
             _lastWordIndex = lastWordIndex;
             _testAdditional = additional;
