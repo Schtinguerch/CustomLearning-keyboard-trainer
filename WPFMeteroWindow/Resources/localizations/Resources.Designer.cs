@@ -565,6 +565,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Сплошной цвет.
+        /// </summary>
+        public static string uSettBrush {
+            get {
+                return ResourceManager.GetString("uSettBrush", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Шрифты.
         /// </summary>
         public static string uSettFonts {
@@ -579,6 +588,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uSettHeader {
             get {
                 return ResourceManager.GetString("uSettHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Изображение.
+        /// </summary>
+        public static string uSettImage {
+            get {
+                return ResourceManager.GetString("uSettImage", resourceCulture);
             }
         }
         
@@ -768,6 +786,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uSettUItextColor {
             get {
                 return ResourceManager.GetString("uSettUItextColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Тип фона окна.
+        /// </summary>
+        public static string uSettWindowBackgroundType {
+            get {
+                return ResourceManager.GetString("uSettWindowBackgroundType", resourceCulture);
             }
         }
         

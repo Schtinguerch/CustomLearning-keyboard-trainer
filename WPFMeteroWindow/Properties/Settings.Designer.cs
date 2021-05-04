@@ -538,5 +538,29 @@ namespace WPFMeteroWindow.Properties {
                 this["BackgroundImagePath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("JustLessons\\Typing tests\\topWords_EN.txt")]
+        public string TestWordListPath {
+            get {
+                return ((string)(this["TestWordListPath"]));
+            }
+            set {
+                this["TestWordListPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("24")]
+        public int TestWordCount {
+            get {
+                return ((int)(this["TestWordCount"]));
+            }
+            set {
+                this["TestWordCount"] = value;
+            }
+        }
     }
 }
