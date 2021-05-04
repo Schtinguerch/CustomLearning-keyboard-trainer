@@ -26,6 +26,14 @@ namespace WPFMeteroWindow
         {
             FindMainWindow();
 
+            if (Settings.Default.IsBackgroundImage)
+            {
+                if (File.Exists(Settings.Default.BackgroundImagePath))
+                    SetColor.WindowBackgroundImage(Settings.Default.BackgroundImagePath);
+                else 
+                    SetColor.WindowStandardColor();
+            }
+            
             int errorIndex = -1;
 
             try
