@@ -109,35 +109,35 @@
 
                     <MenuItem 
                         x:Name="OpenNewLessonMenuItem"
-                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uMenuOpenNewLesson}"
                         Click="OpenNewLessonMenuItem_OnClick">
                     </MenuItem>
 
                     <MenuItem 
                         x:Name="OpenNewCourseMenuItem"
-                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uMenuOpenNewCourse}"
                         Click="OpenNewCourseMenuItem_OnClick">
                     </MenuItem>
 
                     <MenuItem
                         x:Name="OpenPreviousLessonMenuItem"
-                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uMenuPrevLesson}"
                         Click="OpenPreviousLessonMenuItem_OnClick">
                     </MenuItem>
 
                     <MenuItem 
                         x:Name="OpenNextLessonMenuItem"
-                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uMenuNextLesson}"
                         Click="OpenNextLessonMenuItem_OnClick">
                     </MenuItem>
 
                     <MenuItem 
                         x:Name="QuitAppMenuItem"
-                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uMenuQuit}"
                         Click="QuitAppMenuItem_OnClick">
                     </MenuItem>
@@ -156,14 +156,14 @@
 
                     <MenuItem 
                         x:Name="OpenLessonEditorMenuItem"
-                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uMenuEditCurrentLesson}"
                         Click="OpenLessonEditorMenuItem_OnClick">
                     </MenuItem>
 
                     <MenuItem 
                         x:Name="OpenCourseEditorMenuItem"
-                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uMenuEditCurrentCourse}"
                         Click="OpenCourseEditorMenuItem_OnClick">
                     </MenuItem>
@@ -257,42 +257,111 @@
             </Grid>
         </Grid>
 
-        <Grid Height="100" VerticalAlignment="Bottom" Margin="0 0 0 1"
+        <StackPanel
+            Orientation="Vertical"
+            VerticalAlignment="Bottom"
             Grid.Row="2"
-            Grid.Column="0" Grid.ColumnSpan="3"
-            MouseDown="UIElement_OnMouseDown">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition x:Name="LeftTextColumn" Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="1"></ColumnDefinition>
-                <ColumnDefinition x:Name="RightTextColumn" Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+            Grid.Column="0" 
+            Grid.ColumnSpan="3">
 
-            <Rectangle
-                Fill="Transparent">
-            </Rectangle>
+            <Grid Height="80">
 
-            <TextBlock 
-                Style="{StaticResource MainTextStyle}" 
-                x:Name="inputTextBox"
-                TextAlignment="Right"
-                HorizontalAlignment="Right"
-                Foreground="{Binding RaidedFontColor, Source={x:Static prop:Settings.Default}}"
-                FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                TextWrapping="NoWrap"
-                Width="{Binding ElementName=LeftTextColumn, Path=Width}">
-            </TextBlock>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="1"></ColumnDefinition>
+                    <ColumnDefinition x:Name="RightErrorTextColumn" Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
 
-            <Rectangle Grid.Column="1" HorizontalAlignment="Right" Width="1" Height="36" Fill="#909090"></Rectangle>
+                <Grid Grid.Column="2">
+                    <Grid.OpacityMask>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
+                            <GradientStop Offset="0" Color="Transparent"></GradientStop>
+                            <GradientStop Offset="0.5" Color="Gray"></GradientStop>
+                            <GradientStop Offset="1" Color="Black"></GradientStop>
+                        </LinearGradientBrush>
+                    </Grid.OpacityMask>
 
-            <TextBlock 
-                Width="{Binding ElementName=RightTextColumn, Path=Width}" 
-                TextWrapping="NoWrap"
-                Style="{StaticResource MainTextStyle}"
-                FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                Grid.Column="2" 
-                x:Name="inputTextBlock">
-            </TextBlock>
-        </Grid>
+                    <Rectangle
+                    Fill="Transparent">
+                    </Rectangle>
+
+                    <TextBlock 
+                    VerticalAlignment="Bottom"
+                    Width="{Binding ElementName=RightTextColumn, Path=Width}" 
+                    TextWrapping="NoWrap"
+                    Style="{StaticResource MainTextStyle}"
+                    FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                    Foreground="{Binding KeyboardErrorHighlightColor, Source={x:Static prop:Settings.Default}}"
+                    x:Name="errorInputTextBlock">
+                    </TextBlock>
+                </Grid>
+            </Grid>
+
+            <Grid 
+                Height="100" 
+                VerticalAlignment="Bottom" Margin="0 0 0 1"
+                MouseDown="UIElement_OnMouseDown">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition x:Name="LeftTextColumn" Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="1"></ColumnDefinition>
+                    <ColumnDefinition x:Name="RightTextColumn" Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Grid.OpacityMask>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Offset="0" Color="Transparent"></GradientStop>
+                            <GradientStop Offset="0.5" Color="Gray"></GradientStop>
+                            <GradientStop Offset="1" Color="Black"></GradientStop>
+                        </LinearGradientBrush>
+                    </Grid.OpacityMask>
+
+                    <Rectangle
+                    Fill="Transparent">
+                    </Rectangle>
+
+                    <TextBlock 
+                    Style="{StaticResource MainTextStyle}" 
+                    x:Name="inputTextBox"
+                    TextAlignment="Right"
+                    HorizontalAlignment="Right"
+                    Foreground="{Binding RaidedFontColor, Source={x:Static prop:Settings.Default}}"
+                    FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                    TextWrapping="NoWrap"
+                    Width="{Binding ElementName=LeftTextColumn, Path=Width}">
+                    </TextBlock>
+                </Grid>
+
+
+
+                <Rectangle Grid.Column="1" HorizontalAlignment="Right" Width="1" Height="36" Fill="#909090"></Rectangle>
+
+                <Grid Grid.Column="2">
+                    <Grid.OpacityMask>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
+                            <GradientStop Offset="0" Color="Transparent"></GradientStop>
+                            <GradientStop Offset="0.5" Color="Gray"></GradientStop>
+                            <GradientStop Offset="1" Color="Black"></GradientStop>
+                        </LinearGradientBrush>
+                    </Grid.OpacityMask>
+
+                    <Rectangle
+                    Fill="Transparent">
+                    </Rectangle>
+
+                    <TextBlock 
+                    Width="{Binding ElementName=RightTextColumn, Path=Width}" 
+                    TextWrapping="NoWrap"
+                    Style="{StaticResource MainTextStyle}"
+                    FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                    x:Name="inputTextBlock">
+                    </TextBlock>
+                </Grid>
+            </Grid>
+        </StackPanel>
+
+        
 
         <Grid Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
               Grid.Row="3"
@@ -450,36 +519,6 @@
                 Width="1000"
                 VerticalAlignment="Top">
             </Frame>
-        </Grid>
-
-        <Grid 
-            x:Name="TextOpacityGradientLeft"
-            Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
-            Grid.Row="2"
-            Grid.Column="0">
-
-            <Grid.OpacityMask>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                    <GradientStop Offset="0" Color="Black"></GradientStop>
-                    <GradientStop Offset="0.3" Color="Black"></GradientStop>
-                    <GradientStop Offset="1" Color="Transparent"></GradientStop>
-                </LinearGradientBrush>
-            </Grid.OpacityMask>
-        </Grid>
-        
-        <Grid 
-            x:Name="TextOpacityGradientRight"
-            Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
-            Grid.Row="2"
-            Grid.Column="2">
-
-            <Grid.OpacityMask>
-                <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
-                    <GradientStop Offset="0" Color="Black"></GradientStop>
-                    <GradientStop Offset="0.3" Color="Black"></GradientStop>
-                    <GradientStop Offset="1" Color="Transparent"></GradientStop>
-                </LinearGradientBrush>
-            </Grid.OpacityMask>
         </Grid>
 
         <Grid 
