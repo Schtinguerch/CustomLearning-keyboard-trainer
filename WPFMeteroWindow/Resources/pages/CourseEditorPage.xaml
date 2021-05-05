@@ -126,38 +126,38 @@
                             TextBlock.LineHeight="18" 
                             x:Name="LessonListContextMenu"
                             FontFamily="{Binding Path=SummaryFont ,Source={x:Static prop:Settings.Default}}"
-                            Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
+                            Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}">
 
                             <MenuItem 
                                 x:Name="EditLessonMenuItem"
-                                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                                Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                                 Header="{x:Static res:Resources.uMenuEditLesson}"
                                 Click="EditLessonMenuItem_OnClick">
                             </MenuItem>
 
                             <MenuItem
                                 x:Name="NewLessonMenuItem"
-                                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                                Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                                 Header="{x:Static res:Resources.uMenuNewLesson}"
                                 Click="NewLessonMenuItem_OnClick">
                             </MenuItem>
 
                             <MenuItem
-                                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                                Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                                 Header="{x:Static res:Resources.uMenuShowInExplorer}"
                                 Click="MenuItem_OnClick">
                             </MenuItem>
 
                             <MenuItem 
                                 x:Name="CopyPathMenuItem"
-                                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                                Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                                 Header="{x:Static res:Resources.uMenuCopyPath}"
                                 Click="CopyPathMenuItem_OnClick">
                             </MenuItem>
                             
                             <MenuItem 
                                 x:Name="DeleteFileMenuItem"
-                                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                                Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                                 Header="{x:Static res:Resources.uMenuDeleteFile}"
                                 Click="DeleteFileMenuItem_OnClick">
                             </MenuItem>
