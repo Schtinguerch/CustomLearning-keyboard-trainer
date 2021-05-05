@@ -109,6 +109,7 @@ namespace WPFMeteroWindow
                         if (lastCharacter == LessonManager.LeftRoad[0])
                         {
                             _isFirstMistake = true;
+                            errorInputTextBlock.Text = "";
 
                             LessonManager.DoneRoad += lastCharacter;
                             LessonManager.LeftRoad = 
@@ -128,6 +129,7 @@ namespace WPFMeteroWindow
                         else
                         {
                             KeyboardManager.ShowTypingError(lastCharacter);
+                            errorInputTextBlock.Text += lastCharacter;
 
                             if (_isFirstMistake)
                             {
