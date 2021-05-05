@@ -35,8 +35,6 @@ namespace WPFMeteroWindow
             };
 
             Intermediary.App.MainGrid.Background = imageBrush;
-            Intermediary.App.TextOpacityGradientLeft.Visibility = Visibility.Hidden;
-            Intermediary.App.TextOpacityGradientRight.Visibility = Visibility.Hidden;
         }
 
         public static void WindowStandardColor()
@@ -45,8 +43,6 @@ namespace WPFMeteroWindow
             Settings.Default.BackgroundImagePath = "";
 
             Intermediary.App.MainGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(Settings.Default.MainBackground));
-            Intermediary.App.TextOpacityGradientLeft.Visibility = Visibility.Visible;
-            Intermediary.App.TextOpacityGradientRight.Visibility = Visibility.Visible;
         }
 
         public static void FirstColor(string color)
