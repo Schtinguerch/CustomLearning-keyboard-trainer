@@ -33,12 +33,23 @@ namespace WPFMeteroWindow
             if (File.Exists(filePath))
             {
                 var reader = new Lml(filePath, Lml.Open.FromFile);
+                if (reader.GetAllData().Contains("<<Lesson:"))
+                {
+                    LessonName = reader.GetString("Lesson>Name");
+                    LessonText = Regex.Replace(reader.GetString("Lesson>Text"), "\\s+", " ").ToBeCorrected();
 
-                LessonName = reader.GetString("Lesson>Name");
-                LessonText = Regex.Replace(reader.GetString("Lesson>Text"), "\\s+", " ").ToBeCorrected();
+                    NecessaryCPM = reader.GetInt("Lesson>NecessaryCPM");
+                    MaxAcceptableMistakes = reader.GetInt("Lesson>MaximumMistakes");
+                }
 
-                NecessaryCPM = reader.GetInt("Lesson>NecessaryCPM");
-                MaxAcceptableMistakes = reader.GetInt("Lesson>MaximumMistakes");
+                else
+                {
+                    LessonName = "";
+                    LessonText = Regex.Replace(File.ReadAllText(filePath), "\n+", " ");
+
+                    NecessaryCPM = 0;
+                    MaxAcceptableMistakes = 0;
+                }
             }
         }
 
