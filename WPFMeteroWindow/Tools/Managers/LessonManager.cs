@@ -18,6 +18,7 @@ namespace WPFMeteroWindow
         
         public static void LoadLesson(string filename)
         {
+            Intermediary.App.errorInputTextBlock.Text = "";
             var reader = new Lml(filename, Lml.Open.FromFile);
             string lessonText, lessonName;
             try
