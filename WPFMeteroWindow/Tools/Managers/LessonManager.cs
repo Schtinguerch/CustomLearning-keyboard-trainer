@@ -28,7 +28,7 @@ namespace WPFMeteroWindow
                 else
                     lessonName = reader.GetString("Lesson>Name");
                 
-                lessonText = Regex.Replace(reader.GetString("Lesson>Text"), "\\s+", " ");
+                lessonText = Regex.Replace(reader.GetString("Lesson>Text"), "\\s+", " ").ToBeCorrected();
                 Settings.Default.NecessaryCPM = reader.GetInt("Lesson>NecessaryCPM");
                 Settings.Default.MaxAcceptableMistakes = reader.GetInt("Lesson>MaximumMistakes");
             }
