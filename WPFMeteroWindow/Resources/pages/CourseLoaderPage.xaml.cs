@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -7,6 +8,7 @@ using System.Windows.Input;
 using LmlLibrary;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.MessageBox;
+using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 
 namespace WPFMeteroWindow.Resources.pages
 {
@@ -49,9 +51,10 @@ namespace WPFMeteroWindow.Resources.pages
                     }
                         
                 }
-                catch (Exception ex)
+                catch
                 {
-                    MessageBox.Show("Error:\n" + ex.Message);
+                    MessageBox.Show(Localization.uOpenFileMessageError);
+                    LogManager.Log($"Open course: \"{CourseTextBox.Text}\" -> failed, file does not exist");
                 }
             }
 
@@ -61,6 +64,9 @@ namespace WPFMeteroWindow.Resources.pages
 
         private void LoadCourseData(string filename)
         {
+            if (!File.Exists(filename))
+                throw new NullReferenceException();
+
             var reader = new Lml(filename, Lml.Open.FromFile);
             var lessonFiles = AppManager.GetFileList(reader.GetArray("Course>LessonList"));
             _courseName = reader.GetString("Course>Name");
