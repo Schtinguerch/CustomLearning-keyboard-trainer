@@ -126,6 +126,9 @@
   <data name="uChooseTheBeginLesson" xml:space="preserve">
     <value>Выберите урок, с которого желаете начать</value>
   </data>
+  <data name="uCourse" xml:space="preserve">
+    <value>Курс</value>
+  </data>
   <data name="uCourseEditor" xml:space="preserve">
     <value>Редактор курсов</value>
   </data>
@@ -150,6 +153,18 @@
   <data name="uEnterThePathToKeyboardLayout" xml:space="preserve">
     <value>Введить путь к раскладке</value>
   </data>
+  <data name="uErrorAccessDenied" xml:space="preserve">
+    <value>отказано в доступе</value>
+  </data>
+  <data name="uErrorCannotOpenFile" xml:space="preserve">
+    <value>Ошибка: не удаётся открыть файл</value>
+  </data>
+  <data name="uErrorCode" xml:space="preserve">
+    <value>код ошибки</value>
+  </data>
+  <data name="uErrorFileNotFound" xml:space="preserve">
+    <value>файл не найден</value>
+  </data>
   <data name="uFail" xml:space="preserve">
     <value>Провал!</value>
   </data>
@@ -168,14 +183,23 @@
   <data name="uHandsThickness" xml:space="preserve">
     <value>Толщина линий на руках</value>
   </data>
+  <data name="uIncorrectNumberError" xml:space="preserve">
+    <value>Ошибка: некорректно введённое число</value>
+  </data>
   <data name="uIndex" xml:space="preserve">
     <value>указательным на </value>
   </data>
   <data name="uIsFinished" xml:space="preserve">
     <value>Завершён</value>
   </data>
+  <data name="uKeyboadLayout" xml:space="preserve">
+    <value>Раскладка клавиатуры</value>
+  </data>
   <data name="uLeft" xml:space="preserve">
     <value>Левым </value>
+  </data>
+  <data name="uLesson" xml:space="preserve">
+    <value>Урок</value>
   </data>
   <data name="uLessonEditor" xml:space="preserve">
     <value>Редактор уроков</value>
@@ -378,6 +402,9 @@
   <data name="uSuccess" xml:space="preserve">
     <value>Успех!</value>
   </data>
+  <data name="uSystemReplaceProblemFileIntoStandard" xml:space="preserve">
+    <value>Система заменит проблемный файл на стандартный</value>
+  </data>
   <data name="uTheLesson" xml:space="preserve">
     <value>Урок</value>
   </data>
@@ -389,6 +416,9 @@
   </data>
   <data name="uTime" xml:space="preserve">
     <value>Время</value>
+  </data>
+  <data name="uUnknownColorError" xml:space="preserve">
+    <value>Ошибка: неизвестный цвет</value>
   </data>
   <data name="uYes" xml:space="preserve">
     <value>Да</value>

@@ -126,6 +126,9 @@
   <data name="uChooseTheBeginLesson" xml:space="preserve">
     <value>Choose the beginning lesson</value>
   </data>
+  <data name="uCourse" xml:space="preserve">
+    <value>Course</value>
+  </data>
   <data name="uCourseEditor" xml:space="preserve">
     <value>Course editor</value>
   </data>
@@ -150,6 +153,18 @@
   <data name="uEnterThePathToKeyboardLayout" xml:space="preserve">
     <value>Enter the path to the keyboard layout</value>
   </data>
+  <data name="uErrorAccessDenied" xml:space="preserve">
+    <value>access denied</value>
+  </data>
+  <data name="uErrorCannotOpenFile" xml:space="preserve">
+    <value>Error: app cannot open the file</value>
+  </data>
+  <data name="uErrorCode" xml:space="preserve">
+    <value>error code</value>
+  </data>
+  <data name="uErrorFileNotFound" xml:space="preserve">
+    <value>file not found</value>
+  </data>
   <data name="uFail" xml:space="preserve">
     <value>Fail!</value>
   </data>
@@ -168,14 +183,23 @@
   <data name="uHandsThickness" xml:space="preserve">
     <value>Hands line thickness</value>
   </data>
+  <data name="uIncorrectNumberError" xml:space="preserve">
+    <value>Error: incorrect inputted number</value>
+  </data>
   <data name="uIndex" xml:space="preserve">
     <value>index on </value>
   </data>
   <data name="uIsFinished" xml:space="preserve">
     <value>is finished</value>
   </data>
+  <data name="uKeyboadLayout" xml:space="preserve">
+    <value>Keyboard layout</value>
+  </data>
   <data name="uLeft" xml:space="preserve">
     <value>Left </value>
+  </data>
+  <data name="uLesson" xml:space="preserve">
+    <value>Lesson</value>
   </data>
   <data name="uLessonEditor" xml:space="preserve">
     <value>Lesson editor</value>
@@ -378,6 +402,9 @@
   <data name="uSuccess" xml:space="preserve">
     <value>Success!</value>
   </data>
+  <data name="uSystemReplaceProblemFileIntoStandard" xml:space="preserve">
+    <value>System will replace the problem file by a standard file</value>
+  </data>
   <data name="uTheLesson" xml:space="preserve">
     <value>The lesson</value>
   </data>
@@ -389,6 +416,9 @@
   </data>
   <data name="uTime" xml:space="preserve">
     <value>Time</value>
+  </data>
+  <data name="uUnknownColorError" xml:space="preserve">
+    <value>Error: unknown color</value>
   </data>
   <data name="uYes" xml:space="preserve">
     <value>Yes</value>

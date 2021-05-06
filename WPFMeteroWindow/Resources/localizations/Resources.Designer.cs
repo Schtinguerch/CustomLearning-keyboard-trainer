@@ -88,6 +88,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Курс.
+        /// </summary>
+        public static string uCourse {
+            get {
+                return ResourceManager.GetString("uCourse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Редактор курсов.
         /// </summary>
         public static string uCourseEditor {
@@ -160,6 +169,42 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на отказано в доступе.
+        /// </summary>
+        public static string uErrorAccessDenied {
+            get {
+                return ResourceManager.GetString("uErrorAccessDenied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ошибка: не удаётся открыть файл.
+        /// </summary>
+        public static string uErrorCannotOpenFile {
+            get {
+                return ResourceManager.GetString("uErrorCannotOpenFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на код ошибки.
+        /// </summary>
+        public static string uErrorCode {
+            get {
+                return ResourceManager.GetString("uErrorCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на файл не найден.
+        /// </summary>
+        public static string uErrorFileNotFound {
+            get {
+                return ResourceManager.GetString("uErrorFileNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Провал!.
         /// </summary>
         public static string uFail {
@@ -214,6 +259,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Ошибка: некорректно введённое число.
+        /// </summary>
+        public static string uIncorrectNumberError {
+            get {
+                return ResourceManager.GetString("uIncorrectNumberError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на указательным на .
         /// </summary>
         public static string uIndex {
@@ -232,11 +286,29 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Раскладка клавиатуры.
+        /// </summary>
+        public static string uKeyboadLayout {
+            get {
+                return ResourceManager.GetString("uKeyboadLayout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Левым .
         /// </summary>
         public static string uLeft {
             get {
                 return ResourceManager.GetString("uLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Урок.
+        /// </summary>
+        public static string uLesson {
+            get {
+                return ResourceManager.GetString("uLesson", resourceCulture);
             }
         }
         
@@ -844,6 +916,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Система заменит проблемный файл на стандартный.
+        /// </summary>
+        public static string uSystemReplaceProblemFileIntoStandard {
+            get {
+                return ResourceManager.GetString("uSystemReplaceProblemFileIntoStandard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Урок.
         /// </summary>
         public static string uTheLesson {
@@ -876,6 +957,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uTime {
             get {
                 return ResourceManager.GetString("uTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ошибка: неизвестный цвет.
+        /// </summary>
+        public static string uUnknownColorError {
+            get {
+                return ResourceManager.GetString("uUnknownColorError", resourceCulture);
             }
         }
         
