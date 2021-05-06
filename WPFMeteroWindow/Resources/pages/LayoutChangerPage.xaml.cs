@@ -1,8 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using Microsoft.Win32;
-using WPFMeteroWindow.Properties;
 
 namespace WPFMeteroWindow.Resources.pages
 {
@@ -19,49 +17,19 @@ namespace WPFMeteroWindow.Resources.pages
             Intermediary.RichPresentManager.Update("Command line", "Choosing a keyboard layout for learning...", "");
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            var openDialog = new OpenFileDialog();
-            openDialog.Multiselect = false;
-            openDialog.RestoreDirectory = true;
-            openDialog.DefaultExt = "*.lml";
-
-            if (openDialog.ShowDialog() == true)
-            {
-                Opener.NewKeyboardLayout(openDialog.FileName); 
-                PageManager.HidePages();
-                
-                Settings.Default.Save();
-                LayoutTextBox.Text = "";
-            }
-        }
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e) => 
+            Opener.NewKeyboardLayoutViaExplorer();
 
         private void LayoutChangerPage_OnKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                try
-                {
-                    Opener.NewKeyboardLayout(LayoutTextBox.Text);
-                    PageManager.HidePages();
-                    
-                    Settings.Default.Save();
-                    LayoutTextBox.Text = "";
-                }
-
-                catch
-                {
-                    
-                }
+                Opener.NewKeyboardLayout(LayoutTextBox.Text);
+                PageManager.HidePages();
             }
                 
             else if (e.Key == Key.Escape)
                 PageManager.HidePages();
-        }
-
-        private void LayoutChangerPage_OnIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-
         }
     }
 }
