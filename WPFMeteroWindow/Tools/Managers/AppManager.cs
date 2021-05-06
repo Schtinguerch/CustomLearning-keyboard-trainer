@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Windows.Controls;
 using Application = System.Windows.Application;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
+using Localization = WPFMeteroWindow.Resources.localizations.Resources;
+using System.Windows.Media;
 
 namespace WPFMeteroWindow
 {
@@ -73,8 +75,15 @@ namespace WPFMeteroWindow
                 }
 
                 MessageBox.Show(
-                    "Ошибка: не удаётся открыть файл, " +
-                    (isNecessaryFileExists ? "ошибка доступа" : "файл не существует!!!"));
+                    Localization.uErrorCannotOpenFile +
+                    (isNecessaryFileExists ? Localization.uErrorAccessDenied : Localization.uErrorFileNotFound) + "\n\n" +
+                    Localization.uSystemReplaceProblemFileIntoStandard);
+
+                MessageBox.Show(
+                    Localization.uErrorCode + $": {errorIndex.ToString()}\n" +
+                    $"{Localization.uKeyboadLayout}: \"{Settings.Default.KeyboardLayoutFile}\"\n" +
+                    $"{Localization.uLesson}: \"{Settings.Default.LoadedLessonFile}\"\n" +
+                    $"{Localization.uCourse}: \"{Settings.Default.LoadedCourseFile}\"");
             }
         }
         
@@ -120,6 +129,44 @@ namespace WPFMeteroWindow
             }
 
             return value;
+        }
+
+        private static Color _checkColor;
+
+        private static double _checkNumber;
+
+        public static bool IsValidColor(this string color)
+        {
+            try
+            {
+                _checkColor = (Color)ColorConverter.ConvertFromString(color);
+                return true;
+            }
+
+            catch
+            {
+                MessageBox.Show(Localization.uUnknownColorError);
+                LogManager.Log($"Set color \"{color}\" -> failed, invalid color name");
+
+                return false;
+            }
+        }
+
+        public static bool IsValidNumber(this string number)
+        {
+            try
+            {
+                _checkNumber = Convert.ToDouble(number);
+                return true;
+            }
+
+            catch
+            {
+                MessageBox.Show(Localization.uIncorrectNumberError);
+                LogManager.Log($"Set number \"{number}\" -> failed, incorrect value");
+
+                return false;
+            }
         }
 
         public static void SelectLine(this TextBox textBox)
