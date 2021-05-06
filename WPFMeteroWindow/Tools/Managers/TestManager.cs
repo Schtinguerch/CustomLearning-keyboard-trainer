@@ -33,6 +33,8 @@ namespace WPFMeteroWindow
     {
         private static int _wordCount = Settings.Default.TestWordCount;
 
+        private static string _punctuationSymbols = "..........,,,,,,,,,,,,,::::;;;;;-----                      \"\"'''$@@*!!!!???+==#__((()))^%{}[]<>";
+
         public static int WordCount
         {
             get => _wordCount;
@@ -67,21 +69,53 @@ namespace WPFMeteroWindow
 
         private static string PunctuationSymbol(int seed)
         {
-            var rand = new Random(seed);
-            int index = rand.Next(0, 10000);
-            
-            if (index % 3 == 0)
-                return ", ";
-            if (index % 5 == 0)
-                return ". ";
-            if (index % 7 == 0)
-                return "; ";
-            if (index % 11 == 0)
-                return ": ";
-            if (index % 13 == 0)
-                return " - ";
-            else
-                return " ";
+            var rand = new Random(seed * DateTime.Now.Millisecond);
+            int index = rand.Next(0, _punctuationSymbols.Length);
+
+            string value = "";
+            char pnct = _punctuationSymbols[index];
+
+            switch (pnct)
+            {
+                case ' ':
+                    value += ' ';
+                    break;
+
+                case '.':
+                case ',':
+                case ';':
+                case ':':
+                case '\'':
+                case '\"':
+                case '?':
+                case '!':
+                case '^':
+                case ')':
+                case '}':
+                case ']':
+                case '>':
+                case '%':
+                    value += $"{pnct} ";
+                    break;
+
+                case '-':
+                case '+':
+                case '=':
+                    value += $" {pnct} ";
+                    break;
+
+                case '#':
+                case '@':
+                case '_':
+                case '(':
+                case '{':
+                case '[':
+                case '<':
+                    value += $" {pnct}";
+                    break;
+            }
+
+            return value;
         }
 
         public static void LoadWordsViaExplorer()
@@ -136,7 +170,7 @@ namespace WPFMeteroWindow
                         break;
                     
                     case TestAdditional.Numbers:
-                        lesson += _words[index] + ' ' + ((index / 2 % 5 == 0) ? randomizer.Next(0, 10000).ToString() + ' ' : "");
+                        lesson += _words[index] + ' ' + ((index / 2 % 3 == 0) ? randomizer.Next(0, 10000).ToString() + ' ' : "");
                         break;
                     
                     case TestAdditional.Punctuation:
@@ -201,12 +235,14 @@ namespace WPFMeteroWindow
             _firstWordIndex = firstWordIndex;
             _lastWordIndex = lastWordIndex;
             _testAdditional = additional;
-            
+
+            Intermediary.App.errorInputTextBlock.Text = "";
             FormUpTheLesson(firstWordIndex, lastWordIndex, additional);
         }
 
         public static void RestartTest()
         {
+            Intermediary.App.errorInputTextBlock.Text = "";
             FormUpTheLesson(_firstWordIndex, _lastWordIndex, _testAdditional);
         }
     }
