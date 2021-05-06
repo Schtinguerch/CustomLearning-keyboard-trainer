@@ -27,7 +27,6 @@ namespace WPFMeteroWindow.Resources.pages
                 FontTextBox.Text = Settings.Default.FontContext + ' ';
                 FontTextBox.CaretIndex = FontTextBox.Text.Length;
             }
-
         }
 
         private void FontSettingPage_OnKeyDown(object sender, KeyEventArgs e)
