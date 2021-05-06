@@ -11,6 +11,9 @@ namespace WPFMeteroWindow.Commands
         
         public void Execute(object[] args)
         {
+            if (args == null) return;
+            if (args.Length != 3) return;
+
             var fontProperty = args[2].ToString();
             var areSettingsChanged = true;
             

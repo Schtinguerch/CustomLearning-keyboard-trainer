@@ -108,8 +108,16 @@ namespace WPFMeteroWindow.Commands
 
                 case "t":
                     if (args.Length == 4)
-                        Opener.NewTest(Convert.ToInt32(args[1]), Convert.ToInt32(args[2]), ToAdditional(args[3]));
-                    
+                        try
+                        {
+                            Opener.NewTest(Convert.ToInt32(args[1]), Convert.ToInt32(args[2]), ToAdditional(args[3]));
+                        }
+
+                        catch
+                        {
+                            LogManager.Log("Command execution error -> invalid number cast");
+                        }
+
                     if (args.Length == 3)
                         Opener.NewTest(ToTestWors(args[1]), ToAdditional(args[2]));
                     

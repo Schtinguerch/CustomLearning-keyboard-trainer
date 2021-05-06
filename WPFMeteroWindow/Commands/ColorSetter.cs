@@ -13,37 +13,40 @@ namespace WPFMeteroWindow.Commands
         
         public void Execute(object[] args)
         {
+            if (args == null) return;
+            if (args.Length != 2) return;
+
             var areSettingChanged = true;
             var argument = args.ArgsToString(1);
-             
+
             switch (args[0].ToString())
             {
                 case "main":
                     SetColor.FirstColor(argument);
                     break;
-                
+
                 case "secd":
                     SetColor.SecondColor(argument);
                     break;
-                
+
                 case "clim":
                     SetColor.CommandLineFirstColor(argument);
                     break;
-                
+
                 case "clis":
                     SetColor.CommandLineSecondColor(argument);
                     break;
-                
+
                 case "kbbg":
                     SetColor.KeyboardBackground(argument);
                     KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
                     break;
-                
+
                 case "kbbr":
                     SetColor.KeyboardBorder(argument);
                     KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
                     break;
-                
+
                 case "kbhl":
                     SetColor.KeyboardHighlight(argument);
                     KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
@@ -60,23 +63,23 @@ namespace WPFMeteroWindow.Commands
                         case "lt":
                             SetColor.ColorScheme(Theme.Light);
                             break;
-                
+
                         case "dt":
                             SetColor.ColorScheme(Theme.Dark);
                             break;
-                        
+
                         default:
                             var color = argument;
                             SetColor.WindowColor(color);
                             break;
                     }
                     break;
-                
+
                 default:
                     areSettingChanged = false;
                     break;
             }
-            
+
             if (areSettingChanged)
                 Settings.Default.Save();
         }
