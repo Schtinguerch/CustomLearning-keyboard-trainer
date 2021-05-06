@@ -9,8 +9,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="80" d:DesignWidth="700"
       Title="LayoutChangerPage"
-      KeyDown="LayoutChangerPage_OnKeyDown"
-      IsVisibleChanged="LayoutChangerPage_OnIsVisibleChanged">
+      KeyDown="LayoutChangerPage_OnKeyDown">
 
     <Grid Width="700" Height="80" Background="{Binding ThirdSecBackground, Source={x:Static prop:Settings.Default}}">
         <Grid.Effect>
