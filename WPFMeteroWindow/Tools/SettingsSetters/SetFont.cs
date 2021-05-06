@@ -14,12 +14,14 @@ namespace WPFMeteroWindow
 
         public static void MainLetters_Color(string fontColor)
         {
-            Settings.Default.MainFontColor = fontColor;
+            if (fontColor.IsValidColor())
+                Settings.Default.MainFontColor = fontColor;
         }
 
         public static void MainRaidedLetters_Color(string fontColor)
         {
-            Settings.Default.RaidedFontColor = fontColor;
+            if (fontColor.IsValidColor())
+                Settings.Default.RaidedFontColor = fontColor;
         }
 
         public static void MainLetters_Size(double fontsize)
@@ -29,7 +31,8 @@ namespace WPFMeteroWindow
         
         public static void MainLetters_Size(string fontsize)
         {
-            Settings.Default.LessonLettersFontSize = fontsize;
+            if (fontsize.IsValidNumber())
+             Settings.Default.LessonLettersFontSize = fontsize;
         }
 
         public static void SummaryLetters(string fontFamily)
@@ -39,7 +42,8 @@ namespace WPFMeteroWindow
 
         public static void Summary_Color(string fontColor)
         {
-            Settings.Default.SummaryFontColor = fontColor;
+            if (fontColor.IsValidColor())
+                Settings.Default.SummaryFontColor = fontColor;
         }
 
         public static void Keyboard(string fontFamily)
@@ -49,7 +53,8 @@ namespace WPFMeteroWindow
 
         public static void Keyboard_Color(string fontColor)
         {
-            Settings.Default.KeyboardFontColor = fontColor;
+            if (fontColor.IsValidColor())
+                Settings.Default.KeyboardFontColor = fontColor;
         }
     }
 }

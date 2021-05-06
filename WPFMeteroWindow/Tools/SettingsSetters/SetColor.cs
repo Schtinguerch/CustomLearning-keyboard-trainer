@@ -4,6 +4,7 @@ using WPFMeteroWindow.Properties;
 using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 
 namespace WPFMeteroWindow
 {
@@ -15,6 +16,7 @@ namespace WPFMeteroWindow
 
     public static class SetColor
     {
+        
         public static void WindowBackgroundImage(string path)
         {
             if (!File.Exists(path))
@@ -47,43 +49,76 @@ namespace WPFMeteroWindow
 
         public static void FirstColor(string color)
         {
-            Settings.Default.MainBackground = color;
-            Intermediary.App.MainGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(color));
+            if (color.IsValidColor())
+            {
+                Settings.Default.MainBackground = color;
+
+                if (!Settings.Default.IsBackgroundImage)
+                    Intermediary.App.MainGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(color));
+            }
+        }
+
+
+        public static void SecondColor(string color)
+        {
+            if (color.IsValidColor())
+                Settings.Default.SecondBackground = color;
+        }
+
+        public static void CommandLineFirstColor(string color)
+        {
+            if (color.IsValidColor())
+                Settings.Default.ThirdBackground = color;
+        }
+
+        public static void CommandLineSecondColor(string color)
+        {
+            if (color.IsValidColor())
+                Settings.Default.ThirdSecBackground = color;
+        }
+
+        public static void KeyboardBackground(string color)
+        {
+            if (color.IsValidColor())
+                Settings.Default.KeyboardBackgroundColor = color;
+        }
+
+        public static void KeyboardFontColor(string color)
+        {
+            if (color.IsValidColor())
+                Settings.Default.KeyboardFontColor = color;
+        }
+
+        public static void KeyboardBorder(string color)
+        {
+            if (color.IsValidColor())
+                Settings.Default.KeyboardBorderColor = color;
+        }
+
+        public static void KeyboardHighlight(string color)
+        {
+            if (color.IsValidColor())
+                Settings.Default.KeyboardHighlightColor = color;
+        }
+
+        public static void KeyboardErrorHighlight(string color)
+        {
+            if (color.IsValidColor())
+                Settings.Default.KeyboardErrorHighlightColor = color;
+        }
+
+        public static void Hands(string color)
+        {
+            if (color.IsValidColor())
+                Settings.Default.HandsColor = color;
+        }
+
+        public static void HandsThickness(string thickness)
+        {
+            if (thickness.IsValidNumber())
+                Settings.Default.HandsThickness = thickness;
         }
             
-
-        public static void SecondColor(string color) =>
-            Settings.Default.SecondBackground = color;
-
-        public static void CommandLineFirstColor(string color) =>
-            Settings.Default.ThirdBackground = color;   
-
-        public static void CommandLineSecondColor(string color) =>
-            Settings.Default.ThirdSecBackground = color;
-
-        public static void KeyboardBackground(string color) =>
-            Settings.Default.KeyboardBackgroundColor = color;
-
-        public static void KeyboardFontColor(string color) =>
-            Settings.Default.KeyboardFontColor = color;
-
-        public static void KeyboardBorder(string color) =>
-            Settings.Default.KeyboardBorderColor = color;
-
-        public static void KeyboardHighlight(string color) =>
-            Settings.Default.KeyboardHighlightColor = color;
-
-        public static void KeyboardErrorHighlight(string color) =>
-            Settings.Default.KeyboardErrorHighlightColor = color;
-
-        public static void Hands(string color) =>
-            Settings.Default.HandsColor = color;
-
-        public static void HandsThickness(string thickness) =>
-            Settings.Default.HandsThickness = thickness;
-
-        public static void HandsThickness(double thickness) =>
-            Settings.Default.HandsThickness = thickness.ToString();
 
         public static void WindowColor(string color)
         {
@@ -106,6 +141,7 @@ namespace WPFMeteroWindow
                 };
 
                 color = "steel";
+                LogManager.Log("Set window title color -> failed, invalid theme name");
             }
             
             Settings.Default.ColorSchemeResourceDictionary = baseFolder + color + ".xaml";
