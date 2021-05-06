@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using WPFMeteroWindow.Properties;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Windows.Media.Animation;
 using Application = System.Windows.Application;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using Visibility = System.Windows.Visibility;
@@ -86,6 +87,14 @@ namespace WPFMeteroWindow
             IsTyping = false;
         }
 
+        public void ShowMessage(string message)
+        {
+            MessageTextBlock.Text = message;
+
+            var openStoryBoard = FindResource("ShowMessageStoryboard") as Storyboard;
+            openStoryBoard.Begin();
+        }
+
         private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             bufferTextBox.Focus();
@@ -148,32 +157,8 @@ namespace WPFMeteroWindow
             }
         }
 
-        private void AddTypingKeyToShowList(KeyEventArgs e)
-        {
-            var hasDuplicate = false;
-            foreach (var key in _keysList)
-                if (key == e.Key)
-                {
-                    hasDuplicate = true;
-                    break;
-                }
-
-            if (!hasDuplicate)
-                _keysList.Add(e.Key);
-
-            ClickedKeysTextBlock.Text = _keysList.KeyListToString();
-        }
-
-        private void RemoveTypingKeyFromShowList(KeyEventArgs e)
-        {
-            _keysList.Remove(e.Key);
-            ClickedKeysTextBlock.Text = _keysList.KeyListToString();
-        }
-
         private void MainWindow_OnKeyDown(object sender, KeyEventArgs e)
         {
-            AddTypingKeyToShowList(e);
-
             var selectedPage = TabPage.EmptyPage;
 
             if ((e.Key != Key.LeftCtrl) && (e.Key != Key.RightCtrl) && (PageManager.PageFrame.Source == null))
@@ -226,11 +211,6 @@ namespace WPFMeteroWindow
 
             if (selectedPage != TabPage.EmptyPage)
                 PageManager.OpenPage(selectedPage);
-        }
-
-        private void MainWindow_OnKeyUp(object sender, KeyEventArgs e)
-        {
-            RemoveTypingKeyFromShowList(e);
         }
 
         private void PrevLessonButton_OnClick(object sender, RoutedEventArgs e) =>
