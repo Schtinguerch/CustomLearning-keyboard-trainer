@@ -1,9 +1,4 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
-using WPFMeteroWindow.Properties;
-using LmlLibrary;
+﻿using System.Windows.Controls;
 
 namespace WPFMeteroWindow
 {
