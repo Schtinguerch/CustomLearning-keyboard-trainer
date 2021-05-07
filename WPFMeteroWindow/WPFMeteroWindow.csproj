@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommandInterpreter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\..\CommandMakerLibrary\CommandMakerLibrary\obj\Release\CommandInterpreter.dll</HintPath>
@@ -141,6 +144,12 @@
     <Compile Include="Resources\pages\FontSettingPage.xaml.cs">
       <DependentUpon>FontSettingPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\pages\KeyboardLayoutEditorMenu.xaml.cs">
+      <DependentUpon>KeyboardLayoutEditorMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\pages\KeyboardLayoutEditorPage.xaml.cs">
+      <DependentUpon>KeyboardLayoutEditorPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\pages\LayoutChangerPage.xaml.cs">
       <DependentUpon>LayoutChangerPage.xaml</DependentUpon>
     </Compile>
@@ -155,6 +164,7 @@
     </Compile>
     <Compile Include="Tools\Common\Intermediary.cs" />
     <Compile Include="Tools\Editors\CourseEditor.cs" />
+    <Compile Include="Tools\Editors\KeyboardLayoutEditor.cs" />
     <Compile Include="Tools\Editors\LessonEditor.cs" />
     <Compile Include="Tools\Managers\AppManager.cs" />
     <Compile Include="Tools\Managers\CourseManager.cs" />
@@ -224,6 +234,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\pages\KeyboardLayoutEditorMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\pages\KeyboardLayoutEditorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\pages\LayoutChangerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -278,6 +296,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="favicon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
