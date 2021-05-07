@@ -81,7 +81,7 @@ namespace WPFMeteroWindow
                     if (Settings.Default.IsOpenUnderCourse)
                         Intermediary.CoursePage.AddNewLesson(_filePath);
 
-                    Intermediary.LessonPage.EditorTitleTextBox.Text = $"{LessonName} - {Localization.uLessonEditor}";
+                    Intermediary.LessonPage.EditorTitleTextBox.Text = $"{Path.GetFileName(_filePath)} - {Localization.uLessonEditor}";
                 }
             }
         }
