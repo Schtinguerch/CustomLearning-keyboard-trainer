@@ -46,20 +46,8 @@ namespace WPFMeteroWindow
             return (keyData, buttons);
         }
 
-        private static Button NewKeyboardButton(string defaultKey, string shiftKey, string altGrKey, string shiftAltGrKey)
+        public static void SetContent(Button targetButton, string defaultKey, string shiftKey, string altGrKey, string shiftAltGrKey)
         {
-            var padding = 1d;
-            var button = new Button()
-            {
-                Margin = new Thickness(padding, padding, padding, padding),
-                BorderBrush = new SolidColorBrush(Color.FromRgb(32, 32, 32)),
-                Background =
-                    new BrushConverter().ConvertFromString(Settings.Default.KeyboardBackgroundColor) as SolidColorBrush,
-            };
-
-            button.BorderBrush =
-                new BrushConverter().ConvertFromString(Settings.Default.KeyboardBorderColor) as SolidColorBrush;
-
             var isModifierKey = (defaultKey == "ctrl") || (defaultKey == "shift") || (defaultKey == "caps") ||
                                 (defaultKey == "win") || (defaultKey == "alt") || (defaultKey == "altGr") ||
                                 (defaultKey == "enter") || (defaultKey == "back") || (defaultKey == "tab") || (defaultKey == "menu");
@@ -89,12 +77,12 @@ namespace WPFMeteroWindow
             grid.RowDefinitions[0].Height = new GridLength(multUp * boxSizeY, GridUnitType.Pixel);
             grid.RowDefinitions[1].Height = new GridLength(multBottom * boxSizeY, GridUnitType.Pixel);
 
-            button.Content = grid;
+            targetButton.Content = grid;
 
             var textBlockStyle = new Style(typeof(TextBlock))
             {
-                Setters = 
-                { 
+                Setters =
+                {
                     new Setter(TextBlock.ForegroundProperty, new BrushConverter().ConvertFromString(Settings.Default.KeyboardFontColor) as SolidColorBrush),
                     new Setter(TextBlock.FontFamilyProperty, new FontFamily(Settings.Default.KeyboardFont)),
                     new Setter(TextBlock.FontSizeProperty, (double) 22),
@@ -104,24 +92,24 @@ namespace WPFMeteroWindow
             };
 
             var smallTextBlockStyle = textBlockStyle;
-            smallTextBlockStyle.Setters[2] = new Setter(TextBlock.FontSizeProperty, (double) 12);
+            smallTextBlockStyle.Setters[2] = new Setter(TextBlock.FontSizeProperty, (double)12);
 
             TextBlock defaultTextBlock;
             if (isModifierKey)
             {
                 defaultTextBlock = new TextBlock()
-                    { Text = defaultKey, Style = textBlockStyle };
+                { Text = defaultKey, Style = textBlockStyle };
             }
             else
             {
                 defaultTextBlock = new TextBlock()
-                    { Text = (defaultKey.Length != 2)? defaultKey.ToUpper() : defaultKey[1].ToString(), Style = textBlockStyle, FontSize = 22d };
+                { Text = (defaultKey.Length != 2) ? defaultKey.ToUpper() : defaultKey[1].ToString(), Style = textBlockStyle, FontSize = 22d };
             }
 
             TextBlock
-                shiftTextBlock = new TextBlock() { Text = (defaultKey.Length != 2)? (defaultKey.ToUpper() != shiftKey)? shiftKey : "" : defaultKey[1].ToString(), Style = smallTextBlockStyle },
-                altGrTextBlock = new TextBlock() { Text = (altGrKey.Length != 2)? altGrKey : altGrKey[1].ToString(), Style = smallTextBlockStyle },
-                shiftAltGrTextBlock = new TextBlock() { Text = (shiftAltGrKey.Length != 2)? shiftAltGrKey : shiftAltGrKey[1].ToString(), Style = smallTextBlockStyle };
+                shiftTextBlock = new TextBlock() { Text = (defaultKey.Length != 2) ? (defaultKey.ToUpper() != shiftKey) ? shiftKey : "" : defaultKey[1].ToString(), Style = smallTextBlockStyle },
+                altGrTextBlock = new TextBlock() { Text = (altGrKey.Length != 2) ? altGrKey : altGrKey[1].ToString(), Style = smallTextBlockStyle },
+                shiftAltGrTextBlock = new TextBlock() { Text = (shiftAltGrKey.Length != 2) ? shiftAltGrKey : shiftAltGrKey[1].ToString(), Style = smallTextBlockStyle };
 
             Grid.SetColumn(defaultTextBlock, 0);
             Grid.SetRow(defaultTextBlock, 0);
@@ -139,7 +127,27 @@ namespace WPFMeteroWindow
             grid.Children.Add(shiftTextBlock);
             grid.Children.Add(altGrTextBlock);
             grid.Children.Add(shiftAltGrTextBlock);
+        }
 
+        public static void SetContent(Button targetButton, string[] keys) =>
+            SetContent(targetButton, keys[0], keys[1], keys[2], keys[3]);
+    
+
+        private static Button NewKeyboardButton(string defaultKey, string shiftKey, string altGrKey, string shiftAltGrKey)
+        {
+            var padding = 1d;
+            var button = new Button()
+            {
+                Margin = new Thickness(padding, padding, padding, padding),
+                BorderBrush = new SolidColorBrush(Color.FromRgb(32, 32, 32)),
+                Background =
+                    new BrushConverter().ConvertFromString(Settings.Default.KeyboardBackgroundColor) as SolidColorBrush,
+            };
+
+            button.BorderBrush =
+                new BrushConverter().ConvertFromString(Settings.Default.KeyboardBorderColor) as SolidColorBrush;
+
+            SetContent(button, defaultKey, shiftKey, altGrKey, shiftAltGrKey);
             return button;
         }
     }
