@@ -10,6 +10,8 @@ namespace WPFMeteroWindow
         public static CourseEditorPage CoursePage { get; set; }
 
         public static LessonEditorPage LessonPage { get; set; }
+
+        public static KeyboardLayoutEditorPage LayoutPage { get; set; }
         
         public static DiscordManager RichPresentManager { get; set; }
         
