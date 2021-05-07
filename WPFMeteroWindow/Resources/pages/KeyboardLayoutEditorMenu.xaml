@@ -1,0 +1,121 @@
+﻿<UserControl x:Class="WPFMeteroWindow.Resources.pages.KeyboardLayoutEditorMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
+             xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
+             xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
+             mc:Ignorable="d" 
+             d:DesignHeight="165" d:DesignWidth="360"
+             PreviewKeyDown="KeyboardLayoutEditorMenu_OnPreviewKeyDown">
+    <Grid
+        Height="165"
+        Width="360"
+        Margin="-30 -8 -30 -8"
+        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="250"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+            
+        <StackPanel 
+            Orientation="Vertical"
+            Grid.Column="1"
+            Margin="0 5 0 5">
+            <Grid 
+                Margin="10 5 10 0"
+                Height="32">
+                <TextBlock
+                    Grid.Column="0"
+                    TextAlignment="Left"
+                    Style="{StaticResource SummaryTextStyle}"
+                    Text="{x:Static res:Resources.uDefault}"
+                    FontSize="18">
+                </TextBlock>
+            </Grid>
+
+            <Grid 
+                Margin="10 5 10 0"
+                Height="32">
+                <TextBlock
+                    Grid.Column="0"
+                    TextAlignment="Left"
+                    Style="{StaticResource SummaryTextStyle}"
+                    Text="{x:Static res:Resources.uShiftPressed}"
+                    FontSize="18">
+                </TextBlock>
+            </Grid>
+
+            <Grid 
+                Margin="10 5 10 0"
+                Height="32">
+                <TextBlock
+                    Grid.Column="0"
+                    TextAlignment="Left"
+                    Style="{StaticResource SummaryTextStyle}"
+                    Text="{x:Static res:Resources.uAltGrPressed}"
+                    FontSize="18">
+                </TextBlock>
+            </Grid>
+
+            <Grid 
+                Margin="10 5 10 0"
+                Height="32">
+                <TextBlock
+                    Grid.Column="0"
+                    TextAlignment="Left"
+                    Style="{StaticResource SummaryTextStyle}"
+                    Text="{x:Static res:Resources.uShiftAndAltGrPressed}"
+                    FontSize="18">
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel
+            Orientation="Vertical"
+            Grid.Column="0"
+            Margin="0 5 0 5">
+            <TextBox
+                FontSize="18"
+                Height="32"
+                Margin="10 5 10 0"
+                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                BorderBrush="#121212"
+                x:Name="DefaultKeyTextBox">
+            </TextBox>
+
+            <TextBox
+                FontSize="18"
+                Height="32"
+                Margin="10 5 10 0"
+                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                BorderBrush="#121212"
+                x:Name="ShiftKeyTextBox">
+            </TextBox>
+
+            <TextBox
+                FontSize="18"
+                Height="32"
+                Margin="10 5 10 0"
+                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                BorderBrush="#121212"
+                x:Name="AltGrKeyTextBox">
+            </TextBox>
+
+            <TextBox
+                FontSize="18"
+                Height="32"
+                Margin="10 5 10 0"
+                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                BorderBrush="#121212"
+                x:Name="ShiftAndAltGrKeyTextBox">
+            </TextBox>
+        </StackPanel>
+    </Grid>
+</UserControl>
