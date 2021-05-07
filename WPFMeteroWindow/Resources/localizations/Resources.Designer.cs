@@ -61,6 +61,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на С зажатым AltGr.
+        /// </summary>
+        public static string uAltGrPressed {
+            get {
+                return ResourceManager.GetString("uAltGrPressed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Автор.
         /// </summary>
         public static string uAuthor {
@@ -129,6 +138,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uDark {
             get {
                 return ResourceManager.GetString("uDark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Без модификаторов.
+        /// </summary>
+        public static string uDefault {
+            get {
+                return ResourceManager.GetString("uDefault", resourceCulture);
             }
         }
         
@@ -282,6 +300,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uIsFinished {
             get {
                 return ResourceManager.GetString("uIsFinished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Редактор раскладок.
+        /// </summary>
+        public static string uKbLayoutEditor {
+            get {
+                return ResourceManager.GetString("uKbLayoutEditor", resourceCulture);
             }
         }
         
@@ -543,6 +570,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uNewCourse {
             get {
                 return ResourceManager.GetString("uNewCourse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Новая раскладка.
+        /// </summary>
+        public static string uNewKbLayout {
+            get {
+                return ResourceManager.GetString("uNewKbLayout", resourceCulture);
             }
         }
         
@@ -876,6 +912,24 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uSettWindowColor {
             get {
                 return ResourceManager.GetString("uSettWindowColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на С зажатыми Shift+AltGr.
+        /// </summary>
+        public static string uShiftAndAltGrPressed {
+            get {
+                return ResourceManager.GetString("uShiftAndAltGrPressed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на С зажатым Shift.
+        /// </summary>
+        public static string uShiftPressed {
+            get {
+                return ResourceManager.GetString("uShiftPressed", resourceCulture);
             }
         }
         

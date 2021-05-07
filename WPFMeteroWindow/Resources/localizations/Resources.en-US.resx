@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="uAltGrPressed" xml:space="preserve">
+    <value>AltGr pressed</value>
+  </data>
   <data name="uAuthor" xml:space="preserve">
     <value>Author</value>
   </data>
@@ -140,6 +143,9 @@
   </data>
   <data name="uDark" xml:space="preserve">
     <value>Dark</value>
+  </data>
+  <data name="uDefault" xml:space="preserve">
+    <value>Default key</value>
   </data>
   <data name="uEnterCourseFolder" xml:space="preserve">
     <value>Enter the path of the course folder</value>
@@ -191,6 +197,9 @@
   </data>
   <data name="uIsFinished" xml:space="preserve">
     <value>is finished</value>
+  </data>
+  <data name="uKbLayoutEditor" xml:space="preserve">
+    <value>Keyboard layout editor</value>
   </data>
   <data name="uKeyboadLayout" xml:space="preserve">
     <value>Keyboard layout</value>
@@ -278,6 +287,9 @@
   </data>
   <data name="uNewCourse" xml:space="preserve">
     <value>New course</value>
+  </data>
+  <data name="uNewKbLayout" xml:space="preserve">
+    <value>New keyboard layout</value>
   </data>
   <data name="uNo" xml:space="preserve">
     <value>No</value>
@@ -389,6 +401,12 @@
   </data>
   <data name="uSettWindowColor" xml:space="preserve">
     <value>Window color</value>
+  </data>
+  <data name="uShiftAndAltGrPressed" xml:space="preserve">
+    <value>Shift+AltGr pressed</value>
+  </data>
+  <data name="uShiftPressed" xml:space="preserve">
+    <value>Shift pressed</value>
   </data>
   <data name="uShowHands" xml:space="preserve">
     <value>Show hands</value>

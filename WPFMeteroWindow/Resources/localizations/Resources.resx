@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="uAltGrPressed" xml:space="preserve">
+    <value>С зажатым AltGr</value>
+  </data>
   <data name="uAuthor" xml:space="preserve">
     <value>Автор</value>
   </data>
@@ -140,6 +143,9 @@
   </data>
   <data name="uDark" xml:space="preserve">
     <value>Тёмная</value>
+  </data>
+  <data name="uDefault" xml:space="preserve">
+    <value>Без модификаторов</value>
   </data>
   <data name="uEnterCourseFolder" xml:space="preserve">
     <value>Введить путь к папке с курсом</value>
@@ -191,6 +197,9 @@
   </data>
   <data name="uIsFinished" xml:space="preserve">
     <value>Завершён</value>
+  </data>
+  <data name="uKbLayoutEditor" xml:space="preserve">
+    <value>Редактор раскладок</value>
   </data>
   <data name="uKeyboadLayout" xml:space="preserve">
     <value>Раскладка клавиатуры</value>
@@ -278,6 +287,9 @@
   </data>
   <data name="uNewCourse" xml:space="preserve">
     <value>Новый курс</value>
+  </data>
+  <data name="uNewKbLayout" xml:space="preserve">
+    <value>Новая раскладка</value>
   </data>
   <data name="uNo" xml:space="preserve">
     <value>Нет</value>
@@ -389,6 +401,12 @@
   </data>
   <data name="uSettWindowColor" xml:space="preserve">
     <value>Цвет окна</value>
+  </data>
+  <data name="uShiftAndAltGrPressed" xml:space="preserve">
+    <value>С зажатыми Shift+AltGr</value>
+  </data>
+  <data name="uShiftPressed" xml:space="preserve">
+    <value>С зажатым Shift</value>
   </data>
   <data name="uShowHands" xml:space="preserve">
     <value>Показывать руки</value>
