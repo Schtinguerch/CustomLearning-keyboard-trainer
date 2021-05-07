@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using Microsoft.Win32;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using WPFMeteroWindow.Properties;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
@@ -23,6 +24,7 @@ namespace WPFMeteroWindow.Resources.pages
         {
             InitializeComponent();
             Intermediary.LayoutPage = this;
+            OpenLayoutButton.Focus();
 
             _editor = new KeyboardLayoutEditor(Settings.Default.KeyboardLayoutFile);
             _keyboard = KeyboardGrid.LoadButtons(Settings.Default.KeyboardLayoutFile);
@@ -31,6 +33,12 @@ namespace WPFMeteroWindow.Resources.pages
 
             EditorTitleTextBox.Text = $"{Path.GetFileName(Settings.Default.KeyboardLayoutFile)} - {Localization.uKbLayoutEditor}";
             Intermediary.RichPresentManager.Update("Keyboard layout editor", "Editing layout...", "");
+
+            PreviewKeyDown += (s, e) =>
+            {
+                if (e.Key == Key.Escape)
+                    PageManager.HidePages();
+            };
         }
 
         private void InitiateContextMenu()
