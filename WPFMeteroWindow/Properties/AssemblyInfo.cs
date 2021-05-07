@@ -8,7 +8,7 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("CustomLearning")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Simple, powerful, customizable touch typing trainer for education and training, suitable for any-skilled users")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Schtinguêrch")]
 [assembly: AssemblyProduct("CustomLearning")]
@@ -51,5 +51,5 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.2.8.0")]
+[assembly: AssemblyVersion("0.3.5.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
