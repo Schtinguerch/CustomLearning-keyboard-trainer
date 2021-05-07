@@ -197,6 +197,12 @@
                         Header="{x:Static res:Resources.uMenuEditCurrentCourse}"
                         Click="OpenCourseEditorMenuItem_OnClick">
                     </MenuItem>
+
+                    <MenuItem
+                        x:Name="OpenLayoutEditorMenuItem"
+                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
+                        Header="{x:Static res:Resources.uMenuEditCurrentKbLayout}"
+                        Click="OpenLayoutEditorMenuItem_OnClick"></MenuItem>
                 </MenuItem>
             </Menu>
             

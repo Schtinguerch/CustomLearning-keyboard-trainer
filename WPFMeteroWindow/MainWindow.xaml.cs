@@ -207,6 +207,12 @@ namespace WPFMeteroWindow
                     else
                         selectedPage = TabPage.LessonEditor;
                 }
+
+                else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.K))
+                {
+                    e.Handled = true;
+                    selectedPage = TabPage.KeyboardLayoutEditor;
+                }
             }
 
             if (selectedPage != TabPage.EmptyPage)
@@ -248,5 +254,8 @@ namespace WPFMeteroWindow
 
         private void OpenCourseEditorMenuItem_OnClick(object sender, RoutedEventArgs e) =>
             PageManager.OpenPage(TabPage.CourseEditor);
+
+        private void OpenLayoutEditorMenuItem_OnClick(object sender, RoutedEventArgs e) =>
+            PageManager.OpenPage(TabPage.KeyboardLayoutEditor);
     }
 }
