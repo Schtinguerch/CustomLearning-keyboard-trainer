@@ -103,7 +103,7 @@ namespace WPFMeteroWindow
 
         public static string ToLmlFormat(this string s)
         {
-            var val = s;
+            var val = string.IsNullOrEmpty(s) ? ";nth;" : s;
 
             val = val.Replace("'", ";ap;");
             val = val.Replace("\"", ";qt;");
