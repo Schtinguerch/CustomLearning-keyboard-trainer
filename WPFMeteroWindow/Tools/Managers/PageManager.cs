@@ -16,6 +16,7 @@ namespace WPFMeteroWindow
         EndedLesson,
         LessonEditor,
         CourseEditor,
+        KeyboardLayoutEditor,
         EmptyPage,
     }
     
@@ -38,6 +39,7 @@ namespace WPFMeteroWindow
             _baseFolder + "LessonIsEndPage.xaml",
             _baseFolder + "LessonEditorPage.xaml",
             _baseFolder + "CourseEditorPage.xaml",
+            _baseFolder + "KeyboardLayoutEditorPage.xaml",
             null,
         };
         
