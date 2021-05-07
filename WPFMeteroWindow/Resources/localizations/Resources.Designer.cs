@@ -403,6 +403,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Изменить текущую раскладку.
+        /// </summary>
+        public static string uMenuEditCurrentKbLayout {
+            get {
+                return ResourceManager.GetString("uMenuEditCurrentKbLayout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Изменить текущий урок.
         /// </summary>
         public static string uMenuEditCurrentLesson {

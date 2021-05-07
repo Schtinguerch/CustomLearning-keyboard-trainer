@@ -229,10 +229,13 @@
     <value>Delete file</value>
   </data>
   <data name="uMenuEditCurrentCourse" xml:space="preserve">
-    <value>Edit the currrent course</value>
+    <value>Edit currrent course</value>
+  </data>
+  <data name="uMenuEditCurrentKbLayout" xml:space="preserve">
+    <value>Edit current keyboard layout</value>
   </data>
   <data name="uMenuEditCurrentLesson" xml:space="preserve">
-    <value>Edit the current lesson</value>
+    <value>Edit current lesson</value>
   </data>
   <data name="uMenuEditLesson" xml:space="preserve">
     <value>Edit lesson</value>

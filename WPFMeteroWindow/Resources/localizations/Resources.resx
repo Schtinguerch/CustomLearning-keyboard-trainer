@@ -231,6 +231,9 @@
   <data name="uMenuEditCurrentCourse" xml:space="preserve">
     <value>Изменить текущий курс</value>
   </data>
+  <data name="uMenuEditCurrentKbLayout" xml:space="preserve">
+    <value>Изменить текущую раскладку</value>
+  </data>
   <data name="uMenuEditCurrentLesson" xml:space="preserve">
     <value>Изменить текущий урок</value>
   </data>
