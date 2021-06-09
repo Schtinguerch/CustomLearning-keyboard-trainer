@@ -219,6 +219,9 @@
   <data name="uLight" xml:space="preserve">
     <value>Светлая</value>
   </data>
+  <data name="uLoadWords" xml:space="preserve">
+    <value>Загрузить слова</value>
+  </data>
   <data name="uMaxMistakes" xml:space="preserve">
     <value>Максимум ошибок</value>
   </data>
@@ -312,6 +315,9 @@
   <data name="uPinky" xml:space="preserve">
     <value>мизинцем на </value>
   </data>
+  <data name="uRepeatsCount" xml:space="preserve">
+    <value>Количество повторений</value>
+  </data>
   <data name="uRight" xml:space="preserve">
     <value>Правым </value>
   </data>
@@ -360,6 +366,9 @@
   <data name="uSettKeyboard" xml:space="preserve">
     <value>Клавиатура</value>
   </data>
+  <data name="uSettKeyboardOpacity" xml:space="preserve">
+    <value>Прозрачность клавиатуры</value>
+  </data>
   <data name="uSettLessonLettersFont" xml:space="preserve">
     <value>Шрифт символов урока</value>
   </data>
@@ -374,6 +383,12 @@
   </data>
   <data name="uSettMainColor" xml:space="preserve">
     <value>Основной цвет (фон)</value>
+  </data>
+  <data name="uSettMenuOpacity" xml:space="preserve">
+    <value>Прозрачность меню</value>
+  </data>
+  <data name="uSettOpacitySettings" xml:space="preserve">
+    <value>Настройки прозрачности</value>
   </data>
   <data name="uSettRaidedLessonSymbolsColor" xml:space="preserve">
     <value>Цвет успешно введённых символов урока</value>
@@ -440,6 +455,18 @@
   </data>
   <data name="uUnknownColorError" xml:space="preserve">
     <value>Ошибка: неизвестный цвет</value>
+  </data>
+  <data name="uUnloadWords" xml:space="preserve">
+    <value>Выгрузить в курс</value>
+  </data>
+  <data name="uWordCountInLesson" xml:space="preserve">
+    <value>Количество слов в уроке</value>
+  </data>
+  <data name="uWordPracticeCourseEditor" xml:space="preserve">
+    <value>Редактор курса тренировки слов</value>
+  </data>
+  <data name="uWordPracticing" xml:space="preserve">
+    <value>Тренировка слов</value>
   </data>
   <data name="uYes" xml:space="preserve">
     <value>Да</value>

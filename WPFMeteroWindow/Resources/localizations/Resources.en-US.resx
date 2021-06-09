@@ -219,6 +219,9 @@
   <data name="uLight" xml:space="preserve">
     <value>Light</value>
   </data>
+  <data name="uLoadWords" xml:space="preserve">
+    <value>Load words</value>
+  </data>
   <data name="uMaxMistakes" xml:space="preserve">
     <value>Max mistakes count</value>
   </data>
@@ -312,6 +315,9 @@
   <data name="uPinky" xml:space="preserve">
     <value>pinky on </value>
   </data>
+  <data name="uRepeatsCount" xml:space="preserve">
+    <value>Count of repeats</value>
+  </data>
   <data name="uRight" xml:space="preserve">
     <value>Right </value>
   </data>
@@ -360,6 +366,9 @@
   <data name="uSettKeyboard" xml:space="preserve">
     <value>Keyboard</value>
   </data>
+  <data name="uSettKeyboardOpacity" xml:space="preserve">
+    <value>Keyboard opacity</value>
+  </data>
   <data name="uSettLessonLettersFont" xml:space="preserve">
     <value>Lesson's symbols font family</value>
   </data>
@@ -374,6 +383,12 @@
   </data>
   <data name="uSettMainColor" xml:space="preserve">
     <value>Main background color</value>
+  </data>
+  <data name="uSettMenuOpacity" xml:space="preserve">
+    <value>Main menu opacity</value>
+  </data>
+  <data name="uSettOpacitySettings" xml:space="preserve">
+    <value>Opacity settings</value>
   </data>
   <data name="uSettRaidedLessonSymbolsColor" xml:space="preserve">
     <value>Lesson's raided symbols font color</value>
@@ -440,6 +455,18 @@
   </data>
   <data name="uUnknownColorError" xml:space="preserve">
     <value>Error: unknown color</value>
+  </data>
+  <data name="uUnloadWords" xml:space="preserve">
+    <value>Unload to the course</value>
+  </data>
+  <data name="uWordCountInLesson" xml:space="preserve">
+    <value>Word count in a lesson</value>
+  </data>
+  <data name="uWordPracticeCourseEditor" xml:space="preserve">
+    <value>Word practicing course editor</value>
+  </data>
+  <data name="uWordPracticing" xml:space="preserve">
+    <value>Word practicing</value>
   </data>
   <data name="uYes" xml:space="preserve">
     <value>Yes</value>

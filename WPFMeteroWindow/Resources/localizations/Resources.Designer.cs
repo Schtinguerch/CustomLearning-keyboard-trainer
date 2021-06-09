@@ -367,6 +367,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Загрузить слова.
+        /// </summary>
+        public static string uLoadWords {
+            get {
+                return ResourceManager.GetString("uLoadWords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Максимум ошибок.
         /// </summary>
         public static string uMaxMistakes {
@@ -646,6 +655,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Количество повторений.
+        /// </summary>
+        public static string uRepeatsCount {
+            get {
+                return ResourceManager.GetString("uRepeatsCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Правым .
         /// </summary>
         public static string uRight {
@@ -790,6 +808,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Прозрачность клавиатуры.
+        /// </summary>
+        public static string uSettKeyboardOpacity {
+            get {
+                return ResourceManager.GetString("uSettKeyboardOpacity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Шрифт символов урока.
         /// </summary>
         public static string uSettLessonLettersFont {
@@ -831,6 +858,24 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uSettMainColor {
             get {
                 return ResourceManager.GetString("uSettMainColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Прозрачность меню.
+        /// </summary>
+        public static string uSettMenuOpacity {
+            get {
+                return ResourceManager.GetString("uSettMenuOpacity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Настройки прозрачности.
+        /// </summary>
+        public static string uSettOpacitySettings {
+            get {
+                return ResourceManager.GetString("uSettOpacitySettings", resourceCulture);
             }
         }
         
@@ -1029,6 +1074,42 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uUnknownColorError {
             get {
                 return ResourceManager.GetString("uUnknownColorError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Выгрузить в курс.
+        /// </summary>
+        public static string uUnloadWords {
+            get {
+                return ResourceManager.GetString("uUnloadWords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Количество слов в уроке.
+        /// </summary>
+        public static string uWordCountInLesson {
+            get {
+                return ResourceManager.GetString("uWordCountInLesson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Редактор курса тренировки слов.
+        /// </summary>
+        public static string uWordPracticeCourseEditor {
+            get {
+                return ResourceManager.GetString("uWordPracticeCourseEditor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Тренировка слов.
+        /// </summary>
+        public static string uWordPracticing {
+            get {
+                return ResourceManager.GetString("uWordPracticing", resourceCulture);
             }
         }
         
