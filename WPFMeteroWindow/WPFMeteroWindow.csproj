@@ -162,10 +162,14 @@
     <Compile Include="Resources\pages\LessonLoaderPage.xaml.cs">
       <DependentUpon>LessonLoaderPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\pages\WordPracticingEditorPage.xaml.cs">
+      <DependentUpon>WordPracticingEditorPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tools\Common\Intermediary.cs" />
     <Compile Include="Tools\Editors\CourseEditor.cs" />
     <Compile Include="Tools\Editors\KeyboardLayoutEditor.cs" />
     <Compile Include="Tools\Editors\LessonEditor.cs" />
+    <Compile Include="Tools\Editors\WordPracticingCourseEditor.cs" />
     <Compile Include="Tools\Managers\AppManager.cs" />
     <Compile Include="Tools\Managers\CourseManager.cs" />
     <Compile Include="Tools\Managers\DiscordManager.cs" />
@@ -255,6 +259,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\pages\LessonLoaderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\pages\WordPracticingEditorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -69,27 +69,23 @@ namespace WPFMeteroWindow
         {
             if (!_isNewCourse)
             {
-                if (!string.IsNullOrEmpty(_folderPath))
-                {
-                    File.WriteAllText(_folderPath + "\\CourseLessons.lml", ToLml());
-                    Intermediary.CoursePage.EditorTitleTextBox.Text = $"{CourseName} - {Localization.uCourseEditor}";
-                }
-                else
+                if (string.IsNullOrEmpty(_folderPath))
                     throw new NotImplementedException("Empty data");
+                
+                File.WriteAllText(_folderPath + "\\CourseLessons.lml", ToLml());
+                Intermediary.CoursePage.EditorTitleTextBox.Text = $"{CourseName} - {Localization.uCourseEditor}";
             }
 
             else
             {
                 var writer = new FolderBrowserDialog();
+                if (writer.ShowDialog() != DialogResult.OK) return;
 
-                if (writer.ShowDialog() == DialogResult.OK)
-                {
-                    _isNewCourse = false;
-                    _folderPath = writer.SelectedPath;
+                _isNewCourse = false;
+                _folderPath = writer.SelectedPath;
 
-                    File.WriteAllText(_folderPath + "\\CourseLessons.lml", ToLml());
-                    Intermediary.CoursePage.EditorTitleTextBox.Text = $"{CourseName} - {Localization.uCourseEditor}";
-                }
+                File.WriteAllText(_folderPath + "\\CourseLessons.lml", ToLml());
+                Intermediary.CoursePage.EditorTitleTextBox.Text = $"{CourseName} - {Localization.uCourseEditor}";
             }
         }
 

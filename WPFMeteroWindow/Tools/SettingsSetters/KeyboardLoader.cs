@@ -136,6 +136,7 @@ namespace WPFMeteroWindow
         private static Button NewKeyboardButton(string defaultKey, string shiftKey, string altGrKey, string shiftAltGrKey)
         {
             var padding = 1d;
+
             var button = new Button()
             {
                 Margin = new Thickness(padding, padding, padding, padding),
