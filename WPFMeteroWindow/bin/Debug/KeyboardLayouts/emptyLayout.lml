@@ -1,0 +1,67 @@
+<<Layout:
+    <k0 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k1 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k2 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k3 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k4 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k5 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k6 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k7 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k8 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k9 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k10 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k11 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k12 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k13 { back ;nth; ;nth; ;nth; }>>
+
+    <k14 { tab ;nth; ;nth; ;nth; }>>
+    <k15 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k16 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k17 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k18 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k19 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k20 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k21 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k22 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k23 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k24 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k25 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k26 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k27 { ;nth; ;nth; ;nth; ;nth; }>>
+
+    <k28 { caps ;nth; ;nth; ;nth; }>>
+    <k29 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k30 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k31 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k32 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k33 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k34 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k35 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k36 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k37 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k38 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k39 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k40 { enter ;nth; ;nth; ;nth; }>>
+    <k41 { shift ;nth; ;nth; ;nth; }>>
+    <k42 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k43 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k44 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k45 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k46 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k47 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k48 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k49 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k50 { ;nth; ;nth; ;nth; ;nth; }>>
+
+    <k51 { ;nth; ;nth; ;nth; ;nth; }>>
+    <k52 { shift ;nth; ;nth; ;nth; }>>
+
+    <k53 { ctrl ;nth; ;nth; ;nth; }>>
+    <k54 { win ;nth; ;nth; ;nth; }>>
+    <k55 { alt ;nth; ;nth; ;nth; }>>
+    <k56 { ;space; ;nth; ;nth; ;nth; }>>
+    <k57 { altGr ;nth; ;nth; ;nth; }>>
+    <k58 { win ;nth; ;nth; ;nth; }>>
+    <k59 { menu ;nth; ;nth; ;nth; }>>
+    <k60 { ctrl ;nth; ;nth; ;nth; }>>
+:Layout>>
