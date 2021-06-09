@@ -7,11 +7,11 @@
       xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
       xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
       mc:Ignorable="d" 
-      d:DesignHeight="550" d:DesignWidth="800"
+      d:DesignHeight="580" d:DesignWidth="800"
       Title="CourseEditorPage">
 
     <Grid 
-        Width="800" Height="550"
+        Width="800" Height="580"
         KeyDown="CourseEditoGrid_OnKeyDown">
         <Grid.RowDefinitions>
             <RowDefinition Height="200"></RowDefinition>
@@ -215,7 +215,20 @@
                     Orientation="Horizontal"
                     Margin="10">
                     <Button 
+                        Width="140" 
+                        BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
+                        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
+                        FontSize="12"
+                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                        Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+                        x:Name="LoadWordsButton"
+                        Content="{x:Static res:Resources.uWordPracticing}"
+                        Click="LoadWordsButton_OnClick">
+                    </Button>
+
+                    <Button 
                         Width="90" 
+                        Margin="10 0 0 0"
                         BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
                         Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
                         FontSize="12"
