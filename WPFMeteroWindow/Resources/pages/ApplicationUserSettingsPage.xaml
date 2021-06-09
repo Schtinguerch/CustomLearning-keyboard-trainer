@@ -454,8 +454,101 @@
                             </Button>
                         </StackPanel>
                     </Grid>
-                    
+
                     <Grid Style="{StaticResource SettingsItemStyle}"
+                          Margin="0 24 0 10"
+                          Height="30">
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uSettOpacitySettings}"
+                            FontSize="24">
+                        </TextBlock>
+                    </Grid>
+
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                          >
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uSettMenuOpacity}"
+                            FontSize="18">
+                        </TextBlock>
+
+                        <StackPanel
+                            Height="32"
+                            Width="400"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+
+                            <TextBox
+                                FontSize="18"
+                                Height="32"
+                                Width="100"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="MenuOpacityTextBox">
+                            </TextBox>
+
+                            <Slider
+                                x:Name="MenuOpacitySlider"
+                                Margin="10 0 50 0"
+                                Width="288"
+                                Value="{Binding Path=MenuOpacity, Source={x:Static prop:Settings.Default}}"
+                                Minimum="0"
+                                Maximum="1" TickFrequency="0.01"
+                                ValueChanged="MenuOpacitySlider_OnValueChanged">
+                            </Slider>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                    >
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uSettKeyboardOpacity}"
+                            FontSize="18">
+                        </TextBlock>
+
+                        <StackPanel
+                            Height="32"
+                            Width="400"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+
+                            <TextBox
+                                FontSize="18"
+                                Height="32"
+                                Width="100"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="KeyboardOpacityTextBox">
+                            </TextBox>
+
+                            <Slider
+                                x:Name="KeyboardOpacitySlider"
+                                Margin="10 0 50 0"
+                                Width="288"
+                                Value="{Binding Path=KeyboardOpacity, Source={x:Static prop:Settings.Default}}"
+                                Minimum="0"
+                                Maximum="1" TickFrequency="0.01"
+                                ValueChanged="KeyboardOpacitySlider_OnValueChanged">
+                            </Slider>
+                        </StackPanel>
+                    </Grid>
+
+<Grid Style="{StaticResource SettingsItemStyle}"
                           Margin="0 24 0 10"
                           Height="30">
                         <TextBlock

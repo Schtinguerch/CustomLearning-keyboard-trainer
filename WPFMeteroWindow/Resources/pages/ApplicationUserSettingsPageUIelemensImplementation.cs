@@ -132,6 +132,12 @@ namespace WPFMeteroWindow.Resources.pages
         private void HandsColorHighLightColorTextBox_TextChanged(object sender, TextChangedEventArgs e) =>
            SetColor.Hands(HandsColorHighLightColorTextBox.Text);
 
+        private void MenuOpacitySlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) =>
+            MenuOpacityTextBox.Text = $"{(e.NewValue * 100).ToString("N")}%";
+
+        private void KeyboardOpacitySlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) =>
+            KeyboardOpacityTextBox.Text = $"{(e.NewValue * 100).ToString("N")}%";
+
         private void WindowTheme_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             switch (WindowTheme.SelectedIndex)
@@ -160,7 +166,5 @@ namespace WPFMeteroWindow.Resources.pages
             }
         }
         #endregion
-
-
     }
 }
