@@ -562,5 +562,29 @@ namespace WPFMeteroWindow.Properties {
                 this["TestWordCount"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public string MenuOpacity {
+            get {
+                return ((string)(this["MenuOpacity"]));
+            }
+            set {
+                this["MenuOpacity"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public string KeyboardOpacity {
+            get {
+                return ((string)(this["KeyboardOpacity"]));
+            }
+            set {
+                this["KeyboardOpacity"] = value;
+            }
+        }
     }
 }
