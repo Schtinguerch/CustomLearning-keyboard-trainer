@@ -16,6 +16,7 @@ namespace WPFMeteroWindow.Resources.pages
     public partial class CourseEditorPage : Page
     {
         private CourseEditor _editor;
+        public CourseEditor Editor => _editor;
 
         public CourseEditorPage()
         {
@@ -40,13 +41,13 @@ namespace WPFMeteroWindow.Resources.pages
             LessonListTextBox.Text += addingPath + '\n';
         }
 
-        private void DisplayDataFromEditor()
+        public void DisplayDataFromEditor()
         {
             CourseNameTextBox.Text = _editor.CourseName;
             AuthorTextBox.Text = _editor.Author.Name;
             LessonListTextBox.Text = _editor.ListToString(_editor.Lessons, 0);
             ReferencesListTextBox.Text = _editor.ListToString(_editor.Author.References, 0);
-            EditorTitleTextBox.Text = $"{_editor.CourseName} - {Localization.uCourseEditor}";
+            EditorTitleTextBox.Text = $"{_editor.CourseName}.lml - {Localization.uCourseEditor}";
         }
 
         private void SendDataToEditor()
@@ -202,6 +203,18 @@ namespace WPFMeteroWindow.Resources.pages
 
             if (File.Exists(path))
                 File.Delete(path);
+        }
+
+        private void LoadWordsButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            CloseLessonEditorPage();
+            NewCourse();
+
+            CourseNameTextBox.Text = "New word practicing";
+            AuthorTextBox.Text = "CustomLearning";
+
+            SaveCourse();
+            LessonEditorFrame.Source = new Uri("WordPracticingEditorPage.xaml", UriKind.Relative);
         }
     }
 }
