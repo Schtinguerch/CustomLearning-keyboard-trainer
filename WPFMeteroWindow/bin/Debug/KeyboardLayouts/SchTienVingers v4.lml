@@ -17,7 +17,7 @@
     <k14 { tab ;nth; ;nth; ;nth; }>>
     <k15 { ц Ц ;nth; ;nth; }>>
     <k16 { ы Ы < ;nth; }>>
-    <k17 { а А > ;nth; }>>
+    <k17 { я Я > ;nth; }>>
     <k18 { п П ;nth; ;nth; }>>
     <k19 { ь ъ ¢ ;nth; }>>
     <k20 { й Й ;nth; ;nth; }>>
@@ -30,7 +30,7 @@
     <k27 { § α ;nth; ;nth; }>>
 
     <k28 { caps ;nth; ;nth; ;nth; }>>
-    <k29 { я Я ;opbr; ;nth; }>>
+    <k29 { а А ;opbr; ;nth; }>>
     <k30 { о О ( ;nth; }>>
     <k31 { е Е ) ;nth; }>>
     <k32 { и И ;clbr; ;nth; }>>
