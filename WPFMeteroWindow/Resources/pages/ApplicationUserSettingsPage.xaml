@@ -11,8 +11,12 @@
       d:DesignHeight="500" d:DesignWidth="800"
       Title="ApplicationUserSettingsPage">
 
-    <Grid Width="800" Height="500"
-          Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
+    <Grid
+        x:Name="BackGrid"
+        Width="800" 
+        Height="500"
+        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
+        
         <Grid.Effect>
             <DropShadowEffect BlurRadius="30"></DropShadowEffect>
         </Grid.Effect>

@@ -22,6 +22,8 @@ namespace WPFMeteroWindow.Resources.pages
         private UIElement _chosenTextBox;
 
         private string _defaultColorScheme;
+
+        private string _defaultBackgroundColor;
         private Theme _defaultTheme;
 
         private readonly List<string> _windowColors = new List<string>()
@@ -131,6 +133,8 @@ namespace WPFMeteroWindow.Resources.pages
             _defaultColorScheme = Settings.Default.ColorSchemeResourceDictionary.Split(new[] {'/'}).Last()
                 .Split(new[] {'.'})[0];
 
+            _defaultBackgroundColor = BackGrid.Background.ToString();
+
             Intermediary.RichPresentManager.Update("Settings", "Configuring the trainer's setup", "");
 
             this.KeyDown += (s, e) =>
@@ -163,6 +167,9 @@ namespace WPFMeteroWindow.Resources.pages
             SetColor.WindowColor(_defaultColorScheme);
 
             SetFont.MainLetters(Settings.Default.LessonLettersFont);
+
+            if (!Settings.Default.IsBackgroundImage)
+                SetColor.FirstColor(_defaultBackgroundColor);
 
             PageManager.HidePages();
         }
