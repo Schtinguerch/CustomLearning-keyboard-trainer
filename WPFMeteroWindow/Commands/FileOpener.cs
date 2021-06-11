@@ -1,15 +1,11 @@
 ﻿using System;
-using CommandMakerLibrary;
-using LmlLibrary;
+using System.Collections.Generic;
+using ScriptMaker;
 
 namespace WPFMeteroWindow.Commands
 {
-    public class FileOpener : ICommand
+    public class FileOpener : Command
     {
-        public string Name { get; set; } = "op";
-        
-        public object Value { get; set; }
-
         private TestAdditional ToAdditional(object token)
         {
             var additional = TestAdditional.None;
@@ -76,41 +72,48 @@ namespace WPFMeteroWindow.Commands
 
             return testWords;
         }
-        
-        public void Execute(object[] args)
-        {
-            bool hasFileName = args.Length > 1;
 
+        public override string Name { get; set; } = "op";
+
+        public override void Run(List<string> arguments, object processingObject = null)
+        {
+            if (arguments == null)
+            {
+                LogManager.Log("Command execution error -> no arguments");
+                return;
+            }
+
+            var hasFileName = arguments.Count > 1;
             var fileName = "";
 
             if (hasFileName)
             {
-                fileName = args[1].ToString();
-                for (int i = 2; i < args.Length; i++)
-                    fileName += ' ' + args[i].ToString();
+                fileName = arguments[1];
+                for (int i = 2; i < arguments.Count; i++)
+                    fileName += ' ' + arguments[i];
             }
 
-            switch (args[0].ToString().ToLower())
+            switch (arguments[0].ToLower())
             {
                 case "l":
-                    if (hasFileName) 
+                    if (hasFileName)
                         Opener.NewLesson(fileName);
-                    else 
+                    else
                         Opener.NewLessonViaExplorer();
                     break;
 
                 case "tc":
                     if (hasFileName)
                         TestManager.LoadWords(fileName);
-                    else 
+                    else
                         TestManager.LoadWordsViaExplorer();
                     break;
 
                 case "t":
-                    if (args.Length == 4)
+                    if (arguments.Count == 4)
                         try
                         {
-                            Opener.NewTest(Convert.ToInt32(args[1]), Convert.ToInt32(args[2]), ToAdditional(args[3]));
+                            Opener.NewTest(Convert.ToInt32(arguments[1]), Convert.ToInt32(arguments[2]), ToAdditional(arguments[3]));
                         }
 
                         catch
@@ -118,31 +121,31 @@ namespace WPFMeteroWindow.Commands
                             LogManager.Log("Command execution error -> invalid number cast");
                         }
 
-                    if (args.Length == 3)
-                        Opener.NewTest(ToTestWors(args[1]), ToAdditional(args[2]));
-                    
-                    if (args.Length == 2)
-                        Opener.NewTest(ToTestWors(args[1]), TestAdditional.None);
+                    if (arguments.Count == 3)
+                        Opener.NewTest(ToTestWors(arguments[1]), ToAdditional(arguments[2]));
+
+                    if (arguments.Count == 2)
+                        Opener.NewTest(ToTestWors(arguments[1]), TestAdditional.None);
                     break;
 
                 case "k":
                     if (hasFileName)
                         Opener.NewKeyboardLayout(fileName);
-                    else 
+                    else
                         Opener.NewKeyboardLayoutViaExplorer();
                     break;
-                
+
                 case "c":
                     if (hasFileName)
                         Opener.NewCourse(fileName, 0);
-                    else 
+                    else
                         Opener.NewCourseViaExplorer();
                     break;
-                
+
                 default:
-                    if (args[0].ToString().ToLower().Contains("c") && hasFileName)
-                        Opener.NewCourse(fileName, 
-                            Convert.ToInt32(args[0].ToString().Replace("c", "")) - 1);
+                    if (arguments[0].ToString().ToLower().Contains("c") && hasFileName)
+                        Opener.NewCourse(fileName,
+                            Convert.ToInt32(arguments[0].Replace("c", "")) - 1);
                     break;
             }
         }

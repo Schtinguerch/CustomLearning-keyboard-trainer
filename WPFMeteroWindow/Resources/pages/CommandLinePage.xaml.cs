@@ -5,8 +5,7 @@ using System.Windows.Input;
 using System.Linq;
 using WPFMeteroWindow.Commands;
 using WPFMeteroWindow.Properties;
-using CommandManager = CommandMakerLibrary.CommandManager;
-using ICommand = CommandMakerLibrary.ICommand;
+using ScriptMaker;
 
 namespace WPFMeteroWindow.Resources.pages
 {
@@ -15,9 +14,9 @@ namespace WPFMeteroWindow.Resources.pages
     /// </summary>
     public partial class CommandLinePage : Page
     {
-        private CommandManager _commandManager = new CommandManager();
+        private CommandProcessor _commandProcessor;
         
-        private List<ICommand> _commands = new List<ICommand>()
+        private List<Command> _commands = new List<Command>()
         {
             new FileOpener(),
             new FontSetter(),
@@ -29,7 +28,7 @@ namespace WPFMeteroWindow.Resources.pages
             InitializeComponent();
             CommandTextBox.Focus();
             
-            _commandManager.AddCommands(_commands);
+            _commandProcessor = new CommandProcessor(_commands);
             Intermediary.RichPresentManager.Update("Command line", "App management...", "");
         }
 
@@ -75,21 +74,11 @@ namespace WPFMeteroWindow.Resources.pages
             if (e.Key == Key.Enter)
             {
                 CommandTextBox.Text = AfterProcessedMacroses();
-                
                 var expressions = CommandTextBox.Text.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries).ToList();
 
                 foreach (var expression in expressions)
-                {
-                    var tokens =
-                        expression.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries).ToList();
+                    _commandProcessor.Run(expression);
 
-                    var commandName = tokens[0];
-                    tokens.RemoveAt(0);
-
-                    var arguments = tokens.ToArray();
-                    _commandManager.ExecuteCommand(commandName, arguments);
-                }
-                
                 PageManager.HidePages();
             }
 

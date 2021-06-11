@@ -1,79 +1,78 @@
-﻿using CommandMakerLibrary;
+﻿using System.Collections.Generic;
 using WPFMeteroWindow.Properties;
+using ScriptMaker;
 
 namespace WPFMeteroWindow.Commands
 {
-    public class FontSetter : ICommand
+    public class FontSetter : Command
     {
-        public string Name { get; set; } = "ft";
-        
-        public object Value { get; set; }
-        
-        public void Execute(object[] args)
-        {
-            if (args == null) return;
-            if (args.Length != 3) return;
+        public override string Name { get; set; } = "ft";
 
-            var fontProperty = args[2].ToString();
+        public override void Run(List<string> arguments, object processingObject = null)
+        {
+            if (arguments == null) return;
+            if (arguments.Count != 3) return;
+
+            var fontProperty = arguments[2];
             var areSettingsChanged = true;
-            
-            for (int i = 3; i < args.Length; i++)
-                fontProperty += ' ' + args[i].ToString();
-            
-            switch (args[0].ToString())
+
+            for (int i = 3; i < arguments.Count; i++)
+                fontProperty += ' ' + arguments[i];
+
+            switch (arguments[0])
             {
                 case "f":
-                    switch (args[1].ToString())
+                    switch (arguments[1])
                     {
                         case "main":
                             SetFont.MainLetters(fontProperty);
                             break;
-                        
+
                         case "summ":
                             SetFont.SummaryLetters(fontProperty);
                             break;
-                        
+
                         case "kbrd":
                             SetFont.Keyboard(fontProperty);
                             break;
                     }
                     break;
-                
+
                 case "c":
-                    switch (args[1].ToString())
+                    switch (arguments[1])
                     {
                         case "main":
                             SetFont.MainLetters_Color(fontProperty);
                             break;
-                        
+
                         case "summ":
                             SetFont.Summary_Color(fontProperty);
                             break;
-                        
+
                         case "done":
                             SetFont.MainRaidedLetters_Color(fontProperty);
                             break;
-                        
+
                         case "kbrd":
                             SetFont.Keyboard_Color(fontProperty);
                             break;
                     }
                     break;
-                
+
                 case "s":
-                    switch (args[1].ToString())
+                    switch (arguments[1])
                     {
                         case "main":
                             SetFont.MainLetters_Size(fontProperty);
                             break;
                     }
                     break;
-                
+
                 default:
                     areSettingsChanged = false;
                     break;
             }
-            
+
             if (areSettingsChanged)
                 Settings.Default.Save();
         }
