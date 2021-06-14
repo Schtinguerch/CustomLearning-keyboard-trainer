@@ -107,6 +107,14 @@
     <Compile Include="Commands\ColorSetter.cs" />
     <Compile Include="Commands\FileOpener.cs" />
     <Compile Include="Commands\FontSetter.cs" />
+    <Compile Include="Commands\GameSceneCommands\PlaySoundTrack.cs" />
+    <Compile Include="Commands\GameSceneCommands\SetCircleShowTime.cs" />
+    <Compile Include="Commands\GameSceneCommands\SetMaxTapperingRadius.cs" />
+    <Compile Include="Commands\GameSceneCommands\SetProperty.cs" />
+    <Compile Include="Commands\PreprocessorCommands\PreDefine.cs" />
+    <Compile Include="Resources\dictionaries\TapperingCircle.xaml.cs">
+      <DependentUpon>TapperingCircle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Hands\LeftHand\Key18.xaml.cs">
       <DependentUpon>Key18.xaml</DependentUpon>
     </Compile>
@@ -132,6 +140,9 @@
     </Compile>
     <Compile Include="Resources\pages\ApplicationUserSettingsPage.xaml.cs">
       <DependentUpon>ApplicationUserSettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\pages\ClickingGamePage.xaml.cs">
+      <DependentUpon>ClickingGamePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\pages\CommandLinePage.xaml.cs">
       <DependentUpon>CommandLinePage.xaml</DependentUpon>
@@ -171,9 +182,11 @@
     <Compile Include="Tools\Editors\KeyboardLayoutEditor.cs" />
     <Compile Include="Tools\Editors\LessonEditor.cs" />
     <Compile Include="Tools\Editors\WordPracticingCourseEditor.cs" />
+    <Compile Include="Tools\FromOtherUsers\MathConverter.cs" />
     <Compile Include="Tools\Managers\AppManager.cs" />
     <Compile Include="Tools\Managers\CourseManager.cs" />
     <Compile Include="Tools\Managers\DiscordManager.cs" />
+    <Compile Include="Tools\Managers\GameManager.cs" />
     <Compile Include="Tools\Managers\KeyboardManager.cs" />
     <Compile Include="Tools\Managers\LessonManager.cs" />
     <Compile Include="Tools\Managers\LogManager.cs" />
@@ -183,6 +196,7 @@
     <Compile Include="Tools\PresentTools\GraphDrawer.cs" />
     <Compile Include="Tools\PresentTools\HandPresenter.cs" />
     <Compile Include="Tools\PresentTools\KeyboardPresenter.cs" />
+    <Compile Include="Tools\PresentTools\TappingCirclesDrawer.cs" />
     <Compile Include="Tools\SettingsSetters\KeyboardLoader.cs" />
     <Compile Include="Tools\SettingsSetters\Opener.cs" />
     <Compile Include="Tools\SettingsSetters\SetColor.cs" />
@@ -203,6 +217,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\dictionaries\TapperingCircle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Hands\LeftHand\Key18.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -220,6 +238,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\pages\ApplicationUserSettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\pages\ClickingGamePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
