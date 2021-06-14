@@ -12,6 +12,8 @@ namespace WPFMeteroWindow.Commands
         {
             if (arguments == null) return;
             if (arguments.Count != 3) return;
+            
+            SetAdditional(arguments);
 
             var fontProperty = arguments[2];
             var areSettingsChanged = true;

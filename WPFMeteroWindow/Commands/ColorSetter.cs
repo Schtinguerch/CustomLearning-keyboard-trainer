@@ -13,6 +13,7 @@ namespace WPFMeteroWindow.Commands
             if (arguments == null) return;
             if (arguments.Count != 2) return;
 
+            SetAdditional(arguments);
             var areSettingChanged = true;
 
             switch (arguments[0])

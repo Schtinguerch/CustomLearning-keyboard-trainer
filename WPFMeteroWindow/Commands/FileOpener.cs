@@ -83,6 +83,8 @@ namespace WPFMeteroWindow.Commands
                 return;
             }
 
+            SetAdditional(arguments);
+            
             var hasFileName = arguments.Count > 1;
             var fileName = "";
 
