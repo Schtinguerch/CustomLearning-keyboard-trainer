@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Windows.Media.Animation;
 using Application = System.Windows.Application;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
+using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 using Visibility = System.Windows.Visibility;
 
 namespace WPFMeteroWindow
@@ -213,6 +214,15 @@ namespace WPFMeteroWindow
                     e.Handled = true;
                     selectedPage = TabPage.KeyboardLayoutEditor;
                 }
+
+                else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.R))
+                {
+                    e.Handled = true;
+                    LessonManager.RandomizeText = !LessonManager.RandomizeText;
+                    RestartLesson();
+
+                    RandomizedTextBlock.Text = LessonManager.RandomizeText ? $"{Localization.uShuffledWords} •" : "";
+                }
             }
 
             if (selectedPage != TabPage.EmptyPage)
@@ -257,5 +267,8 @@ namespace WPFMeteroWindow
 
         private void OpenLayoutEditorMenuItem_OnClick(object sender, RoutedEventArgs e) =>
             PageManager.OpenPage(TabPage.KeyboardLayoutEditor);
+
+        private void OpenNewGameMenuItem_OnClick(object sender, RoutedEventArgs e) =>
+            PageManager.OpenPage(TabPage.ClickingGame);
     }
 }
