@@ -4,7 +4,10 @@ using System.IO;
 using System.Text.RegularExpressions;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 using System;
+using System.Diagnostics;
+using System.Linq;
 using System.Windows;
+using System.Threading;
 
 namespace WPFMeteroWindow
 {
@@ -15,7 +18,9 @@ namespace WPFMeteroWindow
         public static int StoppedDoneRoad { get; set; }
         
         public static string LeftRoad { get; set; }
-        
+
+        public static bool RandomizeText { get; set; } = false;
+
         public static void LoadLesson(string filename)
         {
             Intermediary.App.errorInputTextBlock.Text = "";
@@ -44,7 +49,9 @@ namespace WPFMeteroWindow
             Intermediary.App.inputTextBox.Text = "";
             StatisticsManager.ReloadStats();
 
+            lessonText = lessonText.Randomized();
             LeftRoad = lessonText;
+
             Intermediary.App.inputTextBlock.Text = lessonText;
             Intermediary.App.lessonHeaderTextBlock.Text = lessonName;
             
@@ -72,7 +79,7 @@ namespace WPFMeteroWindow
 
             LeftRoad = lessonText;
             Intermediary.App.inputTextBlock.Text = lessonText;
-            Intermediary.App.lessonHeaderTextBlock.Text = "Typing test";
+            Intermediary.App.lessonHeaderTextBlock.Text = Localization.uTypingTest;
 
             Intermediary.App.NextLessonButton.Visibility = Visibility.Hidden;
             Intermediary.App.PrevLessonButton.Visibility = Visibility.Hidden;
@@ -96,6 +103,25 @@ namespace WPFMeteroWindow
             
             StatisticsManager.ReloadTimer();
             PageManager.OpenPage(TabPage.EndedLesson);
+        }
+
+        private static string Randomized(this string s)
+        {
+            if (!RandomizeText) return s;
+
+            var randomizedText = "";
+            var wordList = s.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).ToList();
+
+            while (wordList.Count > 0)
+            {
+                var randomizer = new Random(Environment.TickCount);
+                var chosenIndex = randomizer.Next(0, wordList.Count);
+
+                randomizedText += wordList[chosenIndex] + ' ';
+                wordList.RemoveAt(chosenIndex);
+            }
+
+            return randomizedText;
         }
     }
 }
