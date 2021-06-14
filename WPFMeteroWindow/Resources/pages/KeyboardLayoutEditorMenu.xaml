@@ -9,7 +9,28 @@
              mc:Ignorable="d" 
              d:DesignHeight="165" d:DesignWidth="360"
              PreviewKeyDown="KeyboardLayoutEditorMenu_OnPreviewKeyDown">
+
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="Page.Loaded">
+            <EventTrigger.Actions>
+                <BeginStoryboard>
+                    <Storyboard TargetName="BackGrid">
+                        <DoubleAnimation 
+                            x:Name="ShowSceneAnimation"
+                            Storyboard.TargetProperty="Opacity"
+                            From="0"
+                            To="1"
+                            Duration="0:0:0:0.5"
+                            DecelerationRatio="0.618">
+                        </DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+    </UserControl.Triggers>
+
     <Grid
+        x:Name="BackGrid"
         Height="165"
         Width="360"
         Margin="-30 -8 -30 -8"

@@ -12,7 +12,27 @@
       KeyDown="LessonIsEndPage_OnKeyDown"
       PreviewKeyDown="LessonIsEndPage_OnPreviewKeyDown">
 
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Page.Loaded">
+            <EventTrigger.Actions>
+                <BeginStoryboard>
+                    <Storyboard TargetName="BackGrid">
+                        <DoubleAnimation 
+                            x:Name="ShowSceneAnimation"
+                            Storyboard.TargetProperty="Opacity"
+                            From="0"
+                            To="1"
+                            Duration="0:0:0:0.5"
+                            DecelerationRatio="0.618">
+                        </DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+    </Page.Triggers>
+
     <Grid
+        x:Name="BackGrid"
         Width="700"
         Height="400"
         Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
