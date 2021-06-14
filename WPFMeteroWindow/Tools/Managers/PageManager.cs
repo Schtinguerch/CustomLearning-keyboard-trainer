@@ -17,6 +17,7 @@ namespace WPFMeteroWindow
         LessonEditor,
         CourseEditor,
         KeyboardLayoutEditor,
+        ClickingGame,
         EmptyPage,
     }
     
@@ -40,6 +41,7 @@ namespace WPFMeteroWindow
             _baseFolder + "LessonEditorPage.xaml",
             _baseFolder + "CourseEditorPage.xaml",
             _baseFolder + "KeyboardLayoutEditorPage.xaml",
+            _baseFolder + "ClickingGamePage.xaml",
             null,
         };
         
@@ -51,11 +53,13 @@ namespace WPFMeteroWindow
             Intermediary.RichPresentManager.Update(
                 Settings.Default.ItTypingTest ? "Typing test" : Settings.Default.LessonName, "Chilling...",
                 "");
+
+            GC.Collect();
         }
 
         public static void OpenPage(TabPage page)
         {
-            int pageIndex = (int) page;
+            int pageIndex = (int)page;
             if (pageIndex >= 0)
             {
                 PageGrid.Visibility = Visibility.Visible;
