@@ -261,6 +261,9 @@
   <data name="uMenuOpenNewCourse" xml:space="preserve">
     <value>Открыть новый курс</value>
   </data>
+  <data name="uMenuOpenNewGame" xml:space="preserve">
+    <value>Открыть новую игру</value>
+  </data>
   <data name="uMenuOpenNewLesson" xml:space="preserve">
     <value>Открыть новый урок</value>
   </data>
@@ -309,6 +312,9 @@
   <data name="uOpenFileMessageError" xml:space="preserve">
     <value>Ошибка: файл, который Вы пытаетесь открыть не существует!</value>
   </data>
+  <data name="uOpenNewMap" xml:space="preserve">
+    <value>Открыть игру</value>
+  </data>
   <data name="uOtherReferences" xml:space="preserve">
     <value>Доп. ссылки</value>
   </data>
@@ -317,6 +323,9 @@
   </data>
   <data name="uRepeatsCount" xml:space="preserve">
     <value>Количество повторений</value>
+  </data>
+  <data name="uRestartTheMap" xml:space="preserve">
+    <value>Перезапуск игры</value>
   </data>
   <data name="uRight" xml:space="preserve">
     <value>Правым </value>
@@ -429,6 +438,9 @@
   <data name="uShowHands" xml:space="preserve">
     <value>Показывать руки</value>
   </data>
+  <data name="uShuffledWords" xml:space="preserve">
+    <value>Слова перемешаны</value>
+  </data>
   <data name="uSpace" xml:space="preserve">
     <value>"Пробел"</value>
   </data>
@@ -452,6 +464,9 @@
   </data>
   <data name="uTime" xml:space="preserve">
     <value>Время</value>
+  </data>
+  <data name="uTypingTest" xml:space="preserve">
+    <value>Тест на скорость печати</value>
   </data>
   <data name="uUnknownColorError" xml:space="preserve">
     <value>Ошибка: неизвестный цвет</value>

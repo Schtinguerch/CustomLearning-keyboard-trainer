@@ -259,10 +259,13 @@
     <value>Open next lesson</value>
   </data>
   <data name="uMenuOpenNewCourse" xml:space="preserve">
-    <value>Open new course</value>
+    <value>Open a new course</value>
+  </data>
+  <data name="uMenuOpenNewGame" xml:space="preserve">
+    <value>Open a new game</value>
   </data>
   <data name="uMenuOpenNewLesson" xml:space="preserve">
-    <value>Open new lesson</value>
+    <value>Open a new lesson</value>
   </data>
   <data name="uMenuPrevLesson" xml:space="preserve">
     <value>Open previous lesson</value>
@@ -309,6 +312,9 @@
   <data name="uOpenFileMessageError" xml:space="preserve">
     <value>Error: the opening file does not exist!</value>
   </data>
+  <data name="uOpenNewMap" xml:space="preserve">
+    <value>Open a new map</value>
+  </data>
   <data name="uOtherReferences" xml:space="preserve">
     <value>Add. references</value>
   </data>
@@ -317,6 +323,9 @@
   </data>
   <data name="uRepeatsCount" xml:space="preserve">
     <value>Count of repeats</value>
+  </data>
+  <data name="uRestartTheMap" xml:space="preserve">
+    <value>Restart the map</value>
   </data>
   <data name="uRight" xml:space="preserve">
     <value>Right </value>
@@ -429,6 +438,9 @@
   <data name="uShowHands" xml:space="preserve">
     <value>Show hands</value>
   </data>
+  <data name="uShuffledWords" xml:space="preserve">
+    <value>Words shuffled</value>
+  </data>
   <data name="uSpace" xml:space="preserve">
     <value>"Space"</value>
   </data>
@@ -452,6 +464,9 @@
   </data>
   <data name="uTime" xml:space="preserve">
     <value>Time</value>
+  </data>
+  <data name="uTypingTest" xml:space="preserve">
+    <value>Typing speed test</value>
   </data>
   <data name="uUnknownColorError" xml:space="preserve">
     <value>Error: unknown color</value>
