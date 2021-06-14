@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31402.337
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFMeteroWindow", "WPFMeteroWindow\WPFMeteroWindow.csproj", "{ED7B9B20-0DC3-49E6-811D-C38B4DBCE5A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomLearning", "WPFMeteroWindow\CustomLearning.csproj", "{ED7B9B20-0DC3-49E6-811D-C38B4DBCE5A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
