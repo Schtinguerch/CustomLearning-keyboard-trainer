@@ -12,7 +12,7 @@ namespace WPFMeteroWindow.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -584,6 +584,66 @@ namespace WPFMeteroWindow.Properties {
             }
             set {
                 this["KeyboardOpacity"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("300")]
+        public double MaxTapperingAuraSize {
+            get {
+                return ((double)(this["MaxTapperingAuraSize"]));
+            }
+            set {
+                this["MaxTapperingAuraSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("60")]
+        public double MinTapperingAuraSize {
+            get {
+                return ((double)(this["MinTapperingAuraSize"]));
+            }
+            set {
+                this["MinTapperingAuraSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
+        public double TapperingMilliseconds {
+            get {
+                return ((double)(this["TapperingMilliseconds"]));
+            }
+            set {
+                this["TapperingMilliseconds"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("D:\\Cases\\Press game maps\\Test map")]
+        public string LoadedMapFolder {
+            get {
+                return ((string)(this["LoadedMapFolder"]));
+            }
+            set {
+                this["LoadedMapFolder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.1")]
+        public double MusicVolume {
+            get {
+                return ((double)(this["MusicVolume"]));
+            }
+            set {
+                this["MusicVolume"] = value;
             }
         }
     }

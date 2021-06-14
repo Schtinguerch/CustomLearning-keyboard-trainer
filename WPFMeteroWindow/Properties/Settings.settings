@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WPFMeteroWindow.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
@@ -143,5 +143,21 @@
     <Setting Name="KeyboardOpacity" Type="System.String" Scope="User">
       <Value Profile="(Default)">1</Value>
     </Setting>
+    <Setting Name="MaxTapperingAuraSize" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">300</Value>
+    </Setting>
+    <Setting Name="MinTapperingAuraSize" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="TapperingMilliseconds" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="LoadedMapFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\Cases\Press game maps\Test map</Value>
+    </Setting>
+    <Setting Name="MusicVolume" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0.1</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
+
