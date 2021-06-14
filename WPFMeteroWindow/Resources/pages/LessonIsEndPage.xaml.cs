@@ -69,7 +69,7 @@ namespace WPFMeteroWindow.Resources.pages
             var mistakes = Settings.Default.TypingErrors;
             var raidLessonStatus = false;
 
-            if ((reqCPM != -1) && (reqMistakes != -1) || Settings.Default.ItTypingTest)
+            if ((reqCPM != -1) && (reqMistakes != -1) || !Settings.Default.ItTypingTest)
             {
                 statusText += (typingSpeed > reqCPM) ? $"{typingSpeed} > {reqCPM}; " :
                     (typingSpeed == reqCPM) ? $"{typingSpeed} = {reqCPM}!!!; " :
