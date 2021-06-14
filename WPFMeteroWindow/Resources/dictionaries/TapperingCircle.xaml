@@ -1,0 +1,85 @@
+﻿<UserControl 
+    x:Class="WPFMeteroWindow.Resources.dictionaries.TapperingCircle"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:WPFMeteroWindow.Resources.dictionaries"
+    xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
+    mc:Ignorable="d" 
+    d:DesignHeight="400" d:DesignWidth="400"
+    
+    DataContext="{Binding RelativeSource={RelativeSource Self}}">
+
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="UserControl.Loaded">
+            <EventTrigger.Actions>
+                <BeginStoryboard>
+                    <Storyboard 
+                        TargetName="TheTapperingCircle">
+                        <DoubleAnimation
+                            x:Name="TapperingCircleShowAnimation"
+                            From="0"
+                            To="1"
+                            Storyboard.TargetProperty="Opacity"
+                            Duration="0:0:0:0.2"
+                            DecelerationRatio="0.4">
+                        </DoubleAnimation>
+
+                        <DoubleAnimation
+                            x:Name="TapperingWidthAnimation"
+                            From="{Binding Path=TapperingAuraMaxSize}"
+                            To="{Binding Path=TapperingCirleSize}"
+                            Storyboard.TargetProperty="Width"
+                            Duration="0:0:0:1">
+                        </DoubleAnimation>
+
+                        <DoubleAnimation
+                            x:Name="TapperingHeightAnimation"
+                            From="{Binding Path=TapperingAuraMaxSize}"
+                            To="{Binding Path=TapperingCirleSize}"
+                            Storyboard.TargetProperty="Height"
+                            Duration="0:0:0:1">
+                        </DoubleAnimation>
+
+                        <DoubleAnimation
+                            x:Name="TapperingCircleHideAnimation"
+                            BeginTime="0:0:0:1"
+                            
+                            From="1"
+                            To="0"
+                            Storyboard.TargetProperty="Opacity"
+                            Duration="0:0:0:0.2"
+                            AccelerationRatio="1">
+                        </DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+    </UserControl.Triggers>
+
+    <Grid
+        Background="Transparent"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+
+        Width="400"
+        Height="400">
+
+        <Ellipse
+            x:Name="TheTapperingCircle"
+            Fill="Transparent"
+
+            Stroke="{Binding Path=KeyboardHighlightColor, Source={x:Static prop:Settings.Default}}"
+            StrokeThickness="4">
+            <Ellipse.Effect>
+                <DropShadowEffect
+                    Color="{Binding Path=KeyboardHighlightColor, Source={x:Static prop:Settings.Default}}"
+                    BlurRadius="24"
+                    Opacity="0.6"
+                    ShadowDepth="0">
+                </DropShadowEffect>
+            </Ellipse.Effect>
+        </Ellipse>
+    </Grid>
+</UserControl>
