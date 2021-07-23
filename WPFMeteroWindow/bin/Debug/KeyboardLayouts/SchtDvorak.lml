@@ -16,25 +16,25 @@
 
     <k14 { tab ;nth; ;nth; ;nth; }>>
     <k15 { ; : ;nth; ;nth; }>>
-    <k16 { , ! < ;nth; }>>
-    <k17 { . = > ;nth; }>>
+    <k16 { k K ;nth; ;nth; }>>
+    <k17 { j J ;nth; ;nth; }>>
     <k18 { p P ;nth; ;nth; }>>
-    <k19 { y Y ¢ ;nth; }>>
+    <k19 { u U ¢ ;nth; }>>
     <k20 { f F ;nth; ;nth; }>>
     <k21 { g G ;nth; ;nth; }>>
     <k22 { c C ^ ;nth; }>>
     <k23 { r R # ;nth; }>>
-    <k24 { k K | ;nth; }>>
-    <k25 {  á â à a̧ }>>
-    <k26 { ä ǎ ã ą }>>
+    <k24 { v V | ;nth; }>>
+    <k25 { á â ;nth; ;nth; }>>
+    <k26 { ä a̧ ;nth; ;nth; }>>
     <k27 { § α ;nth; ;nth; }>>
 
     <k28 { caps ;nth; ;nth; ;nth; }>>
-    <k29 { a A ;opbr; ;nth; }>>
+    <k29 { y Y ;opbr; ;nth; }>>
     <k30 { o O ( ;nth; }>>
     <k31 { e E ) ;nth; }>>
     <k32 { i I ;clbr; ;nth; }>>
-    <k33 { u U $ ;nth; }>>
+    <k33 { a A $ ;nth; }>>
     <k34 { d D % ;nth; }>>
     <k35 { h H + ;nth; }>>
     <k36 { t T - ;nth; }>>
@@ -42,17 +42,17 @@
     <k38 { s S / ;nth; }>>
     <k39 { z Z & ;nth; }>>
     <k40 { enter ;nth; ;nth; ;nth; }>>
-
     <k41 { shift ;nth; ;nth; ;nth; }>>
     <k42 { ;ap; ;qt; ;nth; ;nth; }>>
     <k43 { x X [ ;nth; }>>
     <k44 { q Q ] ;nth; }>>
-    <k45 { v V ;nth; ;nth; }>>
-    <k46 { j J ₽ ;nth; }>>
+    <k45 { , ! < ;nth; }>>
+    <k46 { . = > ;nth; }>>
     <k47 { l L ;nth; ;nth; }>>
     <k48 { m M ;nth; ;nth; }>>
     <k49 { w W _ ;nth; }>>
     <k50 { b B ~ ;nth; }>>
+
     <k51 { / \ ;nth; ;nth; }>>
     <k52 { shift ;nth; ;nth; ;nth; }>>
 
@@ -62,6 +62,6 @@
     <k56 { ;space; ;nth; ;nth; ;nth; }>>
     <k57 { altGr ;nth; ;nth; ;nth; }>>
     <k58 { win ;nth; ;nth; ;nth; }>>
-    <k59 { menu ;nth; ;nth; ;nth;}>>
+    <k59 { menu ;nth; ;nth; ;nth; }>>
     <k60 { ctrl ;nth; ;nth; ;nth; }>>
 :Layout>>
