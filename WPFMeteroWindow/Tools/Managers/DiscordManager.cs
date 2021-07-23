@@ -10,7 +10,7 @@ namespace WPFMeteroWindow
 
         public void Initialize()
         {
-            Client = new DiscordRpcClient("824522754971402241");
+            Client = new DiscordRpcClient(Settings.Default.DiscordID);
             Client.Logger = new ConsoleLogger()
             {
                 Level = LogLevel.Warning
@@ -36,9 +36,9 @@ namespace WPFMeteroWindow
                 State = status,
                 Assets = new Assets()
                 {
-                    LargeImageKey = imageKey,
-                    LargeImageText = "",
-                    SmallImageKey = ""
+                    LargeImageKey = "logolight",
+                    LargeImageText = "CustomLearning",
+                    SmallImageKey = imageKey
                 }
             });
         }
