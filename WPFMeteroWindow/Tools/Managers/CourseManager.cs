@@ -29,8 +29,6 @@ namespace WPFMeteroWindow
                     else
                         LessonManager.LoadLesson(Settings.Default.LoadedLessonFile);
                     
-                        
-
                     Intermediary.App.PrevLessonButton.Visibility 
                         = (value == 0) || !Settings.Default.IsCourseOpened ? Visibility.Hidden : Visibility.Visible;
                     Intermediary.App.NextLessonButton.Visibility 
