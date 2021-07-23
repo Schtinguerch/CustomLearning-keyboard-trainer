@@ -36,7 +36,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <ApplicationIcon>LogoLight.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
@@ -49,8 +69,9 @@
     <Reference Include="ICSharpCode.AvalonEdit, Version=6.0.1.278, Culture=neutral, PublicKeyToken=9cc39be672370310, processorArchitecture=MSIL">
       <HintPath>..\packages\AvalonEdit.6.0.1\lib\net45\ICSharpCode.AvalonEdit.dll</HintPath>
     </Reference>
-    <Reference Include="LmlLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\RunAwayAppWPF\RunAwayAppWPF\bin\Debug\LmlLibrary.dll</HintPath>
+    <Reference Include="LmlLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Cases\ForMe\ClassLibraries\LmlLibrary.dll</HintPath>
     </Reference>
     <Reference Include="MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.6.5\lib\net46\MahApps.Metro.dll</HintPath>
@@ -59,7 +80,7 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="ScriptMaker">
-      <HintPath>..\..\ScriptMaker\ScriptMaker\bin\Release\ScriptMaker.dll</HintPath>
+      <HintPath>D:\Cases\ForMe\ClassLibraries\ScriptMaker.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -115,11 +136,107 @@
     <Compile Include="Resources\dictionaries\TapperingCircle.xaml.cs">
       <DependentUpon>TapperingCircle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Hands\LeftHand\Key15.xaml.cs">
+      <DependentUpon>Key15.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\LeftHand\Key16.xaml.cs">
+      <DependentUpon>Key16.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\LeftHand\Key17.xaml.cs">
+      <DependentUpon>Key17.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Hands\LeftHand\Key18.xaml.cs">
       <DependentUpon>Key18.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Hands\LeftHand\Key19.xaml.cs">
+      <DependentUpon>Key19.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\LeftHand\Key29.xaml.cs">
+      <DependentUpon>Key29.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\LeftHand\Key30.xaml.cs">
+      <DependentUpon>Key30.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\LeftHand\Key31.xaml.cs">
+      <DependentUpon>Key31.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\LeftHand\Key32.xaml.cs">
+      <DependentUpon>Key32.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\LeftHand\Key33.xaml.cs">
+      <DependentUpon>Key33.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\LeftHand\Key42.xaml.cs">
+      <DependentUpon>Key42.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\LeftHand\Key43.xaml.cs">
+      <DependentUpon>Key43.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\LeftHand\Key44.xaml.cs">
+      <DependentUpon>Key44.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\LeftHand\Key45.xaml.cs">
+      <DependentUpon>Key45.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\LeftHand\Key46.xaml.cs">
+      <DependentUpon>Key46.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key20.xaml.cs">
+      <DependentUpon>Key20.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Hands\RightHand\Key21.xaml.cs">
       <DependentUpon>Key21.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key22.xaml.cs">
+      <DependentUpon>Key22.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key23.xaml.cs">
+      <DependentUpon>Key23.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key24.xaml.cs">
+      <DependentUpon>Key24.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key25.xaml.cs">
+      <DependentUpon>Key25.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key26.xaml.cs">
+      <DependentUpon>Key26.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key27.xaml.cs">
+      <DependentUpon>Key27.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key34.xaml.cs">
+      <DependentUpon>Key34.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key35.xaml.cs">
+      <DependentUpon>Key35.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key36.xaml.cs">
+      <DependentUpon>Key36.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key37.xaml.cs">
+      <DependentUpon>Key37.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key38.xaml.cs">
+      <DependentUpon>Key38.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key39.xaml.cs">
+      <DependentUpon>Key39.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key47.xaml.cs">
+      <DependentUpon>Key47.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key48.xaml.cs">
+      <DependentUpon>Key48.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key49.xaml.cs">
+      <DependentUpon>Key49.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key50.xaml.cs">
+      <DependentUpon>Key50.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key51.xaml.cs">
+      <DependentUpon>Key51.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\Hands\StandardPositionLeft.xaml.cs">
       <DependentUpon>StandardPositionLeft.xaml</DependentUpon>
@@ -221,11 +338,133 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\Hands\LeftHand\Key15.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\LeftHand\Key16.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\LeftHand\Key17.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Hands\LeftHand\Key18.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\LeftHand\Key19.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\LeftHand\Key29.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\Hands\LeftHand\Key30.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\LeftHand\Key31.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\LeftHand\Key32.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\LeftHand\Key33.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\LeftHand\Key42.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\LeftHand\Key43.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\LeftHand\Key44.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\LeftHand\Key45.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\LeftHand\Key46.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key20.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Hands\RightHand\Key21.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key22.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key23.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key24.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key25.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key26.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key27.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key34.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key35.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key36.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key37.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key38.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key39.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key47.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key48.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key49.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key50.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key51.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -330,6 +569,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="LogoLight.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
