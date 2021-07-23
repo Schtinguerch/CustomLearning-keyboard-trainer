@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Windows.Media.Animation;
 using Application = System.Windows.Application;
+using Key = System.Windows.Input.Key;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 using Visibility = System.Windows.Visibility;
@@ -99,6 +100,26 @@ namespace WPFMeteroWindow
         private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             bufferTextBox.Focus();
+        }
+
+        private void StartTypingDemo()
+        {
+            var typingTimer = new Timer();
+            typingTimer.Interval = 80;
+            typingTimer.Start();
+
+            typingTimer.Tick += (s, e) =>
+            {
+                try
+                {
+                    bufferTextBox.Text += LessonManager.LeftRoad[0];
+                }
+
+                catch
+                {
+                    typingTimer.Stop();
+                }
+            };
         }
 
         private void BufferTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
@@ -222,6 +243,20 @@ namespace WPFMeteroWindow
                     RestartLesson();
 
                     RandomizedTextBlock.Text = LessonManager.RandomizeText ? $"{Localization.uShuffledWords} •" : "";
+                }
+
+                else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.M))
+                {
+                    e.Handled = true;
+                    RestartLesson();
+
+                    bufferTextBox.Focus();
+                }
+
+                else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.D))
+                {
+                    e.Handled = true;
+                    StartTypingDemo();
                 }
             }
 
