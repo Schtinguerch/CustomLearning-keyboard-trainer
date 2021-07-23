@@ -138,6 +138,9 @@ namespace WPFMeteroWindow.Resources.pages
         private void KeyboardOpacitySlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) =>
             KeyboardOpacityTextBox.Text = $"{(e.NewValue * 100).ToString("N")}%";
 
+        private void HandsOpacitySlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) =>
+            HandsOpacityTextBox.Text = $"{(e.NewValue * 100).ToString("N")}%";
+
         private void WindowTheme_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             switch (WindowTheme.SelectedIndex)
