@@ -16,7 +16,6 @@ namespace WPFMeteroWindow
             try { ShowTypingHint(LessonManager.LeftRoad[0]); } catch {}
         }
 
-
         public static void LoadKeyboardData(string filename)
         {
             Intermediary.KeyboardData = KeyboardLoader.LoadButtons(Board, filename);
@@ -27,13 +26,14 @@ namespace WPFMeteroWindow
         public static void ShowTypingHint(char character)
         {
             KeyboardPresenter.ShowTheNecessaryHints(character);
-          //  HandPresenter.ShowHands(Intermediary.KeyboardCharIndex, Intermediary.KeyboardModifierIndex);
+            HandPresenter.ShowHands(Intermediary.KeyboardCharIndex, Intermediary.KeyboardModifierIndex);
+            //HandPresenter.ShowHands(51, 0);
         }
 
         public static void ShowTypingError(char character)
         {
             KeyboardPresenter.ShowErrorTyping(character);
-          //  HandPresenter.ShowHandsOnBackspace();
+           // HandPresenter.ShowHandsOnBackspace();
         }
     }
 }
