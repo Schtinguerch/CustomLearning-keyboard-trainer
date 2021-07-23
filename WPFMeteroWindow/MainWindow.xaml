@@ -153,12 +153,12 @@
                         Click="OpenNewCourseMenuItem_OnClick">
                     </MenuItem>
 
-                    <MenuItem 
+                  <!--  <MenuItem 
                         x:Name="OpenNewGameMenuItem"
                         Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uMenuOpenNewCourse}"
                         Click="OpenNewGameMenuItem_OnClick">
-                    </MenuItem>
+                    </MenuItem> -->
 
                     <MenuItem
                         x:Name="OpenPreviousLessonMenuItem"
@@ -344,13 +344,13 @@
                     </Rectangle>
 
                     <TextBlock 
-                    VerticalAlignment="Bottom"
-                    Width="{Binding ElementName=RightTextColumn, Path=Width}" 
-                    TextWrapping="NoWrap"
-                    Style="{StaticResource MainTextStyle}"
-                    FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                    Foreground="{Binding KeyboardErrorHighlightColor, Source={x:Static prop:Settings.Default}}"
-                    x:Name="errorInputTextBlock">
+                        VerticalAlignment="Bottom"
+                        Width="{Binding ElementName=RightTextColumn, Path=Width}" 
+                        TextWrapping="NoWrap"
+                        Style="{StaticResource MainTextStyle}"
+                        FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                        Foreground="{Binding KeyboardErrorHighlightColor, Source={x:Static prop:Settings.Default}}"
+                        x:Name="errorInputTextBlock">
                     </TextBlock>
                 </Grid>
             </Grid>
@@ -380,14 +380,14 @@
                     </Rectangle>
 
                     <TextBlock 
-                    Style="{StaticResource MainTextStyle}" 
-                    x:Name="inputTextBox"
-                    TextAlignment="Right"
-                    HorizontalAlignment="Right"
-                    Foreground="{Binding RaidedFontColor, Source={x:Static prop:Settings.Default}}"
-                    FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                    TextWrapping="NoWrap"
-                    Width="{Binding ElementName=LeftTextColumn, Path=Width}">
+                        Style="{StaticResource MainTextStyle}" 
+                        x:Name="inputTextBox"
+                        TextAlignment="Right"
+                        HorizontalAlignment="Right"
+                        Foreground="{Binding RaidedFontColor, Source={x:Static prop:Settings.Default}}"
+                        FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                        TextWrapping="NoWrap"
+                        Width="{Binding ElementName=LeftTextColumn, Path=Width}">
                     </TextBlock>
                 </Grid>
 
@@ -409,11 +409,11 @@
                     </Rectangle>
 
                     <TextBlock 
-                    Width="{Binding ElementName=RightTextColumn, Path=Width}" 
-                    TextWrapping="NoWrap"
-                    Style="{StaticResource MainTextStyle}"
-                    FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                    x:Name="inputTextBlock">
+                        Width="{Binding ElementName=RightTextColumn, Path=Width}" 
+                        TextWrapping="NoWrap"
+                        Style="{StaticResource MainTextStyle}"
+                        FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                        x:Name="inputTextBlock">
                     </TextBlock>
                 </Grid>
             </Grid>
@@ -436,7 +436,8 @@
                 <TextBlock
                     x:Name="leftHandTextBlock" 
                     HorizontalAlignment="Left"
-                    Style="{StaticResource SummaryTextStyle}">Левым указательным на "У"</TextBlock>
+                    Style="{StaticResource SummaryTextStyle}">
+                </TextBlock>
             </Grid>
 
             <Grid Grid.Column="2">
@@ -444,7 +445,8 @@
                     x:Name="rightHandTextBlock"
                     HorizontalAlignment="Right"
                     TextAlignment="Right"
-                    Style="{StaticResource SummaryTextStyle}">Правым мизинцем на Shift</TextBlock>
+                    Style="{StaticResource SummaryTextStyle}">
+                </TextBlock>
             </Grid>
         </Grid>
 
@@ -566,19 +568,25 @@
 
             <Frame
                 Grid.Column="0"
+                Grid.ColumnSpan="2"
                 x:Name="LeftHandFrame"
                 NavigationUIVisibility="Hidden"
                 Height="506"
+                HorizontalAlignment="Left"
+                HorizontalContentAlignment="Left"
+                Width="800"
                 VerticalAlignment="Top">
             </Frame>
 
             <Frame
-                Grid.Column="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
                 x:Name="RightHandFrame"
                 NavigationUIVisibility="Hidden"
                 Height="506"
                 HorizontalAlignment="Left"
-                Width="1000"
+                HorizontalContentAlignment="Left"
+                Width="800"
                 VerticalAlignment="Top">
             </Frame>
         </Grid>
