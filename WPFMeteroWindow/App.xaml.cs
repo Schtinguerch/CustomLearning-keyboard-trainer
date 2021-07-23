@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Threading;
 using System.Windows;
 using WPFMeteroWindow.Properties;
 
@@ -25,6 +27,7 @@ namespace WPFMeteroWindow
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
             LoadUserResourceDictionaries();
+            //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
         }
     }
 }
