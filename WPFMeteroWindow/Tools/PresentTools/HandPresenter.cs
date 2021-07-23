@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Windows;
 using System.Windows.Controls;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WPFMeteroWindow
 {
@@ -46,9 +41,6 @@ namespace WPFMeteroWindow
         private bool IsSpace(int charIndex) => 
             charIndex == 56;
 
-        private bool IsStandardPosition(int charIndex) =>
-            IsEqualOr(charIndex, 29, 30, 31, 32, 35, 36, 37, 38, 39);
-
         private void ShowLeftShift() {}
 
         private void ShowRightShift() {}
@@ -77,9 +69,6 @@ namespace WPFMeteroWindow
             _rightFrame = rightFrame;
         }
 
-        public void ShowHandsInStandardPosition() =>
-            ShowHands(30, 0);
-
         public void ShowHandsOnBackspace()
         {
             try
@@ -98,44 +87,49 @@ namespace WPFMeteroWindow
 
             catch
             {
-                ShowHandsInStandardPosition();
+                ShowStandard();
             }
         }
 
         public void ShowHands(int charIndex, int modifierStatus)
         {
-            if (IsSpace(charIndex))
-                ShowStandard();
-
-            else
+            try
             {
-                if (IsHandLeft(charIndex))
+                if (IsSpace(charIndex))
+                    ShowStandard();
+
+                if (charIndex <= 0)
+                    throw new Exception();
+
+                else
                 {
-                    if (IsStandardPosition(charIndex))
-                        ShowLeftStandard();
-                    else
+                    if (IsHandLeft(charIndex))
+                    {
                         ShowLeftFromCharIndex(charIndex);
-                    
 
-                    if ((modifierStatus == 1) || (modifierStatus == 3))
-                        ShowRightShift();
-                    else
-                        ShowRightStandard();
-                }
+                        if ((modifierStatus == 1) || (modifierStatus == 3))
+                            ShowRightShift();
+                        else
+                            ShowRightStandard();
+                    }
 
-                else if (IsHandRight(charIndex))
-                {
-                    if (IsStandardPosition(charIndex))
-                        ShowRightStandard();
-                    else
+                    else if (IsHandRight(charIndex))
+                    {
                         ShowRightFromCharIndex(charIndex);
-                    
-                    if ((modifierStatus == 1) || (modifierStatus == 3))
-                        ShowLeftShift();
-                    else
-                        ShowLeftStandard();
+
+                        if ((modifierStatus == 1) || (modifierStatus == 3))
+                            ShowLeftShift();
+                        else
+                            ShowLeftStandard();
+                    }
                 }
             }
+
+            catch
+            {
+                //Doing nothing (because the app doesn't know how to show inexisting key
+            }
+            
         }
 
     }
