@@ -6,68 +6,21 @@
       xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
       xmlns:local="clr-namespace:WPFMeteroWindow.Resources.Hands"
       mc:Ignorable="d" 
-      d:DesignHeight="650" d:DesignWidth="900"
+      d:DesignHeight="650" d:DesignWidth="800"
       Title="StandardPositionRight">
 
-    <Grid Margin="366 116 0 0" VerticalAlignment="Top">
-            <Grid.RenderTransform>
-                <ScaleTransform ScaleX="-1" />
-            </Grid.RenderTransform>
-        <Path Stroke="{Binding Path=HandsColor, Source={x:Static prop:Settings.Default}}" StrokeThickness="{Binding Path=HandsThickness , Source={x:Static prop:Settings.Default}}"
-                  Canvas.Top="0">
-                <Path.Data>
-                    <PathGeometry>
-                        <PathGeometry.Figures>
-                            <PathFigureCollection>
-                                <PathFigure StartPoint="10,404">
-                                    <PathFigure.Segments>
-                                        <PathSegmentCollection>
-                                            <PolyQuadraticBezierSegment Points="10,404 24,372 38,290 39,236 42,218 53,188 61,146 73,110 92,77 121,28 129,16 145,21 151,31 151,31" />
-                                        </PathSegmentCollection>
-                                    </PathFigure.Segments>
-                                </PathFigure>
-                            </PathFigureCollection>
-                        </PathGeometry.Figures>
-                    </PathGeometry>
-                </Path.Data>
-            </Path>
-
-        <Path Stroke="{Binding Path=HandsColor, Source={x:Static prop:Settings.Default}}" StrokeThickness="{Binding Path=HandsThickness , Source={x:Static prop:Settings.Default}}"
-              Canvas.Top="0">
-                <Path.Data>
-                    <PathGeometry>
-                        <PathGeometry.Figures>
-                            <PathFigureCollection>
-                                <PathFigure StartPoint="82,166">
-                                    <PathFigure.Segments>
-                                        <PathSegmentCollection>
-                                            <PolyQuadraticBezierSegment Points="82,166 92,111 99,77 110,61 151,32 184,12 202,14 206,24 204,40 204,40" />
-                                        </PathSegmentCollection>
-                                    </PathFigure.Segments>
-                                </PathFigure>
-                            </PathFigureCollection>
-                        </PathGeometry.Figures>
-                    </PathGeometry>
-                </Path.Data>
-            </Path>
-
-        <Path Stroke="{Binding Path=HandsColor, Source={x:Static prop:Settings.Default}}" StrokeThickness="{Binding Path=HandsThickness , Source={x:Static prop:Settings.Default}}"
-              Canvas.Top="0">
-                <Path.Data>
-                    <PathGeometry>
-                        <PathGeometry.Figures>
-                            <PathFigureCollection>
-                                <PathFigure StartPoint="128,160">
-                                    <PathFigure.Segments>
-                                        <PathSegmentCollection>
-                                            <PolyQuadraticBezierSegment Points="128,160 138,146 153,100 161,76 167,63 178,54 200,45 219,25 226,14 235,12 247,14 254,23 252,50 244,68 235,78 223,88 208,128 200,159 208,153 216,127 237,94 251,75 260,60 264,41 276,21 288,12 300,15 310,34 304,67 295,90 285,122 257,194 254,237 254,237 255,229 263,210 273,198 273,198 266,186 271,165 289,132 302,122 321,126 323,147 317,164 326,195 310,242 303,277 290,310 255,345 198,404 198,404" />
-                                        </PathSegmentCollection>
-                                    </PathFigure.Segments>
-                                </PathFigure>
-                            </PathFigureCollection>
-                        </PathGeometry.Figures>
-                    </PathGeometry>
-                </Path.Data>
-            </Path>
-        </Grid>
+    <Grid Width="900" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="160.698,24.389,-260.699,0" >
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform ScaleX="1.75" ScaleY="1.75"/>
+                <SkewTransform/>
+                <RotateTransform/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
+        <Path Data="M174.1,237.01283 C169.4,227.11283 166.1,217.91283 164.8,197.51283 163.5,177.11283 166,175.51283 164.8,159.41283 163.6,143.31283 162.4,146.81283 163.6,134.71283 164.7,122.61283 158.1,106.91283 158,101.01283 157.9,95.11283 158.4,74.91283 156.6,65.41283 154.8,55.91283 150.6,49.81283 147.6,33.51283 144.6,17.21283 133.2,6.6128296 125.9,9.0128296 118.6,11.41283 117.4,19.01283&#xD;&#xA;118.3,21.81283 115.1,15.51283 113,11.81283 111,9.4128296 109,7.0128296 103.2,4.2128296 103.2,4.2128296 103.2,4.2128296 94.2,2.3128296 90.7,10.41283 87.8,11.01283 87.533333,12.346333 87.633333,14.046333 86.933333,10.246333 85.9,9.8128296 84.8,8.1128296 83.6,6.4128296 81.3,3.7128296 78.1,2.3128296 74.9,0.91282959 66.7,1.4128296 64.6,3.1128296 62.5,4.8128296&#xD;&#xA;58.7,8.3128296 59,11.71283 59.3,15.21283 60.4,18.31283 60.6,27.21283 60.8,36.11283 63.7,54.91283 64.3,59.61283 64.9,64.31283 73,107.61283 73,107.61283 73,107.61283 72.7,108.31283 72.2,107.81283 71.8,107.31283 62.3,54.51283 58.9,46.71283 60.2,38.41283 61,14.91283 55.6,9.7128296 53.3,4.5128296 39.3,0.41282959 34,12.11283&#xD;&#xA;28.7,23.71283 30.4,44.51283 29.4,52.51283 28.4,60.51283 29.5,78.31283 30.5,83.61283 29.8,78.21283 28,73.21283 24.9,70.11283 21.8,67.01283 16.7,63.91283 13.1,62.61283 10.2,61.61283 6.5,62.91283 4.9,64.51283 4.4,65.01283 3.7,65.51283 3,65.61283 2.2,65.81283 1.5,66.41283 1.5,66.41283 1.5,68.11283 2.8,76.61283&#xD;&#xA;7.5,85.01283 6.3,86.81283 7.9,94.31283 6.6,99.61283 5.3,104.81283 3.8,108.41283 6.1,114.41283 5.2,116.01283 6.4,120.41283 8.4,122.01283 7.2,125.71283 8.7,130.41283 12.7,140.21283 17.7,152.51283 15.2,166.11283 18.7,173.11283 22.2,180.11283 26.4,182.51283 31,189.71283 35.5,196.91283 53.1,219.41283 60.3,225.11283 67.5,230.81283&#xD;&#xA;70.5,236.91283 70.5,236.91283 L174.1,236.91283 z" StrokeThickness="3" Stroke="#FF001E6C" Margin="309.2,142.287,307.2,38.2"></Path>
+        <Path Data="M343.1,310.4c0.3-5.1,2.6-13.8,2.8-16.9c0.3-3.1-0.6,1.3-0.8-12.1c-0.1-13.5-1.3-34.7-3.5-44.2   c-2.2-9.5-1.6-11.4-2.6-14.8" StrokeThickness="3" Stroke="#FF001E6C"></Path>
+        <Path Data="M416.4,241.2c-2.2-3.3-4.7-9.1-5-24.5s-4.9-19.1-5.2-29.7s-7.9-14-9.2-25.6" StrokeThickness="3" Stroke="#FF001E6C"></Path>
+        <Path Data="M443.4,237.4c0.1-3.8,0.2-23-1.8-34.5c-2-11.5-4-15.9-6.4-21c-2.5-5.2-6.7-13.1-7.9-17.7" StrokeThickness="3" Stroke="#FF001E6C"></Path>
+    </Grid>
 </Page>
