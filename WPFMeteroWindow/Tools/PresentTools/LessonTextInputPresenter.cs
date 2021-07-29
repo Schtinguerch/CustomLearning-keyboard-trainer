@@ -18,6 +18,8 @@ namespace WPFMeteroWindow
 
         private TextInputControl _chosenTextInputControl;
 
+        private string _textInputControlName;
+
         private Dictionary<TextInputControl, string> _textInputControls = new Dictionary<TextInputControl, string>() 
         {
             { TextInputControl.Classic, "Classic" },
@@ -60,9 +62,19 @@ namespace WPFMeteroWindow
                 var pageName = _textInputControls[value];
 
                 TextInputFrame.Source = new Uri($"{baseFolder}/{pageName}/{pageName}.xaml", UriKind.Relative);
-                //_textInputControl = (ITextInputControl)TextInputFrame.Content();
-
                 _chosenTextInputControl = value;
+            }
+        }
+
+        public string TextInputControlName
+        {
+            get => _textInputControlName;
+            set
+            {
+                var baseFolder = "Controls/TextInputControls";
+
+                TextInputFrame.Source = new Uri($"{baseFolder}/{value}/{value}.xaml", UriKind.Relative);
+                _textInputControlName = value;
             }
         }
         
