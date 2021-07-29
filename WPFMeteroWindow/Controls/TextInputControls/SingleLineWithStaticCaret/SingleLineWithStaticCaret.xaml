@@ -1,0 +1,117 @@
+﻿<Page x:Class="WPFMeteroWindow.Controls.TextInputControls.SingleLineWithStaticCaret.SingleLineWithStaticCaret"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFMeteroWindow.Controls.TextInputControls.SingleLineWithStaticCaret"
+      xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
+      mc:Ignorable="d" 
+      VerticalAlignment="Bottom"
+      d:DesignHeight="183" d:DesignWidth="800"
+      Title="SingleLineWithStaticCaret">
+
+    <Grid>
+        <StackPanel
+            Orientation="Vertical"
+            VerticalAlignment="Bottom"
+            Grid.Row="2"
+            Grid.Column="0" 
+            Grid.ColumnSpan="3">
+
+            <Grid Height="80">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="1"></ColumnDefinition>
+                    <ColumnDefinition x:Name="RightErrorTextColumn" Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="2">
+                    <Grid.OpacityMask>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
+                            <GradientStop Offset="0" Color="Transparent"></GradientStop>
+                            <GradientStop Offset="0.5" Color="Gray"></GradientStop>
+                            <GradientStop Offset="1" Color="Black"></GradientStop>
+                        </LinearGradientBrush>
+                    </Grid.OpacityMask>
+
+                    <Rectangle
+                    Fill="Transparent">
+                    </Rectangle>
+
+                    <TextBlock 
+                        VerticalAlignment="Bottom"
+                        Width="{Binding ElementName=RightTextColumn, Path=Width}" 
+                        TextWrapping="NoWrap"
+                        Style="{StaticResource MainTextStyle}"
+                        FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                        Foreground="{Binding KeyboardErrorHighlightColor, Source={x:Static prop:Settings.Default}}"
+                        x:Name="errorInputTextBlock">
+                    </TextBlock>
+                </Grid>
+            </Grid>
+
+            <Grid 
+                Height="100" 
+                VerticalAlignment="Bottom" Margin="0 0 0 1">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition x:Name="LeftTextColumn" Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="1"></ColumnDefinition>
+                    <ColumnDefinition x:Name="RightTextColumn" Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Grid.OpacityMask>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Offset="0" Color="Transparent"></GradientStop>
+                            <GradientStop Offset="0.5" Color="Gray"></GradientStop>
+                            <GradientStop Offset="1" Color="Black"></GradientStop>
+                        </LinearGradientBrush>
+                    </Grid.OpacityMask>
+
+                    <Rectangle
+                    Fill="Transparent">
+                    </Rectangle>
+
+                    <TextBlock 
+                        Style="{StaticResource MainTextStyle}" 
+                        x:Name="inputTextBox"
+                        TextAlignment="Right"
+                        HorizontalAlignment="Right"
+                        Foreground="{Binding RaidedFontColor, Source={x:Static prop:Settings.Default}}"
+                        FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                        TextWrapping="NoWrap"
+                        Width="{Binding ElementName=LeftTextColumn, Path=Width}">
+                    </TextBlock>
+                </Grid>
+
+
+
+                <Rectangle Grid.Column="1" HorizontalAlignment="Right" Width="1" Height="36" Fill="#909090"></Rectangle>
+
+                <Grid Grid.Column="2">
+                    <Grid.OpacityMask>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
+                            <GradientStop Offset="0" Color="Transparent"></GradientStop>
+                            <GradientStop Offset="0.5" Color="Gray"></GradientStop>
+                            <GradientStop Offset="1" Color="Black"></GradientStop>
+                        </LinearGradientBrush>
+                    </Grid.OpacityMask>
+
+                    <Rectangle
+                    Fill="Transparent">
+                    </Rectangle>
+
+                    <TextBlock 
+                        Width="{Binding ElementName=RightTextColumn, Path=Width}" 
+                        TextWrapping="NoWrap"
+                        Style="{StaticResource MainTextStyle}"
+                        FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                        x:Name="inputTextBlock">
+                    </TextBlock>
+                </Grid>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>
