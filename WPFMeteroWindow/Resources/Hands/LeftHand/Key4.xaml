@@ -1,0 +1,29 @@
+﻿<Page x:Class="WPFMeteroWindow.Resources.Hands.LeftHand.Key4"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFMeteroWindow.Resources.Hands.LeftHand"
+      xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="800"
+      Title="Key4">
+
+    <Grid Width="900" Height="424.15" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="159.577,18.389,-259.578,0" >
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform ScaleX="1.75" ScaleY="1.75"/>
+                <SkewTransform/>
+                <RotateTransform/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
+
+        <Path Data="M135.3,154.7c-2.6,0.8-14.3,11.5-17.4,16.2c-3.1,4.7-5,2.5-6.9,8.1s-0.9,20.8,0,27.5   c0.9,6.7,4.4,12.2,4.4,20.4c0,8.2-1.6,12.4,1,22.7c2.5,10.3,5.5,15.2,8.1,34.2c2.5,19,5.4,27.2,3.8,32.8   c-1.6,5.6-10.5,35.8-12.5,39.1s-12,22.4-15.9,27.2h109.3c3.8-5.4,18.3-31.3,22.9-37.6c4.6-6.2,14.9-16.9,18.7-21.5   s14.3-23.9,21.9-34.1s13.9-18.7,14.7-24.3c0.8-5.6-0.9-8.5,0.6-20.8s1.7-17.9,2.5-22.8c0.8-4.9,2.3-5,2.4-10.6   c0.1-5.5-1.9-9.1-0.6-18.5c0,0,0-1.3-0.3-2.3s5.8-12.6,5.1-19.6s-12.7-6-18.6-1.9s-10.7,8.7-14.7,16.8c-4,8.1-4.1,14.9-3.8,20.9   c0.2,6-1.6,5.8-3.3,17.9c-1.7,12.1-3,12.5-3,12.5s-2.2-1.9-3.4-10.3c-1.2-8.4-1.5-24.7-1.5-29.3s0.2-14.4,1.5-24   c1.3-9.6,2.8-15.6,2.8-23.5c0-8,2.1-32.3,0.6-39.3c-1.5-7-4.4-14.3-11.6-17.6c-7.1-3.3-13.6,2.5-15.2,11.6s-0.2,15.3-1.1,19.7   c-0.5,2.4-1.3,6.3-2.9,11.7c-1.5-4.4-7.8-12.7-19.6-14.6s-11.5,0.3-20.3,0.7c-8.8,0.5-10.3,5-13.2,10.2c-0.7,1.3-1.2,3.2-1.6,5.6   c-2.3,1.1-4.1,1.4-10.9,1c-6.8-0.4-5.3,1.7-9.8,2.1c-4.4,0.3-7.9,2.4-10.2,7.7C136.6,150.6,135.8,152.5,135.3,154.7" StrokeThickness="3" Stroke="#FF001E6C"></Path>
+        <Path Data="M210.3,179.6c-1.4-4.1-4.3-15.6-4.1-23.4c2.1-2.9,9,4.5,9,4.5L210.3,179.6z" StrokeThickness="3" Stroke="#FF001E6C"></Path>
+        <Path Data="M222.4,133.8c-2.7-4-7.1-10.6-19-12.5s-11.5,0.3-20.3,0.7c-8.8,0.5-10.3,5-13.2,10.2   c-2.9,5.2-2.6,22.7-2.6,28.5c0,5.8,3.1,25.2-6.3,32.8" StrokeThickness="3" Stroke="#FF001E6C"></Path>
+        <Path Data="M167.3,138.4c-2.3,0.5-3.1,0.9-9.9,0.4c-6.8-0.4-5.3,1.7-9.8,2.1c-4.4,0.3-7.9,2.4-10.2,7.7s-3.8,9.7-3.1,22.7   c0.6,13,3.1,24.2,2.2,30.3c-1,6.1-3.8,11.3-5.5,12.6" StrokeThickness="3" Stroke="#FF001E6C"></Path>
+        <Path Data="M206.2,189c3.7-2.3,6.7-23.5,11.7-37.5c5-13.9,7.1-22.9,8-27.3s-0.6-10.5,1.1-19.7S235,89.8,242.2,93   c7.1,3.3,10.1,10.5,11.6,17.6c1.5,7-0.6,31.4-0.6,39.3c0,8-1.7,13.9-2.8,23.5c-0.7,6.6-1.6,18.3-1.5,24" StrokeThickness="3" Stroke="Red"></Path>
+        <Path Data="M206.2,157.1c-1.3-9.9-0.8-14.4,0-21.7" StrokeThickness="3" Stroke="#FF001E6C"></Path>
+    </Grid>
+</Page>
