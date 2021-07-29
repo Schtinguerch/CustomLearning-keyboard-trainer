@@ -161,5 +161,11 @@
     <Setting Name="DiscordID" Type="System.String" Scope="User">
       <Value Profile="(Default)">824522754971402241</Value>
     </Setting>
+    <Setting Name="IsFirstTextInputOpen" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="TextInputType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SingleLineWithStaticCaret</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
