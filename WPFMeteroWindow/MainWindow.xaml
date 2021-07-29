@@ -319,7 +319,8 @@
             Grid.Row="2"
             Grid.Column="0" 
             Grid.ColumnSpan="3"
-            x:Name="TextInputFrame">
+            x:Name="TextInputFrame"
+            NavigationUIVisibility="Hidden">
         </Frame>
 
 
