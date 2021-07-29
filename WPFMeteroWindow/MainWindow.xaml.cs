@@ -31,6 +31,8 @@ namespace WPFMeteroWindow
     {
         private List<Key> _keysList = new List<Key>();
 
+        private Storyboard _showMessageStoryboard;
+
         private bool _breakTextProcessing = false;
 
         private bool _isFirstMistake = true;
@@ -85,16 +87,20 @@ namespace WPFMeteroWindow
             Intermediary.RichPresentManager = new DiscordManager();
             Intermediary.RichPresentManager.Initialize();
 
-            AppManager.InitializeApplication();
+            LessonManager.TextInputPresenter = new LessonTextInputPresenter
+            {
+                TextInputFrame = TextInputFrame,
+                TextInputControl = TextInputControl.SingleLineWithStaticCaret,
+            };
+            
             IsTyping = false;
+            _showMessageStoryboard = FindResource("ShowMessageStoryboard") as Storyboard;
         }
 
         public void ShowMessage(string message)
         {
             MessageTextBlock.Text = message;
-
-            var openStoryBoard = FindResource("ShowMessageStoryboard") as Storyboard;
-            openStoryBoard.Begin();
+            _showMessageStoryboard.Begin();
         }
 
         private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
@@ -140,14 +146,10 @@ namespace WPFMeteroWindow
                         if (lastCharacter == LessonManager.LeftRoad[0])
                         {
                             _isFirstMistake = true;
-                            errorInputTextBlock.Text = "";
+                            LessonManager.ErrorInput = "";
 
                             LessonManager.DoneRoad += lastCharacter;
-                            LessonManager.LeftRoad = 
-                                LessonManager.LeftRoad.Substring(1, LessonManager.LeftRoad.Length - 1);
-
-                            inputTextBox.Text = LessonManager.DoneRoad;
-                            inputTextBlock.Text = LessonManager.LeftRoad;
+                            LessonManager.LeftRoad = LessonManager.LeftRoad.Substring(1, LessonManager.LeftRoad.Length - 1);
 
                             _breakTextProcessing = true;
                             bufferTextBox.Text = "";
@@ -160,7 +162,7 @@ namespace WPFMeteroWindow
                         else
                         {
                             KeyboardManager.ShowTypingError(lastCharacter);
-                            errorInputTextBlock.Text += lastCharacter;
+                            LessonManager.ErrorInput += lastCharacter;
 
                             if (_isFirstMistake)
                             {
