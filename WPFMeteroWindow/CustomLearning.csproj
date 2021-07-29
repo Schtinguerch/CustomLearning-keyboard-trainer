@@ -133,8 +133,24 @@
     <Compile Include="Commands\GameSceneCommands\SetMaxTapperingRadius.cs" />
     <Compile Include="Commands\GameSceneCommands\SetProperty.cs" />
     <Compile Include="Commands\PreprocessorCommands\PreDefine.cs" />
+    <Compile Include="Controls\TextInputControls\Classic\Classic.xaml.cs">
+      <DependentUpon>Classic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TextInputControls\ITextInputControl.cs" />
+    <Compile Include="Controls\TextInputControls\SingleLineWithStaticCaret\SingleLineWithStaticCaret.xaml.cs">
+      <DependentUpon>SingleLineWithStaticCaret.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TextInputControls\SingleWord\SingleWord.xaml.cs">
+      <DependentUpon>SingleWord.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\dictionaries\TapperingCircle.xaml.cs">
       <DependentUpon>TapperingCircle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\LeftHand\Key0.xaml.cs">
+      <DependentUpon>Key0.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\LeftHand\Key1.xaml.cs">
+      <DependentUpon>Key1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\Hands\LeftHand\Key15.xaml.cs">
       <DependentUpon>Key15.xaml</DependentUpon>
@@ -151,8 +167,14 @@
     <Compile Include="Resources\Hands\LeftHand\Key19.xaml.cs">
       <DependentUpon>Key19.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Hands\LeftHand\Key2.xaml.cs">
+      <DependentUpon>Key2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Hands\LeftHand\Key29.xaml.cs">
       <DependentUpon>Key29.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\LeftHand\Key3.xaml.cs">
+      <DependentUpon>Key3.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\Hands\LeftHand\Key30.xaml.cs">
       <DependentUpon>Key30.xaml</DependentUpon>
@@ -165,6 +187,9 @@
     </Compile>
     <Compile Include="Resources\Hands\LeftHand\Key33.xaml.cs">
       <DependentUpon>Key33.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\LeftHand\Key4.xaml.cs">
+      <DependentUpon>Key4.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\Hands\LeftHand\Key42.xaml.cs">
       <DependentUpon>Key42.xaml</DependentUpon>
@@ -180,6 +205,21 @@
     </Compile>
     <Compile Include="Resources\Hands\LeftHand\Key46.xaml.cs">
       <DependentUpon>Key46.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\LeftHand\Key5.xaml.cs">
+      <DependentUpon>Key5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\LeftHand\Shift.xaml.cs">
+      <DependentUpon>Shift.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key10.xaml.cs">
+      <DependentUpon>Key10.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key11.xaml.cs">
+      <DependentUpon>Key11.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key12.xaml.cs">
+      <DependentUpon>Key12.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\Hands\RightHand\Key20.xaml.cs">
       <DependentUpon>Key20.xaml</DependentUpon>
@@ -237,6 +277,24 @@
     </Compile>
     <Compile Include="Resources\Hands\RightHand\Key51.xaml.cs">
       <DependentUpon>Key51.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key6.xaml.cs">
+      <DependentUpon>Key6.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key7.xaml.cs">
+      <DependentUpon>Key7.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key8.xaml.cs">
+      <DependentUpon>Key8.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key9.xaml.cs">
+      <DependentUpon>Key9.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Shift.xaml.cs">
+      <DependentUpon>Shift.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Hands\RightHand\Key56.xaml.cs">
+      <DependentUpon>Key56.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\Hands\StandardPositionLeft.xaml.cs">
       <DependentUpon>StandardPositionLeft.xaml</DependentUpon>
@@ -313,11 +371,24 @@
     <Compile Include="Tools\PresentTools\GraphDrawer.cs" />
     <Compile Include="Tools\PresentTools\HandPresenter.cs" />
     <Compile Include="Tools\PresentTools\KeyboardPresenter.cs" />
+    <Compile Include="Tools\PresentTools\LessonTextInputPresenter.cs" />
     <Compile Include="Tools\PresentTools\TappingCirclesDrawer.cs" />
     <Compile Include="Tools\SettingsSetters\KeyboardLoader.cs" />
     <Compile Include="Tools\SettingsSetters\Opener.cs" />
     <Compile Include="Tools\SettingsSetters\SetColor.cs" />
     <Compile Include="Tools\SettingsSetters\SetFont.cs" />
+    <Page Include="Controls\TextInputControls\Classic\Classic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TextInputControls\SingleLineWithStaticCaret\SingleLineWithStaticCaret.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TextInputControls\SingleWord\SingleWord.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -338,6 +409,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\Hands\LeftHand\Key0.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\LeftHand\Key1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Hands\LeftHand\Key15.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -353,7 +432,15 @@
     <Page Include="Resources\Hands\LeftHand\Key19.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\Hands\LeftHand\Key2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Hands\LeftHand\Key29.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\LeftHand\Key3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -370,6 +457,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Hands\LeftHand\Key33.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\LeftHand\Key4.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -390,6 +481,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Hands\LeftHand\Key46.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\LeftHand\Key5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\LeftHand\Shift.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key10.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key11.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key12.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -465,6 +576,30 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Hands\RightHand\Key51.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key6.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key7.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key8.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key9.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Shift.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Hands\RightHand\Key56.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
