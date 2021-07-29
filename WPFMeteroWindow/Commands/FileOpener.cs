@@ -137,6 +137,30 @@ namespace WPFMeteroWindow.Commands
                         Opener.NewKeyboardLayoutViaExplorer();
                     break;
 
+                case "tx":
+                    if (arguments.Count == 1)
+                        Opener.NewTextInputWay("SingleLineWithStaticCaret");
+
+                    switch (arguments[1].ToLower())
+                    {
+                        case "st":
+                        case "sc":
+                            Opener.NewTextInputWay("SingleLineWithStaticCaret");
+                            break;
+
+                        case "cl":
+                        case "c":
+                            Opener.NewTextInputWay("Classic");
+                            break;
+
+                        case "w":
+                        case "sw":
+                        case "ow":
+                            Opener.NewTextInputWay("SingleWord");
+                            break;
+                    }
+                    break;
+
                 case "c":
                     if (hasFileName)
                         Opener.NewCourse(fileName, 0);
