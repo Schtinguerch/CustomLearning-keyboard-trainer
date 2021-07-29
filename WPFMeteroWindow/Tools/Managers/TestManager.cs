@@ -236,13 +236,13 @@ namespace WPFMeteroWindow
             _lastWordIndex = lastWordIndex;
             _testAdditional = additional;
 
-            Intermediary.App.errorInputTextBlock.Text = "";
+            LessonManager.ErrorInput = "";
             FormUpTheLesson(firstWordIndex, lastWordIndex, additional);
         }
 
         public static void RestartTest()
         {
-            Intermediary.App.errorInputTextBlock.Text = "";
+            LessonManager.ErrorInput = "";
             FormUpTheLesson(_firstWordIndex, _lastWordIndex, _testAdditional);
         }
     }
