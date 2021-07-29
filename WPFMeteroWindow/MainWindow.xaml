@@ -320,7 +320,10 @@
             Grid.Column="0" 
             Grid.ColumnSpan="3"
             x:Name="TextInputFrame"
-            NavigationUIVisibility="Hidden">
+            NavigationUIVisibility="Hidden"
+            
+            MouseDown="TextInputFrame_MouseDown"
+            MouseEnter="TextInputFrame_MouseEnter">
         </Frame>
 
 

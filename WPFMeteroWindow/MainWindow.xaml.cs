@@ -305,5 +305,11 @@ namespace WPFMeteroWindow
 
         private void OpenNewGameMenuItem_OnClick(object sender, RoutedEventArgs e) =>
             PageManager.OpenPage(TabPage.ClickingGame);
+
+        private void TextInputFrame_MouseDown(object sender, MouseButtonEventArgs e) =>
+            bufferTextBox.Focus();
+
+        private void TextInputFrame_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e) =>
+            bufferTextBox.Focus();
     }
 }
