@@ -186,5 +186,22 @@ namespace WPFMeteroWindow
                 LogManager.Log($"Starting test -> failed, file does not exist");
             }
         }
+
+        public static void NewTextInputWay(string name)
+        {
+            switch (name)
+            {
+                case "Classic":
+                case "SingleWord":
+                case "SingleLineWithStaticCaret":
+                    LessonManager.TextInputPresenter.TextInputControlName = name;
+                    Settings.Default.TextInputType = name;
+                    break;
+
+                default:
+                    LogManager.Log($"Loading text-input presentation -> failed, incorrect name");
+                    break;
+            }
+        }
     }
 }
