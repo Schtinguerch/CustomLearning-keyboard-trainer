@@ -56,22 +56,28 @@ namespace WPFMeteroWindow
             else 
                 CourseManager.CurrentLessonIndex = CourseManager.CurrentLessonIndex;
 
+            bufferTextBox.Focus();
             IsTyping = false;
         }
 
         public void StartPreviouslesson()
         {
             CourseManager.CurrentLessonIndex--;
+
+            bufferTextBox.Focus();
             IsTyping = false;
         }
-
 
         public void StartNextLesson()
         {
             CourseManager.CurrentLessonIndex++;
+
+            bufferTextBox.Focus();
             IsTyping = false;
         }
             
+        public void FocusOnTextInputControl() =>
+            bufferTextBox.Focus();
 
         public MainWindow()
         {
@@ -84,16 +90,18 @@ namespace WPFMeteroWindow
             PageManager.PageGrid = aoeiGrid;
             PageManager.PageFrame = SettingFrame;
 
+            Intermediary.App = this;
             Intermediary.RichPresentManager = new DiscordManager();
             Intermediary.RichPresentManager.Initialize();
 
             LessonManager.TextInputPresenter = new LessonTextInputPresenter
             {
                 TextInputFrame = TextInputFrame,
-                TextInputControl = TextInputControl.SingleLineWithStaticCaret,
+                TextInputControlName = Settings.Default.TextInputType,
             };
             
             IsTyping = false;
+            Settings.Default.IsFirstTextInputOpen = true;
             _showMessageStoryboard = FindResource("ShowMessageStoryboard") as Storyboard;
         }
 
@@ -101,11 +109,6 @@ namespace WPFMeteroWindow
         {
             MessageTextBlock.Text = message;
             _showMessageStoryboard.Begin();
-        }
-
-        private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            bufferTextBox.Focus();
         }
 
         private void StartTypingDemo()
@@ -251,8 +254,6 @@ namespace WPFMeteroWindow
                 {
                     e.Handled = true;
                     RestartLesson();
-
-                    bufferTextBox.Focus();
                 }
 
                 else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.D))
@@ -274,9 +275,6 @@ namespace WPFMeteroWindow
 
         private void ReLesson_OnClick(object sender, RoutedEventArgs e) =>
             RestartLesson();
-
-
-
 
         private void OpenNewLessonMenuItem_OnClick(object sender, RoutedEventArgs e) =>
             Opener.NewLessonViaExplorer();
