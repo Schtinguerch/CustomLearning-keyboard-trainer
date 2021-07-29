@@ -36,4 +36,31 @@
         <Setter Property="Margin" Value="0 10 0 10"></Setter>
         <Setter Property="Height" Value="60"></Setter>
     </Style>
+
+    <Style TargetType="TextBox" x:Key="ClassicInputTextStyle">
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="FontFamily" Value="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"></Setter>
+        <Setter Property="FontSize" Value="{Binding Path=LessonLettersFontSize ,Source={x:Static prop:Settings.Default}}"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="VerticalAlignment" Value="Top"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="TextWrapping" Value="Wrap"></Setter>
+        <Setter Property="VerticalScrollBarVisibility" Value="Disabled"></Setter>
+        <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"></Setter>
+
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <ScaleTransform ScaleX="0.8" ScaleY="0.8" CenterX="450"></ScaleTransform>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="TextBox" x:Key="SingleWordInputTextStyle" BasedOn="{StaticResource ClassicInputTextStyle}">
+        <Setter Property="TextWrapping" Value="NoWrap"></Setter>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <ScaleTransform ScaleX="1.4" ScaleY="1.4" CenterX="450"></ScaleTransform>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>
