@@ -32,18 +32,17 @@ namespace WPFMeteroWindow
 
         private bool IsHandRight(int charIndex) =>
             IsEqualOr(
-                charIndex,
+                charIndex, 6,
                 7, 8, 9, 10, 11, 12, 13,
                 20, 21, 22, 23, 24, 25, 26, 27,
                 34, 35, 36, 37, 38, 39, 40,
-                47, 48, 49, 50, 51, 52);
+                47, 48, 49, 50, 51, 52, 56);
 
-        private bool IsSpace(int charIndex) => 
-            charIndex == 56;
+        private void ShowLeftShift() =>
+            _leftFrame.Source = new Uri($"Resources/Hands/LeftHand/Shift.xaml", UriKind.Relative);
 
-        private void ShowLeftShift() {}
-
-        private void ShowRightShift() {}
+        private void ShowRightShift() =>
+            _rightFrame.Source = new Uri($"Resources/Hands/RightHand/Shift.xaml", UriKind.Relative);
 
         private void ShowStandard()
         {
@@ -95,10 +94,7 @@ namespace WPFMeteroWindow
         {
             try
             {
-                if (IsSpace(charIndex))
-                    ShowStandard();
-
-                if (charIndex <= 0)
+                if (charIndex < 0)
                     throw new Exception();
 
                 else

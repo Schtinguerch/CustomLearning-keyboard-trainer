@@ -72,7 +72,7 @@ namespace WPFMeteroWindow
                 Intermediary.App.rightHandTextBlock.Text = $"{Localization.uThumb} {Localization.uSpace}";
                 Intermediary.App.leftHandTextBlock.Text = "";
             }
-            else if (keyIndex.IsInRange(0, 6) || keyIndex.IsInRange(15, 19) || keyIndex.IsInRange(29, 33) ||
+            else if (keyIndex.IsInRange(0, 5) || keyIndex.IsInRange(15, 19) || keyIndex.IsInRange(29, 33) ||
                      keyIndex.IsInRange(42, 46))
             {
                 Intermediary.App.rightHandTextBlock.Text = "";
