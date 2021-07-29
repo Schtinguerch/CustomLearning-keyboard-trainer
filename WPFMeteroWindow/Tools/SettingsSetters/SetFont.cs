@@ -8,8 +8,6 @@ namespace WPFMeteroWindow
         public static void MainLetters(string fontFamily)
         {
             Settings.Default.LessonLettersFont = fontFamily;
-            Intermediary.App.inputTextBlock.FontFamily = new FontFamily(fontFamily);
-            Intermediary.App.inputTextBox.FontFamily = new FontFamily(fontFamily);
         }
 
         public static void MainLetters_Color(string fontColor)
