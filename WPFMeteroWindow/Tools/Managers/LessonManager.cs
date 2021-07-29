@@ -8,22 +8,38 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Threading;
+using WPFMeteroWindow.Controls;
 
 namespace WPFMeteroWindow
 {
     public static class LessonManager
     {
-        public static string DoneRoad { get; set; }
+        public static LessonTextInputPresenter TextInputPresenter { get; set; }
+
+        public static string DoneRoad
+        {
+            get => TextInputPresenter.DoneText;
+            set => TextInputPresenter.DoneText = value;
+        }
         
         public static int StoppedDoneRoad { get; set; }
         
-        public static string LeftRoad { get; set; }
+        public static string LeftRoad
+        {
+            get => TextInputPresenter.LeftText;
+            set => TextInputPresenter.LeftText = value;
+        }
+
+        public static string ErrorInput
+        {
+            get => TextInputPresenter.ErrorText;
+            set => TextInputPresenter.ErrorText = value;
+        }
 
         public static bool RandomizeText { get; set; } = false;
 
         public static void LoadLesson(string filename)
         {
-            Intermediary.App.errorInputTextBlock.Text = "";
             var reader = new Lml(filename, Lml.Open.FromFile);
             string lessonText, lessonName;
             try
@@ -45,14 +61,11 @@ namespace WPFMeteroWindow
                 Settings.Default.MaxAcceptableMistakes = -1;
             }
 
-            DoneRoad = "";
-            Intermediary.App.inputTextBox.Text = "";
             StatisticsManager.ReloadStats();
 
             lessonText = lessonText.Randomized();
-            LeftRoad = lessonText;
+            TextInputPresenter.LoadText(lessonText);
 
-            Intermediary.App.inputTextBlock.Text = lessonText;
             Intermediary.App.lessonHeaderTextBlock.Text = lessonName;
             
             Settings.Default.LessonName = lessonName;
@@ -61,7 +74,7 @@ namespace WPFMeteroWindow
             Intermediary.App.NextLessonButton.Visibility = AppManager.IsVisible(Settings.Default.IsCourseOpened);
             Intermediary.App.PrevLessonButton.Visibility = AppManager.IsVisible(Settings.Default.IsCourseOpened);
             
-            KeyboardManager.ShowTypingHint(LeftRoad[0]);
+            KeyboardManager.ShowTypingHint(lessonText[0]);
             
             Intermediary.App.TimerTextBlock.Text = "0:0";
             Intermediary.App.WPMTextBlock.Text = $"0 {Localization.uCPM}";
@@ -73,12 +86,9 @@ namespace WPFMeteroWindow
 
         public static void LoadTest(string lessonText)
         {
-            DoneRoad = "";
-            Intermediary.App.inputTextBox.Text = "";
             StatisticsManager.ReloadStats();
 
-            LeftRoad = lessonText;
-            Intermediary.App.inputTextBlock.Text = lessonText;
+            TextInputPresenter.LoadText(lessonText);
             Intermediary.App.lessonHeaderTextBlock.Text = Localization.uTypingTest;
 
             Intermediary.App.NextLessonButton.Visibility = Visibility.Hidden;
