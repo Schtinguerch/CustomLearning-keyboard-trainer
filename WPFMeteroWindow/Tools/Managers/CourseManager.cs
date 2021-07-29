@@ -28,11 +28,13 @@ namespace WPFMeteroWindow
                         LessonManager.LoadLesson(Lessons[value]);
                     else
                         LessonManager.LoadLesson(Settings.Default.LoadedLessonFile);
+
+                    int lessonsCount = (Lessons != null) ? Lessons.Count : 0;
                     
                     Intermediary.App.PrevLessonButton.Visibility 
                         = (value == 0) || !Settings.Default.IsCourseOpened ? Visibility.Hidden : Visibility.Visible;
                     Intermediary.App.NextLessonButton.Visibility 
-                        = (value == Lessons.Count - 1) || !Settings.Default.IsCourseOpened ? Visibility.Hidden : Visibility.Visible;
+                        = (value == lessonsCount - 1) || !Settings.Default.IsCourseOpened ? Visibility.Hidden : Visibility.Visible;
                 }
                 
                 catch { }
