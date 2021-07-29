@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Controls;
 using WPFMeteroWindow.Controls;
+using WPFMeteroWindow.Properties;
 
 namespace WPFMeteroWindow.Controls.TextInputControls.Classic
 {
@@ -17,7 +18,14 @@ namespace WPFMeteroWindow.Controls.TextInputControls.Classic
             InitializeComponent();
 
             LessonManager.TextInputPresenter.TextInputWay = this;
-            AppManager.InitializeApplication();
+
+            if (Settings.Default.IsFirstTextInputOpen)
+            {
+                Settings.Default.IsFirstTextInputOpen = false;
+                AppManager.InitializeApplication();
+            }
+
+            Intermediary.App.RestartLesson();
         }
 
         public string DoneText
