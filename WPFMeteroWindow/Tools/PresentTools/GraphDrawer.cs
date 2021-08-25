@@ -25,7 +25,10 @@ namespace WPFMeteroWindow
 
         private double _itemCount;
 
+        private int _maxMs;
+
         public float MaxCPM;
+
         
         public GraphDrawer(Canvas canvas, List<SpeedPoint> speedPoints, double fieldHeight, double fieldWidth)
         {
@@ -36,11 +39,19 @@ namespace WPFMeteroWindow
             _fieldWidth = fieldWidth;
             _fieldHeight = fieldHeight;
 
+            if (speedPoints[0].CPM <= 0)
+                speedPoints.RemoveAt(0);
+
             var maxCPM = speedPoints[0].CPM;
+
             foreach (var speedPoint in speedPoints)
+            {
                 if (speedPoint.CPM > maxCPM)
                     maxCPM = speedPoint.CPM;
+            }
 
+
+            _maxMs = speedPoints[speedPoints.Count - 1].PartPoint;
             MaxCPM = maxCPM;
 
             _cpmTextBlock = new TextBlock()
@@ -65,8 +76,8 @@ namespace WPFMeteroWindow
         private Point Inverted(SpeedPoint point)
         {
             var invertedPoint = new Point();
-            invertedPoint.X = _fieldWidth * point.PartPoint / _itemCount;
-            invertedPoint.Y = _fieldHeight * (1 - point.CPM / MaxCPM);
+            invertedPoint.X = _fieldWidth * point.PartPoint / _maxMs;
+            invertedPoint.Y = _fieldHeight * (1 - point.CPM / MaxCPM );
 
             return invertedPoint;
         }
@@ -79,7 +90,7 @@ namespace WPFMeteroWindow
             Canvas.SetTop(_cpmTextBlock, mousePoint.Y - 32d);
             Canvas.SetLeft(_cpmTextBlock, mousePoint.X);
 
-            _cpmTextBlock.Text = $"{text} {Localization.uCPS}";
+            _cpmTextBlock.Text = $"{text} {Localization.uCPM}";
 
             if (_cpmTextBlock.Visibility == Visibility.Hidden)
                 _cpmTextBlock.Visibility = Visibility.Visible;
