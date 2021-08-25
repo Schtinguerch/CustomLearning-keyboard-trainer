@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ScriptMaker;
+using WPFMeteroWindow.Properties;
 
 namespace WPFMeteroWindow.Commands
 {
@@ -102,6 +103,10 @@ namespace WPFMeteroWindow.Commands
                         Opener.NewLesson(fileName);
                     else
                         Opener.NewLessonViaExplorer();
+                    break;
+
+                case "ll":
+                    CourseManager.CurrentLessonIndex = CourseManager.CurrentLessonIndex;
                     break;
 
                 case "tc":
