@@ -159,7 +159,7 @@
                         Canvas.Left="0"
                         Style="{StaticResource SummaryTextStyle}"
                         FontSize="12"
-                        Text="{x:Static res:Resources.uCPS}">
+                        Text="{x:Static res:Resources.uCPM}">
                     </TextBlock>
                     
                     <TextBlock
@@ -239,7 +239,7 @@
                         Canvas.Left="30"
                         Style="{StaticResource SummaryTextStyle}"
                         FontSize="12"
-                        Text="{x:Static res:Resources.uSpeedInEverySecond}">
+                        Text="{x:Static res:Resources.uSpeedOfEveryWord}">
                     </TextBlock>
                 </Canvas>
             </Grid>
