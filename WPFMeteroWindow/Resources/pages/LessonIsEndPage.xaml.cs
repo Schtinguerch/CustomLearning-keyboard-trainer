@@ -18,26 +18,27 @@ namespace WPFMeteroWindow.Resources.pages
             InitializeComponent();
             CurrLessonButton.Focus();
 
-            Intermediary.RichPresentManager.Update(
-                Settings.Default.ItTypingTest ? "Typing test" : Settings.Default.LessonName, "Ending: watching results...", "");
+            Intermediary.RichPresentManager.Update(Settings.Default.ItTypingTest ? "Typing test" : Settings.Default.LessonName, "Ending: watching results...", "");
 
-            var lessonName = Settings.Default.LessonName;
-            lessonName = (lessonName == "...") ? "" : $"\"{lessonName}\"";
+            var lessonName = (Settings.Default.LessonName == "...") ? "" : $"\"{Settings.Default.LessonName}\"";
             EndedLessonHeaderTextBlock.Text = $"{Localization.uTheLesson} {lessonName} {Localization.uIsFinished}!!!";
 
             if (Settings.Default.ItTypingTest)
-                EndedLessonHeaderTextBlock.Text = $"Typing test {Localization.uIsFinished}!!!";
+                EndedLessonHeaderTextBlock.Text = $"{Localization.uTypingTest} {Localization.uIsFinished}!!!";
 
-            var typingSpeed = Settings.Default.TypingLength / ((float) Settings.Default.TypingTime / 10) * 60f;
-            WPMtextBlock.Text = $"{typingSpeed.ToString("N")} {Localization.uCPM}";
-            WPStextBlock.Text = $"{(typingSpeed / 60f).ToString("N")} {Localization.uCPS}";
-            ErrorsTextBlock.Text = 
-                $"{Settings.Default.TypingErrors} {Localization.uMistakes}: {((float)Settings.Default.TypingErrors / Settings.Default.TypingLength * 100).ToString("N")}%";
-            TypingTimeTextBlock.Text =
-                $"{Localization.uTime}: {Settings.Default.TypingTime / 600}:{(Settings.Default.TypingTime / 10) % 60}";
-            CharactersCountTextBlock.Text = $"{Localization.uCharactersCount}: {Settings.Default.TypingLength}";
+            var typingSpeed = StatisticsManager.TypingSpeedCpm;
+            var typingMistakePercentage = StatisticsManager.TypingMistakes / (float)LessonManager.DoneRoad.Length * 100d;
+
+            WPMtextBlock.Text = $"{typingSpeed:N} {Localization.uCPM}";
+            WPStextBlock.Text = $"{typingSpeed / 60f:N} {Localization.uCPS}";
+
+            var typingSeconds = StatisticsManager.TypingMilliseconds / 1000d;
+
+            ErrorsTextBlock.Text = $"{StatisticsManager.TypingMistakes} {Localization.uMistakes}: {typingMistakePercentage:N}%";
+            TypingTimeTextBlock.Text = $"{Localization.uTime}: {typingSeconds:N}";
+            CharactersCountTextBlock.Text = $"{Localization.uCharactersCount}: {LessonManager.DoneRoad.Length}";
             
-            var drawer = new GraphDrawer(ChartCanvas, StatisticsManager.ChartPoints, 180, 380);
+            var drawer = new GraphDrawer(ChartCanvas, StatisticsManager.WordPoinds, 180, 380);
             drawer.DrawSpeedGraph(TypingSpeedPolyline, true);
             
             var maxCPM = drawer.MaxCPM;
@@ -47,7 +48,7 @@ namespace WPFMeteroWindow.Resources.pages
             drawer.MaxCPM = maxCPM;
             drawer.DrawSpeedGraph(AverageTypingSpeedPolyline, true);
 
-            var averageCPM = typingSpeed / 60f;
+            var averageCPM = typingSpeed;
             var PunctierPoints = new List<SpeedPoint>
             {
                 new SpeedPoint(0, averageCPM),
@@ -66,10 +67,10 @@ namespace WPFMeteroWindow.Resources.pages
             
             var reqCPM = Settings.Default.NecessaryCPM;
             var reqMistakes = Settings.Default.MaxAcceptableMistakes;
-            var mistakes = Settings.Default.TypingErrors;
+            var mistakes = StatisticsManager.TypingMistakes;
             var raidLessonStatus = false;
 
-            if ((reqCPM != -1) && (reqMistakes != -1) || !Settings.Default.ItTypingTest)
+            if ((reqCPM != -1) && (reqMistakes != -1) && !Settings.Default.ItTypingTest)
             {
                 statusText += (typingSpeed > reqCPM) ? $"{typingSpeed} > {reqCPM}; " :
                     (typingSpeed == reqCPM) ? $"{typingSpeed} = {reqCPM}!!!; " :
