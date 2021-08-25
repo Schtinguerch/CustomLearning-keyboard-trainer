@@ -16,6 +16,8 @@ namespace WPFMeteroWindow
     {
         public static LessonTextInputPresenter TextInputPresenter { get; set; }
 
+        public static string AllLessonText { get; private set; }
+
         public static string DoneRoad
         {
             get => TextInputPresenter.DoneText;
@@ -64,6 +66,7 @@ namespace WPFMeteroWindow
             StatisticsManager.ReloadStats();
 
             lessonText = lessonText.Randomized();
+            AllLessonText = lessonText;
             TextInputPresenter.LoadText(lessonText);
 
             Intermediary.App.lessonHeaderTextBlock.Text = lessonName;
@@ -73,44 +76,46 @@ namespace WPFMeteroWindow
                 
             Intermediary.App.NextLessonButton.Visibility = AppManager.IsVisible(Settings.Default.IsCourseOpened);
             Intermediary.App.PrevLessonButton.Visibility = AppManager.IsVisible(Settings.Default.IsCourseOpened);
+            Intermediary.App.TypingProgressIndicator.Width = 0;
             
             KeyboardManager.ShowTypingHint(lessonText[0]);
             
             Intermediary.App.TimerTextBlock.Text = "0:0";
             Intermediary.App.WPMTextBlock.Text = $"0 {Localization.uCPM}";
-            Intermediary.App.MistakesTextBloxck.Text = "0 " + Localization.uMistakes;
+            Intermediary.App.MistakesTextBloxck.Text = "0% •  0 " + Localization.uMistakes;
 
             Settings.Default.ItTypingTest = false;
             Settings.Default.Save();
+
+            Intermediary.App.bufferTextBox.Focus();
         }
 
         public static void LoadTest(string lessonText)
         {
             StatisticsManager.ReloadStats();
 
+            AllLessonText = lessonText;
             TextInputPresenter.LoadText(lessonText);
             Intermediary.App.lessonHeaderTextBlock.Text = Localization.uTypingTest;
 
             Intermediary.App.NextLessonButton.Visibility = Visibility.Hidden;
             Intermediary.App.PrevLessonButton.Visibility = Visibility.Hidden;
-            
+            Intermediary.App.TypingProgressIndicator.Width = 0;
+
             KeyboardManager.ShowTypingHint(LeftRoad[0]);
             
             Intermediary.App.TimerTextBlock.Text = "0:0";
             Intermediary.App.WPMTextBlock.Text = $"0 {Localization.uCPM}";
-            Intermediary.App.MistakesTextBloxck.Text = "0 " + Localization.uMistakes;
+            Intermediary.App.MistakesTextBloxck.Text = "0% •  0 " + Localization.uMistakes;
 
             Settings.Default.ItTypingTest = true;
             Settings.Default.Save();
+
+            Intermediary.App.bufferTextBox.Focus();
         }
         
         public static void EndLesson()
-        {
-            Settings.Default.TypingTime = StatisticsManager.TypingMilliseconds;
-            Settings.Default.TypingLength = DoneRoad.Length;
-            Settings.Default.TypingErrors = StatisticsManager.TypingErrors;
-            Settings.Default.Save();
-            
+        {            
             StatisticsManager.ReloadTimer();
             PageManager.OpenPage(TabPage.EndedLesson);
         }
