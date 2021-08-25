@@ -167,5 +167,11 @@
     <Setting Name="TextInputType" Type="System.String" Scope="User">
       <Value Profile="(Default)">SingleLineWithStaticCaret</Value>
     </Setting>
+    <Setting Name="TapClickSoundFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">typeSound.wav</Value>
+    </Setting>
+    <Setting Name="ErrorClickSoundFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

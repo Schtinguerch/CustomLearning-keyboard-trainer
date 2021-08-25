@@ -682,5 +682,29 @@ namespace WPFMeteroWindow.Properties {
                 this["TextInputType"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("typeSound.wav")]
+        public string TapClickSoundFile {
+            get {
+                return ((string)(this["TapClickSoundFile"]));
+            }
+            set {
+                this["TapClickSoundFile"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ErrorClickSoundFile {
+            get {
+                return ((string)(this["ErrorClickSoundFile"]));
+            }
+            set {
+                this["ErrorClickSoundFile"] = value;
+            }
+        }
     }
 }
