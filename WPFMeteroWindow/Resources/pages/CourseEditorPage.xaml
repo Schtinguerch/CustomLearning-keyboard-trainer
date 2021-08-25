@@ -236,17 +236,6 @@
                     HorizontalAlignment="Right"
                     Orientation="Horizontal"
                     Margin="10">
-                    <Button 
-                        Width="140" 
-                        BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
-                        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
-                        FontSize="12"
-                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                        Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                        x:Name="LoadWordsButton"
-                        Content="{x:Static res:Resources.uWordPracticing}"
-                        Click="LoadWordsButton_OnClick">
-                    </Button>
 
                     <Button 
                         Width="90" 
@@ -259,6 +248,20 @@
                         x:Name="NewLessonButton"
                         Content="{x:Static res:Resources.uNew}"
                         Click="NewLessonButton_OnClick">
+
+                        <Button.ContextMenu>
+                            <ContextMenu x:Name="NewCourseTypeContextMenu">
+                                <MenuItem 
+                                    Header="Word training" 
+                                    Click="LoadWordsButton_OnClick">
+                                </MenuItem>
+
+                                <MenuItem 
+                                    Header="Layout training"
+                                    Click="FormLayoutEducation_OnClick">
+                                </MenuItem>
+                            </ContextMenu>
+                        </Button.ContextMenu>
                     </Button>
 
                     <Button 
