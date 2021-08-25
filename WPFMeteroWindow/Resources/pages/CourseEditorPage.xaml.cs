@@ -216,5 +216,13 @@ namespace WPFMeteroWindow.Resources.pages
             SaveCourse();
             LessonEditorFrame.Source = new Uri("WordPracticingEditorPage.xaml", UriKind.Relative);
         }
+
+        private void FormLayoutEducation_OnClick(object sender, RoutedEventArgs e)
+        {
+            CloseLessonEditorPage();
+            NewCourse();
+
+            //TODO: call the course maker
+        }
     }
 }
