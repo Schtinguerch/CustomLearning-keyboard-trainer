@@ -18,13 +18,13 @@
     <k15 { ц Ц ;nth; ;nth; }>>
     <k16 { ы Ы < ;nth; }>>
     <k17 { я Я > ;nth; }>>
-    <k18 { г Г ;nth; ;nth; }>>
+    <k18 { й Й ;nth; ;nth; }>>
     <k19 { ь ъ ¢ ;nth; }>>
-    <k20 { й Й ;nth; ;nth; }>>
-    <k21 { п П ;nth; ;nth; }>>
+    <k20 { з З ;nth; ;nth; }>>
+    <k21 { д Д ;nth; ;nth; }>>
     <k22 { в В ^ ;nth; }>>
     <k23 { к К # ;nth; }>>
-    <k24 { з З | ;nth; }>>
+    <k24 { г Г | ;nth; }>>
     <k25 { ш Ш ;nth; ;nth; }>>
     <k26 { щ Щ ;nth; ;nth; }>>
     <k27 { § α ;nth; ;nth; }>>
@@ -42,17 +42,17 @@
     <k38 { с С / ;nth; }>>
     <k39 { х Х & ;nth; }>>
     <k40 { enter ;nth; ;nth; ;nth; }>>
-
     <k41 { shift ;nth; ;nth; ;nth; }>>
     <k42 { ф Ф ;nth; ;nth; }>>
     <k43 { ю Ю [ ;nth; }>>
     <k44 { э Э ] ;nth; }>>
     <k45 { , - ;nth; ;nth; }>>
     <k46 { . ;qt; ₽ ;nth; }>>
-    <k47 { д Д ;nth; ;nth; }>>
+    <k47 { ч Ч ;nth; ;nth; }>>
     <k48 { м М ;nth; ;nth; }>>
-    <k49 { ч Ч _ ;nth; }>>
+    <k49 { п П _ ;nth; }>>
     <k50 { б Б ~ ;nth; }>>
+
     <k51 { ж Ж ;nth; ;nth; }>>
     <k52 { shift ;nth; ;nth; ;nth; }>>
 
