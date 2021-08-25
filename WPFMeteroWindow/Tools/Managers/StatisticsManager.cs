@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System;
-using System.Windows;
+using System.Diagnostics;
 using System.Windows.Forms;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 
@@ -8,56 +8,88 @@ namespace WPFMeteroWindow
 {
     public static class StatisticsManager
     {
-        public static List<SpeedPoint> ChartPoints { get; set; } = new List<SpeedPoint>();
-        
-        public static List<SpeedPoint> AveragePoints { get; set; } = new List<SpeedPoint>();
+        private const int _millisecondsInMinute = 60000;
 
-        public static int TypingErrors { get; set; } = 0;
+        private static Stopwatch _typingStopWatch;
 
-        public static int TypingSpeed { get; set; } = 0;
+        private static int _wordLength = 0;
+        private static int _wordTimeStart = 0;
 
-        public static int TypingMilliseconds { get; set; } = 0;
+        public static List<SpeedPoint> AveragePoints { get; private set; } = new List<SpeedPoint>();
+        public static List<SpeedPoint> WordPoinds { get; private set; } = new List<SpeedPoint>();
+
+        public static int TypingMistakes { get; set; } = 0;
+        public static float TypingSpeedCpm { get; private set; } = 0;
+        public static int TypingMilliseconds { get; private set; } = 0;
+        public static float PassPercentage { get; private set; } = 0;
         
         public static Timer TypingTimer { get; private set; }
         
         private static void TickTuck(object sender, EventArgs e)
         {
-            TypingMilliseconds++;
-            Intermediary.App.TimerTextBlock.Text = TypingMilliseconds / 10 + ":" + TypingMilliseconds % 10;
+            TypingMilliseconds = (int) _typingStopWatch.ElapsedMilliseconds;
 
-            if (TypingMilliseconds % 10 == 0)
+            var minutes = TypingMilliseconds / _millisecondsInMinute;
+            var seconds = TypingMilliseconds / 1000 % 60;
+            var milliseconds = TypingMilliseconds % 1000;
+
+            var inputTextLength = LessonManager.DoneRoad.Length;
+            var averageCpm = inputTextLength / (float)TypingMilliseconds * _millisecondsInMinute;      
+
+            TypingSpeedCpm = averageCpm;
+            PassPercentage = inputTextLength / (float)LessonManager.AllLessonText.Length * 100f;
+
+            if (TypingMilliseconds > 300)
+                AveragePoints.Add(new SpeedPoint(TypingMilliseconds, TypingSpeedCpm));
+
+            Intermediary.App.TimerTextBlock.Text = $"{minutes:D2}:{seconds:D2}:{milliseconds/100:D1}";
+            Intermediary.App.WPMTextBlock.Text = $"{averageCpm:N} {Localization.uCPM}";
+            Intermediary.App.MistakesTextBloxck.Text = $"{PassPercentage:N}% • {TypingMistakes} {Localization.uMistakes}";
+        }
+
+        public static void AddWordStatistics(char inputSymbol)
+        {
+            if (inputSymbol == ' ')
             {
-                ChartPoints.Add(new SpeedPoint(TypingMilliseconds / 10 - 1, LessonManager.DoneRoad.Length - LessonManager.StoppedDoneRoad));
-                AveragePoints.Add(new SpeedPoint(TypingMilliseconds / 10 -1, (float) LessonManager.DoneRoad.Length / TypingMilliseconds * 10));
-                LessonManager.StoppedDoneRoad = LessonManager.DoneRoad.Length;
-            }
+                var wordTime = TypingMilliseconds - _wordTimeStart;
+                var wordCpm = (_wordLength + 1) / (float)wordTime * _millisecondsInMinute;
 
-            Intermediary.App.WPMTextBlock.Text = 
-                (LessonManager.DoneRoad.Length / (double)TypingMilliseconds * 10d * 60).ToString("N") + $" {Localization.uCPM}";
-            Intermediary.App.MistakesTextBloxck.Text = TypingErrors.ToString() + ' ' + Localization.uMistakes;
+                WordPoinds.Add(new SpeedPoint(TypingMilliseconds, wordCpm));
+
+                _wordLength = 0;
+                _wordTimeStart = TypingMilliseconds;
+            }
+            else
+                _wordLength++;
         }
         
         public static void ReloadTimer()
         {
-            if (TypingTimer != null)
-                TypingTimer.Stop();
-            
-            TypingTimer = new Timer();
-            TypingTimer.Interval = 94;
-            TypingTimer.Tick += TickTuck;
-
-            TypingMilliseconds = 0;
+            TypingTimer?.Stop();
+            _typingStopWatch?.Stop();
         }
 
         public static void ReloadStats()
         {
             ReloadTimer();
             
-            ChartPoints = new List<SpeedPoint>();
             AveragePoints = new List<SpeedPoint>();
+            WordPoinds = new List<SpeedPoint>();
 
-            TypingErrors = 0;
-            TypingSpeed = 0;
+            PassPercentage = 0;
+            TypingMistakes = 0;
+            TypingSpeedCpm = 0;
+            _wordLength = 0;
+        }
+
+        public static void StartTimer()
+        {
+            ReloadStats();
+            TypingTimer = new Timer() { Interval = 25 };
+            TypingTimer.Tick += TickTuck;
+
+            _typingStopWatch = Stopwatch.StartNew();
+            TypingTimer.Start();
         }
     }
 }
