@@ -82,7 +82,7 @@ namespace WPFMeteroWindow
         public MainWindow()
         {
             InitializeComponent();
-            
+
             KeyboardManager.Board = keyboardGrid;
             KeyboardManager.KeyboardPresenter = new KeyboardPresenter();
             KeyboardManager.HandPresenter = new HandPresenter(LeftHandFrame, RightHandFrame);
@@ -114,7 +114,7 @@ namespace WPFMeteroWindow
         private void StartTypingDemo()
         {
             var typingTimer = new Timer();
-            typingTimer.Interval = 80;
+            typingTimer.Interval = 70;
             typingTimer.Start();
 
             typingTimer.Tick += (s, e) =>
@@ -139,16 +139,21 @@ namespace WPFMeteroWindow
             if (!_breakTextProcessing)
             {
                 if (LessonManager.DoneRoad.Length == 0)
-                    StatisticsManager.TypingTimer.Start();
+                    StatisticsManager.StartTimer();
                 
                 if (LessonManager.LeftRoad.Length >= 1)
                 {
                     if (bufferTextBox.Text.Length > 0)
                     {
                         var lastCharacter = bufferTextBox.Text[bufferTextBox.Text.Length - 1];
+                        TypingProgressIndicator.Width = ActualWidth * StatisticsManager.PassPercentage / 100d;
+
                         if (lastCharacter == LessonManager.LeftRoad[0])
                         {
                             _isFirstMistake = true;
+                            StatisticsManager.AddWordStatistics(lastCharacter);
+
+                            SoundManager.PlayType();
                             LessonManager.ErrorInput = "";
 
                             LessonManager.DoneRoad += lastCharacter;
@@ -164,12 +169,14 @@ namespace WPFMeteroWindow
                         }
                         else
                         {
+                            SoundManager.PlayTypingMistake();
+
                             KeyboardManager.ShowTypingError(lastCharacter);
                             LessonManager.ErrorInput += lastCharacter;
 
                             if (_isFirstMistake)
                             {
-                                StatisticsManager.TypingErrors++;
+                                StatisticsManager.TypingMistakes++;
                                 _isFirstMistake = false;
                             }
                         }
