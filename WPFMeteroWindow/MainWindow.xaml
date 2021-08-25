@@ -62,6 +62,7 @@
 
         <!-- SmoothGradients -->
         <Grid
+            x:Name="HiddenLogicGrid"
             Grid.Row="0"
             Grid.Column="0"
             Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
@@ -326,7 +327,36 @@
             MouseEnter="TextInputFrame_MouseEnter">
         </Frame>
 
+        <Grid
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="3">
 
+            <Grid.OpacityMask>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="Transparent" Offset="0"></GradientStop>
+                    <GradientStop Color="Black" Offset="0.2"></GradientStop>
+                    <GradientStop Color="Black" Offset="0.8"></GradientStop>
+                    <GradientStop Color="Transparent" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Grid.OpacityMask>
+
+            <Rectangle Fill="Transparent">
+                
+            </Rectangle>
+
+            <Rectangle
+                x:Name="TypingProgressIndicator"
+                Fill="{Binding Path=KeyboardHighlightColor ,Source={x:Static prop:Settings.Default}}"
+            
+                Height="3"
+                Width="0"
+            
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Left">
+            </Rectangle>
+        </Grid>
+        
 
         <Grid 
             Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
