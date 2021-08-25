@@ -19,7 +19,7 @@ namespace WPFMeteroWindow.Resources.localizations {
     // с помощью такого средства, как ResGen или Visual Studio.
     // Чтобы добавить или удалить член, измените файл .ResX и снова запустите ResGen
     // с параметром /str или перестройте свой проект VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -1047,6 +1047,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uSpeedInEverySecond {
             get {
                 return ResourceManager.GetString("uSpeedInEverySecond", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Скорость ввода каждого слова.
+        /// </summary>
+        public static string uSpeedOfEveryWord {
+            get {
+                return ResourceManager.GetString("uSpeedOfEveryWord", resourceCulture);
             }
         }
         
