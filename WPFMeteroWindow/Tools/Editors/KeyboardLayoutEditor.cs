@@ -72,6 +72,19 @@ namespace WPFMeteroWindow
             LayoutKeys = new string[61][];
             for (int i = 0; i< 61; i++)
                 LayoutKeys[i] = new string[] { "", "", "", "" };
+
+            LayoutKeys[41] = LayoutKeys[52] = new string[] { "shift", "", "", "" };
+            LayoutKeys[53] = LayoutKeys[60] = new string[] { "ctrl", "", "", "" };
+            LayoutKeys[54] = LayoutKeys[58] = new string[] { "win", "", "", "" };
+
+            LayoutKeys[59] = new string[] { "menu", "", "", "" };
+            LayoutKeys[57] = new string[] { "altGr", "", "", "" };
+            LayoutKeys[56] = new string[] { " ", "", "", "" };
+            LayoutKeys[55] = new string[] { "alt", "", "", "" };
+
+            LayoutKeys[28] = new string[] { "caps", "", "", "" };
+            LayoutKeys[40] = new string[] { "enter", "", "", "" };
+            LayoutKeys[14] = new string[] { "tab", "", "", "" };
         }
 
         private string ToLml()
