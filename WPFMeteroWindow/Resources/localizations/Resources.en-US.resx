@@ -447,6 +447,9 @@
   <data name="uSpeedInEverySecond" xml:space="preserve">
     <value>Speed in every second</value>
   </data>
+  <data name="uSpeedOfEveryWord" xml:space="preserve">
+    <value>Typing speed of every word</value>
+  </data>
   <data name="uSuccess" xml:space="preserve">
     <value>Success!</value>
   </data>
