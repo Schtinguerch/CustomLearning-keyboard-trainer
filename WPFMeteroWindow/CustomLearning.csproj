@@ -355,6 +355,7 @@
     <Compile Include="Tools\Common\Intermediary.cs" />
     <Compile Include="Tools\Editors\CourseEditor.cs" />
     <Compile Include="Tools\Editors\KeyboardLayoutEditor.cs" />
+    <Compile Include="Tools\Editors\LayoutLearningEditor.cs" />
     <Compile Include="Tools\Editors\LessonEditor.cs" />
     <Compile Include="Tools\Editors\WordPracticingCourseEditor.cs" />
     <Compile Include="Tools\FromOtherUsers\MathConverter.cs" />
@@ -366,6 +367,7 @@
     <Compile Include="Tools\Managers\LessonManager.cs" />
     <Compile Include="Tools\Managers\LogManager.cs" />
     <Compile Include="Tools\Managers\PageManager.cs" />
+    <Compile Include="Tools\Managers\SoundManager.cs" />
     <Compile Include="Tools\Managers\StatisticsManager.cs" />
     <Compile Include="Tools\Managers\TestManager.cs" />
     <Compile Include="Tools\PresentTools\GraphDrawer.cs" />
@@ -685,10 +687,12 @@
     <EmbeddedResource Include="Resources\localizations\Resources.en-US.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.en-US.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\localizations\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
