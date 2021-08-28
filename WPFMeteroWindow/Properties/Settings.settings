@@ -6,7 +6,7 @@
       <Value Profile="(Default)">JustLessons\fishtext.lml</Value>
     </Setting>
     <Setting Name="LoadedCourseFile" Type="System.String" Scope="User">
-      <Value Profile="(Default)">TestCourse</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="CourseLessonNumber" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">2</Value>
@@ -102,7 +102,7 @@
       <Value Profile="(Default)">1000000</Value>
     </Setting>
     <Setting Name="HandsColor" Type="System.String" Scope="User">
-      <Value Profile="(Default)">White</Value>
+      <Value Profile="(Default)">LightGray</Value>
     </Setting>
     <Setting Name="HandsOpacity" Type="System.String" Scope="User">
       <Value Profile="(Default)">0.5</Value>
@@ -172,6 +172,9 @@
     </Setting>
     <Setting Name="ErrorClickSoundFile" Type="System.String" Scope="User">
       <Value Profile="(Default)">errorSound.wav</Value>
+    </Setting>
+    <Setting Name="BackgroundBlurRadius" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

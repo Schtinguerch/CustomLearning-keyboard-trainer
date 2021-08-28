@@ -37,7 +37,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("TestCourse")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string LoadedCourseFile {
             get {
                 return ((string)(this["LoadedCourseFile"]));
@@ -421,7 +421,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("White")]
+        [global::System.Configuration.DefaultSettingValueAttribute("LightGray")]
         public string HandsColor {
             get {
                 return ((string)(this["HandsColor"]));
@@ -704,6 +704,18 @@ namespace WPFMeteroWindow.Properties {
             }
             set {
                 this["ErrorClickSoundFile"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string BackgroundBlurRadius {
+            get {
+                return ((string)(this["BackgroundBlurRadius"]));
+            }
+            set {
+                this["BackgroundBlurRadius"] = value;
             }
         }
     }
