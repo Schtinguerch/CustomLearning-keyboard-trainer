@@ -11,6 +11,8 @@ namespace WPFMeteroWindow
     {
         public static (string[][], Button[]) LoadButtons(this Grid grid, string filename)
         {
+            ClearMainWindowsKeys();
+
             var keyboardData = new Lml(filename, Lml.Open.FromFile);
             var keyData = new string[61][];
             var buttons = new Button[61];
@@ -150,6 +152,15 @@ namespace WPFMeteroWindow
 
             SetContent(button, defaultKey, shiftKey, altGrKey, shiftAltGrKey);
             return button;
+        }
+    
+        private static void ClearMainWindowsKeys()
+        {
+            Intermediary.App.rowZeroGrid.Children.Clear();
+            Intermediary.App.rowOneGrid.Children.Clear();
+            Intermediary.App.rowTwoGrid.Children.Clear();
+            Intermediary.App.rowThreeGrid.Children.Clear();
+            Intermediary.App.rowFourGrid.Children.Clear();
         }
     }
 }
