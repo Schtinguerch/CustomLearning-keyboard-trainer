@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using WPFMeteroWindow.Properties;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 
@@ -81,7 +82,7 @@ namespace WPFMeteroWindow.Resources.pages
         
         private void MainColorTextBox_OnTextChanged(object sender, TextChangedEventArgs e) =>
             SetColor.FirstColor(MainColorTextBox.Text);
-        
+
         private void SecondColorTextBox_OnTextChanged(object sender, TextChangedEventArgs e) =>
             SetColor.SecondColor(SecondColorTextBox.Text);
         
@@ -118,13 +119,13 @@ namespace WPFMeteroWindow.Resources.pages
             SetColor.KeyboardErrorHighlight(KeyboardErrorHighLightColorTextBox.Text);
 
         private void RequireWPMtextBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e) =>
-            SetYesOrNo("WPM", RequireWPMtextBox.SelectedItem.ToString());
+            SetYesOrNo("WPM", (RequireWPMtextBox.SelectedItem as TextBlock).Text);
 
         private void ShowStatisticsTextBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e) =>
-            SetYesOrNo("Stats", ShowStatisticsTextBox.SelectedItem.ToString());
+            SetYesOrNo("Stats", (ShowStatisticsTextBox.SelectedItem as TextBlock).Text);
 
         private void ShowHandsTextBox_SelectionChanged(object sender, SelectionChangedEventArgs e) =>
-            SetYesOrNo("Hands", ShowHandsTextBox.SelectedItem.ToString());
+            SetYesOrNo("Hands", (ShowHandsTextBox.SelectedItem as TextBlock).Text);
 
         private void LessonRaidedSymbolsColorTextBox_OnTextChanged(object sender, TextChangedEventArgs e) =>
             SetFont.MainRaidedLetters_Color(LessonRaidedSymbolsColorTextBox.Text);
@@ -132,14 +133,31 @@ namespace WPFMeteroWindow.Resources.pages
         private void HandsColorHighLightColorTextBox_TextChanged(object sender, TextChangedEventArgs e) =>
            SetColor.Hands(HandsColorHighLightColorTextBox.Text);
 
-        private void MenuOpacitySlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) =>
+        private void MenuOpacitySlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
             MenuOpacityTextBox.Text = $"{(e.NewValue * 100).ToString("N")}%";
 
-        private void KeyboardOpacitySlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) =>
+            if (Mouse.LeftButton == MouseButtonState.Pressed)
+                PageManager.MakeTrasparency();
+        }
+
+        private void KeyboardOpacitySlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
             KeyboardOpacityTextBox.Text = $"{(e.NewValue * 100).ToString("N")}%";
 
-        private void HandsOpacitySlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) =>
+            if (Mouse.LeftButton == MouseButtonState.Pressed)
+                PageManager.MakeTrasparency();
+        }
+            
+
+        private void HandsOpacitySlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
             HandsOpacityTextBox.Text = $"{(e.NewValue * 100).ToString("N")}%";
+
+            if (Mouse.LeftButton == MouseButtonState.Pressed)
+                PageManager.MakeTrasparency();
+        }
+            
 
         private void WindowTheme_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {

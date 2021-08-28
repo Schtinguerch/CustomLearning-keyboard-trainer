@@ -56,9 +56,8 @@ namespace WPFMeteroWindow.Resources.pages
         private void SetYesOrNo(string target, string text)
         {
             var state = true;
-            var selectedText = text.ToLower();
 
-            if (selectedText == Localization.uNo)
+            if (text.ToLower() == Localization.uNo.ToLower())
                 state = false;
 
             switch (target)
@@ -186,6 +185,17 @@ namespace WPFMeteroWindow.Resources.pages
             {
                 
             }
-        }      
+        }
+
+        private void ImageBlurSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            ImageBlurTextBox.Text = ImageBlurSlider.Value.ToString("N");
+
+            if (Mouse.LeftButton == MouseButtonState.Pressed)
+                PageManager.MakeTrasparency();
+        }
+
+        private void Page_MouseUp(object sender, MouseButtonEventArgs e) =>
+            PageManager.CancelTransparency();
     }
 }

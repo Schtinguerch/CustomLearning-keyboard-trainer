@@ -9,7 +9,8 @@
       xmlns:ext="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="800"
-      Title="ApplicationUserSettingsPage">
+      Title="ApplicationUserSettingsPage"
+      MouseUp="Page_MouseUp">
 
     <Page.Triggers>
         <EventTrigger RoutedEvent="Page.Loaded">
@@ -135,6 +136,50 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uBlurRadius}"
+                            FontSize="18">
+                        </TextBlock>
+
+                        <StackPanel
+                            Height="32"
+                            Width="400"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+
+                            <TextBox
+                                FontSize="18"
+                                Height="32"
+                                Width="100"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                
+                                Text="{Binding BackgroundBlurRadius, Source={x:Static prop:Settings.Default}}"
+                                
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="ImageBlurTextBox">
+                            </TextBox>
+
+                            <Slider
+                                x:Name="ImageBlurSlider"
+                                Margin="10 0 50 0"
+                                Width="240"
+                                Value="{Binding Path=BackgroundBlurRadius, Source={x:Static prop:Settings.Default}}"
+                                Minimum="0"
+                                Maximum="100" TickFrequency="1"
+                                ValueChanged="ImageBlurSlider_ValueChanged"
+                                PreviewMouseUp="Page_MouseUp" >
+                            </Slider>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                    >
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
                             Text="{x:Static res:Resources.uTheme}"
                             FontSize="18">
                         </TextBlock>
@@ -190,7 +235,8 @@
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
                                 x:Name="MainColorTextBox"
-                                TextChanged="MainColorTextBox_OnTextChanged">
+                                TextChanged="MainColorTextBox_OnTextChanged"
+                                Text="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
                             </TextBox>
 
                             <Button 
@@ -235,7 +281,8 @@
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
                                 x:Name="SecondColorTextBox"
-                                TextChanged="SecondColorTextBox_OnTextChanged">
+                                TextChanged="SecondColorTextBox_OnTextChanged"
+                                Text="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
                             </TextBox>
 
                             <Button 
@@ -280,7 +327,8 @@
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
                                 x:Name="TextBoxColorTextBox"
-                                TextChanged="TextBoxColorTextBox_OnTextChanged">
+                                TextChanged="TextBoxColorTextBox_OnTextChanged"
+                                Text="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}">
                             </TextBox>
 
                             <Button 
@@ -325,7 +373,8 @@
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
                                 x:Name="SecondMenuColorTextBox"
-                                TextChanged="SecondMenuColorTextBox_OnTextChanged">
+                                TextChanged="SecondMenuColorTextBox_OnTextChanged"
+                                Text="{Binding Path=ThirdSecBackground ,Source={x:Static prop:Settings.Default}}">
                             </TextBox>
 
                             <Button 
@@ -370,7 +419,8 @@
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
                                 x:Name="LessonSymbolsColorTextBox"
-                                TextChanged="LessonSymbolsColorTextBox_OnTextChanged">
+                                TextChanged="LessonSymbolsColorTextBox_OnTextChanged"
+                                Text="{Binding Path=MainFontColor ,Source={x:Static prop:Settings.Default}}">
                             </TextBox>
 
                             <Button 
@@ -415,7 +465,9 @@
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
                                 x:Name="LessonRaidedSymbolsColorTextBox"
-                                TextChanged="LessonRaidedSymbolsColorTextBox_OnTextChanged">
+                                TextChanged="LessonRaidedSymbolsColorTextBox_OnTextChanged"
+                                Text="{Binding Path=RaidedFontColor ,Source={x:Static prop:Settings.Default}}">
+                                
                             </TextBox>
 
                             <Button 
@@ -460,7 +512,8 @@
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
                                 x:Name="UItextColorTextBox"
-                                TextChanged="UItextColorTextBox_OnTextChanged">
+                                TextChanged="UItextColorTextBox_OnTextChanged"
+                                Text="{Binding Path=SummaryFontColor ,Source={x:Static prop:Settings.Default}}">
                             </TextBox>
 
                             <Button 
@@ -521,11 +574,12 @@
                             <Slider
                                 x:Name="MenuOpacitySlider"
                                 Margin="10 0 50 0"
-                                Width="288"
+                                Width="240"
                                 Value="{Binding Path=MenuOpacity, Source={x:Static prop:Settings.Default}}"
                                 Minimum="0"
                                 Maximum="1" TickFrequency="0.01"
-                                ValueChanged="MenuOpacitySlider_OnValueChanged">
+                                ValueChanged="MenuOpacitySlider_OnValueChanged"
+                                PreviewMouseUp="Page_MouseUp">
                             </Slider>
                         </StackPanel>
                     </Grid>
@@ -562,11 +616,54 @@
                             <Slider
                                 x:Name="KeyboardOpacitySlider"
                                 Margin="10 0 50 0"
-                                Width="288"
+                                Width="240"
                                 Value="{Binding Path=KeyboardOpacity, Source={x:Static prop:Settings.Default}}"
                                 Minimum="0"
                                 Maximum="1" TickFrequency="0.01"
-                                ValueChanged="KeyboardOpacitySlider_OnValueChanged">
+                                ValueChanged="KeyboardOpacitySlider_OnValueChanged"
+                                PreviewMouseUp="Page_MouseUp">
+                            </Slider>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                    >
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uHandsOpacity}"
+                            FontSize="18">
+                        </TextBlock>
+
+                        <StackPanel
+                            Height="32"
+                            Width="400"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+
+                            <TextBox
+                                FontSize="18"
+                                Height="32"
+                                Width="100"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="HandsOpacityTextBox">
+                            </TextBox>
+
+                            <Slider
+                                x:Name="HandOpacitySlider"
+                                Margin="10 0 50 0"
+                                Width="240"
+                                Value="{Binding Path=HandsOpacity, Source={x:Static prop:Settings.Default}}"
+                                Minimum="0"
+                                Maximum="1" TickFrequency="0.01"
+                                ValueChanged="HandsOpacitySlider_OnValueChanged"
+                                PreviewMouseUp="Page_MouseUp">
                             </Slider>
                         </StackPanel>
                     </Grid>
@@ -604,7 +701,7 @@
                                 Width="350"
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Left"
-                                
+                                Text="{Binding Path=LessonLettersFont ,Source={x:Static prop:Settings.Default}}"
                                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
@@ -653,7 +750,8 @@
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
                                 x:Name="LessonlettersFontSizeTextBox"
-                                TextChanged="LessonlettersFontSizeTextBox_OnTextChanged">
+                                TextChanged="LessonlettersFontSizeTextBox_OnTextChanged"
+                                Text="{Binding Path=LessonLettersFontSize ,Source={x:Static prop:Settings.Default}}">
                             </TextBox>
                             
                             
@@ -687,7 +785,7 @@
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
                                 x:Name="UIfontTextBox"
-                                >
+                                Text="{Binding Path=SummaryFont ,Source={x:Static prop:Settings.Default}}">
                             </TextBox>
 
                             <Button 
@@ -747,7 +845,8 @@
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
                                 x:Name="KeyboardLayoutTextBox"
-                                TextChanged="KeyboardLayoutTextBox_OnTextChanged">
+                                TextChanged="KeyboardLayoutTextBox_OnTextChanged"
+                                Text="{Binding Path=KeyboardLayoutFile ,Source={x:Static prop:Settings.Default}}">
                             </TextBox>
 
                             <Button 
@@ -792,7 +891,8 @@
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
                                 x:Name="KeyboardButtonsColorTextBox"
-                                TextChanged="KeyboardButtonsColorTextBox_OnTextChanged">
+                                TextChanged="KeyboardButtonsColorTextBox_OnTextChanged"
+                                Text="{Binding Path=KeyboardBackgroundColor ,Source={x:Static prop:Settings.Default}}">
                             </TextBox>
 
                             <Button 
@@ -837,7 +937,8 @@
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
                                 x:Name="KeyboardTextColorTextBox"
-                                TextChanged="KeyboardTextColorTextBox_OnTextChanged">
+                                TextChanged="KeyboardTextColorTextBox_OnTextChanged"
+                                Text="{Binding Path=KeyboardFontColor ,Source={x:Static prop:Settings.Default}}">
                             </TextBox>
 
                             <Button 
@@ -882,7 +983,8 @@
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
                                 x:Name="KeyboardFontFamilyTextBox"
-                                TextChanged="KeyboardFontFamilyTextBox_OnTextChanged">
+                                TextChanged="KeyboardFontFamilyTextBox_OnTextChanged"
+                                Text="{Binding Path=KeyboardFont ,Source={x:Static prop:Settings.Default}}">
                             </TextBox>
 
                             <Button 
@@ -927,7 +1029,8 @@
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
                                 x:Name="KeyboardBorderColorTextBox"
-                                TextChanged="KeyboardBorderColorTextBox_OnTextChanged">
+                                TextChanged="KeyboardBorderColorTextBox_OnTextChanged"
+                                Text="{Binding Path=KeyboardBorderColor ,Source={x:Static prop:Settings.Default}}">
                             </TextBox>
 
                             <Button 
@@ -972,7 +1075,8 @@
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
                                 x:Name="KeyboardHighLightColorTextBox"
-                                TextChanged="KeyboardHighLightColorTextBox_OnTextChanged">
+                                TextChanged="KeyboardHighLightColorTextBox_OnTextChanged"
+                                Text="{Binding Path=KeyboardHighlightColor ,Source={x:Static prop:Settings.Default}}">
                             </TextBox>
 
                             <Button 
@@ -1017,7 +1121,8 @@
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
                                 x:Name="KeyboardErrorHighLightColorTextBox"
-                                TextChanged="KeyboardErrorHighLightColorTextBox_OnTextChanged">
+                                TextChanged="KeyboardErrorHighLightColorTextBox_OnTextChanged"
+                                Text="{Binding Path=KeyboardErrorHighlightColor ,Source={x:Static prop:Settings.Default}}">
                             </TextBox>
 
                             <Button 
@@ -1190,7 +1295,8 @@
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
                                 x:Name="HandsColorHighLightColorTextBox"
-                                TextChanged="HandsColorHighLightColorTextBox_TextChanged">
+                                TextChanged="HandsColorHighLightColorTextBox_TextChanged"
+                                Text="{Binding Path=HandsColor ,Source={x:Static prop:Settings.Default}}">
                             </TextBox>
 
                             <Button 
@@ -1207,47 +1313,6 @@
                             </Button>
                         </StackPanel>
                     </Grid>
-
-                    <Grid Style="{StaticResource SettingsItemStyle}"
-                    >
-                        <TextBlock
-                            Style="{StaticResource SummaryTextStyle}"
-                            VerticalAlignment="Top"
-                            Text="{x:Static res:Resources.uSettKeyboardOpacity}"
-                            FontSize="18">
-                        </TextBlock>
-
-                        <StackPanel
-                            Height="32"
-                            Width="400"
-                            VerticalAlignment="Bottom"
-                            HorizontalAlignment="Left"
-                            Orientation="Horizontal">
-
-                            <TextBox
-                                FontSize="18"
-                                Height="32"
-                                Width="100"
-                                VerticalAlignment="Bottom"
-                                HorizontalAlignment="Left"
-                                
-                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                                BorderBrush="#121212"
-                                x:Name="HandsOpacityTextBox">
-                            </TextBox>
-
-                            <Slider
-                                x:Name="HandOpacitySlider"
-                                Margin="10 0 50 0"
-                                Width="288"
-                                Value="{Binding Path=HandsOpacity, Source={x:Static prop:Settings.Default}}"
-                                Minimum="0"
-                                Maximum="1" TickFrequency="0.01"
-                                ValueChanged="HandsOpacitySlider_OnValueChanged">
-                            </Slider>
-                        </StackPanel>
-                    </Grid>
                 </StackPanel>
 
             </ScrollViewer>
@@ -1258,11 +1323,13 @@
             Width="0"
             Height="0"
             Background="#202020"
-            UsingAlphaChannel="False"
+            Foreground="Black"
+            UsingAlphaChannel="True"
             x:Name="SetupColorPicker"
             SelectedColorChanged="SetupColorPicker_OnSelectedColorChanged"
             HorizontalAlignment="Center"
-            VerticalAlignment="Top">
+            VerticalAlignment="Top"
+            PreviewMouseUp="Page_MouseUp">
         </ext:ColorPicker>
 
 
