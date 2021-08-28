@@ -123,6 +123,9 @@
   <data name="uAuthor" xml:space="preserve">
     <value>Author</value>
   </data>
+  <data name="uBlurRadius" xml:space="preserve">
+    <value>Blur radius</value>
+  </data>
   <data name="uCharactersCount" xml:space="preserve">
     <value>Char count</value>
   </data>

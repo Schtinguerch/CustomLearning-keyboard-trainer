@@ -79,6 +79,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Радиус размытия.
+        /// </summary>
+        public static string uBlurRadius {
+            get {
+                return ResourceManager.GetString("uBlurRadius", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Кол-во симв.
         /// </summary>
         public static string uCharactersCount {
