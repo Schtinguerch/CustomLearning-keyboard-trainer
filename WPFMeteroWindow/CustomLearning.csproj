@@ -104,6 +104,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.2.0.0\lib\net40\WpfAnimatedGif.dll</HintPath>
+    </Reference>
     <Reference Include="Xceed.Wpf.AvalonDock, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
       <HintPath>..\packages\Extended.Wpf.Toolkit.4.0.2\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
     </Reference>
@@ -374,6 +377,7 @@
     <Compile Include="Tools\PresentTools\HandPresenter.cs" />
     <Compile Include="Tools\PresentTools\KeyboardPresenter.cs" />
     <Compile Include="Tools\PresentTools\LessonTextInputPresenter.cs" />
+    <Compile Include="Tools\PresentTools\ParallaxEffectPresenter.cs" />
     <Compile Include="Tools\PresentTools\TappingCirclesDrawer.cs" />
     <Compile Include="Tools\SettingsSetters\KeyboardLoader.cs" />
     <Compile Include="Tools\SettingsSetters\Opener.cs" />
@@ -703,14 +707,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\images\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="favicon.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="LogoLight.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images\LogoDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images\LogoLight.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
