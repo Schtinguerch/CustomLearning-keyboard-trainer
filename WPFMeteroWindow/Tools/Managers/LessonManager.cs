@@ -1,14 +1,12 @@
 ﻿using WPFMeteroWindow.Properties;
 using LmlLibrary;
 using System.IO;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 using System;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows;
-using System.Threading;
-using WPFMeteroWindow.Controls;
 
 namespace WPFMeteroWindow
 {
@@ -17,6 +15,21 @@ namespace WPFMeteroWindow
         public static LessonTextInputPresenter TextInputPresenter { get; set; }
 
         public static string AllLessonText { get; private set; }
+
+        private static Dictionary<string, string> _exceptions = new Dictionary<string, string>()
+        {
+            { "\n", " " },
+            { "\t", " " },
+            { "–", "-" },
+            { "—", "-" },
+            { "“", "\"" },
+            { "”", "\"" },
+            { "‘", "'" },
+            { "’", "'" },
+            { "«", "\"" },
+            { "»", "\"" },
+            { "…", "..." }
+        };
 
         public static string DoneRoad
         {
@@ -58,7 +71,7 @@ namespace WPFMeteroWindow
             catch
             {
                 lessonName = "...";
-                lessonText = File.ReadAllText(filename).Replace("\n", " ").Replace("\t", " ");
+                lessonText = File.ReadAllText(filename);
                 Settings.Default.NecessaryCPM = -1;
                 Settings.Default.MaxAcceptableMistakes = -1;
             }
@@ -66,6 +79,7 @@ namespace WPFMeteroWindow
             StatisticsManager.ReloadStats();
 
             lessonText = lessonText.Randomized();
+            lessonText = lessonText.WithDeletedExceptions();
             AllLessonText = lessonText;
             TextInputPresenter.LoadText(lessonText);
 
@@ -93,9 +107,10 @@ namespace WPFMeteroWindow
         public static void LoadTest(string lessonText)
         {
             StatisticsManager.ReloadStats();
+            var text = lessonText.WithDeletedExceptions();
 
-            AllLessonText = lessonText;
-            TextInputPresenter.LoadText(lessonText);
+            AllLessonText = text;
+            TextInputPresenter.LoadText(text);
             Intermediary.App.lessonHeaderTextBlock.Text = Localization.uTypingTest;
 
             Intermediary.App.NextLessonButton.Visibility = Visibility.Hidden;
@@ -137,6 +152,16 @@ namespace WPFMeteroWindow
             }
 
             return randomizedText;
+        }
+
+        private static string WithDeletedExceptions(this string s)
+        {
+            var value = s;
+
+            foreach (var exception in _exceptions)
+                value = value.Replace(exception.Key, exception.Value);
+
+            return value;
         }
     }
 }
