@@ -68,5 +68,8 @@ namespace WPFMeteroWindow
             else if (pageIndex == Pages.Length - 1)
                 HidePages();
         }
+
+        public static void MakeTrasparency()  => PageGrid.Opacity = 0.2d;
+        public static void CancelTransparency() => PageGrid.Opacity = 1d;
     }
 }
