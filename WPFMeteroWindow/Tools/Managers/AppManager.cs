@@ -27,6 +27,14 @@ namespace WPFMeteroWindow
         public static void InitializeApplication()
         {
             FindMainWindow();
+            ParallaxEffectPresenter.Image = Intermediary.App.BackgroundImage;
+            ParallaxEffectPresenter.Init();
+
+            if (!Settings.Default.ShowHands)
+            {
+                Intermediary.App.LeftHandFrame.Visibility = Visibility.Hidden;
+                Intermediary.App.RightHandFrame.Visibility = Visibility.Hidden;
+            }
 
             if (Settings.Default.IsBackgroundImage)
             {
