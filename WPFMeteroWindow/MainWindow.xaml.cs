@@ -12,6 +12,7 @@ using Key = System.Windows.Input.Key;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 using Visibility = System.Windows.Visibility;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WPFMeteroWindow
 {
@@ -29,8 +30,6 @@ namespace WPFMeteroWindow
     
     public partial class MainWindow : MetroWindow
     {
-        private List<Key> _keysList = new List<Key>();
-
         private Storyboard _showMessageStoryboard;
 
         private bool _breakTextProcessing = false;
@@ -318,5 +317,38 @@ namespace WPFMeteroWindow
 
         private void TextInputFrame_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e) =>
             bufferTextBox.Focus();
+
+        private void MetroWindow_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            ParallaxEffectPresenter.MakeParallaxEffect(sender, e);
+        }
+            
+
+        private void MetroWindow_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            AdditionalInfoPanel.Margin = (Width < 1000d && WindowState == WindowState.Normal) ? 
+                new Thickness(0, 0, 60, 0) : new Thickness(0, 0, 0, 0);
+
+            AppTitle.Visibility = (Width < 1120d && WindowState == WindowState.Normal) ? 
+                Visibility.Hidden : Visibility.Visible;
+        }
+
+        private void MetroWindow_StateChanged(object sender, EventArgs e) =>
+            MetroWindow_SizeChanged(null, null);
+
+        private void Grid_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                if (WindowState == WindowState.Normal)
+                    DragMove();
+                else
+                {
+                    WindowState = WindowState.Normal;
+                    Top = 50;
+                }
+            }
+                
+        }
     }
 }
