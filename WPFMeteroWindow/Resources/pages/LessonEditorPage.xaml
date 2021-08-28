@@ -118,6 +118,8 @@
                     Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
                     FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
                     BorderBrush="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                    
+                    AcceptsReturn="True"
                     x:Name="LessonDataTextBox"
                     BorderThickness="0"
                     Padding="10">
