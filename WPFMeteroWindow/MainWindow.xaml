@@ -9,10 +9,15 @@
     xmlns:globalization="clr-namespace:System.Globalization;assembly=mscorlib"
     Title="CustomLearning" 
     Width="900" 
-    Height="620"
+    Height="640"
+    MinWidth="880"
+    MinHeight="620"
     GlowBrush="#202020"
     WindowStartupLocation="CenterScreen"
-    KeyDown="MainWindow_OnKeyDown">
+    KeyDown="MainWindow_OnKeyDown"
+    MouseMove="MetroWindow_MouseMove"
+    SizeChanged="MetroWindow_SizeChanged"
+    StateChanged="MetroWindow_StateChanged">
 
     <controls:MetroWindow.Resources>
         <Storyboard
@@ -40,14 +45,25 @@
                 Duration="0:0:0.5">
             </DoubleAnimation>
         </Storyboard>
+
+        <SolidColorBrush
+            x:Key="SecondBackgroundOpacityBrush"
+            Color="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+            Opacity="{Binding MenuOpacity, Source={x:Static prop:Settings.Default}}">
+        </SolidColorBrush>
     </controls:MetroWindow.Resources>
 
     <Grid 
         x:Name="MainGrid" 
+        Margin=" 0 0 0 -33"
         Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
+
+        <Grid.RenderTransform>
+            <TranslateTransform Y="-33"></TranslateTransform>
+        </Grid.RenderTransform>
         
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="33"></RowDefinition>
             <RowDefinition Height="60"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
@@ -60,23 +76,47 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
+        <Image
+            x:Name="BackgroundImage"
+            Grid.Row="0"
+            Grid.Column="0"
+            
+            HorizontalAlignment="Center" VerticalAlignment="Center"
+            
+            Stretch="UniformToFill"
+            
+            Grid.RowSpan="5"
+            Grid.ColumnSpan="3">
+
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform x:Name="ScaleTranslateTransform" ScaleX="1.2" ScaleY="1.2"></ScaleTransform>
+                    <TranslateTransform x:Name="MoveTranslateTransform"></TranslateTransform>
+                </TransformGroup>
+            </Image.RenderTransform>
+
+            <Image.Effect>
+                <BlurEffect Radius="{Binding BackgroundBlurRadius, Source={x:Static prop:Settings.Default}}"></BlurEffect>
+            </Image.Effect>
+        </Image>
+
         <!-- SmoothGradients -->
         <Grid
             x:Name="HiddenLogicGrid"
             Grid.Row="0"
             Grid.Column="0"
-            Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
+           Background="{DynamicResource SecondBackgroundOpacityBrush}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="25*"/>
                 <ColumnDefinition Width="21*"/>
             </Grid.ColumnDefinitions>
 
-            <Grid.OpacityMask>
+            <!--  <Grid.OpacityMask>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0" Opacity="{Binding MenuOpacity, Source={x:Static prop:Settings.Default}}">
                     <GradientStop Offset="0" Color="Transparent"></GradientStop>
                     <GradientStop Offset="1" Color="Black"></GradientStop>
                 </LinearGradientBrush>
-            </Grid.OpacityMask>
+            </Grid.OpacityMask> -->
 
             <TextBox 
                 Width="0" Height="0" 
@@ -90,20 +130,20 @@
         <Grid
             Grid.Row="0"
             Grid.Column="2"
-            Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
+           Background="{DynamicResource SecondBackgroundOpacityBrush}">
 
-            <Grid.OpacityMask>
+            <!--  <Grid.OpacityMask>
                 <LinearGradientBrush StartPoint="1,0" EndPoint="0,0" Opacity="{Binding MenuOpacity, Source={x:Static prop:Settings.Default}}">
                     <GradientStop Offset="0" Color="Transparent"></GradientStop>
                     <GradientStop Offset="1" Color="Black"></GradientStop>
                 </LinearGradientBrush>
-            </Grid.OpacityMask>
+            </Grid.OpacityMask> -->
         </Grid>
 
         <Grid
             Grid.Row="3"
             Grid.Column="0"
-            Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
+            Background="{DynamicResource SecondBackgroundOpacityBrush}">
 
             <Grid.OpacityMask>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0" Opacity="{Binding MenuOpacity, Source={x:Static prop:Settings.Default}}">
@@ -116,7 +156,7 @@
         <Grid
             Grid.Row="3"
             Grid.Column="2"
-            Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
+            Background="{DynamicResource SecondBackgroundOpacityBrush}">
 
             <Grid.OpacityMask>
                 <LinearGradientBrush StartPoint="1,0" EndPoint="0,0" Opacity="{Binding MenuOpacity, Source={x:Static prop:Settings.Default}}">
@@ -126,18 +166,40 @@
             </Grid.OpacityMask>
         </Grid>
 
+        <Grid
+            Grid.Column="0"
+            Grid.Row="0"
+            Grid.ColumnSpan="3"
+            MouseMove="Grid_MouseMove" Background="{DynamicResource SecondBackgroundOpacityBrush}" >
+        </Grid>
+
+        <StackPanel 
+            x:Name="LogoStackPanel"
+            Orientation="Horizontal">
+
+            <Image Source="Resources/images/LogoLight.png" Margin="10 0 6 3"></Image>
+            
+            <TextBlock
+                x:Name="AppTitle"
+                Style="{StaticResource SummaryTextStyle}"
+                Text="CustomLearning"
+                FontSize="14">
+            </TextBlock>
+        </StackPanel>
+
 
         <!-- Content -->
         <Grid 
             x:Name="MenuBlock"
             Grid.Row="0"
-            Grid.Column="1" Grid.ColumnSpan="1"
-            Opacity="{Binding MenuOpacity, Source={x:Static prop:Settings.Default}}">
+            Grid.Column="1" Grid.ColumnSpan="1">
+
             <Menu 
+                MouseMove="Grid_MouseMove" Margin="0 3 0 0"
                 FontFamily="{Binding Path=SummaryFont ,Source={x:Static prop:Settings.Default}}"
-                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
+                Background="{DynamicResource SecondBackgroundOpacityBrush}">
                 <MenuItem 
-                    Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                    Background="Transparent"
                     Header="{x:Static res:Resources.uMenuLessons}">
 
                     <MenuItem 
@@ -185,13 +247,13 @@
 
                 <MenuItem 
                     x:Name="AppSettingsMenuItem"
-                    Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                    Background="Transparent"
                     Header="{x:Static res:Resources.uMenuSettings}"
                     Click="AppSettingsMenuItem_OnClick">
                 </MenuItem>
 
                 <MenuItem 
-                    Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                    Background="Transparent"
                     Header="{x:Static res:Resources.uMenuEditor}">
 
                     <MenuItem 
@@ -248,7 +310,7 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
-                <StackPanel Orientation="Horizontal" Margin="6">
+                <StackPanel Orientation="Horizontal" Margin="0 6 0 6">
                     <Button 
                         Width="54" 
                         BorderBrush="Transparent" 
@@ -342,8 +404,9 @@
             </Grid.OpacityMask>
 
             <Rectangle Fill="Transparent">
-                
+
             </Rectangle>
+            
 
             <Rectangle
                 x:Name="TypingProgressIndicator"
@@ -359,8 +422,7 @@
         
 
         <Grid 
-            Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-            Opacity="{Binding MenuOpacity, Source={x:Static prop:Settings.Default}}"
+            Background="{DynamicResource SecondBackgroundOpacityBrush}"
             Grid.Row="3"
             Grid.Column="1" Grid.ColumnSpan="1">
 
@@ -538,10 +600,8 @@
             </Grid.Background>
 
             <Frame x:Name="SettingFrame" NavigationUIVisibility="Hidden"
-                   
                    HorizontalContentAlignment="Stretch"
                    VerticalContentAlignment="Stretch">
-
             </Frame>
         </Grid>
 
