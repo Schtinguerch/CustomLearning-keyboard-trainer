@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
+using WPFMeteroWindow.Properties;
 
 namespace WPFMeteroWindow
 {
@@ -18,6 +20,17 @@ namespace WPFMeteroWindow
 
         public static void LoadKeyboardData(string filename)
         {
+            if (Settings.Default.ShowHands)
+            {
+                Intermediary.App.LeftHandFrame.Visibility = Visibility.Visible;
+                Intermediary.App.RightHandFrame.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                Intermediary.App.LeftHandFrame.Visibility = Visibility.Hidden;
+                Intermediary.App.RightHandFrame.Visibility = Visibility.Hidden;
+            }
+
             Intermediary.KeyboardData = KeyboardLoader.LoadButtons(Board, filename);
             try { if (LessonManager.LeftRoad != null) ShowTypingHint(LessonManager.LeftRoad[0]); } catch {}
         }
