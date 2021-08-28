@@ -4,7 +4,9 @@ using WPFMeteroWindow.Properties;
 using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using WpfAnimatedGif;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
+using System.Windows.Media.Animation;
 
 namespace WPFMeteroWindow
 {
@@ -30,17 +32,23 @@ namespace WPFMeteroWindow
             Settings.Default.IsBackgroundImage = true;
             Settings.Default.BackgroundImagePath = path;
 
-            var imageBrush = new ImageBrush()
-            {
-                ImageSource = new BitmapImage(new Uri(path, UriKind.Absolute)),
-                Stretch = Stretch.UniformToFill,
-            };
 
-            Intermediary.App.MainGrid.Background = imageBrush;
+            Intermediary.App.BackgroundImage.Visibility = Visibility.Visible;
+            var image = new BitmapImage();
+            image.BeginInit();
+            image.UriSource = new Uri(path);
+            image.EndInit();
+            
+
+            ImageBehavior.SetAnimatedSource(Intermediary.App.BackgroundImage, image);
+            ImageBehavior.SetRepeatBehavior(Intermediary.App.BackgroundImage, RepeatBehavior.Forever);
         }
 
         public static void WindowStandardColor()
         {
+            Intermediary.App.BackgroundImage.Visibility = Visibility.Hidden;
+            Intermediary.App.BackgroundImage = new System.Windows.Controls.Image();
+
             Settings.Default.IsBackgroundImage = false;
             Settings.Default.BackgroundImagePath = "";
 
