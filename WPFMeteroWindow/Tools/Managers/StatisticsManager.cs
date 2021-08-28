@@ -27,17 +27,17 @@ namespace WPFMeteroWindow
         
         private static void TickTuck(object sender, EventArgs e)
         {
-            TypingMilliseconds = (int) _typingStopWatch.ElapsedMilliseconds;
+            TypingMilliseconds = (int)_typingStopWatch.ElapsedMilliseconds;
 
             var minutes = TypingMilliseconds / _millisecondsInMinute;
             var seconds = TypingMilliseconds / 1000 % 60;
             var milliseconds = TypingMilliseconds % 1000;
 
-            var inputTextLength = LessonManager.DoneRoad.Length;
+            var inputTextLength = LessonManager.DoneRoad.Length -1;
             var averageCpm = inputTextLength / (float)TypingMilliseconds * _millisecondsInMinute;      
 
             TypingSpeedCpm = averageCpm;
-            PassPercentage = inputTextLength / (float)LessonManager.AllLessonText.Length * 100f;
+            PassPercentage = (inputTextLength +2) / (float)LessonManager.AllLessonText.Length * 100f;
 
             if (TypingMilliseconds > 300)
                 AveragePoints.Add(new SpeedPoint(TypingMilliseconds, TypingSpeedCpm));
