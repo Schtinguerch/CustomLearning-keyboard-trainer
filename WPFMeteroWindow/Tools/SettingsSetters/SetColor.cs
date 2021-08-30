@@ -38,7 +38,6 @@ namespace WPFMeteroWindow
             image.BeginInit();
             image.UriSource = new Uri(path);
             image.EndInit();
-            
 
             ImageBehavior.SetAnimatedSource(Intermediary.App.BackgroundImage, image);
             ImageBehavior.SetRepeatBehavior(Intermediary.App.BackgroundImage, RepeatBehavior.Forever);
@@ -47,12 +46,10 @@ namespace WPFMeteroWindow
         public static void WindowStandardColor()
         {
             Intermediary.App.BackgroundImage.Visibility = Visibility.Hidden;
-            Intermediary.App.BackgroundImage = new System.Windows.Controls.Image();
+            ImageBehavior.SetAnimatedSource(Intermediary.App.BackgroundImage, null);
 
             Settings.Default.IsBackgroundImage = false;
             Settings.Default.BackgroundImagePath = "";
-
-            Intermediary.App.MainGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(Settings.Default.MainBackground));
         }
 
         public static void FirstColor(string color)
@@ -153,6 +150,14 @@ namespace WPFMeteroWindow
             }
             
             Settings.Default.ColorSchemeResourceDictionary = baseFolder + color + ".xaml";
+        }
+
+        public static void ColorScheme(string theme)
+        {
+            if (theme.ToLower() == "light")
+                ColorScheme(Theme.Light);
+            else 
+                ColorScheme(Theme.Dark);
         }
 
         public static void ColorScheme(Theme theme)
