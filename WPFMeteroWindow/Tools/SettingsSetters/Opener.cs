@@ -70,7 +70,6 @@ namespace WPFMeteroWindow
             if (File.Exists(fileName))
             {
                 Settings.Default.KeyboardLayoutFile = fileName;
-                Settings.Default.Save();
 
                 try
                 {
