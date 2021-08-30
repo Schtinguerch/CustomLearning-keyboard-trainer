@@ -168,14 +168,13 @@ namespace WPFMeteroWindow
                         }
                         else
                         {
-                            SoundManager.PlayTypingMistake();
-
                             KeyboardManager.ShowTypingError(lastCharacter);
                             LessonManager.ErrorInput += lastCharacter;
 
                             if (_isFirstMistake)
                             {
                                 StatisticsManager.TypingMistakes++;
+                                SoundManager.PlayTypingMistake();
                                 _isFirstMistake = false;
                             }
                         }
