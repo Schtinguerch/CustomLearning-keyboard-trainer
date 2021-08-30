@@ -129,6 +129,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\ColorSetter.cs" />
+    <Compile Include="Commands\ConfigSetter.cs" />
     <Compile Include="Commands\FileOpener.cs" />
     <Compile Include="Commands\FontSetter.cs" />
     <Compile Include="Commands\GameSceneCommands\PlaySoundTrack.cs" />
@@ -373,6 +374,7 @@
     <Compile Include="Tools\Managers\SoundManager.cs" />
     <Compile Include="Tools\Managers\StatisticsManager.cs" />
     <Compile Include="Tools\Managers\TestManager.cs" />
+    <Compile Include="Tools\Managers\UserConfigManager.cs" />
     <Compile Include="Tools\PresentTools\GraphDrawer.cs" />
     <Compile Include="Tools\PresentTools\HandPresenter.cs" />
     <Compile Include="Tools\PresentTools\KeyboardPresenter.cs" />
