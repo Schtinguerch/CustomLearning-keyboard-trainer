@@ -718,5 +718,17 @@ namespace WPFMeteroWindow.Properties {
                 this["BackgroundBlurRadius"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EnableParallax {
+            get {
+                return ((bool)(this["EnableParallax"]));
+            }
+            set {
+                this["EnableParallax"] = value;
+            }
+        }
     }
 }
