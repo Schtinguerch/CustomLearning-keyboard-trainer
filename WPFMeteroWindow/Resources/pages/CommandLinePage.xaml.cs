@@ -15,12 +15,13 @@ namespace WPFMeteroWindow.Resources.pages
     public partial class CommandLinePage : Page
     {
         private CommandProcessor _commandProcessor;
-        
+
         private List<Command> _commands = new List<Command>()
         {
             new FileOpener(),
             new FontSetter(),
             new ColorSetter(),
+            new ConfigSetter(),
         };
 
         public CommandLinePage()
@@ -67,6 +68,11 @@ namespace WPFMeteroWindow.Resources.pages
             SetColor.WindowColor(Settings.Default.ColorSchemeResourceDictionary.Split(new[] { '/' }).Last()
                 .Split(new[] { '.' })[0]);
             SetColor.ColorScheme(Settings.Default.ThemeResourceDictionary.Contains("BaseLight") ? Theme.Light : Theme.Dark);
+
+            if (!Settings.Default.IsBackgroundImage)
+                SetColor.WindowStandardColor();
+            else
+                SetColor.WindowBackgroundImage(Settings.Default.BackgroundImagePath);
         }
 
         private void CommandLinePage_OnKeyDown(object sender, KeyEventArgs e)
