@@ -39,7 +39,7 @@ namespace WPFMeteroWindow.Resources.pages
             CharactersCountTextBlock.Text = $"{Localization.uCharactersCount}: {LessonManager.DoneRoad.Length}";
             
             var drawer = new GraphDrawer(ChartCanvas, StatisticsManager.WordPoinds, 180, 380);
-            drawer.DrawSpeedGraph(TypingSpeedPolyline, true);
+            drawer.DrawSpeedGraph(TypingSpeedPolyline);
             
             var maxCPM = drawer.MaxCPM;
             MaxCPMtextBlock.Text = maxCPM.ToString();
