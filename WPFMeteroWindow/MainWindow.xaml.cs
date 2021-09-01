@@ -113,7 +113,7 @@ namespace WPFMeteroWindow
         private void StartTypingDemo()
         {
             var typingTimer = new Timer();
-            typingTimer.Interval = 70;
+            typingTimer.Interval = 60;
             typingTimer.Start();
 
             typingTimer.Tick += (s, e) =>
