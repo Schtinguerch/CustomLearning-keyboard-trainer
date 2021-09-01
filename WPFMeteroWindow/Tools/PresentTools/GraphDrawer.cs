@@ -19,6 +19,10 @@ namespace WPFMeteroWindow
 
         private TextBlock _cpmTextBlock;
 
+        private Line _cpmLine;
+
+        private Ellipse _cpmEllipse;
+
         private double _fieldWidth;
 
         private double _fieldHeight;
@@ -39,8 +43,12 @@ namespace WPFMeteroWindow
             _fieldWidth = fieldWidth;
             _fieldHeight = fieldHeight;
 
-            if (speedPoints[0].CPM <= 0)
+            if (speedPoints[0].CPM <= 0 || speedPoints[0].CPM >= 1400)
+            {
                 speedPoints.RemoveAt(0);
+                StatisticsManager.TimePoints.RemoveAt(0);
+            }
+                
 
             var maxCPM = speedPoints[0].CPM;
 
@@ -60,17 +68,34 @@ namespace WPFMeteroWindow
                 FontFamily = new FontFamily(Settings.Default.SummaryFont),
                 Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(Settings.Default.SecondBackground)),
                 Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString(Settings.Default.SummaryFontColor)),
-                Padding = new Thickness(12d, 6d, 12d, 4d),
-                Effect = new DropShadowEffect()
-                {
-                    Color = (Color)ColorConverter.ConvertFromString(Settings.Default.MainBackground),
-                    BlurRadius = 20,
-                    ShadowDepth = 3d,
-                    Opacity = 0.7d,
-                },
+                Padding = new Thickness(12d, 6d, 12d, 4d)
             };
+
+            _cpmLine = new Line()
+            {
+                Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString(Settings.Default.SecondBackground)),
+                StrokeThickness = 2d,
+
+                Y1 = -50d,
+                Y2 = 170d,
+
+                Opacity = 0.5d,
+            };
+
+            _cpmEllipse = new Ellipse()
+            {
+                Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString(Settings.Default.KeyboardHighlightColor)),
+                StrokeThickness = 0d,
+
+                Width = 10d,
+                Height = 10d,
+            };
+
+            _canvas.Children.Add(_cpmLine);
             _canvas.Children.Add(_cpmTextBlock);
-            HideCPM();
+            _canvas.Children.Add(_cpmEllipse);
+
+            Canvas.SetTop(_cpmTextBlock, 150d);
         }
 
         private Point Inverted(SpeedPoint point)
@@ -85,22 +110,23 @@ namespace WPFMeteroWindow
         private double Range(Point first, Point second) =>
             Math.Sqrt(Math.Pow(second.X - first.X, 2d) + Math.Pow(second.Y - first.Y, 2d));
 
-        private void ShowCPM(Point mousePoint, string text)
+        private double Max(double first, double second) => 
+            (first > second)? first : second;
+
+        private double Min(double first, double second) =>
+            (first < second)? first : second;
+
+        private void ShowCPM(double X, double Y, string text)
         {
-            Canvas.SetTop(_cpmTextBlock, mousePoint.Y - 32d);
-            Canvas.SetLeft(_cpmTextBlock, mousePoint.X);
+            Canvas.SetLeft(_cpmTextBlock, X + 20);
+            _cpmTextBlock.Text = text;
 
-            _cpmTextBlock.Text = $"{text} {Localization.uCPM}";
+            _cpmLine.X1 = X + 20;
+            _cpmLine.X2 = X + 20;
 
-            if (_cpmTextBlock.Visibility == Visibility.Hidden)
-                _cpmTextBlock.Visibility = Visibility.Visible;
+            Canvas.SetLeft(_cpmEllipse, X + 20 - _cpmEllipse.Width / 2d);
+            Canvas.SetTop(_cpmEllipse, Y - _cpmEllipse.Height / 2d);
         }
-
-        private void HideCPM()
-        {
-            _cpmTextBlock.Visibility = Visibility.Hidden;
-        }
-
         public void DrawSpeedGraph(Polyline polyline, bool showCpmByMouse = false)
         {
             polyline.Points = new PointCollection();
@@ -115,27 +141,27 @@ namespace WPFMeteroWindow
 
             if (showCpmByMouse)
             {
-                _canvas.MouseMove += (s, e) =>
+                _canvas.PreviewMouseMove += (s, e) =>
                 {
                     var mousePoint = e.GetPosition(_canvas);
 
-                    int startIndex = Convert.ToInt32(polyline.Points.Count * mousePoint.X / _fieldWidth) - 5;
-                    if (startIndex < 0) startIndex = 0;
-
-                    int choosenIndex = 0;
-
-                    int endIndex = startIndex + 10;
-                    if (endIndex > polyline.Points.Count) endIndex = polyline.Points.Count;
-
-                    for (int i = startIndex; i < endIndex; i++)
-                        if (Range(mousePoint, polyline.Points[i]) < Range(mousePoint, polyline.Points[choosenIndex]))
-                            choosenIndex = i;
-
-                    if (Range(mousePoint, polyline.Points[choosenIndex]) < 32d)
-                        ShowCPM(mousePoint, _speedPoints[choosenIndex].CPM.ToString("N"));
-                    else
-                        HideCPM();
+                    for (int i = 0; i < polyline.Points.Count; i++)
+                    {
+                        if (Math.Abs(mousePoint.X - polyline.Points[i].X) < 1)
+                        {
+                            var message =  $"{StatisticsManager.TimePoints[i]}: {_speedPoints[i].CPM:N} {Localization.uCPM}";
+                            ShowCPM(polyline.Points[i].X, polyline.Points[i].Y, message);
+                            break;
+                        }
+                    }
                 };
+            }
+
+            else
+            {
+                _cpmTextBlock.Visibility = Visibility.Hidden;
+                _cpmLine.Visibility = Visibility.Hidden;
+                _cpmEllipse.Visibility = Visibility.Hidden;
             }
                 
         }
