@@ -305,7 +305,7 @@
             Grid.Column="1" Grid.ColumnSpan="1">
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="580"></ColumnDefinition>
+                <ColumnDefinition Width="560"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
