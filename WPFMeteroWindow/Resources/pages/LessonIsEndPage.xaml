@@ -152,7 +152,8 @@
                 Grid.Column="1">
                 <Canvas
                     x:Name="ChartCanvas"
-                    Margin="20 0 20 0">
+                    Margin="20 0 20 0"
+                    Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
                     
                     <TextBlock
                         Canvas.Top="-30"
