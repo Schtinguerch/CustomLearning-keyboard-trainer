@@ -18,10 +18,14 @@ namespace WPFMeteroWindow
         public static List<SpeedPoint> AveragePoints { get; private set; } = new List<SpeedPoint>();
         public static List<SpeedPoint> WordPoinds { get; private set; } = new List<SpeedPoint>();
 
+        public static List<string> TimePoints { get; private set; } = new List<string>();
+
         public static int TypingMistakes { get; set; } = 0;
         public static float TypingSpeedCpm { get; private set; } = 0;
         public static int TypingMilliseconds { get; private set; } = 0;
         public static float PassPercentage { get; private set; } = 0;
+
+        public static string TypingTimeOut { get; private set; } = "";
         
         public static Timer TypingTimer { get; private set; }
         
@@ -38,18 +42,23 @@ namespace WPFMeteroWindow
 
             TypingSpeedCpm = averageCpm;
             PassPercentage = (inputTextLength +2) / (float)LessonManager.AllLessonText.Length * 100f;
+            TypingTimeOut = $"{minutes:D2}:{seconds:D2}:{milliseconds / 10:D2}";
 
             if (TypingMilliseconds > 300)
+            {
                 AveragePoints.Add(new SpeedPoint(TypingMilliseconds, TypingSpeedCpm));
+                TimePoints.Add(TypingTimeOut);
+            }
+                
 
-            Intermediary.App.TimerTextBlock.Text = $"{minutes:D2}:{seconds:D2}:{milliseconds/100:D1}";
+            Intermediary.App.TimerTextBlock.Text = TypingTimeOut;
             Intermediary.App.WPMTextBlock.Text = $"{averageCpm:N} {Localization.uCPM}";
             Intermediary.App.MistakesTextBloxck.Text = $"{PassPercentage:N}% • {TypingMistakes} {Localization.uMistakes}";
         }
 
         public static void AddWordStatistics(char inputSymbol)
         {
-            if (inputSymbol == ' ')
+            if (inputSymbol == ' ' && TypingMilliseconds > 300)
             {
                 var wordTime = TypingMilliseconds - _wordTimeStart;
                 var wordCpm = (_wordLength + 1) / (float)wordTime * _millisecondsInMinute;
@@ -75,6 +84,7 @@ namespace WPFMeteroWindow
             
             AveragePoints = new List<SpeedPoint>();
             WordPoinds = new List<SpeedPoint>();
+            TimePoints = new List<string>();
 
             PassPercentage = 0;
             TypingMistakes = 0;
