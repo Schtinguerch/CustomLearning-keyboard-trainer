@@ -601,7 +601,12 @@
 
             <Frame x:Name="SettingFrame" NavigationUIVisibility="Hidden"
                    HorizontalContentAlignment="Stretch"
-                   VerticalContentAlignment="Stretch">
+                   VerticalContentAlignment="Stretch"
+                   
+                   UseLayoutRounding="True"
+                   RenderOptions.BitmapScalingMode="NearestNeighbor"
+                   SnapsToDevicePixels="True"
+                   RenderOptions.ClearTypeHint="Enabled">
             </Frame>
         </Grid>
 
