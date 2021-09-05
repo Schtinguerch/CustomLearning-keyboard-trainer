@@ -43,7 +43,7 @@ namespace WPFMeteroWindow
             _fieldWidth = fieldWidth;
             _fieldHeight = fieldHeight;
 
-            if (speedPoints[0].CPM <= 0 || speedPoints[0].CPM >= 1400)
+            if (speedPoints[0].CPM < 0 || speedPoints[0].CPM >= 1400)
             {
                 speedPoints.RemoveAt(0);
                 StatisticsManager.TimePoints.RemoveAt(0);
@@ -147,7 +147,7 @@ namespace WPFMeteroWindow
 
                     for (int i = 0; i < polyline.Points.Count; i++)
                     {
-                        if (Math.Abs(mousePoint.X - polyline.Points[i].X) < 1)
+                        if (Math.Abs(mousePoint.X - polyline.Points[i].X) < 1 && i < StatisticsManager.TimePoints.Count)
                         {
                             var message =  $"{StatisticsManager.TimePoints[i]}: {_speedPoints[i].CPM:N} {Localization.uCPM}";
                             ShowCPM(polyline.Points[i].X, polyline.Points[i].Y, message);
