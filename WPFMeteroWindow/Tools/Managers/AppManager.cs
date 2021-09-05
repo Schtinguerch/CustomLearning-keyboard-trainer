@@ -68,7 +68,7 @@ namespace WPFMeteroWindow
                 {
                     case 0:
                         isNecessaryFileExists = File.Exists(Settings.Default.KeyboardLayoutFile);
-                        Opener.NewKeyboardLayout("DefaultData\\SchtDvorak.lml");
+                        Opener.NewKeyboardLayout("DefaultData\\Dvorak.lml");
                         break;
 
                     case 1:
