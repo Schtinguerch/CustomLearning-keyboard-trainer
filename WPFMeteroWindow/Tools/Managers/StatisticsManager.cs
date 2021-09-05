@@ -9,6 +9,7 @@ namespace WPFMeteroWindow
     public static class StatisticsManager
     {
         private const int _millisecondsInMinute = 60000;
+        private const int _startTimeToCollectStats = 200;
 
         private static Stopwatch _typingStopWatch;
 
@@ -17,7 +18,6 @@ namespace WPFMeteroWindow
 
         public static List<SpeedPoint> AveragePoints { get; private set; } = new List<SpeedPoint>();
         public static List<SpeedPoint> WordPoinds { get; private set; } = new List<SpeedPoint>();
-
         public static List<string> TimePoints { get; private set; } = new List<string>();
 
         public static int TypingMistakes { get; set; } = 0;
@@ -38,13 +38,15 @@ namespace WPFMeteroWindow
             var milliseconds = TypingMilliseconds % 1000;
 
             var inputTextLength = LessonManager.DoneRoad.Length -1;
-            var averageCpm = inputTextLength / (float)TypingMilliseconds * _millisecondsInMinute;      
+            var averageCpm = inputTextLength / (float)TypingMilliseconds * _millisecondsInMinute;
+
+            if (averageCpm < 0) averageCpm = 0;
 
             TypingSpeedCpm = averageCpm;
             PassPercentage = (inputTextLength +2) / (float)LessonManager.AllLessonText.Length * 100f;
             TypingTimeOut = $"{minutes:D2}:{seconds:D2}:{milliseconds / 10:D2}";
 
-            if (TypingMilliseconds > 300)
+            if (TypingMilliseconds > _startTimeToCollectStats)
             {
                 AveragePoints.Add(new SpeedPoint(TypingMilliseconds, TypingSpeedCpm));
                 TimePoints.Add(TypingTimeOut);
@@ -58,7 +60,7 @@ namespace WPFMeteroWindow
 
         public static void AddWordStatistics(char inputSymbol)
         {
-            if (inputSymbol == ' ' && TypingMilliseconds > 300)
+            if (inputSymbol == ' ' && TypingMilliseconds > _startTimeToCollectStats)
             {
                 var wordTime = TypingMilliseconds - _wordTimeStart;
                 var wordCpm = (_wordLength + 1) / (float)wordTime * _millisecondsInMinute;
