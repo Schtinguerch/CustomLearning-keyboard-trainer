@@ -94,8 +94,8 @@ namespace WPFMeteroWindow
         {
             try
             {
-                if (charIndex < 0)
-                    throw new Exception();
+                if (charIndex < 0 || Intermediary.KeyboardData.keys[charIndex][modifierStatus] != LessonManager.LeftRoad[0].ToString())
+                    ShowStandard();
 
                 else
                 {
@@ -123,7 +123,7 @@ namespace WPFMeteroWindow
 
             catch
             {
-                //Doing nothing (because the app doesn't know how to show inexisting key
+                ShowStandard();
             }
             
         }
