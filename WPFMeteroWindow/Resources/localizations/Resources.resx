@@ -151,7 +151,7 @@
     <value>Без модификаторов</value>
   </data>
   <data name="uEnterCourseFolder" xml:space="preserve">
-    <value>Введить путь к папке с курсом</value>
+    <value>Введите путь к папке с курсом</value>
   </data>
   <data name="uEnterFontFamily" xml:space="preserve">
     <value>Введите название шрифта</value>
@@ -345,6 +345,9 @@
   <data name="uSettBrush" xml:space="preserve">
     <value>Сплошной цвет</value>
   </data>
+  <data name="uSettCurrentKeyboardLayout" xml:space="preserve">
+    <value>Текущая раскладка клавиатуры</value>
+  </data>
   <data name="uSettFonts" xml:space="preserve">
     <value>Шрифты</value>
   </data>
@@ -410,6 +413,9 @@
   </data>
   <data name="uSettSecondColor" xml:space="preserve">
     <value>Вторичный цвет (меню)</value>
+  </data>
+  <data name="uSettSecondKbLayoutFile" xml:space="preserve">
+    <value>Файл второй раскладки</value>
   </data>
   <data name="uSettSecondMenuColor" xml:space="preserve">
     <value>Цвет вторичных меню</value>

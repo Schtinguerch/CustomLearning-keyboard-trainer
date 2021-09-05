@@ -345,6 +345,9 @@
   <data name="uSettBrush" xml:space="preserve">
     <value>Color brush</value>
   </data>
+  <data name="uSettCurrentKeyboardLayout" xml:space="preserve">
+    <value>Current keyboard layout</value>
+  </data>
   <data name="uSettFonts" xml:space="preserve">
     <value>Fonts</value>
   </data>
@@ -410,6 +413,9 @@
   </data>
   <data name="uSettSecondColor" xml:space="preserve">
     <value>Second color (menu)</value>
+  </data>
+  <data name="uSettSecondKbLayoutFile" xml:space="preserve">
+    <value>Second keyboard layout file path</value>
   </data>
   <data name="uSettSecondMenuColor" xml:space="preserve">
     <value>Second-menu color</value>
