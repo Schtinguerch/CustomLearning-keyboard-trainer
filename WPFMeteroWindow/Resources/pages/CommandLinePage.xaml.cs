@@ -22,6 +22,7 @@ namespace WPFMeteroWindow.Resources.pages
             new FontSetter(),
             new ColorSetter(),
             new ConfigSetter(),
+            new FlagSetter(),
         };
 
         public CommandLinePage()
