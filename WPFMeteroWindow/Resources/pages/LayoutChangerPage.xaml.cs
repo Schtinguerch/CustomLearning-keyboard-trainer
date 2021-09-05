@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using WPFMeteroWindow.Properties;
 
 namespace WPFMeteroWindow.Resources.pages
 {
@@ -18,7 +19,7 @@ namespace WPFMeteroWindow.Resources.pages
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e) => 
-            Opener.NewKeyboardLayoutViaExplorer();
+            Opener.NewKeyboardLayoutViaExplorer(Settings.Default.CurrentLayout);
 
         private void LayoutChangerPage_OnKeyDown(object sender, KeyEventArgs e)
         {
