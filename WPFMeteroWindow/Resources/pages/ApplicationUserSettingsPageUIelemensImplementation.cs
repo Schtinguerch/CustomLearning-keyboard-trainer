@@ -38,8 +38,17 @@ namespace WPFMeteroWindow.Resources.pages
 
             if (openDialog.ShowDialog() == true)
             {
-                KeyboardLayoutTextBox.Text = openDialog.FileName;
-                Settings.Default.KeyboardLayoutFile = openDialog.FileName;
+                if (sender.Equals(KeyboardLayoutButton))
+                {
+                    KeyboardLayoutTextBox.Text = openDialog.FileName;
+                    Settings.Default.KeyboardLayoutFile = openDialog.FileName;
+                }
+                
+                else if (sender.Equals(SecondKeyboardLayoutButton))
+                {
+                    SecondKeyboardLayoutTextBox.Text = openDialog.FileName;
+                    Settings.Default.SecondKeyboardLayoutFile = openDialog.FileName;
+                }
             }
         }
 
