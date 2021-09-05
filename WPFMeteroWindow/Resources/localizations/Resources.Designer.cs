@@ -160,7 +160,7 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Введить путь к папке с курсом.
+        ///   Ищет локализованную строку, похожую на Введите путь к папке с курсом.
         /// </summary>
         public static string uEnterCourseFolder {
             get {
@@ -745,6 +745,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Текущая раскладка клавиатуры.
+        /// </summary>
+        public static string uSettCurrentKeyboardLayout {
+            get {
+                return ResourceManager.GetString("uSettCurrentKeyboardLayout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Шрифты.
         /// </summary>
         public static string uSettFonts {
@@ -939,6 +948,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uSettSecondColor {
             get {
                 return ResourceManager.GetString("uSettSecondColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Файл второй раскладки.
+        /// </summary>
+        public static string uSettSecondKbLayoutFile {
+            get {
+                return ResourceManager.GetString("uSettSecondKbLayoutFile", resourceCulture);
             }
         }
         
