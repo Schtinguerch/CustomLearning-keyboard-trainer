@@ -266,6 +266,17 @@ namespace WPFMeteroWindow
                     e.Handled = true;
                     StartTypingDemo();
                 }
+
+                else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.W))
+                {
+                    e.Handled = true;
+                    Settings.Default.CurrentLayout = Settings.Default.CurrentLayout == 1 ? 2 : 1;
+
+                    if (Settings.Default.CurrentLayout == 1)
+                        Opener.NewKeyboardLayout(Settings.Default.KeyboardLayoutFile);
+                    else 
+                        Opener.NewKeyboardLayout(Settings.Default.SecondKeyboardLayoutFile);
+                }
             }
 
             if (selectedPage != TabPage.EmptyPage)
