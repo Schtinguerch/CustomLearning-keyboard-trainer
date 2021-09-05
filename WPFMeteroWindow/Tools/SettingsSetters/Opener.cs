@@ -69,7 +69,10 @@ namespace WPFMeteroWindow
         {
             if (File.Exists(fileName))
             {
-                Settings.Default.KeyboardLayoutFile = fileName;
+                if (Settings.Default.CurrentLayout == 1)
+                    Settings.Default.KeyboardLayoutFile = fileName;
+                else
+                    Settings.Default.SecondKeyboardLayoutFile = fileName;
 
                 try
                 {
@@ -91,7 +94,7 @@ namespace WPFMeteroWindow
             }
         }
 
-        public static void NewKeyboardLayoutViaExplorer()
+        public static void NewKeyboardLayoutViaExplorer(int current)
         {
             var openDialog = new OpenFileDialog()
             {
@@ -101,7 +104,7 @@ namespace WPFMeteroWindow
 
             if (openDialog.ShowDialog() == true)
             {
-                Settings.Default.KeyboardLayoutFile = openDialog.FileName;
+                Settings.Default.CurrentLayout = current;
                 NewKeyboardLayout(openDialog.FileName);
             }
         }
