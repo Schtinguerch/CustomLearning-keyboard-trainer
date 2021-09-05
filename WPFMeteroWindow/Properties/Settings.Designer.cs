@@ -541,7 +541,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("JustLessons\\Typing tests\\topWords_EN.txt")]
+        [global::System.Configuration.DefaultSettingValueAttribute("JustLessons\\Typing tests\\topWords_EN.lml")]
         public string TestWordListPath {
             get {
                 return ((string)(this["TestWordListPath"]));
@@ -728,6 +728,30 @@ namespace WPFMeteroWindow.Properties {
             }
             set {
                 this["EnableParallax"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("KeyboardLayouts\\Redactor.lml")]
+        public string SecondKeyboardLayoutFile {
+            get {
+                return ((string)(this["SecondKeyboardLayoutFile"]));
+            }
+            set {
+                this["SecondKeyboardLayoutFile"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int CurrentLayout {
+            get {
+                return ((int)(this["CurrentLayout"]));
+            }
+            set {
+                this["CurrentLayout"] = value;
             }
         }
     }

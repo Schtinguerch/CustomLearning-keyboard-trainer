@@ -132,7 +132,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="TestWordListPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">JustLessons\Typing tests\topWords_EN.txt</Value>
+      <Value Profile="(Default)">JustLessons\Typing tests\topWords_EN.lml</Value>
     </Setting>
     <Setting Name="TestWordCount" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">24</Value>
@@ -178,6 +178,12 @@
     </Setting>
     <Setting Name="EnableParallax" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SecondKeyboardLayoutFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">KeyboardLayouts\Redactor.lml</Value>
+    </Setting>
+    <Setting Name="CurrentLayout" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
     </Setting>
   </Settings>
 </SettingsFile>
