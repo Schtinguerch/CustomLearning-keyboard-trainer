@@ -1,0 +1,103 @@
+﻿<Window x:Class="CustomLearningUpdater.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CustomLearningUpdater"
+        xmlns:res="clr-namespace:CustomLearningUpdater.localizations"
+        mc:Ignorable="d"
+        Title="{x:Static res:Resources.uCustomLearningUpdateManager}" 
+        Height="220" Width="400"
+        ResizeMode="NoResize"
+        WindowStyle="ToolWindow"
+        WindowStartupLocation="CenterScreen"
+        Icon="Icons/LogoLight.png">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Image 
+            x:Name="AppLogoImage"
+            Source="Icons/LogoDark.png"
+            
+            Grid.Row="0"
+            Grid.Column="0">
+        </Image>
+
+        <Grid
+            Grid.Row="0"
+            Grid.Column="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.6*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock 
+                Grid.Row="0"
+                VerticalAlignment="Bottom"
+            
+                Text="CustomLearning"
+                FontSize="32" 
+                FontFamily="Bahnschrift" 
+                FontWeight="Bold">
+            </TextBlock>
+
+            <TextBlock 
+                x:Name="UpdatingToVersionTextBox"
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                
+                Margin="2 0 0 0"
+            
+                Text="{x:Static res:Resources.uUpdateManager}"
+                FontSize="16" 
+                FontFamily="Bahnschrift" 
+                FontWeight="Bold">
+            </TextBlock>
+        </Grid>
+
+        <TextBlock
+            x:Name="UpdatingStatusTextBox"
+            Grid.Column="1"
+            Grid.Row="1"
+            VerticalAlignment="Top"
+                
+            Margin="2 0 0 0"
+            
+            Text="Downloading: 1 of 10, 23/456 kb"
+            FontSize="16" 
+            FontFamily="Bahnschrift" 
+            FontWeight="Bold">
+        </TextBlock>
+
+        <Button
+            x:Name="StartUpdatingButton"
+            Grid.Column="1"
+            Grid.Row="1"
+            Margin="0 00 20 40"
+            
+            Background="WhiteSmoke"
+            BorderBrush="LightGray" Click="StartUpdatingButton_Click">
+
+            <Button.Content>
+                <TextBlock
+                    FontSize="16" 
+                    FontFamily="Bahnschrift" 
+                    FontWeight="Bold"
+                    
+                    Text="{x:Static res:Resources.uStartUpdate}"
+                    Foreground="#484848">
+                </TextBlock>
+            </Button.Content>
+        </Button>
+    </Grid>
+</Window>
