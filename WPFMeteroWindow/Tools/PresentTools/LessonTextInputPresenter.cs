@@ -9,7 +9,6 @@ namespace WPFMeteroWindow
     {
         Classic,
         SingleLineWithStaticCaret,
-        SingleWord,
     }
 
     public class LessonTextInputPresenter
@@ -24,7 +23,6 @@ namespace WPFMeteroWindow
         {
             { TextInputControl.Classic, "Classic" },
             { TextInputControl.SingleLineWithStaticCaret, "SingleLineWithStaticCaret" },
-            { TextInputControl.SingleWord, "SingleWord" },
         };
 
         public ITextInputControl TextInputWay
