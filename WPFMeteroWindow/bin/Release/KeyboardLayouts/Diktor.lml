@@ -1,25 +1,25 @@
 <<Layout:
     <k0 { ё Ё ;nth; ;nth; }>>
-    <k1 { 1 № ;nth; ;nth; }>>
-    <k2 { 2 : ;nth; ;nth; }>>
-    <k3 { 3 ; ;nth; ;nth; }>>
-    <k4 { 4 а́ ;nth; ;nth; }>>
-    <k5 { 5 ₽ ;nth; ;nth; }>>
+    <k1 { 1 Ъ ;nth; ;nth; }>>
+    <k2 { 2 Ь ;nth; ;nth; }>>
+    <k3 { 3 № ;nth; ;nth; }>>
+    <k4 { 4 % ;nth; ;nth; }>>
+    <k5 { 5 : ;nth; ;nth; }>>
     <k6 { 6 ; ;nth; ;nth; }>>
-    <k7 { 7 ё ;nth; ;nth; }>>
-    <k8 { 8 ? ;nth; ;nth; }>>
-    <k9 { 9 ! ;nth; ;nth; }>>
-    <k10 { 0 % ;nth; ;nth; }>>
-    <k11 { Ъ Ь ;nth; ;nth; }>>
-    <k12 { = _ ;nth; ;nth; }>>
+    <k7 { 7 - ;nth; ;nth; }>>
+    <k8 { 8 ;qt; ;nth; ;nth; }>>
+    <k9 { 9 ( ;nth; ;nth; }>>
+    <k10 { 0 ) ;nth; ;nth; }>>
+    <k11 { * _ ;nth; ;nth; }>>
+    <k12 { = + ;nth; ;nth; }>>
     <k13 { back ;nth; ;nth; ;nth; }>>
 
     <k14 { tab ;nth; ;nth; ;nth; }>>
     <k15 { ц Ц ;nth; ;nth; }>>
     <k16 { ь ъ < ;nth; }>>
     <k17 { я Я > ;nth; }>>
-    <k18 { , - ;nth; ;nth; }>>
-    <k19 { . ;qt; ¢ ;nth; }>>
+    <k18 { , ? ;nth; ;nth; }>>
+    <k19 { . ! ¢ ;nth; }>>
     <k20 { з З ;nth; ;nth; }>>
     <k21 { в В ;nth; ;nth; }>>
     <k22 { к К ^ ;nth; }>>
@@ -42,7 +42,6 @@
     <k38 { р Р / ;nth; }>>
     <k39 { й Й & ;nth; }>>
     <k40 { enter ;nth; ;nth; ;nth; }>>
-
     <k41 { shift ;nth; ;nth; ;nth; }>>
     <k42 { ф Ф ;nth; ;nth; }>>
     <k43 { э Э [ ;nth; }>>
@@ -53,6 +52,7 @@
     <k48 { м М ;nth; ;nth; }>>
     <k49 { п П _ ;nth; }>>
     <k50 { г Г ~ ;nth; }>>
+
     <k51 { ж Ж ;nth; ;nth; }>>
     <k52 { shift ;nth; ;nth; ;nth; }>>
 
@@ -62,6 +62,6 @@
     <k56 { ;space; ;nth; ;nth; ;nth; }>>
     <k57 { altGr ;nth; ;nth; ;nth; }>>
     <k58 { win ;nth; ;nth; ;nth; }>>
-    <k59 { menu ;nth; ;nth; ;nth;}>>
+    <k59 { menu ;nth; ;nth; ;nth; }>>
     <k60 { ctrl ;nth; ;nth; ;nth; }>>
 :Layout>>

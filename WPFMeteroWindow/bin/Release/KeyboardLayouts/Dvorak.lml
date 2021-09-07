@@ -29,7 +29,7 @@
     <k26 { = + ;nth; ;nth; }>>
     <k27 { \ | ;nth; ;nth; }>>
 
-    <k28 { caps ;nth; ;nth; ;nth; }>>
+    <k28 { back ;nth; ;nth; ;nth; }>>
     <k29 { a A ;nth; ;nth; }>>
     <k30 { o O ;nth; ;nth; }>>
     <k31 { e E ;nth; ;nth; }>>
@@ -42,7 +42,6 @@
     <k38 { s S ;nth; ;nth; }>>
     <k39 { - _ ;nth; ;nth; }>>
     <k40 { enter ;nth; ;nth; ;nth; }>>
-
     <k41 { shift ;nth; ;nth; ;nth; }>>
     <k42 { ; : ;nth; ;nth; }>>
     <k43 { q Q ;nth; ;nth; }>>
@@ -53,6 +52,7 @@
     <k48 { m M ;nth; ;nth; }>>
     <k49 { w W ;nth; ;nth; }>>
     <k50 { v V ;nth; ;nth; }>>
+
     <k51 { z Z ;nth; ;nth; }>>
     <k52 { shift ;nth; ;nth; ;nth; }>>
 
@@ -62,6 +62,6 @@
     <k56 { ;space; ;nth; ;nth; ;nth; }>>
     <k57 { altGr ;nth; ;nth; ;nth; }>>
     <k58 { win ;nth; ;nth; ;nth; }>>
-    <k59 { menu ;nth; ;nth; ;nth;}>>
+    <k59 { menu ;nth; ;nth; ;nth; }>>
     <k60 { ctrl ;nth; ;nth; ;nth; }>>
 :Layout>>
