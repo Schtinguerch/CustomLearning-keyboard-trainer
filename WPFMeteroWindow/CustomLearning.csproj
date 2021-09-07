@@ -145,9 +145,6 @@
     <Compile Include="Controls\TextInputControls\SingleLineWithStaticCaret\SingleLineWithStaticCaret.xaml.cs">
       <DependentUpon>SingleLineWithStaticCaret.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TextInputControls\SingleWord\SingleWord.xaml.cs">
-      <DependentUpon>SingleWord.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Resources\dictionaries\TapperingCircle.xaml.cs">
       <DependentUpon>TapperingCircle.xaml</DependentUpon>
     </Compile>
@@ -391,10 +388,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\TextInputControls\SingleLineWithStaticCaret\SingleLineWithStaticCaret.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\TextInputControls\SingleWord\SingleWord.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
