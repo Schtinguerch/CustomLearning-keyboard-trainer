@@ -58,7 +58,7 @@ namespace CustomLearningUpdater
                 var fileName = parcer.GetString($"Manifest>Files>File{i}");
                 var fileUrl = parcer.GetString($"Manifest>File>Url{i}");
 
-                fileList.Add(fileName, $"{_baseUrl}/{fileUrl}");
+                fileList.Add($"{_baseFolder}\\{fileName}", $"{_baseUrl}/{fileUrl}");
             }
 
             foreach (var file in fileList)
