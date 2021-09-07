@@ -30,38 +30,32 @@ namespace WPFMeteroWindow.Controls.TextInputControls.Classic
 
         public string DoneText
         {
-            get => InputTextBox.Text;
+            get => InputRun.Text;
             set 
             {
-                InputTextBox.Text = value;
+                var availableLength = TypeCount % 200;
+                InputRun.Text = value.Substring(value.Length - availableLength, availableLength);
+
                 TypeCount++;
-
-                if (TypeCount == 200)
-                {
-                    AllLessonTextBox.Text = AllLessonTextBox.Text.Remove(0, TypeCount);
-                    InputTextBox.Text = "";
-
-                    TypeCount = 0;
-                }
             } 
         }
 
         public string LeftText
         {
-            get;
-            set;
+            get => LeftRun.Text;
+            set => LeftRun.Text = value;
         }
 
         public string AllText
         {
-            get => AllLessonTextBox.Text;
-            set => AllLessonTextBox.Text = value;
+            get;
+            set;
         }
 
         public string ErrorText
         {
-            get;
-            set;
+            get => MistakenRun.Text;
+            set => MistakenRun.Text = value;
         }
 
         public void LoadText(string text)

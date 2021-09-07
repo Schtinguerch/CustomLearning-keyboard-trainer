@@ -6,26 +6,36 @@
       xmlns:local="clr-namespace:WPFMeteroWindow.Controls.TextInputControls.Classic"
       xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="900"
-      Title="Classic"
-      VerticalAlignment="Center">
+      d:DesignHeight="260" d:DesignWidth="900"
+      Title="Classic">
 
-    <Grid Width="1000">
-        <TextBox
-            x:Name="AllLessonTextBox"
-            Style="{StaticResource ClassicInputTextStyle}"
-            Foreground="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}"
-            IsReadOnly="True">
-        </TextBox>
+    <Grid Width="900" VerticalAlignment="Bottom" RenderTransformOrigin="0, 0.5">
 
-        <TextBox
-            x:Name="InputTextBox"
-            Style="{StaticResource ClassicInputTextStyle}"
-            Foreground="{Binding RaidedFontColor, Source={x:Static prop:Settings.Default}}"
-            IsReadOnlyCaretVisible="True"
-            FocusManager.IsFocusScope="True"
-            CaretBrush="Green"
-            IsReadOnly="True">
-        </TextBox>
+        <Grid.RenderTransform>
+            <ScaleTransform ScaleX="0.8" ScaleY="0.8" CenterX="450"></ScaleTransform>
+        </Grid.RenderTransform>
+        
+        <TextBlock 
+            x:Name="MainTextBlock"
+            Style="{StaticResource MainTextStyle}"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap">
+            <Run
+                x:Name="InputRun"
+                Foreground="{Binding RaidedFontColor, Source={x:Static prop:Settings.Default}}">
+            </Run><Run
+                x:Name="MistakenRun"
+                Foreground="{Binding KeyboardErrorHighlightColor, Source={x:Static prop:Settings.Default}}">
+            </Run><Run
+                FontFamily="Segoe UI"
+                x:Name="CaretRun"
+                Foreground="{Binding KeyboardHighlightColor, Source={x:Static prop:Settings.Default}}"
+                FontWeight="Regular"
+                Text="|">
+            </Run><Run
+                x:Name="LeftRun"
+                Foreground="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}">
+            </Run>
+        </TextBlock>
     </Grid>
 </Page>

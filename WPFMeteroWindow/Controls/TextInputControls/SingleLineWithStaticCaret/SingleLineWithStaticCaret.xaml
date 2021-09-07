@@ -10,7 +10,7 @@
       d:DesignHeight="183" d:DesignWidth="800"
       Title="SingleLineWithStaticCaret">
 
-    <Grid>
+    <Grid Margin="0 10 0 -10">
         <StackPanel
             Orientation="Vertical"
             VerticalAlignment="Bottom"
@@ -88,7 +88,7 @@
 
 
 
-                <Rectangle Grid.Column="1" HorizontalAlignment="Right" Width="1" Height="36" Fill="#909090"></Rectangle>
+                <Rectangle Grid.Column="1" HorizontalAlignment="Right" Width="1" Height="36" Fill="{Binding KeyboardHighlightColor, Source={x:Static prop:Settings.Default}}"></Rectangle>
 
                 <Grid Grid.Column="2">
                     <Grid.OpacityMask>
