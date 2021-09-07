@@ -184,6 +184,7 @@ namespace WPFMeteroWindow.Resources.pages
 
         private void WindowColorType_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (_loadImage)
             switch (WindowColorType.SelectedIndex)
             {
                 case 0:

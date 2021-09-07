@@ -41,16 +41,16 @@
             <DoubleAnimation
                 From="0"
                 To="1"
-                Duration="0:0:1"
+                Duration="0:0:0.25"
                 AutoReverse="True"
-                DecelerationRatio="0.8">
+                AccelerationRatio="0.8">
             </DoubleAnimation>
         </Storyboard>
     </Page.Resources>
 
     <Grid
         x:Name="BackGrid"
-        Width="800" 
+        Width="800"
         Height="500"
         Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
         

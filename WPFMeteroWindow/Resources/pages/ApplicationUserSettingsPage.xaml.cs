@@ -21,6 +21,7 @@ namespace WPFMeteroWindow.Resources.pages
     public partial class ApplicationUserSettingsPage : Page
     {
         private UIElement _chosenTextBox;
+        private bool _loadImage;
 
         private List<object> _foundControls;
         private int _chosenItemIndex = 0;
@@ -126,6 +127,7 @@ namespace WPFMeteroWindow.Resources.pages
             InitializeComponent();
             WindowColors.Focus();
 
+            _loadImage = false;
             _showHighlightStoryboard = FindResource("HighlightSearchResultStoryboard") as Storyboard;
 
             WindowColors.Items.Clear();
