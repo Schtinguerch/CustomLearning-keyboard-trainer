@@ -12,6 +12,10 @@ namespace WPFMeteroWindow
 {
     public static class LessonManager
     {
+        private static string _doneRoad;
+        private static string _leftRoad;
+        private static string _errorInput;
+
         public static LessonTextInputPresenter TextInputPresenter { get; set; }
 
         public static string AllLessonText { get; private set; }
@@ -33,22 +37,32 @@ namespace WPFMeteroWindow
 
         public static string DoneRoad
         {
-            get => TextInputPresenter.DoneText;
-            set => TextInputPresenter.DoneText = value;
+            get => _doneRoad;
+            set 
+            { 
+                TextInputPresenter.DoneText = value;
+                _doneRoad = value;
+            }
         }
-        
-        public static int StoppedDoneRoad { get; set; }
         
         public static string LeftRoad
         {
-            get => TextInputPresenter.LeftText;
-            set => TextInputPresenter.LeftText = value;
+            get => _leftRoad;
+            set
+            { 
+                TextInputPresenter.LeftText = value;
+                _leftRoad = value;
+            }
         }
 
         public static string ErrorInput
         {
-            get => TextInputPresenter.ErrorText;
-            set => TextInputPresenter.ErrorText = value;
+            get => _errorInput;
+            set 
+            { 
+                TextInputPresenter.ErrorText = value; 
+                _errorInput = value;
+            }
         }
 
         public static bool RandomizeText { get; set; } = false;
@@ -80,8 +94,8 @@ namespace WPFMeteroWindow
 
             lessonText = lessonText.Randomized();
             lessonText = lessonText.WithDeletedExceptions();
-            AllLessonText = lessonText;
-            TextInputPresenter.LoadText(lessonText);
+           
+            LoadLessonText(lessonText);
 
             Intermediary.App.lessonHeaderTextBlock.Text = lessonName;
             
@@ -109,8 +123,7 @@ namespace WPFMeteroWindow
             StatisticsManager.ReloadStats();
             var text = lessonText.WithDeletedExceptions();
 
-            AllLessonText = text;
-            TextInputPresenter.LoadText(text);
+            LoadLessonText(text);
             Intermediary.App.lessonHeaderTextBlock.Text = Localization.uTypingTest;
 
             Intermediary.App.NextLessonButton.Visibility = Visibility.Hidden;
@@ -127,6 +140,16 @@ namespace WPFMeteroWindow
             Settings.Default.Save();
 
             Intermediary.App.bufferTextBox.Focus();
+        }
+
+        private static void LoadLessonText(string text)
+        {
+            AllLessonText = text;
+            TextInputPresenter.LoadText(text);
+
+            LeftRoad = text;
+            DoneRoad = "";
+            ErrorInput = "";
         }
         
         public static void EndLesson()
