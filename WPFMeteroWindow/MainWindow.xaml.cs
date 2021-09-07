@@ -81,6 +81,7 @@ namespace WPFMeteroWindow
         public MainWindow()
         {
             InitializeComponent();
+            
 
             KeyboardManager.Board = keyboardGrid;
             KeyboardManager.KeyboardPresenter = new KeyboardPresenter();
@@ -147,7 +148,9 @@ namespace WPFMeteroWindow
                         var lastCharacter = bufferTextBox.Text[bufferTextBox.Text.Length - 1];
                         TypingProgressIndicator.Width = ActualWidth * StatisticsManager.PassPercentage / 100d;
 
-                        if (lastCharacter == LessonManager.LeftRoad[0])
+                        var charactersEquals = lastCharacter == LessonManager.LeftRoad[0];
+
+                        if (charactersEquals)
                         {
                             _isFirstMistake = true;
                             StatisticsManager.AddWordStatistics(lastCharacter);
