@@ -55,8 +55,8 @@ namespace CustomLearningUpdater
 
             for (int i = 0; i < fileCount; i++)
             {
-                var fileName = parcer.GetString("Manifest>Files>File");
-                var fileUrl = parcer.GetString("Manifest>File>Url");
+                var fileName = parcer.GetString($"Manifest>Files>File{i}");
+                var fileUrl = parcer.GetString($"Manifest>File>Url{i}");
 
                 fileList.Add(fileName, $"{_baseUrl}/{fileUrl}");
             }
