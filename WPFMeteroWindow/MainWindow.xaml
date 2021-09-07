@@ -385,6 +385,11 @@
             x:Name="TextInputFrame"
             NavigationUIVisibility="Hidden"
             
+            Margin="0 0 0 10"
+           
+            VerticalContentAlignment="Bottom"
+            VerticalAlignment="Bottom"
+            
             MouseDown="TextInputFrame_MouseDown"
             MouseEnter="TextInputFrame_MouseEnter">
         </Frame>
@@ -593,20 +598,25 @@
         <Grid 
             Grid.Row="0" Grid.Column="0"
             Grid.RowSpan="5" Grid.ColumnSpan="3"
-            Visibility="Hidden" x:Name="aoeiGrid">
+            Visibility="Hidden" x:Name="aoeiGrid"
+            SnapsToDevicePixels="True">
 
             <Grid.Background>
                 <SolidColorBrush Color="Black" Opacity="0.5"></SolidColorBrush>
             </Grid.Background>
 
-            <Frame x:Name="SettingFrame" NavigationUIVisibility="Hidden"
-                   HorizontalContentAlignment="Stretch"
-                   VerticalContentAlignment="Stretch"
+            <Frame 
+                x:Name="SettingFrame" NavigationUIVisibility="Hidden"
+                
+                 HorizontalContentAlignment="Center"
+                 VerticalContentAlignment="Center"
+                
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
                    
-                   UseLayoutRounding="True"
-                   RenderOptions.BitmapScalingMode="NearestNeighbor"
-                   SnapsToDevicePixels="True"
-                   RenderOptions.ClearTypeHint="Enabled">
+                 UseLayoutRounding="True"
+                 RenderOptions.BitmapScalingMode="NearestNeighbor"
+                 RenderOptions.ClearTypeHint="Enabled">
             </Frame>
         </Grid>
 
