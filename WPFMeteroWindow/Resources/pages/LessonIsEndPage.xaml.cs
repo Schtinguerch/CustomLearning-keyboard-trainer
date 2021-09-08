@@ -70,7 +70,7 @@ namespace WPFMeteroWindow.Resources.pages
             var mistakes = StatisticsManager.TypingMistakes;
             var raidLessonStatus = false;
 
-            if ((reqCPM != -1) && (reqMistakes != -1) && !Settings.Default.ItTypingTest)
+            if ((reqCPM != -1) && (reqMistakes != -1) && !Settings.Default.ItTypingTest && Settings.Default.RequireWPM)
             {
                 statusText += (typingSpeed > reqCPM) ? $"{typingSpeed} > {reqCPM}; " :
                     (typingSpeed == reqCPM) ? $"{typingSpeed} = {reqCPM}!!!; " :
