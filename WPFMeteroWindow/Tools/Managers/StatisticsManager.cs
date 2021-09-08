@@ -19,6 +19,7 @@ namespace WPFMeteroWindow
         public static List<SpeedPoint> AveragePoints { get; private set; } = new List<SpeedPoint>();
         public static List<SpeedPoint> WordPoinds { get; private set; } = new List<SpeedPoint>();
         public static List<string> TimePoints { get; private set; } = new List<string>();
+        public static List<int> MistakePoints { get; private set; } = new List<int>();
 
         public static int TypingMistakes { get; set; } = 0;
         public static float TypingSpeedCpm { get; private set; } = 0;
@@ -73,6 +74,9 @@ namespace WPFMeteroWindow
             else
                 _wordLength++;
         }
+
+        public static void AddMistakeStatistics() =>
+            MistakePoints.Add(TypingMilliseconds);
         
         public static void ReloadTimer()
         {
@@ -87,6 +91,7 @@ namespace WPFMeteroWindow
             AveragePoints = new List<SpeedPoint>();
             WordPoinds = new List<SpeedPoint>();
             TimePoints = new List<string>();
+            MistakePoints = new List<int>();
 
             PassPercentage = 0;
             TypingMistakes = 0;
