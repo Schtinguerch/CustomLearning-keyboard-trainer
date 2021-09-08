@@ -21,7 +21,11 @@ namespace WPFMeteroWindow
 
         private Line _cpmLine;
 
+        private Line _cpmLine2;
+
         private Ellipse _cpmEllipse;
+
+        private Ellipse _mistakeEllipse;
 
         private double _fieldWidth;
 
@@ -66,34 +70,60 @@ namespace WPFMeteroWindow
             {
                 FontSize = 14d,
                 FontFamily = new FontFamily(Settings.Default.SummaryFont),
-                Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(Settings.Default.SecondBackground)),
-                Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString(Settings.Default.SummaryFontColor)),
+
+                Background = new SolidColorBrush(
+                    (Color)ColorConverter.ConvertFromString(
+                        Settings.Default.SecondBackground)
+                ),
+                Foreground = new SolidColorBrush(
+                    (Color)ColorConverter.ConvertFromString(
+                        Settings.Default.SummaryFontColor)
+                ),
+
                 Padding = new Thickness(12d, 6d, 12d, 4d)
             };
 
             _cpmLine = new Line()
             {
-                Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString(Settings.Default.SecondBackground)),
+                Stroke = new SolidColorBrush(
+                    (Color)ColorConverter.ConvertFromString(
+                        Settings.Default.SecondBackground)
+                ),
                 StrokeThickness = 2d,
 
-                Y1 = -50d,
-                Y2 = 170d,
+                Y1 = -10000d,
+                Y2 = -10000d,
 
-                Opacity = 0.5d,
+                Opacity = 0.7d,
             };
+
+            _cpmLine2 = _cpmLine.GetCopy();
 
             _cpmEllipse = new Ellipse()
             {
-                Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString(Settings.Default.KeyboardHighlightColor)),
+                Fill = new SolidColorBrush(
+                    (Color)ColorConverter.ConvertFromString(
+                        Settings.Default.KeyboardHighlightColor)
+                ),
                 StrokeThickness = 0d,
 
                 Width = 10d,
                 Height = 10d,
             };
 
+            _mistakeEllipse = _cpmEllipse.GetCopy();
+            _mistakeEllipse.Fill = new SolidColorBrush(
+                (Color)ColorConverter.ConvertFromString(
+                    Settings.Default.KeyboardErrorHighlightColor)
+            );
+            _mistakeEllipse.Width = _mistakeEllipse.Height = 6d;
+
             _canvas.Children.Add(_cpmLine);
+            _canvas.Children.Add(_cpmLine2);
             _canvas.Children.Add(_cpmTextBlock);
             _canvas.Children.Add(_cpmEllipse);
+
+            System.Windows.Controls.Panel.SetZIndex(_cpmLine2, -1);
 
             Canvas.SetTop(_cpmTextBlock, 150d);
         }
@@ -121,14 +151,22 @@ namespace WPFMeteroWindow
             Canvas.SetLeft(_cpmTextBlock, X + 20);
             _cpmTextBlock.Text = text;
 
-            _cpmLine.X1 = X + 20;
-            _cpmLine.X2 = X + 20;
+            _cpmLine.X1 = _cpmLine.X2 = X + 20;
+            _cpmLine2.Y1 = _cpmLine2.Y2 = Y;
+
+            _cpmLine.Y1 = -50d;
+            _cpmLine.Y2 = 170d;
+
+            _cpmLine2.X1 = 10d;
+            _cpmLine2.X2 = 400d;
 
             Canvas.SetLeft(_cpmEllipse, X + 20 - _cpmEllipse.Width / 2d);
             Canvas.SetTop(_cpmEllipse, Y - _cpmEllipse.Height / 2d);
         }
         public void DrawSpeedGraph(Polyline polyline, bool showCpmByMouse = false)
         {
+            var currentIndex = 0;
+
             polyline.Points = new PointCollection();
             foreach (var speedPoint in _speedPoints)
             {
@@ -137,10 +175,25 @@ namespace WPFMeteroWindow
                     point.Y = _fieldHeight;
                 
                 polyline.Points.Add(point);
+
+                if (currentIndex < StatisticsManager.MistakePoints.Count)
+                if ((speedPoint.PartPoint == StatisticsManager.MistakePoints[currentIndex]) && (showCpmByMouse))
+                {
+                    var newMistakeEllipse = _mistakeEllipse.GetCopy();
+                    Canvas.SetTop(newMistakeEllipse, point.Y -3d);
+                    Canvas.SetLeft(newMistakeEllipse, point.X - 3d + 20d);
+
+                    _canvas.Children.Add(newMistakeEllipse);
+                    currentIndex++;
+                }
             }
 
             if (showCpmByMouse)
             {
+                var centerIndex = polyline.Points.Count / 2;
+                var startMessage = $"{StatisticsManager.TimePoints[centerIndex]}: {_speedPoints[centerIndex].CPM:N} {Localization.uCPM}";
+                ShowCPM(polyline.Points[centerIndex].X, polyline.Points[centerIndex].Y, startMessage);
+
                 _canvas.PreviewMouseMove += (s, e) =>
                 {
                     var mousePoint = e.GetPosition(_canvas);
