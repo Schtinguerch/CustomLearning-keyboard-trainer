@@ -138,4 +138,7 @@
   <data name="uUpdateManager" xml:space="preserve">
     <value>Мененджер обновлений</value>
   </data>
+  <data name="uUpdateTo" xml:space="preserve">
+    <value>Обновление до</value>
+  </data>
 </root>

@@ -122,5 +122,14 @@ namespace CustomLearningUpdater.localizations {
                 return ResourceManager.GetString("uUpdateManager", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Обновление до.
+        /// </summary>
+        public static string uUpdateTo {
+            get {
+                return ResourceManager.GetString("uUpdateTo", resourceCulture);
+            }
+        }
     }
 }
