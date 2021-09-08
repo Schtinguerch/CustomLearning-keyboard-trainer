@@ -1,13 +1,11 @@
 <<Manifest:
     <CurrentVersion 0.9.0.1>>
+    <PreviousVersion 0.9.0.0>>
 
     <<Files:
         <Count 2>>
 
         <File0 DiscordRPC.xml>>
-        <Url0 DiscordRPC.xml>>
-
         <File1 CustomLearningPortable.zip>>
-        <Url1 CustomLearningPortable.zip>>
     :Files>>
 :Manifest>>
