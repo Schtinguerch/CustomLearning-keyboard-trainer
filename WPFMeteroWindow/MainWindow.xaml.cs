@@ -177,6 +177,8 @@ namespace WPFMeteroWindow
                             if (_isFirstMistake)
                             {
                                 StatisticsManager.TypingMistakes++;
+                                StatisticsManager.AddMistakeStatistics();
+
                                 SoundManager.PlayTypingMistake();
                                 _isFirstMistake = false;
                             }
@@ -279,6 +281,12 @@ namespace WPFMeteroWindow
                         Opener.NewKeyboardLayout(Settings.Default.KeyboardLayoutFile);
                     else 
                         Opener.NewKeyboardLayout(Settings.Default.SecondKeyboardLayoutFile);
+                }
+
+                else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.U))
+                {
+                    e.Handled = true;
+                    System.Diagnostics.Process.Start("CustomLearningUpdater.exe");
                 }
             }
 
