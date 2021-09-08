@@ -1,0 +1,12 @@
+<<Manifest:
+    <CurrentVersion 0.9.0.0>>
+    <PreviousVersion NO>>
+    
+    <<Files:
+        <Count 3>>
+        
+        <File0 MahApps.Metro.dll>>
+        <File1 Xceed.Wpf.Toolkit.dll>>
+        <File2 ScriptMaker.dll>>
+    :Files>>
+:Manifest>>
