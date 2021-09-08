@@ -1,5 +1,6 @@
 <<Manifest:
     <CurrentVersion 0.9.0.1>>
+    <PreviousVersion 0.9.0.0>>
 
     <<Files:
         <Count 2>>
