@@ -164,6 +164,8 @@ namespace WPFMeteroWindow.Resources.pages
             WindowColorType.Text = Settings.Default.IsBackgroundImage ? Localization.uSettImage : Localization.uSettBrush;
 
             WindowTheme.Text = Settings.Default.ThemeResourceDictionary.ToLower().Contains("light") ? Localization.uLight : Localization.uDark;
+
+            _loadImage = true;
         }
 
         private void SetupColorPicker_OnSelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
