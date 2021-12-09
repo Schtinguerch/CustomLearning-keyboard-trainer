@@ -120,6 +120,9 @@
   <data name="uAltGrPressed" xml:space="preserve">
     <value>AltGr pressed</value>
   </data>
+  <data name="uAppAppearance" xml:space="preserve">
+    <value>App appearance</value>
+  </data>
   <data name="uAuthor" xml:space="preserve">
     <value>Author</value>
   </data>
@@ -149,6 +152,12 @@
   </data>
   <data name="uDefault" xml:space="preserve">
     <value>Default key</value>
+  </data>
+  <data name="uDeleteAll" xml:space="preserve">
+    <value>Delete all</value>
+  </data>
+  <data name="uEmptyList" xml:space="preserve">
+    <value>Список пуст</value>
   </data>
   <data name="uEnterCourseFolder" xml:space="preserve">
     <value>Enter the path of the course folder</value>
@@ -198,6 +207,12 @@
   <data name="uIndex" xml:space="preserve">
     <value>index on </value>
   </data>
+  <data name="uInsertCourseOrLesson" xml:space="preserve">
+    <value>Load the course or the lesson</value>
+  </data>
+  <data name="uInsertKeyboardLayout" xml:space="preserve">
+    <value>Load the keyboard layout</value>
+  </data>
   <data name="uIsFinished" xml:space="preserve">
     <value>is finished</value>
   </data>
@@ -213,6 +228,9 @@
   <data name="uLesson" xml:space="preserve">
     <value>Lesson</value>
   </data>
+  <data name="uLessonCount" xml:space="preserve">
+    <value>Lessons count</value>
+  </data>
   <data name="uLessonEditor" xml:space="preserve">
     <value>Lesson editor</value>
   </data>
@@ -221,6 +239,15 @@
   </data>
   <data name="uLight" xml:space="preserve">
     <value>Light</value>
+  </data>
+  <data name="uLoadNewLayouts" xml:space="preserve">
+    <value>Load new keyboard layouts</value>
+  </data>
+  <data name="uLoadNewStyles" xml:space="preserve">
+    <value>Load new style files</value>
+  </data>
+  <data name="uLoadUserAppStyle" xml:space="preserve">
+    <value>Load user trainer style</value>
   </data>
   <data name="uLoadWords" xml:space="preserve">
     <value>Load words</value>
@@ -303,6 +330,12 @@
   <data name="uNewKbLayout" xml:space="preserve">
     <value>New keyboard layout</value>
   </data>
+  <data name="uNewLayout" xml:space="preserve">
+    <value>New layout</value>
+  </data>
+  <data name="uNewStyle" xml:space="preserve">
+    <value>New style</value>
+  </data>
   <data name="uNo" xml:space="preserve">
     <value>No</value>
   </data>
@@ -323,6 +356,18 @@
   </data>
   <data name="uPinky" xml:space="preserve">
     <value>pinky on </value>
+  </data>
+  <data name="uRecentConfigs" xml:space="preserve">
+    <value>Recent loaded app styles</value>
+  </data>
+  <data name="uRecentCourses" xml:space="preserve">
+    <value>Recent sourses</value>
+  </data>
+  <data name="uRecentLayouts" xml:space="preserve">
+    <value>Recent opened layouts</value>
+  </data>
+  <data name="uRecents" xml:space="preserve">
+    <value>Recent</value>
   </data>
   <data name="uRepeatsCount" xml:space="preserve">
     <value>Count of repeats</value>
@@ -485,6 +530,9 @@
   </data>
   <data name="uUnloadWords" xml:space="preserve">
     <value>Unload to the course</value>
+  </data>
+  <data name="uUserLessons" xml:space="preserve">
+    <value>User lessons</value>
   </data>
   <data name="uWordCountInLesson" xml:space="preserve">
     <value>Word count in a lesson</value>

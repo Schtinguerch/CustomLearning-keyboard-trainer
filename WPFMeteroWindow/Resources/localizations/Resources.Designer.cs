@@ -70,6 +70,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Внешний вид.
+        /// </summary>
+        public static string uAppAppearance {
+            get {
+                return ResourceManager.GetString("uAppAppearance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Автор.
         /// </summary>
         public static string uAuthor {
@@ -156,6 +165,24 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uDefault {
             get {
                 return ResourceManager.GetString("uDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Удалить всё.
+        /// </summary>
+        public static string uDeleteAll {
+            get {
+                return ResourceManager.GetString("uDeleteAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Список пуст.
+        /// </summary>
+        public static string uEmptyList {
+            get {
+                return ResourceManager.GetString("uEmptyList", resourceCulture);
             }
         }
         
@@ -304,6 +331,24 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Загрузить курс или урок.
+        /// </summary>
+        public static string uInsertCourseOrLesson {
+            get {
+                return ResourceManager.GetString("uInsertCourseOrLesson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Загрузить раскладку клавиатуры.
+        /// </summary>
+        public static string uInsertKeyboardLayout {
+            get {
+                return ResourceManager.GetString("uInsertKeyboardLayout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Завершён.
         /// </summary>
         public static string uIsFinished {
@@ -349,6 +394,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Кол-во уроков.
+        /// </summary>
+        public static string uLessonCount {
+            get {
+                return ResourceManager.GetString("uLessonCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Редактор уроков.
         /// </summary>
         public static string uLessonEditor {
@@ -372,6 +426,33 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uLight {
             get {
                 return ResourceManager.GetString("uLight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Загрузить новые раскладки.
+        /// </summary>
+        public static string uLoadNewLayouts {
+            get {
+                return ResourceManager.GetString("uLoadNewLayouts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Загрузить новые стили.
+        /// </summary>
+        public static string uLoadNewStyles {
+            get {
+                return ResourceManager.GetString("uLoadNewStyles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Загрузить пользовательский стиль тренажёра.
+        /// </summary>
+        public static string uLoadUserAppStyle {
+            get {
+                return ResourceManager.GetString("uLoadUserAppStyle", resourceCulture);
             }
         }
         
@@ -619,6 +700,24 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Новая раскладка.
+        /// </summary>
+        public static string uNewLayout {
+            get {
+                return ResourceManager.GetString("uNewLayout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Новый стиль.
+        /// </summary>
+        public static string uNewStyle {
+            get {
+                return ResourceManager.GetString("uNewStyle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Нет.
         /// </summary>
         public static string uNo {
@@ -678,6 +777,42 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uPinky {
             get {
                 return ResourceManager.GetString("uPinky", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Недавно использованные стили.
+        /// </summary>
+        public static string uRecentConfigs {
+            get {
+                return ResourceManager.GetString("uRecentConfigs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Недавние курсы.
+        /// </summary>
+        public static string uRecentCourses {
+            get {
+                return ResourceManager.GetString("uRecentCourses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Недавние открытые раскладки.
+        /// </summary>
+        public static string uRecentLayouts {
+            get {
+                return ResourceManager.GetString("uRecentLayouts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Недавнее.
+        /// </summary>
+        public static string uRecents {
+            get {
+                return ResourceManager.GetString("uRecents", resourceCulture);
             }
         }
         
@@ -1164,6 +1299,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uUnloadWords {
             get {
                 return ResourceManager.GetString("uUnloadWords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пользовательские уроки.
+        /// </summary>
+        public static string uUserLessons {
+            get {
+                return ResourceManager.GetString("uUserLessons", resourceCulture);
             }
         }
         
