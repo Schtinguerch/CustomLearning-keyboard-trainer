@@ -12,7 +12,7 @@ namespace WPFMeteroWindow.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.0.1.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.0.3.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -553,7 +553,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("24")]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
         public int TestWordCount {
             get {
                 return ((int)(this["TestWordCount"]));
@@ -752,6 +752,54 @@ namespace WPFMeteroWindow.Properties {
             }
             set {
                 this["CurrentLayout"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsDictionary {
+            get {
+                return ((bool)(this["IsDictionary"]));
+            }
+            set {
+                this["IsDictionary"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("RecentCourses.json")]
+        public string RecentCourcesPath {
+            get {
+                return ((string)(this["RecentCourcesPath"]));
+            }
+            set {
+                this["RecentCourcesPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("RecentLayouts.json")]
+        public string RecentLayoutsPath {
+            get {
+                return ((string)(this["RecentLayoutsPath"]));
+            }
+            set {
+                this["RecentLayoutsPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("RecentSkins.json")]
+        public string RecentConfigs {
+            get {
+                return ((string)(this["RecentConfigs"]));
+            }
+            set {
+                this["RecentConfigs"] = value;
             }
         }
     }

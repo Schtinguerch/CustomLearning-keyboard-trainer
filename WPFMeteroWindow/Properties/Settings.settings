@@ -135,7 +135,7 @@
       <Value Profile="(Default)">JustLessons\Typing tests\topWords_EN.lml</Value>
     </Setting>
     <Setting Name="TestWordCount" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">24</Value>
+      <Value Profile="(Default)">50</Value>
     </Setting>
     <Setting Name="MenuOpacity" Type="System.String" Scope="User">
       <Value Profile="(Default)">1</Value>
@@ -184,6 +184,18 @@
     </Setting>
     <Setting Name="CurrentLayout" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="IsDictionary" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="RecentCourcesPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">RecentCourses.json</Value>
+    </Setting>
+    <Setting Name="RecentLayoutsPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">RecentLayouts.json</Value>
+    </Setting>
+    <Setting Name="RecentConfigs" Type="System.String" Scope="User">
+      <Value Profile="(Default)">RecentSkins.json</Value>
     </Setting>
   </Settings>
 </SettingsFile>
