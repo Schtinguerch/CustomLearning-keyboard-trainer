@@ -1,18 +1,37 @@
 ﻿using Microsoft.Win32;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WPFMeteroWindow.Properties;
 using System.Windows;
 using System.IO;
 using LmlLibrary;
+using Newtonsoft.Json;
 
 namespace WPFMeteroWindow
 {
     public static class UserConfigManager
     {
+        public static void AddToRecent(string filename)
+        {
+            var recentSonfigs = JsonConvert.DeserializeObject<List<string>>(File.ReadAllText(Settings.Default.RecentConfigs));
+            var hasTheSame = false;
+
+            foreach (var config in recentSonfigs)
+                if (filename == config)
+                {
+                    hasTheSame = true;
+                    break;
+                }
+
+            if (!hasTheSame)
+            {
+                recentSonfigs.Add(filename);
+                File.WriteAllText(
+                    Settings.Default.RecentConfigs,
+                    JsonConvert.SerializeObject(recentSonfigs, Formatting.Indented));
+            }
+        }
+
         public static void ImportConfigViaExplorer()
         {
             var openFileDialog = new OpenFileDialog();
@@ -28,6 +47,8 @@ namespace WPFMeteroWindow
                 LogManager.Log($"Read from \"{filename}\" -> failed: file does not exist");
                 return;
             }
+
+            AddToRecent(filename);
 
             LoadConfig(File.ReadAllText(filename));
             LogManager.Log($"Read from \"{filename}\" -> success");
@@ -68,6 +89,12 @@ namespace WPFMeteroWindow
             SetColor.ColorScheme(reader.GetString("UserConfig>AppColors>ControlsHighlightColor"));
             Opener.NewTextInputWay(reader.GetString("UserConfig>AppColors>InputTextBox"));
 
+            SetColor.Hands(reader.GetString("UserConfig>Hands>HandsColor"));
+            SetColor.HandsThickness(reader.GetString("UserConfig>Hands>HandsThickness"));
+
+            Settings.Default.HandsOpacity = reader.GetString("UserConfig>Opacity>HandsOpacity");
+            Settings.Default.ShowHands = reader.GetBool("UserConfig>Hands>ShowHands");
+
             if (!reader.GetBool("UserConfig>AppColors>HasImageBackground"))
                 SetColor.WindowStandardColor();
             else
@@ -77,6 +104,7 @@ namespace WPFMeteroWindow
             Settings.Default.BackgroundBlurRadius = reader.GetString("UserConfig>Wallpaper>BlurRadius");
 
             Opener.NewKeyboardLayout(Settings.Default.KeyboardLayoutFile);
+            Settings.Default.Save();
         }
 
         public static void ExportConfigViaExplorer()
@@ -109,7 +137,7 @@ namespace WPFMeteroWindow
             var theme = Settings.Default.ThemeResourceDictionary.ToLower().Contains("light") ? "light" : "dark";
             var colorScheme = Settings.Default.ColorSchemeResourceDictionary.Split('/').Last().Replace(".xaml", "");
 
-            var data = "";
+            var data = "#config\n\n";
             data += $"<<UserConfig:\n";
             data += $"    <<Fonts:\n";
             data += $"        <AppGUIFontFamily {Settings.Default.SummaryFont}>>\n";
