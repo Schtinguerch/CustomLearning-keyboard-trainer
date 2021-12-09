@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.IO;
+using System.Windows;
 using System.Windows.Controls;
 using WPFMeteroWindow.Properties;
 
@@ -20,6 +23,24 @@ namespace WPFMeteroWindow
 
         public static void LoadKeyboardData(string filename)
         {
+            var recentLayouts = JsonConvert.DeserializeObject<List<string>>(File.ReadAllText(Settings.Default.RecentLayoutsPath));
+            var hasTheSame = false;
+
+            foreach (var layout in recentLayouts)
+                if (layout == filename)
+                {
+                    hasTheSame = true;
+                    break;
+                }
+
+            if (!hasTheSame)
+            {
+                recentLayouts.Add(filename);
+                File.WriteAllText(
+                    Settings.Default.RecentLayoutsPath,
+                    JsonConvert.SerializeObject(recentLayouts, Formatting.Indented));
+            }
+
             if (Settings.Default.ShowHands)
             {
                 Intermediary.App.LeftHandFrame.Visibility = Visibility.Visible;
