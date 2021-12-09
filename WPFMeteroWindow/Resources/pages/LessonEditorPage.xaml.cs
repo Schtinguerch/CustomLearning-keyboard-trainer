@@ -23,7 +23,7 @@ namespace WPFMeteroWindow.Resources.pages
 
             Intermediary.LessonPage = this;
 
-            if (Settings.Default.IsOpenUnderCourse)
+            if (Settings.Default.IsCourseOpened)
             {
                 var fileName = Settings.Default.LessonInCourseFileName;
                 if (fileName == "empty")
