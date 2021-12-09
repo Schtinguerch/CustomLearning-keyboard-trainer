@@ -30,6 +30,9 @@ namespace WPFMeteroWindow
             ParallaxEffectPresenter.Image = Intermediary.App.BackgroundImage;
             ParallaxEffectPresenter.Init();
 
+            if (!Settings.Default.ShowStatistics)
+                Opener.Statistics(false);
+
             if (!Settings.Default.ShowHands)
             {
                 Intermediary.App.LeftHandFrame.Visibility = Visibility.Hidden;
@@ -268,18 +271,19 @@ namespace WPFMeteroWindow
                 return Visibility.Hidden;
         }
 
-        public static List<string> GetFileList(string[] badArray)
+        public static List<string> GetFileList(string[] badArray, string parentFolder = "")
         {
             var rightFileList = new List<string>();
-
             var listItem = "";
+
             foreach (var item in badArray)
             {
                 if (!item.Contains(".lml"))
                     listItem += item + ' ';
                 else
                 {
-                    rightFileList.Add(listItem + item);
+
+                    rightFileList.Add(parentFolder.Length == 0? "" : parentFolder + "\\" + listItem + item);
                     listItem = "";
                 }
             }
