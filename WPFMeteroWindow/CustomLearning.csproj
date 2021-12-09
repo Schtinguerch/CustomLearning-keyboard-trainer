@@ -138,6 +138,15 @@
     <Compile Include="Commands\GameSceneCommands\SetMaxTapperingRadius.cs" />
     <Compile Include="Commands\GameSceneCommands\SetProperty.cs" />
     <Compile Include="Commands\PreprocessorCommands\PreDefine.cs" />
+    <Compile Include="Controls\ConfigItem.xaml.cs">
+      <DependentUpon>ConfigItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CourseItem.xaml.cs">
+      <DependentUpon>CourseItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\KeyboardLayoutItem.xaml.cs">
+      <DependentUpon>KeyboardLayoutItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TextInputControls\Classic\Classic.xaml.cs">
       <DependentUpon>Classic.xaml</DependentUpon>
     </Compile>
@@ -309,6 +318,15 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Resources\pages\ActiveUsingConfigs.xaml.cs">
+      <DependentUpon>ActiveUsingConfigs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\pages\ActiveUsingLayoutsPage.xaml.cs">
+      <DependentUpon>ActiveUsingLayoutsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\pages\ActiveUsingLessonsPage.xaml.cs">
+      <DependentUpon>ActiveUsingLessonsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\pages\ApplicationUserSettingsPageUIelemensImplementation.cs" />
     <Compile Include="Resources\localizations\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -329,6 +347,9 @@
     </Compile>
     <Compile Include="Resources\pages\CourseLoaderPage.xaml.cs">
       <DependentUpon>CourseLoaderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\pages\CourseParserPage.xaml.cs">
+      <DependentUpon>CourseParserPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\pages\FontSettingPage.xaml.cs">
       <DependentUpon>FontSettingPage.xaml</DependentUpon>
@@ -383,6 +404,18 @@
     <Compile Include="Tools\SettingsSetters\Opener.cs" />
     <Compile Include="Tools\SettingsSetters\SetColor.cs" />
     <Compile Include="Tools\SettingsSetters\SetFont.cs" />
+    <Page Include="Controls\ConfigItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\CourseItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\KeyboardLayoutItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\TextInputControls\Classic\Classic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -613,6 +646,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\pages\ActiveUsingConfigs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\pages\ActiveUsingLayoutsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\pages\ActiveUsingLessonsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\pages\ApplicationUserSettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -630,6 +675,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\pages\CourseLoaderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\pages\CourseParserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
