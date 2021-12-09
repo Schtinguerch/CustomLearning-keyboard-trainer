@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using WPFMeteroWindow.Controls;
 using WPFMeteroWindow.Properties;
@@ -26,6 +27,7 @@ namespace WPFMeteroWindow.Controls.TextInputControls.Classic
             }
 
             Intermediary.App.RestartLesson();
+            SecondTextBlock.Margin = new Thickness(0, -1 * Convert.ToDouble(Settings.Default.LessonLettersFontSize), 0, 0);
         }
 
         public string DoneText
@@ -33,6 +35,12 @@ namespace WPFMeteroWindow.Controls.TextInputControls.Classic
             get => InputRun.Text;
             set 
             {
+                if (value.Length == 0)
+                {
+                    InputRun.Text = "";
+                    return;
+                }
+
                 var availableLength = TypeCount % 200;
                 InputRun.Text = value.Substring(value.Length - availableLength, availableLength);
 
@@ -55,7 +63,11 @@ namespace WPFMeteroWindow.Controls.TextInputControls.Classic
         public string ErrorText
         {
             get => MistakenRun.Text;
-            set => MistakenRun.Text = value;
+            set 
+            {
+                if (value.Length > 5) return;
+                MistakenRun.Text = value; 
+            }
         }
 
         public void LoadText(string text)

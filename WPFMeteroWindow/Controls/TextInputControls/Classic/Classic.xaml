@@ -24,7 +24,7 @@
                 x:Name="InputRun"
                 Foreground="{Binding RaidedFontColor, Source={x:Static prop:Settings.Default}}">
             </Run><Run
-                x:Name="MistakenRun"
+                x:Name="aoeuMistakenRun"
                 Foreground="{Binding KeyboardErrorHighlightColor, Source={x:Static prop:Settings.Default}}">
             </Run><Run
                 FontFamily="Segoe UI"
@@ -35,6 +35,32 @@
             </Run><Run
                 x:Name="LeftRun"
                 Foreground="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}">
+            </Run>
+        </TextBlock>
+
+        <TextBlock 
+            x:Name="SecondTextBlock"
+            Style="{StaticResource MainTextStyle}"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap">
+            
+            <Run
+                x:Name="SecondInputRun"
+                Foreground="Transparent"
+                Text="{Binding ElementName=InputRun, Path=Text}">
+            </Run><Run
+                x:Name="MistakenRun"
+                Foreground="{Binding KeyboardErrorHighlightColor, Source={x:Static prop:Settings.Default}}">
+            </Run><Run
+                FontFamily="Segoe UI"
+                x:Name="SecondCaretRun"
+                Foreground="Transparent"
+                FontWeight="Regular"
+                Text="|">
+            </Run><Run
+                x:Name="SecondLeftRun"
+                Foreground="Transparent"
+                Text="{Binding ElementName=LeftRun, Path=Text}">
             </Run>
         </TextBlock>
     </Grid>
