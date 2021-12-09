@@ -28,9 +28,9 @@ namespace WPFMeteroWindow
             return "";
         }
 
-        public static void NewCourse(string fileName, int lessonIndex)
+        public static void NewCourse(string fileName, int lessonIndex, bool skipUiLoading = false)
         {
-            if (File.Exists(fileName))
+            if (File.Exists(fileName) || Directory.Exists(fileName))
             {
                 Settings.Default.IsCourseOpened = true;
                 Settings.Default.LoadedCourseFile = fileName;
@@ -39,7 +39,7 @@ namespace WPFMeteroWindow
 
                 try
                 {
-                    CourseManager.LoadCourse(fileName);
+                    CourseManager.LoadCourse(fileName, skipUiLoading);
                     LogManager.Log($"Open course: \"{fileName}\" -> success");
                 }
 
@@ -57,12 +57,12 @@ namespace WPFMeteroWindow
             }
         }
 
-        public static void NewCourseViaExplorer()
+        public static void NewCourseViaExplorer(bool skipUiLoading = false)
         {
             var openDialog = new FolderBrowserDialog();
 
             if (openDialog.ShowDialog() == DialogResult.OK)
-                NewCourse(openDialog.SelectedPath + "\\CourseLessons.lml", 0);
+                NewCourse(openDialog.SelectedPath + "\\CourseLessons.lml", 0, skipUiLoading);
         }
         
         public static void NewKeyboardLayout(string fileName)
@@ -204,6 +204,16 @@ namespace WPFMeteroWindow
                     LogManager.Log($"Loading text-input presentation -> failed, incorrect name");
                     break;
             }
+        }
+
+        public static void Statistics(bool showStastics)
+        {
+            Intermediary.App.WPMTextBlock.Visibility =
+            Intermediary.App.AdditionalInfoPanel.Visibility =
+                showStastics ?
+                System.Windows.Visibility.Visible : System.Windows.Visibility.Collapsed;
+
+            Settings.Default.ShowStatistics = showStastics;
         }
     }
 }
