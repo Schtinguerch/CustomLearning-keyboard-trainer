@@ -6,6 +6,7 @@ using System.Windows.Media;
 using WPFMeteroWindow.Properties;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 using Path = System.IO.Path;
+using System.Windows.Media.Effects;
 
 namespace WPFMeteroWindow.Resources.pages
 {

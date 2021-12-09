@@ -40,7 +40,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="250"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-            
+
         <StackPanel 
             Orientation="Vertical"
             Grid.Column="1"
