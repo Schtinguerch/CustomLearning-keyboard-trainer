@@ -21,7 +21,7 @@ namespace WPFMeteroWindow
         
         public static void WindowBackgroundImage(string path)
         {
-            if (!File.Exists(path))
+            if (!File.Exists(path) && (path.Substring(0, 4) != "http"))
             {
                 if (!string.IsNullOrEmpty(path))
                     LogManager.Log($"Set background image: \"{path}\" -> failed, file does not exist");
