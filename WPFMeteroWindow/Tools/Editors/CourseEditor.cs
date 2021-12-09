@@ -73,7 +73,9 @@ namespace WPFMeteroWindow
                     throw new NotImplementedException("Empty data");
                 
                 File.WriteAllText(_folderPath + "\\CourseLessons.lml", ToLml());
-                Intermediary.CoursePage.EditorTitleTextBox.Text = $"{CourseName} - {Localization.uCourseEditor}";
+
+                if (Intermediary.CoursePage != null)
+                    Intermediary.CoursePage.EditorTitleTextBox.Text = $"{CourseName} - {Localization.uCourseEditor}";
             }
 
             else
@@ -85,7 +87,9 @@ namespace WPFMeteroWindow
                 _folderPath = writer.SelectedPath;
 
                 File.WriteAllText(_folderPath + "\\CourseLessons.lml", ToLml());
-                Intermediary.CoursePage.EditorTitleTextBox.Text = $"{CourseName} - {Localization.uCourseEditor}";
+
+                if (Intermediary.CoursePage != null)
+                    Intermediary.CoursePage.EditorTitleTextBox.Text = $"{CourseName} - {Localization.uCourseEditor}";
             }
         }
 
