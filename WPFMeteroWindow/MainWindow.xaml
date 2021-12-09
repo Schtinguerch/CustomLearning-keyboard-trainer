@@ -216,13 +216,6 @@
                         Click="OpenNewCourseMenuItem_OnClick">
                     </MenuItem>
 
-                  <!--  <MenuItem 
-                        x:Name="OpenNewGameMenuItem"
-                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
-                        Header="{x:Static res:Resources.uMenuOpenNewCourse}"
-                        Click="OpenNewGameMenuItem_OnClick">
-                    </MenuItem> -->
-
                     <MenuItem
                         x:Name="OpenPreviousLessonMenuItem"
                         Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
@@ -274,7 +267,34 @@
                         x:Name="OpenLayoutEditorMenuItem"
                         Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uMenuEditCurrentKbLayout}"
-                        Click="OpenLayoutEditorMenuItem_OnClick"></MenuItem>
+                        Click="OpenLayoutEditorMenuItem_OnClick">
+                    </MenuItem>
+                </MenuItem>
+
+                <MenuItem
+                    Background="Transparent"
+                    Header="{x:Static res:Resources.uRecents}">
+
+                    <MenuItem 
+                        x:Name="OpenRecentCourseMenuItem"
+                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
+                        Header="{x:Static res:Resources.uRecentCourses}"
+                        Click="OpenRecentCourseMenuItem_Click">
+                    </MenuItem>
+
+                    <MenuItem
+                        x:Name="OpenRecentLayoutsMenuItem"
+                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
+                        Header="{x:Static res:Resources.uRecentLayouts}"
+                        Click="OpenRecentLayoutsMenuItem_Click">
+                    </MenuItem>
+
+                    <MenuItem
+                        x:Name="OpenRecentConfigsMenuItem"
+                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
+                        Header="{x:Static res:Resources.uRecentConfigs}"
+                        Click="OpenRecentConfigsMenuItem_Click">
+                    </MenuItem>
                 </MenuItem>
             </Menu>
 
@@ -324,6 +344,7 @@
                     </Button>
                     <Button 
                         Width="54" 
+                        x:Name="LoadCourseOrLessonButton"
                         BorderBrush="Transparent" 
                         Background="Transparent"
                         FontSize="20"
@@ -376,6 +397,19 @@
                     </TextBlock>
                 </StackPanel>
             </Grid>
+
+            <Rectangle
+                Fill="Transparent"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="180 0 0 0"
+                
+                AllowDrop="True"
+                DragEnter="Grid_DragEnter"
+                DragLeave="Grid_DragLeave"
+                Drop="Grid_Drop">
+                
+            </Rectangle>
         </Grid>
 
         <Frame
@@ -408,10 +442,35 @@
                 </LinearGradientBrush>
             </Grid.OpacityMask>
 
-            <Rectangle Fill="Transparent">
+            <Grid 
+                x:Name="DrapAndDropMessageGrid"
+                Visibility="Hidden">
+                
+                <TextBlock
+                    Style="{StaticResource SummaryTextStyle}"
+                    TextAlignment="Center"
+                    FontSize="20"
+                    Text="{x:Static res:Resources.uInsertCourseOrLesson}">
+                </TextBlock>
 
-            </Rectangle>
+                <Grid.Background>
+                    <SolidColorBrush
+                        Color="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Opacity="0.6">
+                    </SolidColorBrush>
+                </Grid.Background>
+            </Grid>
             
+
+            <Rectangle 
+                Fill="Transparent"
+                AllowDrop="True"
+                
+                DragEnter="TextInputFrame_DragEnter"
+                DragLeave="TextInputFrame_DragLeave"
+                Drop="TextInputFrame_Drop">
+            </Rectangle>
+
 
             <Rectangle
                 x:Name="TypingProgressIndicator"
@@ -593,6 +652,49 @@
                 Width="800"
                 VerticalAlignment="Top">
             </Frame>
+        </Grid>
+
+        <Grid
+            Grid.Row="4"
+            Grid.Column="0"
+            Grid.ColumnSpan="3">
+
+            <Grid 
+                x:Name="LayoutDrapAndDropMessageGrid"
+                Visibility="Hidden">
+
+                <TextBlock
+                    Style="{StaticResource SummaryTextStyle}"
+                    TextAlignment="Center"
+                    FontSize="20"
+                    Text="{x:Static res:Resources.uInsertKeyboardLayout}">
+                </TextBlock>
+
+                <Grid.Background>
+                    <SolidColorBrush
+                        Color="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Opacity="0.6">
+                    </SolidColorBrush>
+                </Grid.Background>
+
+                <Grid.OpacityMask>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="Transparent" Offset="0"></GradientStop>
+                        <GradientStop Color="Black" Offset="0.2"></GradientStop>
+                        <GradientStop Color="Black" Offset="0.8"></GradientStop>
+                        <GradientStop Color="Transparent" Offset="1"></GradientStop>
+                    </LinearGradientBrush>
+                </Grid.OpacityMask>
+            </Grid>
+
+            <Rectangle 
+                Fill="Transparent"
+                AllowDrop="True"
+                
+                DragEnter="Rectangle_DragEnter"
+                DragLeave="Rectangle_DragLeave"
+                Drop="Rectangle_Drop">
+            </Rectangle>
         </Grid>
 
         <Grid 

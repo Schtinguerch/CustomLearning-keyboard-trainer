@@ -13,6 +13,8 @@ using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 using Visibility = System.Windows.Visibility;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.IO;
+using System.Linq;
 
 namespace WPFMeteroWindow
 {
@@ -37,6 +39,8 @@ namespace WPFMeteroWindow
         private bool _isFirstMistake = true;
 
         private bool _isTyping;
+
+        private string _headerText;
 
         public bool IsTyping
         {
@@ -198,7 +202,7 @@ namespace WPFMeteroWindow
         {
             var selectedPage = TabPage.EmptyPage;
 
-            if ((e.Key != Key.LeftCtrl) && (e.Key != Key.RightCtrl) && (PageManager.PageFrame.Source == null))
+            if ((e.Key != Key.LeftCtrl) && (e.Key != Key.RightCtrl) && (e.Key != Key.Apps) && (PageManager.PageFrame.Source == null))
             {
                 if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.F))
                 {
@@ -281,6 +285,8 @@ namespace WPFMeteroWindow
                         Opener.NewKeyboardLayout(Settings.Default.KeyboardLayoutFile);
                     else 
                         Opener.NewKeyboardLayout(Settings.Default.SecondKeyboardLayoutFile);
+
+                    Settings.Default.Save();
                 }
 
                 else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.U))
@@ -333,6 +339,15 @@ namespace WPFMeteroWindow
         private void OpenNewGameMenuItem_OnClick(object sender, RoutedEventArgs e) =>
             PageManager.OpenPage(TabPage.ClickingGame);
 
+        private void OpenRecentCourseMenuItem_Click(object sender, RoutedEventArgs e) =>
+            PageManager.OpenPage(TabPage.RecentCources);
+
+        private void OpenRecentLayoutsMenuItem_Click(object sender, RoutedEventArgs e) =>
+            PageManager.OpenPage(TabPage.RecentLayouts);
+
+        private void OpenRecentConfigsMenuItem_Click(object sender, RoutedEventArgs e) =>
+            PageManager.OpenPage(TabPage.RecentConfigs);
+
         private void TextInputFrame_MouseDown(object sender, MouseButtonEventArgs e) =>
             bufferTextBox.Focus();
 
@@ -343,7 +358,6 @@ namespace WPFMeteroWindow
         {
             ParallaxEffectPresenter.MakeParallaxEffect(sender, e);
         }
-            
 
         private void MetroWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         {
@@ -369,7 +383,120 @@ namespace WPFMeteroWindow
                     Top = 50;
                 }
             }
+        }
+
+        private void TextInputFrame_DragEnter(object sender, System.Windows.DragEventArgs e) =>
+            DrapAndDropMessageGrid.Visibility = Visibility.Visible;
+
+        private void TextInputFrame_DragLeave(object sender, System.Windows.DragEventArgs e) =>
+            DrapAndDropMessageGrid.Visibility = Visibility.Hidden;
+
+        private void Rectangle_DragEnter(object sender, System.Windows.DragEventArgs e) =>
+            LayoutDrapAndDropMessageGrid.Visibility = Visibility.Visible;
+
+        private void Rectangle_DragLeave(object sender, System.Windows.DragEventArgs e) =>
+            LayoutDrapAndDropMessageGrid.Visibility = Visibility.Hidden;
+
+        private void TextInputFrame_Drop(object sender, System.Windows.DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent(System.Windows.DataFormats.FileDrop))
+            {
+                DrapAndDropMessageGrid.Visibility = Visibility.Hidden;
+                return;
+            }
+
+            var files = e.Data.GetData(System.Windows.DataFormats.FileDrop) as string[];
+
+            if (files == null || files.Length == 0)
+            {
+                DrapAndDropMessageGrid.Visibility = Visibility.Hidden;
+                return;
+            }
+
+            var insertionFile = files[0];
+
+            if (File.Exists(insertionFile))
+            {
+                if (files.Length == 1)
+                    Opener.NewLesson(insertionFile);
+                else
+                {
+                    var otherLessons = files.ToList();
+                    var editor = new CourseEditor("TemporaryCourse", CourseState.Empty)
+                    {
+                        CourseName = Localization.uUserLessons,
+                        Lessons = otherLessons,
+                        Author = new AuthorData()
+                        {
+                            Name = "CustomLearningApp",
+                            References = new List<string>()
+                        }
+                    };
+
+                    editor.WriteDataOnFile();
+                    Opener.NewCourse("TemporaryCourse", 0);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < files.Length; i++)
+                    Opener.NewCourse(files[i], 0, true);
+
+                Opener.NewCourse(insertionFile, 0);
+            }
+
+            DrapAndDropMessageGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void Rectangle_Drop(object sender, System.Windows.DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent(System.Windows.DataFormats.FileDrop))
+            {
+                LayoutDrapAndDropMessageGrid.Visibility = Visibility.Hidden;
+                return;
+            }
                 
+
+            var files = e.Data.GetData(System.Windows.DataFormats.FileDrop) as string[];
+
+            if (files == null || files.Length == 0)
+            {
+                LayoutDrapAndDropMessageGrid.Visibility = Visibility.Hidden;
+                return;
+            }
+
+            Opener.NewKeyboardLayout(files[0]);
+        }
+
+        private void Grid_DragEnter(object sender, System.Windows.DragEventArgs e)
+        {
+            _headerText = lessonHeaderTextBlock.Text;
+            lessonHeaderTextBlock.Text = Localization.uLoadUserAppStyle;
+        }
+
+        private void Grid_DragLeave(object sender, System.Windows.DragEventArgs e)
+        {
+            lessonHeaderTextBlock.Text = _headerText;
+        }
+
+        private void Grid_Drop(object sender, System.Windows.DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent(System.Windows.DataFormats.FileDrop))
+            {
+                lessonHeaderTextBlock.Text = _headerText;
+                return;
+            }
+
+            var files = e.Data.GetData(System.Windows.DataFormats.FileDrop) as string[];
+
+            if (files == null || files.Length == 0)
+            {
+                lessonHeaderTextBlock.Text = _headerText;
+                return;
+            }
+
+            UserConfigManager.ImportConfigFromFile(files[0]);
+            lessonHeaderTextBlock.Text = _headerText;
         }
     }
 }
