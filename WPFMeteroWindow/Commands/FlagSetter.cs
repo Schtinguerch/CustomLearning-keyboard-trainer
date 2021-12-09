@@ -55,6 +55,14 @@ namespace WPFMeteroWindow.Commands
                         Opener.NewKeyboardLayout(Settings.Default.SecondKeyboardLayoutFile);
                     }
                     break;
+
+                case "tw":
+                    int wordCount;
+                    var status = int.TryParse(arguments[1], out wordCount);
+
+                    if (status)
+                        Settings.Default.TestWordCount = wordCount;
+                    break;
             }
         }
     }
