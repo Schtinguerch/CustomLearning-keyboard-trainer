@@ -220,7 +220,7 @@
                 Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
 
                 <Grid.Effect>
-                    <DropShadowEffect BlurRadius="30"></DropShadowEffect>
+                    <DropShadowEffect BlurRadius="30" ></DropShadowEffect>
                 </Grid.Effect>
 
                 <TextBlock 
@@ -259,6 +259,11 @@
                                 <MenuItem 
                                     Header="Layout training"
                                     Click="FormLayoutEducation_OnClick">
+                                </MenuItem>
+
+                                <MenuItem
+                                    Header="HTML-parsing"
+                                    Click="HtmlParsing_OnClick">
                                 </MenuItem>
                             </ContextMenu>
                         </Button.ContextMenu>

@@ -218,11 +218,19 @@ namespace WPFMeteroWindow.Resources.pages
         }
 
         private void FormLayoutEducation_OnClick(object sender, RoutedEventArgs e)
-        {
+        { 
             CloseLessonEditorPage();
             NewCourse();
 
             //TODO: call the course maker
+        }
+
+        private void HtmlParsing_OnClick(object sender, RoutedEventArgs e)
+        {
+            CloseLessonEditorPage();
+            NewCourse();
+
+            //TODO: make HTML-parser
         }
     }
 }
