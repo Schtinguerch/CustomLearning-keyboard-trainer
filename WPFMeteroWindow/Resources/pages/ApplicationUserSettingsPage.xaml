@@ -87,7 +87,7 @@
                     x:Name="ScrollListStackPanel"
                     Orientation="Vertical"
                     Width="400"
-                    Margin="12 0 0 0">
+                    Margin="13 0 0 0">
 
                     <Grid Style="{StaticResource SettingsItemStyle}"
                           Margin="0 24 0 10"

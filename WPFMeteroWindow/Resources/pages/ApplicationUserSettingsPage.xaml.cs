@@ -74,7 +74,7 @@ namespace WPFMeteroWindow.Resources.pages
                     break;
 
                 case "Stats":
-                    Settings.Default.ShowStatistics = state;
+                    Opener.Statistics(state);
                     break;
 
                 case "Hands":
@@ -175,12 +175,12 @@ namespace WPFMeteroWindow.Resources.pages
 
         private void ApplyButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Settings.Default.Save();
             if (Settings.Default.CurrentLayout == 1)
                 KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
             else
                 KeyboardManager.LoadKeyboardData(Settings.Default.SecondKeyboardLayoutFile);
 
+            Settings.Default.Save();
             PageManager.HidePages();
         }
 
