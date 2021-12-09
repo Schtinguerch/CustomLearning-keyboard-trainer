@@ -31,7 +31,7 @@ namespace WPFMeteroWindow.Commands
                 case "imp":
                     if (arguments.Count > 1)
                     {
-                        var filename = UnitedStringArgument.Replace("exp ", "");
+                        var filename = UnitedStringArgument.Replace("imp ", "");
                         UserConfigManager.ImportConfigFromFile(filename);
                     }
                     else
