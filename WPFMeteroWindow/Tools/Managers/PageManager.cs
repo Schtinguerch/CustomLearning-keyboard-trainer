@@ -18,6 +18,9 @@ namespace WPFMeteroWindow
         CourseEditor,
         KeyboardLayoutEditor,
         ClickingGame,
+        RecentCources,
+        RecentLayouts,
+        RecentConfigs,
         EmptyPage,
     }
     
@@ -42,6 +45,9 @@ namespace WPFMeteroWindow
             _baseFolder + "CourseEditorPage.xaml",
             _baseFolder + "KeyboardLayoutEditorPage.xaml",
             _baseFolder + "ClickingGamePage.xaml",
+            _baseFolder + "ActiveUsingLessonsPage.xaml",
+            _baseFolder + "ActiveUsingLayoutsPage.xaml",
+            _baseFolder + "ActiveUsingConfigs.xaml",
             null,
         };
         
