@@ -69,6 +69,10 @@ namespace WPFMeteroWindow
 
         public static void LoadLesson(string filename)
         {
+            var testTokens = filename.Split(':');
+            if (testTokens.Length > 2)
+                filename = testTokens[1].Last() + ":" + testTokens[2];
+
             var reader = new Lml(filename, Lml.Open.FromFile);
             string lessonText, lessonName;
             try
@@ -76,7 +80,11 @@ namespace WPFMeteroWindow
                 if (Settings.Default.IsCourseOpened)
                     lessonName = Settings.Default.CourseName + ": " + reader.GetString("Lesson>Name");
                 else
+                {
                     lessonName = reader.GetString("Lesson>Name");
+                    Intermediary.App.LoadCourseOrLessonButton.ContextMenu = null;
+                }
+                    
                 
                 lessonText = Regex.Replace(reader.GetString("Lesson>Text"), "\\s+", " ").ToBeCorrected();
                 Settings.Default.NecessaryCPM = reader.GetInt("Lesson>NecessaryCPM");
@@ -96,7 +104,6 @@ namespace WPFMeteroWindow
             lessonText = lessonText.WithDeletedExceptions();
            
             LoadLessonText(lessonText);
-
             Intermediary.App.lessonHeaderTextBlock.Text = lessonName;
             
             Settings.Default.LessonName = lessonName;
@@ -107,15 +114,9 @@ namespace WPFMeteroWindow
             Intermediary.App.TypingProgressIndicator.Width = 0;
             
             KeyboardManager.ShowTypingHint(lessonText[0]);
-            
-            Intermediary.App.TimerTextBlock.Text = "0:0";
-            Intermediary.App.WPMTextBlock.Text = $"0 {Localization.uCPM}";
-            Intermediary.App.MistakesTextBloxck.Text = "0% •  0 " + Localization.uMistakes;
 
             Settings.Default.ItTypingTest = false;
             Settings.Default.Save();
-
-            Intermediary.App.bufferTextBox.Focus();
         }
 
         public static void LoadTest(string lessonText)
@@ -131,25 +132,24 @@ namespace WPFMeteroWindow
             Intermediary.App.TypingProgressIndicator.Width = 0;
 
             KeyboardManager.ShowTypingHint(LeftRoad[0]);
-            
-            Intermediary.App.TimerTextBlock.Text = "0:0";
-            Intermediary.App.WPMTextBlock.Text = $"0 {Localization.uCPM}";
-            Intermediary.App.MistakesTextBloxck.Text = "0% •  0 " + Localization.uMistakes;
 
             Settings.Default.ItTypingTest = true;
             Settings.Default.Save();
-
-            Intermediary.App.bufferTextBox.Focus();
         }
 
         private static void LoadLessonText(string text)
         {
             AllLessonText = text;
-            TextInputPresenter.LoadText(text);
-
             LeftRoad = text;
             DoneRoad = "";
             ErrorInput = "";
+
+            Intermediary.App.TimerTextBlock.Text = "0:0";
+            Intermediary.App.WPMTextBlock.Text = $"0 {Localization.uCPM}";
+            Intermediary.App.MistakesTextBloxck.Text = "0% •  0 " + Localization.uMistakes;
+
+            TextInputPresenter.LoadText(text);
+            Intermediary.App.bufferTextBox.Focus();
         }
         
         public static void EndLesson()
