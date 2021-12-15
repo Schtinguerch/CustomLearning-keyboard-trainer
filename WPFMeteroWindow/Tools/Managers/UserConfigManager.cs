@@ -81,7 +81,6 @@ namespace WPFMeteroWindow
             SetColor.KeyboardHighlight(reader.GetString("UserConfig>Keyboard>HighlightColor"));
             SetColor.KeyboardErrorHighlight(reader.GetString("UserConfig>Keyboard>MistakeColor"));
 
-            SetColor.FirstColor(reader.GetString("UserConfig>AppColors>MainColor"));
             SetColor.SecondColor(reader.GetString("UserConfig>AppColors>SecondaryColor"));
             SetColor.CommandLineFirstColor(reader.GetString("UserConfig>AppColors>TextBoxColor"));
             SetColor.CommandLineSecondColor(reader.GetString("UserConfig>AppColors>SecondaryMenuColor"));
@@ -100,6 +99,7 @@ namespace WPFMeteroWindow
             else
                 SetColor.WindowBackgroundImage(reader.GetString("UserConfig>Wallpaper>PathToImage"));
 
+            SetColor.FirstColor(reader.GetString("UserConfig>AppColors>MainColor"));
             Settings.Default.EnableParallax = reader.GetBool("UserConfig>Wallpaper>HasParallaxEffect");
             Settings.Default.BackgroundBlurRadius = reader.GetString("UserConfig>Wallpaper>BlurRadius");
 
