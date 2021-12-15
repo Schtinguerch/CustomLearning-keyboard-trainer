@@ -20,12 +20,28 @@ namespace WPFMeteroWindow
         Empty,
         NotEmpty,
     }
+
+    public enum CourseType
+    {
+        Common = 0,
+        Dictionary,
+        Words,
+    }
     
     public class CourseEditor
     {
+        private readonly string[] _lmlCourseTypes = new string[]
+        {
+            "",
+            "#dictionary",
+            "#words",
+        };
+
         private bool _isNewCourse;
 
         private string _folderPath;
+
+        public CourseType CourseType { get; set; } = CourseType.Common;
 
         public string CourseName { get; set; }
 
@@ -52,10 +68,17 @@ namespace WPFMeteroWindow
 
             if (state == CourseState.NotEmpty)
             {
-                var reader = new Lml(folderPath + "\\CourseLessons.lml", Lml.Open.FromFile);
+                var data = File.ReadAllText(folderPath + "\\CourseLessons.lml");
+                var reader = new Lml(data, Lml.Open.FromString);
 
                 CourseName = reader.GetString("Course>Name");
                 Lessons = AppManager.GetFileList(reader.GetArray("Course>LessonList"));
+
+                if (data.Contains(_lmlCourseTypes[1]))
+                    CourseType = CourseType.Dictionary;
+
+                else if (data.Contains(_lmlCourseTypes[2]))
+                    CourseType = CourseType.Words;
 
                 Author = new AuthorData()
                 {
@@ -95,7 +118,10 @@ namespace WPFMeteroWindow
 
         private string ToLml()
         {
-            var data = "<<Course:\n";
+            var type = _lmlCourseTypes[(int)CourseType];
+
+            var data = $"{type}\n"; 
+            data += "<<Course:\n";
             data += $"    <Name {CourseName}>>\n";
             data +=  "    <LessonList {\n";
             data += ListToString(Lessons, 8);
