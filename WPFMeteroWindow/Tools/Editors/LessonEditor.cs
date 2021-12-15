@@ -38,8 +38,19 @@ namespace WPFMeteroWindow
                 LessonName = reader.GetString("Lesson>Name");
                 LessonText = Regex.Replace(reader.GetString("Lesson>Text"), "\\s+", " ").ToBeCorrected();
 
-                NecessaryCPM = reader.GetInt("Lesson>NecessaryCPM");
-                MaxAcceptableMistakes = reader.GetInt("Lesson>MaximumMistakes");
+
+                //The 1st lesson version does not contains these parameters
+                try
+                {
+                    NecessaryCPM = reader.GetInt("Lesson>NecessaryCPM");
+                    MaxAcceptableMistakes = reader.GetInt("Lesson>MaximumMistakes");
+                }
+                
+                catch
+                {
+                    NecessaryCPM = 0;
+                    MaxAcceptableMistakes = 100;
+                }
             }
 
             else
@@ -48,7 +59,7 @@ namespace WPFMeteroWindow
                 LessonText = Regex.Replace(File.ReadAllText(filePath), "\n+", " ");
 
                 NecessaryCPM = 0;
-                MaxAcceptableMistakes = 0;
+                MaxAcceptableMistakes = 100;
             }
         }
 
