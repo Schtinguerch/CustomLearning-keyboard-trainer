@@ -14,10 +14,12 @@
     MinHeight="620"
     GlowBrush="#202020"
     WindowStartupLocation="CenterScreen"
+    
     KeyDown="MainWindow_OnKeyDown"
     MouseMove="MetroWindow_MouseMove"
     SizeChanged="MetroWindow_SizeChanged"
-    StateChanged="MetroWindow_StateChanged">
+    StateChanged="MetroWindow_StateChanged"
+    ContentRendered="MetroWindow_ContentRendered">
 
     <controls:MetroWindow.Resources>
         <Storyboard
@@ -422,10 +424,7 @@
             Margin="0 0 0 10"
            
             VerticalContentAlignment="Bottom"
-            VerticalAlignment="Bottom"
-            
-            MouseDown="TextInputFrame_MouseDown"
-            MouseEnter="TextInputFrame_MouseEnter">
+            VerticalAlignment="Bottom">
         </Frame>
 
         <Grid
@@ -468,7 +467,10 @@
                 
                 DragEnter="TextInputFrame_DragEnter"
                 DragLeave="TextInputFrame_DragLeave"
-                Drop="TextInputFrame_Drop">
+                Drop="TextInputFrame_Drop"
+                
+                MouseDown="TextInputFrame_MouseDown"
+                MouseEnter="TextInputFrame_MouseEnter">
             </Rectangle>
 
 

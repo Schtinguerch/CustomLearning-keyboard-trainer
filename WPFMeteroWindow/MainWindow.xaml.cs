@@ -15,6 +15,7 @@ using Visibility = System.Windows.Visibility;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.IO;
 using System.Linq;
+using Thread = System.Threading.Thread;
 
 namespace WPFMeteroWindow
 {
@@ -33,6 +34,8 @@ namespace WPFMeteroWindow
     public partial class MainWindow : MetroWindow
     {
         private Storyboard _showMessageStoryboard;
+
+        private Thread _startingThread;
 
         private bool _breakTextProcessing = false;
 
@@ -82,10 +85,28 @@ namespace WPFMeteroWindow
         public void FocusOnTextInputControl() =>
             bufferTextBox.Focus();
 
+        private void LoadMainAppWindow()
+        {
+            var appWindow = new AppLoadingWindow();
+            appWindow.Show();
+            
+            try
+            {
+                System.Windows.Threading.Dispatcher.Run();
+            }
+            catch { }
+        }
+
+        [Obsolete]
         public MainWindow()
         {
+            _startingThread = new Thread(LoadMainAppWindow);
+            _startingThread.ApartmentState = System.Threading.ApartmentState.STA;
+            _startingThread.IsBackground = true;
+
+            _startingThread.Start();
+
             InitializeComponent();
-            
 
             KeyboardManager.Board = keyboardGrid;
             KeyboardManager.KeyboardPresenter = new KeyboardPresenter();
@@ -466,6 +487,7 @@ namespace WPFMeteroWindow
             }
 
             Opener.NewKeyboardLayout(files[0]);
+            LayoutDrapAndDropMessageGrid.Visibility = Visibility.Hidden;
         }
 
         private void Grid_DragEnter(object sender, System.Windows.DragEventArgs e)
@@ -497,6 +519,13 @@ namespace WPFMeteroWindow
 
             UserConfigManager.ImportConfigFromFile(files[0]);
             lessonHeaderTextBlock.Text = _headerText;
+        }
+
+        private void MetroWindow_ContentRendered(object sender, EventArgs e)
+        {
+            _startingThread.Abort();
+
+            Activate();
         }
     }
 }
