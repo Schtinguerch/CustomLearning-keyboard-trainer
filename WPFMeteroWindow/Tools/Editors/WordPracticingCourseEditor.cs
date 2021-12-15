@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
-using Microsoft.Win32;
 
 namespace WPFMeteroWindow
 {
@@ -33,25 +32,15 @@ namespace WPFMeteroWindow
                 _data = Regex.Replace(value, "\n+", "\n");
                 _allWords = value.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries).ToList();
                 _data = value;
+
+                for (int i = 0; i < _allWords.Count; i++)
+                    _allWords[i] = _allWords[i].Replace("\r", "");
             }
         }
 
         public WordPracticingCourseEditor(string courseFolderPath)
         {
             _folderPath = courseFolderPath;
-        }
-
-        public void LoadWordsViaExplorer()
-        {
-            var opener = new OpenFileDialog()
-            {
-                Multiselect = false,
-                RestoreDirectory = true,
-                Filter = "LML-files|*.lml",
-            };
-
-            if (opener.ShowDialog() == true)
-                LoadWords(opener.FileName);
         }
 
         public void LoadWords(string fileName)
