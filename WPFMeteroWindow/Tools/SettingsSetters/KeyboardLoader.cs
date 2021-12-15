@@ -141,14 +141,12 @@ namespace WPFMeteroWindow
 
             var button = new Button()
             {
-                Margin = new Thickness(padding, padding, padding, padding),
-                BorderBrush = new SolidColorBrush(Color.FromRgb(32, 32, 32)),
+                Margin = new Thickness(padding),
                 Background =
                     new BrushConverter().ConvertFromString(Settings.Default.KeyboardBackgroundColor) as SolidColorBrush,
+                BorderBrush =
+                    new BrushConverter().ConvertFromString(Settings.Default.KeyboardBorderColor) as SolidColorBrush,
             };
-
-            button.BorderBrush =
-                new BrushConverter().ConvertFromString(Settings.Default.KeyboardBorderColor) as SolidColorBrush;
 
             SetContent(button, defaultKey, shiftKey, altGrKey, shiftAltGrKey);
             return button;
