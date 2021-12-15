@@ -87,15 +87,23 @@ namespace WPFMeteroWindow
                     
                 
                 lessonText = Regex.Replace(reader.GetString("Lesson>Text"), "\\s+", " ").ToBeCorrected();
-                Settings.Default.NecessaryCPM = reader.GetInt("Lesson>NecessaryCPM");
-                Settings.Default.MaxAcceptableMistakes = reader.GetInt("Lesson>MaximumMistakes");
+
+                try
+                {
+                    Settings.Default.NecessaryCPM = reader.GetInt("Lesson>NecessaryCPM");
+                    Settings.Default.MaxAcceptableMistakes = reader.GetInt("Lesson>MaximumMistakes");
+                }
+                
+                catch
+                {
+                    Settings.Default.NecessaryCPM = 0;
+                    Settings.Default.MaxAcceptableMistakes = 100;
+                }
             }
             catch
             {
                 lessonName = "...";
                 lessonText = File.ReadAllText(filename);
-                Settings.Default.NecessaryCPM = -1;
-                Settings.Default.MaxAcceptableMistakes = -1;
             }
 
             StatisticsManager.ReloadStats();
