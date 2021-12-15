@@ -156,6 +156,9 @@
   <data name="uDeleteAll" xml:space="preserve">
     <value>Удалить всё</value>
   </data>
+  <data name="uDictionary" xml:space="preserve">
+    <value>Словарь</value>
+  </data>
   <data name="uEmptyList" xml:space="preserve">
     <value>Список пуст</value>
   </data>
@@ -170,6 +173,9 @@
   </data>
   <data name="uEnterThePathToKeyboardLayout" xml:space="preserve">
     <value>Введить путь к раскладке</value>
+  </data>
+  <data name="uError" xml:space="preserve">
+    <value>Ошибка</value>
   </data>
   <data name="uErrorAccessDenied" xml:space="preserve">
     <value>отказано в доступе</value>
@@ -201,6 +207,9 @@
   <data name="uHandsThickness" xml:space="preserve">
     <value>Толщина линий на руках</value>
   </data>
+  <data name="uHtmlParsing" xml:space="preserve">
+    <value>HTML-парсинг</value>
+  </data>
   <data name="uIncorrectNumberError" xml:space="preserve">
     <value>Ошибка: некорректно введённое число</value>
   </data>
@@ -212,6 +221,9 @@
   </data>
   <data name="uInsertKeyboardLayout" xml:space="preserve">
     <value>Загрузить раскладку клавиатуры</value>
+  </data>
+  <data name="uInvalidDataInput" xml:space="preserve">
+    <value>введены некорректные данные</value>
   </data>
   <data name="uIsFinished" xml:space="preserve">
     <value>Завершён</value>
@@ -504,6 +516,9 @@
   <data name="uSpeedOfEveryWord" xml:space="preserve">
     <value>Скорость ввода каждого слова</value>
   </data>
+  <data name="uStandardCourse" xml:space="preserve">
+    <value>Обычный</value>
+  </data>
   <data name="uSuccess" xml:space="preserve">
     <value>Успех!</value>
   </data>
@@ -542,6 +557,9 @@
   </data>
   <data name="uWordPracticing" xml:space="preserve">
     <value>Тренировка слов</value>
+  </data>
+  <data name="uWords" xml:space="preserve">
+    <value>Слова</value>
   </data>
   <data name="uYes" xml:space="preserve">
     <value>Да</value>

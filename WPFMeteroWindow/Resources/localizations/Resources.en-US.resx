@@ -156,6 +156,9 @@
   <data name="uDeleteAll" xml:space="preserve">
     <value>Delete all</value>
   </data>
+  <data name="uDictionary" xml:space="preserve">
+    <value>Dictionary</value>
+  </data>
   <data name="uEmptyList" xml:space="preserve">
     <value>Список пуст</value>
   </data>
@@ -170,6 +173,9 @@
   </data>
   <data name="uEnterThePathToKeyboardLayout" xml:space="preserve">
     <value>Enter the path to the keyboard layout</value>
+  </data>
+  <data name="uError" xml:space="preserve">
+    <value>Error</value>
   </data>
   <data name="uErrorAccessDenied" xml:space="preserve">
     <value>access denied</value>
@@ -201,6 +207,9 @@
   <data name="uHandsThickness" xml:space="preserve">
     <value>Hands line thickness</value>
   </data>
+  <data name="uHtmlParsing" xml:space="preserve">
+    <value>HTML parsing</value>
+  </data>
   <data name="uIncorrectNumberError" xml:space="preserve">
     <value>Error: incorrect inputted number</value>
   </data>
@@ -212,6 +221,9 @@
   </data>
   <data name="uInsertKeyboardLayout" xml:space="preserve">
     <value>Load the keyboard layout</value>
+  </data>
+  <data name="uInvalidDataInput" xml:space="preserve">
+    <value>invalid data input</value>
   </data>
   <data name="uIsFinished" xml:space="preserve">
     <value>is finished</value>
@@ -504,6 +516,9 @@
   <data name="uSpeedOfEveryWord" xml:space="preserve">
     <value>Typing speed of every word</value>
   </data>
+  <data name="uStandardCourse" xml:space="preserve">
+    <value>Common</value>
+  </data>
   <data name="uSuccess" xml:space="preserve">
     <value>Success!</value>
   </data>
@@ -542,6 +557,9 @@
   </data>
   <data name="uWordPracticing" xml:space="preserve">
     <value>Word practicing</value>
+  </data>
+  <data name="uWords" xml:space="preserve">
+    <value>Words</value>
   </data>
   <data name="uYes" xml:space="preserve">
     <value>Yes</value>

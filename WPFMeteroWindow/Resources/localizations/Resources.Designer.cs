@@ -178,6 +178,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Словарь.
+        /// </summary>
+        public static string uDictionary {
+            get {
+                return ResourceManager.GetString("uDictionary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Список пуст.
         /// </summary>
         public static string uEmptyList {
@@ -219,6 +228,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uEnterThePathToKeyboardLayout {
             get {
                 return ResourceManager.GetString("uEnterThePathToKeyboardLayout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ошибка.
+        /// </summary>
+        public static string uError {
+            get {
+                return ResourceManager.GetString("uError", resourceCulture);
             }
         }
         
@@ -313,6 +331,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на HTML-парсинг.
+        /// </summary>
+        public static string uHtmlParsing {
+            get {
+                return ResourceManager.GetString("uHtmlParsing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Ошибка: некорректно введённое число.
         /// </summary>
         public static string uIncorrectNumberError {
@@ -345,6 +372,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uInsertKeyboardLayout {
             get {
                 return ResourceManager.GetString("uInsertKeyboardLayout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на введены некорректные данные.
+        /// </summary>
+        public static string uInvalidDataInput {
+            get {
+                return ResourceManager.GetString("uInvalidDataInput", resourceCulture);
             }
         }
         
@@ -1222,6 +1258,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Обычный.
+        /// </summary>
+        public static string uStandardCourse {
+            get {
+                return ResourceManager.GetString("uStandardCourse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Успех!.
         /// </summary>
         public static string uSuccess {
@@ -1335,6 +1380,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uWordPracticing {
             get {
                 return ResourceManager.GetString("uWordPracticing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Слова.
+        /// </summary>
+        public static string uWords {
+            get {
+                return ResourceManager.GetString("uWords", resourceCulture);
             }
         }
         
