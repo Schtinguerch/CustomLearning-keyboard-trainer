@@ -7,7 +7,7 @@
       xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
       xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
       mc:Ignorable="d" 
-      d:DesignHeight="580" d:DesignWidth="800"
+      d:DesignHeight="592" d:DesignWidth="800"
       Title="CourseEditorPage">
 
     <Page.Triggers>
@@ -32,11 +32,11 @@
     <Grid 
         x:Name="BackGrid"
         Width="800" 
-        Height="580"
+        Height="592"
         KeyDown="CourseEditoGrid_OnKeyDown">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="212"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -70,13 +70,14 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock
+                    x:Name="HeaderNameTextBlock"
                     Grid.Row="0"
                     Grid.Column="0"
 
                     Style="{StaticResource SummaryTextStyle}"
                     Margin="10 0 10 5"
                     VerticalAlignment="Bottom"
-                    Text="{x:Static res:Resources.uName}"
+                    d:Text="{x:Static res:Resources.uName}"
                     FontSize="18">
                 </TextBlock>
 
@@ -98,14 +99,7 @@
                     <StackPanel
                         Orientation="Vertical"
                         VerticalAlignment="Bottom">
-
-                        <TextBlock
-                            Style="{StaticResource SummaryTextStyle}"
-                            Margin="10 00 10 5"
-                            Text="{x:Static res:Resources.uAuthor}"
-                            FontSize="18">
-                        </TextBlock>
-
+                        
                         <TextBox
                             FontSize="18"
                             Height="32"
@@ -115,6 +109,20 @@
                             BorderBrush="#121212"
                             x:Name="AuthorTextBox">
                         </TextBox>
+
+                        <ComboBox
+                            FontSize="18"
+                            Height="32"
+                            Margin="10 0 10 10"
+                            Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                            FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                            BorderBrush="#121212"
+                            x:Name="TypeComboBox">
+
+                            <ComboBoxItem IsSelected="True" Content="{x:Static res:Resources.uStandardCourse}"></ComboBoxItem>
+                            <ComboBoxItem Content="{x:Static res:Resources.uDictionary}"></ComboBoxItem>
+                            <ComboBoxItem Content="{x:Static res:Resources.uWords}"></ComboBoxItem>
+                        </ComboBox>
                     </StackPanel>
                 </Grid>
 
@@ -141,7 +149,8 @@
                     BorderBrush="#121212"
                     x:Name="LessonListTextBox"
                     AcceptsReturn="True"
-                    TextWrapping="Wrap">
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Visible">
 
                     <TextBox.ContextMenu>
                         <ContextMenu
@@ -250,19 +259,17 @@
                         Click="NewLessonButton_OnClick">
 
                         <Button.ContextMenu>
-                            <ContextMenu x:Name="NewCourseTypeContextMenu">
+                            <ContextMenu 
+                                x:Name="NewCourseTypeContextMenu"
+                                FontFamily="{Binding Path=SummaryFont ,Source={x:Static prop:Settings.Default}}">
+                                
                                 <MenuItem 
-                                    Header="Word training" 
+                                    Header="{x:Static res:Resources.uWordPracticing}" 
                                     Click="LoadWordsButton_OnClick">
                                 </MenuItem>
 
-                                <MenuItem 
-                                    Header="Layout training"
-                                    Click="FormLayoutEducation_OnClick">
-                                </MenuItem>
-
                                 <MenuItem
-                                    Header="HTML-parsing"
+                                    Header="{x:Static res:Resources.uHtmlParsing}"
                                     Click="HtmlParsing_OnClick">
                                 </MenuItem>
                             </ContextMenu>

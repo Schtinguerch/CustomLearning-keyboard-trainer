@@ -21,6 +21,8 @@ namespace WPFMeteroWindow.Resources.pages
         public CourseEditorPage()
         {
             InitializeComponent();
+            HeaderNameTextBlock.Text = $"{Localization.uName}, {Localization.uAuthor}";
+
             Settings.Default.LessonInCourseFileName = "empty";
             Settings.Default.IsOpenUnderCourse = true;
             Intermediary.CoursePage = this;
@@ -48,12 +50,15 @@ namespace WPFMeteroWindow.Resources.pages
             LessonListTextBox.Text = _editor.ListToString(_editor.Lessons, 0);
             ReferencesListTextBox.Text = _editor.ListToString(_editor.Author.References, 0);
             EditorTitleTextBox.Text = $"{_editor.CourseName}.lml - {Localization.uCourseEditor}";
+
+            TypeComboBox.SelectedIndex = (int)_editor.CourseType;
         }
 
         private void SendDataToEditor()
         {
             _editor.CourseName = CourseNameTextBox.Text;
             _editor.Lessons = _editor.StringToList(LessonListTextBox.Text);
+            _editor.CourseType = (CourseType) TypeComboBox.SelectedIndex;
 
             _editor.Author = new AuthorData()
             {
