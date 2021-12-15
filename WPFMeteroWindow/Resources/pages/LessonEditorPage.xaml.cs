@@ -6,6 +6,7 @@ using WPFMeteroWindow.Properties;
 using Path = System.IO.Path;
 using Microsoft.Win32;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
+using System.Windows.Media;
 
 namespace WPFMeteroWindow.Resources.pages
 {
@@ -56,8 +57,30 @@ namespace WPFMeteroWindow.Resources.pages
         private void SaveLesson()
         {
             _editor.LessonName = LessonNameTextBox.Text;
-            _editor.NecessaryCPM = Convert.ToInt32(LessonCpmTextBox.Text);
-            _editor.MaxAcceptableMistakes = Convert.ToInt32(LessonMaxMistakesTextBox.Text);
+
+            int necessaryCpm = 0;
+            var isValidCpm = int.TryParse(LessonCpmTextBox.Text, out necessaryCpm);
+
+            if (!isValidCpm)
+                LessonCpmTextBox.BorderBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(Settings.Default.KeyboardErrorHighlightColor);
+
+            int maxMistakes = int.MaxValue;
+            var isValidMaxMistakes = int.TryParse(LessonMaxMistakesTextBox.Text, out maxMistakes);
+
+            if (!isValidMaxMistakes)
+                LessonMaxMistakesTextBox.BorderBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(Settings.Default.KeyboardErrorHighlightColor);
+
+            if (!isValidCpm || !isValidMaxMistakes)
+            {
+                Intermediary.App.ShowMessage($"{Localization.uError}: {Localization.uInvalidDataInput}");
+                return;
+            }
+
+            LessonCpmTextBox.BorderBrush = LessonMaxMistakesTextBox.BorderBrush =
+                (SolidColorBrush)new BrushConverter().ConvertFromString("#121212");
+
+            _editor.NecessaryCPM = necessaryCpm;
+            _editor.MaxAcceptableMistakes = maxMistakes;
             _editor.LessonText = LessonDataTextBox.Text;
             
             _editor.WriteDataOnFile();
