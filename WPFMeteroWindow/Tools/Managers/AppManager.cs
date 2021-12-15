@@ -279,11 +279,13 @@ namespace WPFMeteroWindow
             foreach (var item in badArray)
             {
                 if (!item.Contains(".lml"))
-                    listItem += item + ' ';
+                {
+                    listItem += $"{item} ";
+                }
+
                 else
                 {
-
-                    rightFileList.Add(parentFolder.Length == 0? "" : parentFolder + "\\" + listItem + item);
+                    rightFileList.Add($"{(parentFolder != ""? $"{parentFolder}\\" : "")}{listItem}{item}");
                     listItem = "";
                 }
             }
