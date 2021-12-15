@@ -8,6 +8,8 @@ namespace WPFMeteroWindow
 {
     public static class Intermediary
     {
+        public static AppLoadingWindow Loader { get; set; }
+
         public static MainWindow App { get; set; }
 
         public static CourseEditorPage CoursePage { get; set; }
