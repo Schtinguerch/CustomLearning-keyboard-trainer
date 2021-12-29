@@ -106,6 +106,9 @@ namespace WPFMeteroWindow.Resources.pages
 
         public void OpenLessonEditorPage(string filename)
         {
+            if (string.IsNullOrEmpty(filename))
+                return;
+
             Settings.Default.LessonInCourseFileName = filename;
             CloseLessonEditorPage();
             LessonEditorFrame.Source = new Uri("LessonEditorPage.xaml", UriKind.Relative);
@@ -169,16 +172,25 @@ namespace WPFMeteroWindow.Resources.pages
 
         private string SelectedPath()
         {
-            LessonListTextBox.SelectLine();
-            var path = LessonListTextBox.SelectedText;
-            var basePath = path.Contains(":\\") ? "" : _editor.FolderPath + '\\';
+            try
+            {
+                LessonListTextBox.SelectLine();
+                var path = LessonListTextBox.SelectedText;
+                var basePath = path.Contains(":\\") ? "" : _editor.FolderPath + '\\';
 
-            return basePath + path;
+                return basePath + path;
+            }
+            
+            catch
+            {
+                Intermediary.App.ShowMessage($"{Localization.uError}: {Localization.uCannotWorkWithEmptyString}");
+                return "";
+            }
         }
 
         private void ExploreFile(string path)
         {
-            if (!File.Exists(path))
+            if (!File.Exists(path) || string.IsNullOrEmpty(path))
             {
                 LogManager.Log($"Show file in explorer: \"{path}\" -> failed, file does not exist");
                 return;
@@ -191,18 +203,34 @@ namespace WPFMeteroWindow.Resources.pages
         private void EditLessonMenuItem_OnClick(object sender, RoutedEventArgs e) =>
             OpenLessonEditorPage(SelectedPath());
         
-        private void NewLessonMenuItem_OnClick(object sender, RoutedEventArgs e) =>
-            OpenLessonEditorPage("empty");
+        private void NewLessonMenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(_editor.FolderPath))
+                OpenLessonEditorPage("empty");
+            else
+                Intermediary.App.ShowMessage($"{Localization.uError}: {Localization.uCannotAddLessonToEmptyCourse}");
+        }
+            
 
         private void MenuItem_OnClick(object sender, RoutedEventArgs e) =>
             ExploreFile(SelectedPath());
 
-        private void CopyPathMenuItem_OnClick(object sender, RoutedEventArgs e) =>
-            Clipboard.SetText(SelectedPath());
+        private void CopyPathMenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            var path = SelectedPath();
+            if (string.IsNullOrEmpty(path))
+                return;
+
+            Clipboard.SetText(path);
+        }
+            
 
         private void DeleteFileMenuItem_OnClick(object sender, RoutedEventArgs e)
         {
             var path = SelectedPath();
+            if (string.IsNullOrEmpty(path))
+                return;
+
             LessonListTextBox.Text =
                 LessonListTextBox.Text.Remove(LessonListTextBox.SelectionStart, LessonListTextBox.SelectionLength);
 
