@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+
 using WPFMeteroWindow.Properties;
+using WPFMeteroWindow.Controls;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 
 namespace WPFMeteroWindow.Resources.pages
@@ -37,47 +39,48 @@ namespace WPFMeteroWindow.Resources.pages
             ErrorsTextBlock.Text = $"{StatisticsManager.TypingMistakes} {Localization.uMistakes}: {typingMistakePercentage:N}%";
             TypingTimeTextBlock.Text = $"{Localization.uTime}: {typingSeconds:N}";
             CharactersCountTextBlock.Text = $"{Localization.uCharactersCount}: {LessonManager.DoneRoad.Length}";
-            
-            var drawer = new GraphDrawer(ChartCanvas, StatisticsManager.WordPoinds, 180, 380);
-            drawer.DrawSpeedGraph(TypingSpeedPolyline);
-            
-            var maxCPM = drawer.MaxCPM;
-            MaxCPMtextBlock.Text = maxCPM.ToString();
-            
-            drawer = new GraphDrawer(ChartCanvas, StatisticsManager.AveragePoints, 180, 380);
-            drawer.MaxCPM = maxCPM;
-            drawer.DrawSpeedGraph(AverageTypingSpeedPolyline, true);
 
-            var averageCPM = typingSpeed;
-            var PunctierPoints = new List<SpeedPoint>
+            var valuePlots = new List<List<double>>()
             {
-                new SpeedPoint(0, averageCPM),
-                new SpeedPoint(1, averageCPM),
-                
+                StatisticsManager.AverageSpeeds,
+                StatisticsManager.WordSpeeds,
             };
-            
-            drawer = new GraphDrawer(ChartCanvas, PunctierPoints, 180, 380);
-            drawer.MaxCPM = maxCPM;
-            drawer.DrawSpeedGraph(AverapeCPMpunctierPolyline);
-            
-            Canvas.SetTop(AverapeCPMtextBlock, AverapeCPMpunctierPolyline.Points[0].Y - 8d);
-            AverapeCPMtextBlock.Text = averageCPM.ToString("N");
 
-            var statusText = Localization.uCPM + ": ";
+            foreach (var word in StatisticsManager.MistakeWords)
+                MistakenWordsListBox.Items.Add(word);
+
+            foreach (var character in StatisticsManager.MistakeCharacters)
+                MistakenCharsListBox.Items.Add(character);
+
+            var timeList = new List<string>();
+            int timeCount = 3;
+
+            for (int i = 0; i < timeCount; i++)
+            {
+                var itemCount = StatisticsManager.TimePoints.Count;
+                int offset = i == 2 ? 1 : 0;
+
+                timeList.Add(StatisticsManager.TimePoints[itemCount * i / (timeCount - 1) - offset]);
+            }
+
+            var plotDrawer = new StatsVisualizer(valuePlots, StatisticsManager.TimePoints, timeList, StatisticsManager.MistakePoints, StatisticsManager.MistakeCharacters, typingSpeed, 5);
+            CanvasGrid.Children.Add(plotDrawer);
             
             var reqCPM = Settings.Default.NecessaryCPM;
             var reqMistakes = Settings.Default.MaxAcceptableMistakes;
             var mistakes = StatisticsManager.TypingMistakes;
-            var raidLessonStatus = false;
 
-            if ((reqCPM != -1) && (reqMistakes != -1) && !Settings.Default.ItTypingTest && Settings.Default.RequireWPM)
+            var raidLessonStatus = false;
+            var statusText = Localization.uCPM + ": ";
+
+            if ((reqCPM != -1) && (reqMistakes != -1) && 
+                !Settings.Default.ItTypingTest && Settings.Default.RequireWPM)
             {
                 statusText += (typingSpeed > reqCPM) ? $"{typingSpeed} > {reqCPM}; " :
                     (typingSpeed == reqCPM) ? $"{typingSpeed} = {reqCPM}!!!; " :
                     $"{typingSpeed} < {reqCPM}!!!; ";
 
                 statusText += Localization.uMistakes + ": ";
-
                 statusText += (mistakes < reqMistakes) ? $"{mistakes} < {reqMistakes} -> " :
                     (mistakes == reqMistakes) ? $"{mistakes} = {reqMistakes}!!! -> " : 
                     $"{mistakes} > {reqMistakes}!!! -> " ;
