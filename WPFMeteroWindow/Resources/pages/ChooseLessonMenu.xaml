@@ -22,7 +22,9 @@
             <StackPanel
                 Margin="0 10 0 10"
                 x:Name="LessonStackPanel"
-                Orientation="Vertical">
+                Orientation="Vertical"
+                VirtualizingStackPanel.IsVirtualizing="True"
+                VirtualizingStackPanel.VirtualizationMode="Recycling">
                 
             </StackPanel>
         </ScrollViewer>
