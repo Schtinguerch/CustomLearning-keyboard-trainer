@@ -19,18 +19,6 @@ using Thread = System.Threading.Thread;
 
 namespace WPFMeteroWindow
 {
-    public struct SpeedPoint
-    {
-        public float CPM;
-        public int PartPoint;
-
-        public SpeedPoint(int point, float cpm)
-        {
-            CPM = cpm;
-            PartPoint = point;
-        }
-    }
-    
     public partial class MainWindow : MetroWindow
     {
         private Storyboard _showMessageStoryboard;
@@ -102,8 +90,8 @@ namespace WPFMeteroWindow
         {
             _startingThread = new Thread(LoadMainAppWindow);
             _startingThread.ApartmentState = System.Threading.ApartmentState.STA;
-            _startingThread.IsBackground = true;
 
+            _startingThread.IsBackground = true;
             _startingThread.Start();
 
             InitializeComponent();
@@ -128,6 +116,9 @@ namespace WPFMeteroWindow
             IsTyping = false;
             Settings.Default.IsFirstTextInputOpen = true;
             _showMessageStoryboard = FindResource("ShowMessageStoryboard") as Storyboard;
+
+            //The special window to test new app features
+            //new TestWindow().Show();
         }
 
         public void ShowMessage(string message)
@@ -177,14 +168,14 @@ namespace WPFMeteroWindow
 
                         if (charactersEquals)
                         {
-                            _isFirstMistake = true;
-                            StatisticsManager.AddWordStatistics(lastCharacter);
-
                             SoundManager.PlayType();
                             LessonManager.ErrorInput = "";
 
                             LessonManager.DoneRoad += lastCharacter;
                             LessonManager.LeftRoad = LessonManager.LeftRoad.Substring(1, LessonManager.LeftRoad.Length - 1);
+
+                            _isFirstMistake = true;
+                            StatisticsManager.AddWordStatistics(lastCharacter);
 
                             _breakTextProcessing = true;
                             bufferTextBox.Text = "";
@@ -202,7 +193,7 @@ namespace WPFMeteroWindow
                             if (_isFirstMistake)
                             {
                                 StatisticsManager.TypingMistakes++;
-                                StatisticsManager.AddMistakeStatistics();
+                                StatisticsManager.AddMistakeStatistics($"{LessonManager.LeftRoad[0]}");
 
                                 SoundManager.PlayTypingMistake();
                                 _isFirstMistake = false;
@@ -523,8 +514,9 @@ namespace WPFMeteroWindow
 
         private void MetroWindow_ContentRendered(object sender, EventArgs e)
         {
-            _startingThread.Abort();
+            ContentRendered -= MetroWindow_ContentRendered;
 
+            _startingThread.Abort();
             Activate();
         }
     }
