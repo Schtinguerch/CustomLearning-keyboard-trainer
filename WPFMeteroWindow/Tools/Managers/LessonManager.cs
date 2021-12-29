@@ -106,8 +106,6 @@ namespace WPFMeteroWindow
                 lessonText = File.ReadAllText(filename);
             }
 
-            StatisticsManager.ReloadStats();
-
             lessonText = lessonText.Randomized();
             lessonText = lessonText.WithDeletedExceptions();
            
@@ -129,7 +127,6 @@ namespace WPFMeteroWindow
 
         public static void LoadTest(string lessonText)
         {
-            StatisticsManager.ReloadStats();
             var text = lessonText.WithDeletedExceptions();
 
             LoadLessonText(text);
@@ -157,6 +154,7 @@ namespace WPFMeteroWindow
             Intermediary.App.MistakesTextBloxck.Text = "0% •  0 " + Localization.uMistakes;
 
             TextInputPresenter.LoadText(text);
+            StatisticsManager.ReloadStats();
             Intermediary.App.bufferTextBox.Focus();
         }
         
