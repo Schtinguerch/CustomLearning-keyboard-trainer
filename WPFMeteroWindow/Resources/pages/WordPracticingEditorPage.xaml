@@ -134,6 +134,7 @@
                     Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
                     FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
                     BorderBrush="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                    AcceptsReturn="True"
                     x:Name="WordDataTextBox"
                     BorderThickness="0"
                     Padding="10" Grid.ColumnSpan="2">
@@ -200,7 +201,8 @@
                     FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                     Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
                     x:Name="CancelLessonButton"
-                    Content="✖">
+                    Content="✖"
+                    Click="CancelLessonButton_Click">
                 </Button>
             </StackPanel>
         </Grid>
