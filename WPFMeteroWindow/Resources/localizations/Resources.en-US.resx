@@ -126,8 +126,17 @@
   <data name="uAuthor" xml:space="preserve">
     <value>Author</value>
   </data>
+  <data name="uAverage" xml:space="preserve">
+    <value>Average</value>
+  </data>
   <data name="uBlurRadius" xml:space="preserve">
     <value>Blur radius</value>
+  </data>
+  <data name="uCannotAddLessonToEmptyCourse" xml:space="preserve">
+    <value>impossible lesson addition to the empty course. Click "save"!</value>
+  </data>
+  <data name="uCannotWorkWithEmptyString" xml:space="preserve">
+    <value>empty string processing is impossible!</value>
   </data>
   <data name="uCharactersCount" xml:space="preserve">
     <value>Char count</value>
@@ -509,6 +518,9 @@
   </data>
   <data name="uSpace" xml:space="preserve">
     <value>"Space"</value>
+  </data>
+  <data name="uSpeed" xml:space="preserve">
+    <value>Speed</value>
   </data>
   <data name="uSpeedInEverySecond" xml:space="preserve">
     <value>Speed in every second</value>

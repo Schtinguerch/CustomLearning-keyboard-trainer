@@ -88,11 +88,38 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на В среднем.
+        /// </summary>
+        public static string uAverage {
+            get {
+                return ResourceManager.GetString("uAverage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Радиус размытия.
         /// </summary>
         public static string uBlurRadius {
             get {
                 return ResourceManager.GetString("uBlurRadius", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на невозможно добавить урок в пустой курс, нажмите &quot;Сохранить&quot;!!!.
+        /// </summary>
+        public static string uCannotAddLessonToEmptyCourse {
+            get {
+                return ResourceManager.GetString("uCannotAddLessonToEmptyCourse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на работа с пустой строкой невозможна!.
+        /// </summary>
+        public static string uCannotWorkWithEmptyString {
+            get {
+                return ResourceManager.GetString("uCannotWorkWithEmptyString", resourceCulture);
             }
         }
         
@@ -1236,6 +1263,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uSpace {
             get {
                 return ResourceManager.GetString("uSpace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Скорость.
+        /// </summary>
+        public static string uSpeed {
+            get {
+                return ResourceManager.GetString("uSpeed", resourceCulture);
             }
         }
         
