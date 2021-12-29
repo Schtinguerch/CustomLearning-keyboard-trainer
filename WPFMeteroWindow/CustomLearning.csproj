@@ -136,11 +136,6 @@
     <Compile Include="Commands\FileOpener.cs" />
     <Compile Include="Commands\FlagSetter.cs" />
     <Compile Include="Commands\FontSetter.cs" />
-    <Compile Include="Commands\GameSceneCommands\PlaySoundTrack.cs" />
-    <Compile Include="Commands\GameSceneCommands\SetCircleShowTime.cs" />
-    <Compile Include="Commands\GameSceneCommands\SetMaxTapperingRadius.cs" />
-    <Compile Include="Commands\GameSceneCommands\SetProperty.cs" />
-    <Compile Include="Commands\PreprocessorCommands\PreDefine.cs" />
     <Compile Include="Controls\ConfigItem.xaml.cs">
       <DependentUpon>ConfigItem.xaml</DependentUpon>
     </Compile>
@@ -149,6 +144,12 @@
     </Compile>
     <Compile Include="Controls\KeyboardLayoutItem.xaml.cs">
       <DependentUpon>KeyboardLayoutItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MistakeCross.xaml.cs">
+      <DependentUpon>MistakeCross.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StatsVisualizer.xaml.cs">
+      <DependentUpon>StatsVisualizer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\TextInputControls\Classic\Classic.xaml.cs">
       <DependentUpon>Classic.xaml</DependentUpon>
@@ -342,9 +343,6 @@
     <Compile Include="Resources\pages\ChooseLessonMenu.xaml.cs">
       <DependentUpon>ChooseLessonMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Resources\pages\ClickingGamePage.xaml.cs">
-      <DependentUpon>ClickingGamePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Resources\pages\CommandLinePage.xaml.cs">
       <DependentUpon>CommandLinePage.xaml</DependentUpon>
     </Compile>
@@ -381,6 +379,9 @@
     <Compile Include="Resources\pages\WordPracticingEditorPage.xaml.cs">
       <DependentUpon>WordPracticingEditorPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TestWindow.xaml.cs">
+      <DependentUpon>TestWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tools\Common\Intermediary.cs" />
     <Compile Include="Tools\Editors\CourseEditor.cs" />
     <Compile Include="Tools\Editors\KeyboardLayoutEditor.cs" />
@@ -391,7 +392,6 @@
     <Compile Include="Tools\Managers\AppManager.cs" />
     <Compile Include="Tools\Managers\CourseManager.cs" />
     <Compile Include="Tools\Managers\DiscordManager.cs" />
-    <Compile Include="Tools\Managers\GameManager.cs" />
     <Compile Include="Tools\Managers\KeyboardManager.cs" />
     <Compile Include="Tools\Managers\LessonManager.cs" />
     <Compile Include="Tools\Managers\LogManager.cs" />
@@ -400,7 +400,6 @@
     <Compile Include="Tools\Managers\StatisticsManager.cs" />
     <Compile Include="Tools\Managers\TestManager.cs" />
     <Compile Include="Tools\Managers\UserConfigManager.cs" />
-    <Compile Include="Tools\PresentTools\GraphDrawer.cs" />
     <Compile Include="Tools\PresentTools\HandPresenter.cs" />
     <Compile Include="Tools\PresentTools\KeyboardPresenter.cs" />
     <Compile Include="Tools\PresentTools\LessonTextInputPresenter.cs" />
@@ -423,6 +422,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\KeyboardLayoutItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MistakeCross.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\StatsVisualizer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -676,10 +683,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\pages\ClickingGamePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Resources\pages\CommandLinePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -725,6 +728,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\pages\WordPracticingEditorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
