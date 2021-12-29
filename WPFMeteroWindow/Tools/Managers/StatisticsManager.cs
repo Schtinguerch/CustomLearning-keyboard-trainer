@@ -9,17 +9,21 @@ namespace WPFMeteroWindow
     public static class StatisticsManager
     {
         private const int _millisecondsInMinute = 60000;
-        private const int _startTimeToCollectStats = 200;
+        private const int _startTimeToCollectStats = 100;
 
         private static Stopwatch _typingStopWatch;
 
         private static int _wordLength = 0;
         private static int _wordTimeStart = 0;
+        private static string _currentWord;
 
-        public static List<SpeedPoint> AveragePoints { get; private set; } = new List<SpeedPoint>();
-        public static List<SpeedPoint> WordPoinds { get; private set; } = new List<SpeedPoint>();
+        public static List<double> AverageSpeeds { get; private set; } = new List<double>();
+        public static List<double> WordSpeeds { get; private set; } = new List<double>();
         public static List<string> TimePoints { get; private set; } = new List<string>();
         public static List<int> MistakePoints { get; private set; } = new List<int>();
+        public static List<string> MistakeCharacters { get; private set; } = new List<string>();
+        public static List<string> MistakeWords { get; private set; } = new List<string>();
+        
 
         public static int TypingMistakes { get; set; } = 0;
         public static float TypingSpeedCpm { get; private set; } = 0;
@@ -49,10 +53,9 @@ namespace WPFMeteroWindow
 
             if (TypingMilliseconds > _startTimeToCollectStats)
             {
-                AveragePoints.Add(new SpeedPoint(TypingMilliseconds, TypingSpeedCpm));
+                AverageSpeeds.Add(TypingSpeedCpm);
                 TimePoints.Add(TypingTimeOut);
             }
-                
 
             Intermediary.App.TimerTextBlock.Text = TypingTimeOut;
             Intermediary.App.WPMTextBlock.Text = $"{averageCpm:N} {Localization.uCPM}";
@@ -66,7 +69,17 @@ namespace WPFMeteroWindow
                 var wordTime = TypingMilliseconds - _wordTimeStart;
                 var wordCpm = (_wordLength + 1) / (float)wordTime * _millisecondsInMinute;
 
-                WordPoinds.Add(new SpeedPoint(TypingMilliseconds, wordCpm));
+                WordSpeeds.Add(wordCpm);
+
+                try
+                {
+                    _currentWord = LessonManager.LeftRoad.Substring(0, LessonManager.LeftRoad.IndexOf(' '));
+                }
+
+                catch
+                {
+                    //Do nothing, cuz it's the end of lesson
+                }
 
                 _wordLength = 0;
                 _wordTimeStart = TypingMilliseconds;
@@ -75,8 +88,13 @@ namespace WPFMeteroWindow
                 _wordLength++;
         }
 
-        public static void AddMistakeStatistics() =>
+        public static void AddMistakeStatistics(string mistake)
+        {
             MistakePoints.Add(TypingMilliseconds);
+            MistakeCharacters.Add(mistake);
+            MistakeWords.Add(_currentWord);
+        }
+            
         
         public static void ReloadTimer()
         {
@@ -87,22 +105,29 @@ namespace WPFMeteroWindow
         public static void ReloadStats()
         {
             ReloadTimer();
+
+            AverageSpeeds = new List<double>(12000);
+            WordSpeeds = new List<double>(2400);
             
-            AveragePoints = new List<SpeedPoint>();
-            WordPoinds = new List<SpeedPoint>();
-            TimePoints = new List<string>();
-            MistakePoints = new List<int>();
+            TimePoints = new List<string>(12000);
+
+            MistakePoints = new List<int>(1200);
+            MistakeCharacters = new List<string>(1200);
+            MistakeWords = new List<string>(1200);
+            
+            GC.Collect();
 
             PassPercentage = 0;
             TypingMistakes = 0;
             TypingSpeedCpm = 0;
             _wordLength = 0;
+            _currentWord = LessonManager.LeftRoad.Substring(0, LessonManager.LeftRoad.IndexOf(' '));
         }
 
         public static void StartTimer()
         {
             ReloadStats();
-            TypingTimer = new Timer() { Interval = 25 };
+            TypingTimer = new Timer() { Interval = 20 };
             TypingTimer.Tick += TickTuck;
 
             _typingStopWatch = Stopwatch.StartNew();
