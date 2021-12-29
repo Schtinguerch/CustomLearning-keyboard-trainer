@@ -730,8 +730,9 @@
             Opacity="0"
 
             Style="{StaticResource SummaryTextStyle}"
+            FontWeight="Bold"
             Background="Transparent"
-            FontSize="16"
+            FontSize="24"
             x:Name="MessageTextBlock"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
