@@ -89,5 +89,10 @@ namespace WPFMeteroWindow.Resources.pages
             else
                 return "";
         }
+
+        private void CancelLessonButton_Click(object sender, RoutedEventArgs e)
+        {
+            Intermediary.CoursePage.CloseLessonEditorPage();
+        }
     }
 }
