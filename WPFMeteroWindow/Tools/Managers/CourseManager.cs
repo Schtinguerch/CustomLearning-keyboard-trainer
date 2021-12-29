@@ -10,6 +10,7 @@ using LmlLibrary;
 using WPFMeteroWindow.Properties;
 using Newtonsoft.Json;
 using WPFMeteroWindow.Resources.pages;
+using System.Threading.Tasks;
 
 namespace WPFMeteroWindow
 {
@@ -82,8 +83,6 @@ namespace WPFMeteroWindow
                 LessonsCount = lessons.Count;
 
                 LessonManager.LoadLesson(Lessons[Settings.Default.CourseLessonNumber]);
-
-                //Intermediary.App.LoadCourseOrLessonButton.ContextMenu = CourseContextMenu();
                 Intermediary.App.LoadCourseOrLessonButton.ContextMenu = NewContextMenu();
 
                 Settings.Default.CourseName = courseName;
@@ -135,28 +134,7 @@ namespace WPFMeteroWindow
                 JsonConvert.SerializeObject(recentCources, Formatting.Indented));
         }
 
-        private static ContextMenu CourseContextMenu()
-        {
-            var contextMenu = new ContextMenu()
-            {
-                MaxHeight = 500d,
-                Width = 300d,
-                FontFamily = new FontFamily(Settings.Default.SummaryFont)
-            };
-
-            foreach (var lesson in Lessons)
-            {
-                var lessonName = OptimizedGetLessonName(lesson);
-                var newMenuItem = new MenuItem { Header = lessonName };
-
-                contextMenu.Items.Add(newMenuItem);
-                newMenuItem.Click += (s, e) => CurrentLessonIndex = contextMenu.Items.IndexOf(s as MenuItem);
-            }
-
-            return contextMenu;
-        }
-
-        private static ContextMenu NewContextMenu()
+        public static ContextMenu NewContextMenu(bool isFiction = false)
         {
             var contextMenu = new ContextMenu()
             {
@@ -167,22 +145,17 @@ namespace WPFMeteroWindow
                 HasDropShadow = false,
             };
 
-            contextMenu.Items.Add(new ChooseLessonMenu(Lessons));
+            if (!isFiction)
+            {
+                contextMenu.Items.Add(new ChooseLessonMenu(Lessons));
+            }
+
+            else
+            {
+                contextMenu.Items.Add(new ChooseLessonMenu(new List<string>()));
+            }
+
             return contextMenu;
-        }
-        
-        private static string OptimizedGetLessonName(string filename)
-        {
-            var data = File.ReadAllText(filename);
-            var openTag = "<Name ";
-
-            int startIndex = data.IndexOf(openTag) + 6;
-            int length = data.IndexOf(">>") - startIndex;
-
-            if (startIndex == -1)
-                return "...";
-
-            return data.Substring(startIndex, length);
         }
     }
 }
