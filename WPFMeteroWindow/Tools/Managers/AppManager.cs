@@ -27,6 +27,8 @@ namespace WPFMeteroWindow
         public static void InitializeApplication()
         {
             FindMainWindow();
+            Intermediary.App.LoadCourseOrLessonButton.ContextMenu = CourseManager.NewContextMenu(isFiction: true);
+
             ParallaxEffectPresenter.Image = Intermediary.App.BackgroundImage;
             ParallaxEffectPresenter.Init();
 
@@ -291,6 +293,17 @@ namespace WPFMeteroWindow
             }
 
             return rightFileList;
+        }
+
+        public static int TimeToMilliseconds(this string timeString)
+        {
+            var tokens = timeString.Split(':');
+            int milliseconds =
+                Convert.ToInt32(tokens[0]) * 1000 * 60 +
+                Convert.ToInt32(tokens[1]) * 1000 +
+                Convert.ToInt32(tokens[2]) * 10;
+
+            return milliseconds;
         }
     }
 }
