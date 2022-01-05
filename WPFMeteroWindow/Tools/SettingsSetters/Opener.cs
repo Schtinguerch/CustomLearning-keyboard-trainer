@@ -65,7 +65,7 @@ namespace WPFMeteroWindow
                 NewCourse(openDialog.SelectedPath + "\\CourseLessons.lml", 0, skipUiLoading);
         }
         
-        public static void NewKeyboardLayout(string fileName)
+        public static void NewKeyboardLayout(string fileName, bool isFiction = false)
         {
             if (File.Exists(fileName))
             {
@@ -76,7 +76,7 @@ namespace WPFMeteroWindow
 
                 try
                 {
-                    KeyboardManager.LoadKeyboardData(fileName);
+                    KeyboardManager.LoadKeyboardData(fileName, isFiction);
                     LogManager.Log($"Open keyboard layout: \"{fileName}\" -> success");
                 }
 
