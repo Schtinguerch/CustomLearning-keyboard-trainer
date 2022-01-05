@@ -171,46 +171,68 @@
 
                             <StackPanel>
                                 <TextBlock
-                                        Style="{StaticResource SummaryTextStyle}"
-                                        VerticalAlignment="Top"
-                                        Text="Mistaken words"
-                                        FontSize="24">
+                                    Style="{StaticResource SummaryTextStyle}"
+                                    VerticalAlignment="Top"
+                                    Text="Mistaken words"
+                                    FontSize="24">
                                 </TextBlock>
 
-                                <ListBox 
+                                <ScrollViewer
+                                    Width="300"
+                                    MaxHeight="300"
+                                    HorizontalScrollBarVisibility="Hidden"
+                                    VerticalScrollBarVisibility="Visible">
+
+                                    <ListBox 
+                                        Style="{StaticResource ListBoxStyle}"
                                         x:Name="MistakenWordsListBox">
-                                </ListBox>
+                                    </ListBox>
+                                </ScrollViewer>
 
                                 <TextBlock
-                                        Style="{StaticResource SummaryTextStyle}"
-                                        VerticalAlignment="Top"
-                                        Text="Mistaken characters"
-                                        FontSize="24">
+                                    Style="{StaticResource SummaryTextStyle}"
+                                    VerticalAlignment="Top"
+                                    Text="Mistaken characters"
+                                    FontSize="24">
                                 </TextBlock>
 
-                                <ListBox 
+                                <ScrollViewer
+                                    Width="300"
+                                    MaxHeight="300"
+                                    HorizontalScrollBarVisibility="Hidden"
+                                    VerticalScrollBarVisibility="Visible">
+                                    
+                                    <ListBox 
+                                        Style="{StaticResource ListBoxStyle}"
                                         x:Name="MistakenCharsListBox">
-                                </ListBox>
+                                    </ListBox>
+                                </ScrollViewer>
 
                                 <TextBlock
-                                        Style="{StaticResource SummaryTextStyle}"
-                                        VerticalAlignment="Top"
-                                        Text="Course passing statistics"
-                                        FontSize="24">
+                                    Style="{StaticResource SummaryTextStyle}"
+                                    VerticalAlignment="Top"
+                                    Text="Course passing statistics"
+                                    FontSize="24">
                                 </TextBlock>
 
-                                <Grid Margin="-20 0 0 0">
+                                <Grid 
+                                    Name="CoursePassingStatsGrid"
+                                    Margin="-20 0 0 0"
+                                    Height="260">
                                     <!--TODO: Show phot with all course lessons typing speed-->
                                 </Grid>
 
                                 <TextBlock
-                                        Style="{StaticResource SummaryTextStyle}"
-                                        VerticalAlignment="Top"
-                                        Text="Mistake percentage"
-                                        FontSize="24">
+                                    Style="{StaticResource SummaryTextStyle}"
+                                    VerticalAlignment="Top"
+                                    Text="Mistake percentage"
+                                    FontSize="24">
                                 </TextBlock>
 
-                                <Grid Margin="-20 0 0 0">
+                                <Grid 
+                                    Name="GlobalStatsGrid"
+                                    Margin="-20 0 0 0"
+                                    Height="260">
                                     <!--TODO: Show phot with all course lessons mistake percentage-->
                                 </Grid>
                             </StackPanel>

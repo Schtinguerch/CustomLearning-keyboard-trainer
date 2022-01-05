@@ -29,6 +29,11 @@ namespace WPFMeteroWindow.Resources.pages
                 EndedLessonHeaderTextBlock.Text = $"{Localization.uTypingTest} {Localization.uIsFinished}!!!";
 
             var typingSpeed = StatisticsManager.TypingSpeedCpm;
+
+            if (!StatisticsManager.IsDemonstrationMode)
+                StatisticsManager.GlobalTypingSpeeds.Add(typingSpeed);
+
+            StatisticsManager.IsDemonstrationMode = false;
             var typingMistakePercentage = StatisticsManager.TypingMistakes / (float)LessonManager.DoneRoad.Length * 100d;
 
             WPMtextBlock.Text = $"{typingSpeed:N} {Localization.uCPM}";
@@ -63,8 +68,21 @@ namespace WPFMeteroWindow.Resources.pages
                 timeList.Add(StatisticsManager.TimePoints[itemCount * i / (timeCount - 1) - offset]);
             }
 
-            var plotDrawer = new StatsVisualizer(valuePlots, StatisticsManager.TimePoints, timeList, StatisticsManager.MistakePoints, StatisticsManager.MistakeCharacters, typingSpeed, 5);
-            CanvasGrid.Children.Add(plotDrawer);
+            CanvasGrid.Children.Add(
+                new StatsVisualizer(
+                    valuePlots, 
+                    StatisticsManager.TimePoints, 
+                    timeList, 
+                    StatisticsManager.MistakePoints, 
+                    StatisticsManager.MistakeCharacters, 
+                    typingSpeed, 5));
+
+            GlobalStatsGrid.Children.Add(
+                new StatsVisualizer(
+                    new List<List<double>>() 
+                    { 
+                        StatisticsManager.GlobalTypingSpeeds 
+                    }, null, null, null, null, -1, 3));
             
             var reqCPM = Settings.Default.NecessaryCPM;
             var reqMistakes = Settings.Default.MaxAcceptableMistakes;
