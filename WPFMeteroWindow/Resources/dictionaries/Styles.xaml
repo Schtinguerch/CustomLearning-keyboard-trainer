@@ -63,4 +63,13 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="ListBox" x:Key="ListBoxStyle">
+        <Setter Property="Background" Value="{Binding MainBackground, Source={x:Static prop:Settings.Default}}"></Setter>
+        <Setter Property="Foreground" Value="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"></Setter>
+        <Setter Property="FontFamily" Value="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"></Setter>
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+    </Style>
 </ResourceDictionary>
