@@ -197,5 +197,11 @@
     <Setting Name="RecentConfigs" Type="System.String" Scope="User">
       <Value Profile="(Default)">RecentSkins.json</Value>
     </Setting>
+    <Setting Name="AllTypingSpeedPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TypingSpeedStats.json</Value>
+    </Setting>
+    <Setting Name="CourcesStatisticsPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CoursesStats.json</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -12,7 +12,7 @@ namespace WPFMeteroWindow.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.0.3.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.1.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -800,6 +800,30 @@ namespace WPFMeteroWindow.Properties {
             }
             set {
                 this["RecentConfigs"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("TypingSpeedStats.json")]
+        public string AllTypingSpeedPath {
+            get {
+                return ((string)(this["AllTypingSpeedPath"]));
+            }
+            set {
+                this["AllTypingSpeedPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("CoursesStats.json")]
+        public string CourcesStatisticsPath {
+            get {
+                return ((string)(this["CourcesStatisticsPath"]));
+            }
+            set {
+                this["CourcesStatisticsPath"] = value;
             }
         }
     }
