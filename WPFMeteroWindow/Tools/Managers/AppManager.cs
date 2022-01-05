@@ -9,6 +9,7 @@ using Application = System.Windows.Application;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 using System.Windows.Media;
+using Newtonsoft.Json;
 
 namespace WPFMeteroWindow
 {
@@ -98,6 +99,68 @@ namespace WPFMeteroWindow
                     $"{Localization.uLesson}: \"{Settings.Default.LoadedLessonFile}\"\n" +
                     $"{Localization.uCourse}: \"{Settings.Default.LoadedCourseFile}\"");
             }
+        }
+
+        private static void OpenArgumentFiles()
+        {
+            var courses = new List<string>();
+            var lessons = new List<string>();
+            var configs = new List<string>();
+            var layouts = new List<string>();
+
+            var paths = Environment.GetCommandLineArgs();
+            foreach (var path in paths)
+            {
+                if (File.Exists(path))
+                {
+                    var data = File.ReadAllText(path);
+
+                    if (data.Contains("#config")) configs.Add(path);
+                    if (data.Contains("<<Layout:")) layouts.Add(path);
+                    if (data.Contains("<<Lesson:")) lessons.Add(path);
+                }
+
+                else if (Directory.Exists(path)) courses.Add(path);
+            }
+
+            if (configs.Count == 1)
+                UserConfigManager.ImportConfigFromFile(configs[0]);
+            else
+            foreach (var config in configs)
+                UserConfigManager.AddToRecent(config);
+
+            if (layouts.Count == 1)
+                Opener.NewKeyboardLayout(layouts[0]);
+            else 
+            foreach (var layout in layouts)
+                Opener.NewKeyboardLayout(layout, true);
+
+            if (courses.Count == 1)
+                Opener.NewCourse(courses[0], 0);
+            else
+            foreach (var course in courses)
+                Opener.NewCourse(course, 0, true);
+
+            if (lessons.Count == 1)
+                Opener.NewLesson(lessons[0]);
+            else
+            {
+                var editor = new CourseEditor("TemporaryCourse", CourseState.Empty)
+                {
+                    CourseName = Localization.uUserLessons,
+                    Lessons = lessons,
+                    Author = new AuthorData()
+                    {
+                        Name = "CustomLearningApp",
+                        References = new List<string>()
+                    }
+                };
+
+                editor.WriteDataOnFile();
+                Opener.NewCourse("TemporaryCourse", 0);
+            }
+
+
         }
         
         public static string ToBeCorrected(this string s)
@@ -271,6 +334,40 @@ namespace WPFMeteroWindow
                 return Visibility.Visible;
             else
                 return Visibility.Hidden;
+        }
+
+        public static T JsonReadData<T>(string path) where T : new()
+        {
+            var backupPath = $"Backup\\{path}";
+
+            if (!File.Exists(path) && !File.Exists(backupPath))
+            {
+                File.Create(path);
+                LogManager.Log("Opening typing statistics -> file does not exist, creating new file");
+
+                return new T();
+            }
+
+            try
+            {
+                var jsonData = File.ReadAllText(path);
+                var listData = JsonConvert.DeserializeObject<T>(jsonData);
+
+                File.WriteAllText(backupPath, jsonData);
+                return listData;
+            }
+
+            catch
+            {
+                if (!File.Exists(backupPath))
+                {
+                    File.Create(backupPath);
+                    return new T();
+                }
+
+                var jsonData = File.ReadAllText(backupPath);
+                return JsonConvert.DeserializeObject<T>(jsonData);
+            }
         }
 
         public static List<string> GetFileList(string[] badArray, string parentFolder = "")
