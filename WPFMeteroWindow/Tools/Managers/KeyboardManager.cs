@@ -21,7 +21,7 @@ namespace WPFMeteroWindow
             try { ShowTypingHint(LessonManager.LeftRoad[0]); } catch {}
         }
 
-        public static void LoadKeyboardData(string filename)
+        public static void LoadKeyboardData(string filename, bool isFiction = false)
         {
             var recentLayouts = JsonConvert.DeserializeObject<List<string>>(File.ReadAllText(Settings.Default.RecentLayoutsPath));
             var hasTheSame = false;
@@ -40,6 +40,9 @@ namespace WPFMeteroWindow
                     Settings.Default.RecentLayoutsPath,
                     JsonConvert.SerializeObject(recentLayouts, Formatting.Indented));
             }
+
+            if (isFiction)
+                return;
 
             if (Settings.Default.ShowHands)
             {
