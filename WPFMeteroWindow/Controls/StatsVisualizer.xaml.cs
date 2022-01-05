@@ -317,7 +317,9 @@ namespace WPFMeteroWindow.Controls
             }
 
             SpeedTextBlock.Text = $"{currentValue.ToString("N")} {Localization.uCPM}";
-            TimeTextBlock.Text = _times[currentIndex];
+
+
+            TimeTextBlock.Text = (_times == null)? "" : _times[currentIndex];
 
             CurrentValuePoint.Margin = new Thickness(selectedPoint.X - 5, selectedPoint.Y - 5, 0, 0);
         }
