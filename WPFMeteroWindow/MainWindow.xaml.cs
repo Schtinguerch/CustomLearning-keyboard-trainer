@@ -12,7 +12,7 @@ using Key = System.Windows.Input.Key;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 using Visibility = System.Windows.Visibility;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Newtonsoft.Json;
 using System.IO;
 using System.Linq;
 using Thread = System.Threading.Thread;
@@ -130,6 +130,8 @@ namespace WPFMeteroWindow
         private void StartTypingDemo()
         {
             var typingTimer = new Timer();
+            StatisticsManager.IsDemonstrationMode = true;
+
             typingTimer.Interval = 60;
             typingTimer.Start();
 
@@ -519,5 +521,12 @@ namespace WPFMeteroWindow
             _startingThread.Abort();
             Activate();
         }
+
+        private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e) =>
+            File.WriteAllText(
+                Settings.Default.AllTypingSpeedPath, 
+                JsonConvert.SerializeObject(
+                    StatisticsManager.GlobalTypingSpeeds, 
+                    Formatting.Indented));
     }
 }
