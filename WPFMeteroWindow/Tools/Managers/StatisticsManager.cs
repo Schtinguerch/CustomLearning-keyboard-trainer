@@ -2,10 +2,20 @@
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using System.IO;
+
+using Newtonsoft.Json;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
+using WPFMeteroWindow.Properties;
 
 namespace WPFMeteroWindow
 {
+    public struct CourseStatistics
+    {
+        public string CoursePath { get; set; } 
+        public List<double> Results { get; set; }
+    }
+
     public static class StatisticsManager
     {
         private const int _millisecondsInMinute = 60000;
@@ -17,13 +27,20 @@ namespace WPFMeteroWindow
         private static int _wordTimeStart = 0;
         private static string _currentWord;
 
+        public static List<double> GlobalTypingSpeeds { get; private set; } = 
+            AppManager.JsonReadData<List<double>>(Settings.Default.AllTypingSpeedPath);
+
+        public static List<CourseStatistics> CourseStatistics { get; private set; } =
+            AppManager.JsonReadData<List<CourseStatistics>>(Settings.Default.CourcesStatisticsPath);
+
+        public static bool IsDemonstrationMode { get; set; } = false;
+
         public static List<double> AverageSpeeds { get; private set; } = new List<double>();
         public static List<double> WordSpeeds { get; private set; } = new List<double>();
         public static List<string> TimePoints { get; private set; } = new List<string>();
         public static List<int> MistakePoints { get; private set; } = new List<int>();
         public static List<string> MistakeCharacters { get; private set; } = new List<string>();
         public static List<string> MistakeWords { get; private set; } = new List<string>();
-        
 
         public static int TypingMistakes { get; set; } = 0;
         public static float TypingSpeedCpm { get; private set; } = 0;
