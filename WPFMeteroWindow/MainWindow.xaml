@@ -19,7 +19,8 @@
     MouseMove="MetroWindow_MouseMove"
     SizeChanged="MetroWindow_SizeChanged"
     StateChanged="MetroWindow_StateChanged"
-    ContentRendered="MetroWindow_ContentRendered">
+    ContentRendered="MetroWindow_ContentRendered"
+    Closing="MetroWindow_Closing">
 
     <controls:MetroWindow.Resources>
         <Storyboard
@@ -172,7 +173,8 @@
             Grid.Column="0"
             Grid.Row="0"
             Grid.ColumnSpan="3"
-            MouseMove="Grid_MouseMove" Background="{DynamicResource SecondBackgroundOpacityBrush}" >
+            MouseMove="Grid_MouseMove" 
+            Background="{DynamicResource SecondBackgroundOpacityBrush}" >
         </Grid>
 
         <StackPanel 
@@ -196,8 +198,13 @@
             Grid.Row="0"
             Grid.Column="1" Grid.ColumnSpan="1">
 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
             <Menu 
-                MouseMove="Grid_MouseMove" Margin="0 3 0 0"
+                Margin="0 3 0 0"
                 FontFamily="{Binding Path=SummaryFont ,Source={x:Static prop:Settings.Default}}"
                 Background="{DynamicResource SecondBackgroundOpacityBrush}">
                 <MenuItem 
@@ -300,26 +307,34 @@
                 </MenuItem>
             </Menu>
 
-            <StackPanel
-                x:Name="AdditionalInfoPanel"
-                Orientation="Horizontal"
-                HorizontalAlignment="Right">
+            <Grid
+                Grid.Column="1"
+                MouseMove="Grid_MouseMove"
+                Background="{DynamicResource SecondBackgroundOpacityBrush}">
 
-                <TextBlock
-                    x:Name="RandomizedTextBlock"
-                    Style="{StaticResource SummaryTextStyle}"
-                    Text=""
-                    FontSize="14"
-                    Margin="0 0 10 0">
-                </TextBlock>
+                <StackPanel
+                    x:Name="AdditionalInfoPanel"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
 
-                <TextBlock
-                    x:Name="MistakesTextBloxck"
-                    Style="{StaticResource SummaryTextStyle}"
-                    Text=""
-                    FontSize="14">
-                </TextBlock>
-            </StackPanel>
+                    <TextBlock
+                        x:Name="RandomizedTextBlock"
+                        Style="{StaticResource SummaryTextStyle}"
+                        Text=""
+                        FontSize="14"
+                        Margin="0 0 10 0">
+                    </TextBlock>
+
+                    <TextBlock
+                        x:Name="MistakesTextBloxck"
+                        Style="{StaticResource SummaryTextStyle}"
+                        Text=""
+                        FontSize="14">
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+
+            
         </Grid>
 
         <Grid
