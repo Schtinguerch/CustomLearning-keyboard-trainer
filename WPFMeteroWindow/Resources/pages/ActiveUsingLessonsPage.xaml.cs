@@ -37,9 +37,7 @@ namespace WPFMeteroWindow.Resources.pages
         private void ReinitializeRecentCoursesList()
         {
             ScrollListStackPanel.Children.Clear();
-
-            _recentCoursesData = JsonConvert.DeserializeObject<List<List<string>>>(
-                File.ReadAllText(Settings.Default.RecentCourcesPath));
+            _recentCoursesData = AppManager.JsonReadData<List<List<string>>>(Settings.Default.RecentCourcesPath);
 
             if (_recentCoursesData.Count > 0)
                 EmptyListTextBox.Visibility = Visibility.Hidden;

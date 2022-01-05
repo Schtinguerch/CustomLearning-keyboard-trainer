@@ -25,9 +25,7 @@ namespace WPFMeteroWindow.Resources.pages
         private void ReinitializeRecentLayoutList()
         {
             ScrollListStackPanel.Children.Clear();
-
-            _recentLayoutData = JsonConvert.DeserializeObject<List<string>>(
-                File.ReadAllText(Settings.Default.RecentLayoutsPath));
+            _recentLayoutData = AppManager.JsonReadData<List<string>>(Settings.Default.RecentLayoutsPath);
 
             if (_recentLayoutData.Count > 0)
                 EmptyListTextBox.Visibility = Visibility.Hidden;

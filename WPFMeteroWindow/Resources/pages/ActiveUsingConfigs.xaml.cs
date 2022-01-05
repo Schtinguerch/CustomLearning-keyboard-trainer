@@ -29,9 +29,7 @@ namespace WPFMeteroWindow.Resources.pages
         private void ReinitializeSkinList()
         {
             ScrollListStackPanel.Children.Clear();
-
-            _previousConfigsData = JsonConvert.DeserializeObject<List<string>>(
-                File.ReadAllText(Settings.Default.RecentConfigs));
+            _previousConfigsData = AppManager.JsonReadData<List<string>>(Settings.Default.RecentConfigs);
 
             if (_previousConfigsData.Count > 0)
                 EmptyListTextBox.Visibility = Visibility.Hidden;
