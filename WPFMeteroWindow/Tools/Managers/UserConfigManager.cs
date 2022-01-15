@@ -13,7 +13,7 @@ namespace WPFMeteroWindow
     {
         public static void AddToRecent(string filename)
         {
-            var recentSonfigs = JsonConvert.DeserializeObject<List<string>>(File.ReadAllText(Settings.Default.RecentConfigs));
+            var recentSonfigs = AppManager.JsonReadData<List<string>>(Settings.Default.RecentConfigs);
             var hasTheSame = false;
 
             foreach (var config in recentSonfigs)

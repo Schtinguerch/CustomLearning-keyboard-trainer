@@ -44,8 +44,7 @@ namespace WPFMeteroWindow.Resources.pages
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             UserConfigManager.ImportConfigViaExplorer();
-            var newRecentConfigsData = JsonConvert.DeserializeObject<List<string>>(
-                File.ReadAllText(Settings.Default.RecentConfigs));
+            var newRecentConfigsData = AppManager.JsonReadData<List<string>>(Settings.Default.RecentConfigs);
 
             if (newRecentConfigsData.Count == _previousConfigsData.Count)
                 return;

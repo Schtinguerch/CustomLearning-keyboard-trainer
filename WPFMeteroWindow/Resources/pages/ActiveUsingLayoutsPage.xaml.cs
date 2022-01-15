@@ -47,8 +47,7 @@ namespace WPFMeteroWindow.Resources.pages
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             Opener.NewKeyboardLayoutViaExplorer(Settings.Default.CurrentLayout);
-            var newRecentCourcesData = JsonConvert.DeserializeObject<List<string>>(
-                File.ReadAllText(Settings.Default.RecentLayoutsPath));
+            var newRecentCourcesData = AppManager.JsonReadData<List<string>>(Settings.Default.RecentLayoutsPath);
 
             if (newRecentCourcesData.Count == _recentLayoutData.Count)
                 return;

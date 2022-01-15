@@ -23,7 +23,7 @@ namespace WPFMeteroWindow
 
         public static void LoadKeyboardData(string filename, bool isFiction = false)
         {
-            var recentLayouts = JsonConvert.DeserializeObject<List<string>>(File.ReadAllText(Settings.Default.RecentLayoutsPath));
+            var recentLayouts = AppManager.JsonReadData<List<string>>(Settings.Default.RecentLayoutsPath);
             var hasTheSame = false;
 
             foreach (var layout in recentLayouts)

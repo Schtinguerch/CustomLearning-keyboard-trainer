@@ -62,9 +62,8 @@ namespace WPFMeteroWindow.Resources.pages
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            Opener.NewCourseViaExplorer();
-            var newRecentCourcesData = JsonConvert.DeserializeObject<List<List<string>>>(
-                File.ReadAllText(Settings.Default.RecentCourcesPath));
+            Opener.NewCourseViaExplorer(true);
+            var newRecentCourcesData = AppManager.JsonReadData<List<List<string>>>(Settings.Default.RecentCourcesPath);
 
             if (newRecentCourcesData.Count == _recentCoursesData.Count)
                 return;
