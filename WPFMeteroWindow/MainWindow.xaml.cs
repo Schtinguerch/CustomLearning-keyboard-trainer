@@ -16,6 +16,8 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Linq;
 using Thread = System.Threading.Thread;
+using System.Windows.Documents;
+using System.Windows.Media;
 
 namespace WPFMeteroWindow
 {
@@ -82,7 +84,11 @@ namespace WPFMeteroWindow
             {
                 System.Windows.Threading.Dispatcher.Run();
             }
-            catch { }
+
+            catch (System.Threading.ThreadAbortException ex)
+            {
+                //IDK how does it work, but it's necessary to prevent app crashing in debigging from Visual Studio, SORRY
+            }
         }
 
         [Obsolete]
@@ -149,6 +155,9 @@ namespace WPFMeteroWindow
             };
         }
 
+        private bool _wasMistake = false;
+        private Run _lastRun;
+
         private void BufferTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
         {
             if (!IsTyping)
@@ -157,8 +166,11 @@ namespace WPFMeteroWindow
             if (!_breakTextProcessing)
             {
                 if (LessonManager.DoneRoad.Length == 0)
+                {
                     StatisticsManager.StartTimer();
-                
+                    StatisticsManager.LessonRoadRuns.Add(_lastRun = new Run());
+                }
+
                 if (LessonManager.LeftRoad.Length >= 1)
                 {
                     if (bufferTextBox.Text.Length > 0)
@@ -186,6 +198,12 @@ namespace WPFMeteroWindow
                                 KeyboardManager.ShowTypingHint(LessonManager.LeftRoad[0]);
                             else
                                 LessonManager.EndLesson();
+
+                            if (_wasMistake)
+                            {
+                                _wasMistake = false;
+                                StatisticsManager.LessonRoadRuns.Add(_lastRun = new Run());
+                            }
                         }
                         else
                         {
@@ -198,9 +216,20 @@ namespace WPFMeteroWindow
                                 StatisticsManager.AddMistakeStatistics($"{LessonManager.LeftRoad[0]}");
 
                                 SoundManager.PlayTypingMistake();
+
                                 _isFirstMistake = false;
+                                _wasMistake = true;
+
+                                StatisticsManager.LessonRoadRuns.Add(
+                                    _lastRun = new Run()
+                                    {
+                                        TextDecorations = TextDecorations.Strikethrough,
+                                        Foreground = new BrushConverter().ConvertFromString(Settings.Default.KeyboardErrorHighlightColor) as SolidColorBrush
+                                    });
                             }
                         }
+
+                        _lastRun.Text += lastCharacter;
                     }
                 }
                 else
@@ -522,11 +551,24 @@ namespace WPFMeteroWindow
             Activate();
         }
 
-        private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e) =>
+        private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
             File.WriteAllText(
-                Settings.Default.AllTypingSpeedPath, 
+                Settings.Default.AllTypingSpeedPath,
                 JsonConvert.SerializeObject(
-                    StatisticsManager.GlobalTypingSpeeds, 
+                    StatisticsManager.GlobalTypingSpeeds,
                     Formatting.Indented));
+
+            if (StatisticsManager.CourseStatistics == null)
+            {
+                return;
+            }
+
+            File.WriteAllText(
+                Settings.Default.LoadedCourseFile + "\\statistics.json",
+                JsonConvert.SerializeObject(
+                    StatisticsManager.CourseStatistics,
+                    Formatting.Indented));
+        }
     }
 }

@@ -164,7 +164,6 @@
                             Height="360"
                             Margin="10">
                         </Grid>
-
                         <Grid 
                             Margin="20 24 0 10"
                             x:Name="TopPositionGrid">
@@ -173,8 +172,32 @@
                                 <TextBlock
                                     Style="{StaticResource SummaryTextStyle}"
                                     VerticalAlignment="Top"
+                                    Text="Lesson pass"
+                                    FontSize="24"
+                                    Margin="0 0 0 8">
+                                </TextBlock>
+
+                                <TextBlock
+                                    x:Name="PassedLessonTextBlock"
+                                    Style="{StaticResource SummaryTextStyle}"
+                                    FontSize="20"
+                                    FontWeight="Bold"
+                                    TextWrapping="Wrap"
+                                    TextAlignment="Justify"
+                                    Margin="0 0 0 12"
+                                    Padding="4">
+
+                                    <TextBlock.Background>
+                                        <SolidColorBrush Color="Black" Opacity="0.1"></SolidColorBrush>
+                                    </TextBlock.Background>
+                                </TextBlock>
+
+                                <TextBlock
+                                    Style="{StaticResource SummaryTextStyle}"
+                                    VerticalAlignment="Top"
                                     Text="Mistaken words"
-                                    FontSize="24">
+                                    FontSize="24"
+                                    Margin="0 0 0 8">
                                 </TextBlock>
 
                                 <ScrollViewer
@@ -193,7 +216,8 @@
                                     Style="{StaticResource SummaryTextStyle}"
                                     VerticalAlignment="Top"
                                     Text="Mistaken characters"
-                                    FontSize="24">
+                                    FontSize="24"
+                                    Margin="0 0 0 8">
                                 </TextBlock>
 
                                 <ScrollViewer
