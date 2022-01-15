@@ -338,7 +338,18 @@ namespace WPFMeteroWindow
 
         public static T JsonReadData<T>(string path) where T : new()
         {
-            var backupPath = $"Backup\\{path}";
+            var folders = path.Split('\\');
+            var fileName = folders[folders.Length - 1];
+
+            folders[folders.Length - 1] = "Backup";
+
+            var backupFolder = string.Join("\\", folders);
+            var backupPath = $"{backupFolder}\\{fileName}";
+
+            if (!Directory.Exists(backupFolder))
+            {
+                Directory.CreateDirectory(backupFolder);
+            }
 
             if (!File.Exists(path) && !File.Exists(backupPath))
             {
@@ -354,7 +365,7 @@ namespace WPFMeteroWindow
                 var listData = JsonConvert.DeserializeObject<T>(jsonData);
 
                 File.WriteAllText(backupPath, jsonData);
-                return listData;
+                return listData == null? new T() : listData;
             }
 
             catch
