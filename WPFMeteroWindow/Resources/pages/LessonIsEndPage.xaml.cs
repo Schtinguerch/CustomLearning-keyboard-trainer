@@ -7,6 +7,7 @@ using System.Windows.Input;
 using WPFMeteroWindow.Properties;
 using WPFMeteroWindow.Controls;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
+using System.Windows.Media;
 
 namespace WPFMeteroWindow.Resources.pages
 {
@@ -22,6 +23,9 @@ namespace WPFMeteroWindow.Resources.pages
 
             Intermediary.RichPresentManager.Update(Settings.Default.ItTypingTest ? "Typing test" : Settings.Default.LessonName, "Ending: watching results...", "");
 
+            foreach (var run in StatisticsManager.LessonRoadRuns)
+                PassedLessonTextBlock.Inlines.Add(run);
+
             var lessonName = (Settings.Default.LessonName == "...") ? "" : $"\"{Settings.Default.LessonName}\"";
             EndedLessonHeaderTextBlock.Text = $"{Localization.uTheLesson} {lessonName} {Localization.uIsFinished}!!!";
 
@@ -29,9 +33,6 @@ namespace WPFMeteroWindow.Resources.pages
                 EndedLessonHeaderTextBlock.Text = $"{Localization.uTypingTest} {Localization.uIsFinished}!!!";
 
             var typingSpeed = StatisticsManager.TypingSpeedCpm;
-
-            if (!StatisticsManager.IsDemonstrationMode)
-                StatisticsManager.GlobalTypingSpeeds.Add(typingSpeed);
 
             StatisticsManager.IsDemonstrationMode = false;
             var typingMistakePercentage = StatisticsManager.TypingMistakes / (float)LessonManager.DoneRoad.Length * 100d;
@@ -44,6 +45,26 @@ namespace WPFMeteroWindow.Resources.pages
             ErrorsTextBlock.Text = $"{StatisticsManager.TypingMistakes} {Localization.uMistakes}: {typingMistakePercentage:N}%";
             TypingTimeTextBlock.Text = $"{Localization.uTime}: {typingSeconds:N}";
             CharactersCountTextBlock.Text = $"{Localization.uCharactersCount}: {LessonManager.DoneRoad.Length}";
+
+            if (!StatisticsManager.IsDemonstrationMode)
+            {
+                StatisticsManager.GlobalTypingSpeeds.Add(new LessonStatistics()
+                {
+                    AverageSpeed = StatisticsManager.TypingSpeedCpm,
+                    MistakePercentage = typingMistakePercentage,
+                    MistakenWords = StatisticsManager.MistakeWords,
+                });
+
+                if (!Settings.Default.IsCourseOpened) return;
+
+                StatisticsManager.CourseStatistics.Add(new LessonStatistics()
+                {
+                    AverageSpeed = StatisticsManager.TypingSpeedCpm,
+                    MistakePercentage = typingMistakePercentage,
+                    MistakenWords = StatisticsManager.MistakeWords,
+                });
+            }
+                
 
             var valuePlots = new List<List<double>>()
             {
@@ -81,9 +102,18 @@ namespace WPFMeteroWindow.Resources.pages
                 new StatsVisualizer(
                     new List<List<double>>() 
                     { 
-                        StatisticsManager.GlobalTypingSpeeds 
+                        StatisticsManager.GetCpmFromStats(StatisticsManager.GlobalTypingSpeeds), 
+                        StatisticsManager.GetPercentageFromStats(StatisticsManager.GlobalTypingSpeeds), 
                     }, null, null, null, null, -1, 3));
-            
+
+            CoursePassingStatsGrid.Children.Add(
+                new StatsVisualizer(
+                    new List<List<double>>()
+                    {
+                        StatisticsManager.GetCpmFromStats(StatisticsManager.CourseStatistics),
+                        StatisticsManager.GetPercentageFromStats(StatisticsManager.CourseStatistics),
+                    }, null, null, null, null, -1, 3));
+
             var reqCPM = Settings.Default.NecessaryCPM;
             var reqMistakes = Settings.Default.MaxAcceptableMistakes;
             var mistakes = StatisticsManager.TypingMistakes;
