@@ -79,6 +79,15 @@ namespace WPFMeteroWindow
 
             if (!skipUiLoadng)
             {
+                if (StatisticsManager.CourseStatistics != null)
+                {
+                    File.WriteAllText(
+                        Settings.Default.LoadedCourseFile + "\\statistics.json",
+                        JsonConvert.SerializeObject(
+                            StatisticsManager.CourseStatistics,
+                            Formatting.Indented));
+                }
+
                 Lessons = lessons;
                 LessonsCount = lessons.Count;
 
@@ -95,6 +104,7 @@ namespace WPFMeteroWindow
                 Intermediary.App.NextLessonButton.Visibility = Visibility.Visible;
                 Intermediary.App.PrevLessonButton.Visibility = Visibility.Visible;
 
+                StatisticsManager.CourseStatistics = AppManager.JsonReadData<List<LessonStatistics>>(filename + "\\statistics.json");
                 CurrentLessonIndex = Settings.Default.CourseLessonNumber;
             }
 
@@ -108,8 +118,7 @@ namespace WPFMeteroWindow
         public static void WriteDataToJson(string name, string type, int lessonCount, string filename)
         {
             var hasTheSameCourse = false;
-            var recentCources = JsonConvert.DeserializeObject<List<List<string>>>(
-                File.ReadAllText(Settings.Default.RecentCourcesPath));
+            var recentCources = AppManager.JsonReadData<List<List<string>>>(Settings.Default.RecentCourcesPath);
 
             foreach (var item in recentCources)
             {
