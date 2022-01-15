@@ -7,13 +7,17 @@ using System.IO;
 using Newtonsoft.Json;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 using WPFMeteroWindow.Properties;
+using System.Windows.Controls;
+using System.Windows;
+using System.Windows.Documents;
 
 namespace WPFMeteroWindow
 {
-    public struct CourseStatistics
+    public struct LessonStatistics
     {
-        public string CoursePath { get; set; } 
-        public List<double> Results { get; set; }
+        public double AverageSpeed { get; set; }
+        public double MistakePercentage { get; set; }
+        public List<string> MistakenWords { get; set; }
     }
 
     public static class StatisticsManager
@@ -27,13 +31,14 @@ namespace WPFMeteroWindow
         private static int _wordTimeStart = 0;
         private static string _currentWord;
 
-        public static List<double> GlobalTypingSpeeds { get; private set; } = 
-            AppManager.JsonReadData<List<double>>(Settings.Default.AllTypingSpeedPath);
+        public static List<LessonStatistics> GlobalTypingSpeeds { get; private set; } = 
+            AppManager.JsonReadData<List<LessonStatistics>>(Settings.Default.AllTypingSpeedPath);
 
-        public static List<CourseStatistics> CourseStatistics { get; private set; } =
-            AppManager.JsonReadData<List<CourseStatistics>>(Settings.Default.CourcesStatisticsPath);
+        public static List<LessonStatistics> CourseStatistics { get; set; }
 
         public static bool IsDemonstrationMode { get; set; } = false;
+
+        public static List<Run> LessonRoadRuns { get; set; } = new List<Run>();
 
         public static List<double> AverageSpeeds { get; private set; } = new List<double>();
         public static List<double> WordSpeeds { get; private set; } = new List<double>();
@@ -122,6 +127,7 @@ namespace WPFMeteroWindow
         public static void ReloadStats()
         {
             ReloadTimer();
+            LessonRoadRuns = new List<Run>();
 
             AverageSpeeds = new List<double>(12000);
             WordSpeeds = new List<double>(2400);
@@ -137,6 +143,7 @@ namespace WPFMeteroWindow
             PassPercentage = 0;
             TypingMistakes = 0;
             TypingSpeedCpm = 0;
+
             _wordLength = 0;
             _currentWord = LessonManager.LeftRoad.Substring(0, LessonManager.LeftRoad.IndexOf(' '));
         }
@@ -149,6 +156,26 @@ namespace WPFMeteroWindow
 
             _typingStopWatch = Stopwatch.StartNew();
             TypingTimer.Start();
+        }
+
+        public static List<double> GetCpmFromStats(List<LessonStatistics> stats)
+        {
+            var cpmList = new List<double>(stats.Count);
+
+            foreach (var statsItem in stats)
+                cpmList.Add(statsItem.AverageSpeed);
+
+            return cpmList;
+        }
+
+        public static List<double> GetPercentageFromStats(List<LessonStatistics> stats)
+        {
+            var cpmList = new List<double>(stats.Count);
+
+            foreach (var statsItem in stats)
+                cpmList.Add(statsItem.MistakePercentage);
+
+            return cpmList;
         }
     }
 }
