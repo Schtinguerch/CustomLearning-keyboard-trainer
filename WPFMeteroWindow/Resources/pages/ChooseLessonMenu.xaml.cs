@@ -25,6 +25,7 @@ namespace WPFMeteroWindow.Resources.pages
         public ChooseLessonMenu(List<string> lessons)
         {
             InitializeComponent();
+            LessonStackPanel.Children.Capacity = 5000;
 
             foreach (var lesson in lessons)
                 AddLesson(lesson);
