@@ -32,15 +32,14 @@ namespace WPFMeteroWindow
         {
             if (File.Exists(fileName) || Directory.Exists(fileName))
             {
-                Settings.Default.IsCourseOpened = true;
-                Settings.Default.LoadedCourseFile = fileName;
-                Settings.Default.CourseLessonNumber = lessonIndex;
-                Settings.Default.Save();
-
                 try
                 {
                     CourseManager.LoadCourse(fileName, skipUiLoading);
                     LogManager.Log($"Open course: \"{fileName}\" -> success");
+
+                    Settings.Default.IsCourseOpened = true;
+                    Settings.Default.CourseLessonNumber = lessonIndex;
+                    Settings.Default.Save();
                 }
 
                 catch (Exception e)
