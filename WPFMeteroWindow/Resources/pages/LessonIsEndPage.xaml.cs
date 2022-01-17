@@ -46,23 +46,19 @@ namespace WPFMeteroWindow.Resources.pages
             TypingTimeTextBlock.Text = $"{Localization.uTime}: {typingSeconds:N}";
             CharactersCountTextBlock.Text = $"{Localization.uCharactersCount}: {LessonManager.DoneRoad.Length}";
 
-            if (!StatisticsManager.IsDemonstrationMode)
+            if (!StatisticsManager.IsDemonstrationMode && !Settings.Default.ItTypingTest)
             {
-                StatisticsManager.GlobalTypingSpeeds.Add(new LessonStatistics()
+                var statistics = new LessonStatistics()
                 {
                     AverageSpeed = StatisticsManager.TypingSpeedCpm,
                     MistakePercentage = typingMistakePercentage,
                     MistakenWords = StatisticsManager.MistakeWords,
-                });
+                };
+
+                StatisticsManager.GlobalTypingSpeeds.Add(statistics);
 
                 if (!Settings.Default.IsCourseOpened) return;
-
-                StatisticsManager.CourseStatistics.Add(new LessonStatistics()
-                {
-                    AverageSpeed = StatisticsManager.TypingSpeedCpm,
-                    MistakePercentage = typingMistakePercentage,
-                    MistakenWords = StatisticsManager.MistakeWords,
-                });
+                StatisticsManager.CourseStatistics.Add(statistics);
             }
                 
 
