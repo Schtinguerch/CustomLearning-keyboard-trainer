@@ -40,9 +40,17 @@ namespace WPFMeteroWindow.Controls
         {
             Loaded += (ss, ee) => 
             {
-                DrawPlots(averageValue);
-                AddValueScalars(scalarCount == -1? 10 : scalarCount);
-                AddSummaries();
+                try
+                {
+                    DrawPlots(averageValue);
+                    AddValueScalars(scalarCount == -1 ? 10 : scalarCount);
+                    AddSummaries();
+                }
+
+                catch
+                {
+                    //I'm just lazy programmer, and I know if there's no data it will throw Exceptions
+                }
             };
 
             if (plotValues == null)
