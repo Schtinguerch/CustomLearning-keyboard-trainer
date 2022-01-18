@@ -160,6 +160,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Статистика прохождения курса.
+        /// </summary>
+        public static string uCoursePassingStats {
+            get {
+                return ResourceManager.GetString("uCoursePassingStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на симв/мин.
         /// </summary>
         public static string uCPM {
@@ -322,6 +331,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Общая статистика.
+        /// </summary>
+        public static string uGlobalPassingStats {
+            get {
+                return ResourceManager.GetString("uGlobalPassingStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Руки.
         /// </summary>
         public static string uHands {
@@ -471,6 +489,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uLessonEditor {
             get {
                 return ResourceManager.GetString("uLessonEditor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Прохождение урока.
+        /// </summary>
+        public static string uLessonPass {
+            get {
+                return ResourceManager.GetString("uLessonPass", resourceCulture);
             }
         }
         
@@ -714,6 +741,24 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uMiddleSpeed {
             get {
                 return ResourceManager.GetString("uMiddleSpeed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ошибочно введённые символы.
+        /// </summary>
+        public static string uMistakenCharacters {
+            get {
+                return ResourceManager.GetString("uMistakenCharacters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Слова, введённые с ошибками.
+        /// </summary>
+        public static string uMistakenWords {
+            get {
+                return ResourceManager.GetString("uMistakenWords", resourceCulture);
             }
         }
         

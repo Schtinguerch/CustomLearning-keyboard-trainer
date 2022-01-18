@@ -150,6 +150,9 @@
   <data name="uCourseEditor" xml:space="preserve">
     <value>Course editor</value>
   </data>
+  <data name="uCoursePassingStats" xml:space="preserve">
+    <value>Course passing statistics</value>
+  </data>
   <data name="uCPM" xml:space="preserve">
     <value>CPM</value>
   </data>
@@ -204,6 +207,9 @@
   <data name="uFileExplorer" xml:space="preserve">
     <value>File explorer</value>
   </data>
+  <data name="uGlobalPassingStats" xml:space="preserve">
+    <value>Global typing statistics</value>
+  </data>
   <data name="uHands" xml:space="preserve">
     <value>Hands</value>
   </data>
@@ -254,6 +260,9 @@
   </data>
   <data name="uLessonEditor" xml:space="preserve">
     <value>Lesson editor</value>
+  </data>
+  <data name="uLessonPass" xml:space="preserve">
+    <value>Lesson pass</value>
   </data>
   <data name="uLessonPathList" xml:space="preserve">
     <value>The List of paths to lessons</value>
@@ -335,6 +344,12 @@
   </data>
   <data name="uMiddleSpeed" xml:space="preserve">
     <value>Average speed</value>
+  </data>
+  <data name="uMistakenCharacters" xml:space="preserve">
+    <value>Mistaken characters</value>
+  </data>
+  <data name="uMistakenWords" xml:space="preserve">
+    <value>Mistaken words</value>
   </data>
   <data name="uMistakes" xml:space="preserve">
     <value>mistakes</value>

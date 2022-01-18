@@ -150,6 +150,9 @@
   <data name="uCourseEditor" xml:space="preserve">
     <value>Редактор курсов</value>
   </data>
+  <data name="uCoursePassingStats" xml:space="preserve">
+    <value>Статистика прохождения курса</value>
+  </data>
   <data name="uCPM" xml:space="preserve">
     <value>симв/мин</value>
   </data>
@@ -204,6 +207,9 @@
   <data name="uFileExplorer" xml:space="preserve">
     <value>Проводник</value>
   </data>
+  <data name="uGlobalPassingStats" xml:space="preserve">
+    <value>Общая статистика</value>
+  </data>
   <data name="uHands" xml:space="preserve">
     <value>Руки</value>
   </data>
@@ -254,6 +260,9 @@
   </data>
   <data name="uLessonEditor" xml:space="preserve">
     <value>Редактор уроков</value>
+  </data>
+  <data name="uLessonPass" xml:space="preserve">
+    <value>Прохождение урока</value>
   </data>
   <data name="uLessonPathList" xml:space="preserve">
     <value>Список путей к урокам</value>
@@ -335,6 +344,12 @@
   </data>
   <data name="uMiddleSpeed" xml:space="preserve">
     <value>Средняя скорость</value>
+  </data>
+  <data name="uMistakenCharacters" xml:space="preserve">
+    <value>Ошибочно введённые символы</value>
+  </data>
+  <data name="uMistakenWords" xml:space="preserve">
+    <value>Слова, введённые с ошибками</value>
   </data>
   <data name="uMistakes" xml:space="preserve">
     <value>ошибок</value>
