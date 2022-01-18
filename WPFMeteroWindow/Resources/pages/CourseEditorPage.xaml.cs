@@ -29,6 +29,13 @@ namespace WPFMeteroWindow.Resources.pages
             LessonListTextBox.Focus();
 
             Intermediary.RichPresentManager.Update("Course editor", "Editing course...", "");
+
+            if (string.IsNullOrWhiteSpace(Settings.Default.LoadedCourseFile))
+            {
+                NewCourse();
+                return;
+            }
+
             _editor = new CourseEditor(Settings.Default.LoadedCourseFile, CourseState.NotEmpty);
             DisplayDataFromEditor();
         }
