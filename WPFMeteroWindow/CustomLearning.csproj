@@ -158,6 +158,9 @@
     <Compile Include="Controls\TextInputControls\SingleLineWithStaticCaret\SingleLineWithStaticCaret.xaml.cs">
       <DependentUpon>SingleLineWithStaticCaret.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TextList.xaml.cs">
+      <DependentUpon>TextList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\dictionaries\TapperingCircle.xaml.cs">
       <DependentUpon>TapperingCircle.xaml</DependentUpon>
     </Compile>
@@ -438,6 +441,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\TextInputControls\SingleLineWithStaticCaret\SingleLineWithStaticCaret.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TextList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -787,6 +794,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\images\LogoLight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images\Background.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
