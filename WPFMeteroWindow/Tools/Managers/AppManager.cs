@@ -99,16 +99,23 @@ namespace WPFMeteroWindow
                     $"{Localization.uLesson}: \"{Settings.Default.LoadedLessonFile}\"\n" +
                     $"{Localization.uCourse}: \"{Settings.Default.LoadedCourseFile}\"");
             }
+
+            OpenArgumentFiles();
         }
 
         private static void OpenArgumentFiles()
         {
+            var paths = Environment.GetCommandLineArgs();
+            if (paths.Length == 0)
+            {
+                return;
+            }
+
             var courses = new List<string>();
             var lessons = new List<string>();
             var configs = new List<string>();
             var layouts = new List<string>();
 
-            var paths = Environment.GetCommandLineArgs();
             foreach (var path in paths)
             {
                 if (File.Exists(path))
@@ -159,8 +166,6 @@ namespace WPFMeteroWindow
                 editor.WriteDataOnFile();
                 Opener.NewCourse("TemporaryCourse", 0);
             }
-
-
         }
         
         public static string ToBeCorrected(this string s)
