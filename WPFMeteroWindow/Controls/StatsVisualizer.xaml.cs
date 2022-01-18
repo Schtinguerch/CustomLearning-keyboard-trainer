@@ -84,7 +84,7 @@ namespace WPFMeteroWindow.Controls
             var averageValue = avValue == -1? _plotValues.Last().Average() : avValue;
 
             AverageSpeedLine.Margin = new Thickness(0, Inverted(new Point(0, averageValue), 10).Y, 0, 0);
-            AverageSpeedTextBlock.Text = averageValue.ToString("N");
+            AverageSpeedTextBlock.Text = $"{averageValue:N} {Localization.uCPM}";
 
             if (_times != null)
             {
@@ -302,6 +302,9 @@ namespace WPFMeteroWindow.Controls
             var mainValueList = _plotValues.Last();
             var currentPoint = new Point(0, 0);
             var selectedPoint = currentPoint;
+
+            if (mainValueList.Count == 0)
+                return;
 
             double rangeToMouse = double.MaxValue;
             double currentValue = mainValueList[0];
