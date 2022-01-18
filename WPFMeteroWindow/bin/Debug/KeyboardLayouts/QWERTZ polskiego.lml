@@ -1,0 +1,67 @@
+<<Layout:
+    <k0 { ^ ° ;nth; ;nth; }>>
+    <k1 { 1 ! ;nth; ;nth; }>>
+    <k2 { 2 @ ;nth; ;nth; }>>
+    <k3 { 3 # ;nth; ;nth; }>>
+    <k4 { 4 ¤ ;nth; ;nth; }>>
+    <k5 { 5 % ;nth; ;nth; }>>
+    <k6 { 6 % ;nth; ;nth; }>>
+    <k7 { 7 / ;nth; ;nth; }>>
+    <k8 { 8 ( ;nth; ;nth; }>>
+    <k9 { 9 ) ;nth; ;nth; }>>
+    <k10 { 0 = ;nth; ;nth; }>>
+    <k11 { + ? ;nth; ;nth; }>>
+    <k12 { ;ap; * ;nth; ;nth; }>>
+    <k13 { back ;nth; ;nth; ;nth; }>>
+
+    <k14 { tab ;nth; ;nth; ;nth; }>>
+    <k15 { q Q ;nth; ;nth; }>>
+    <k16 { w W ;nth; ;nth; }>>
+    <k17 { e E ;nth; ;nth; }>>
+    <k18 { r R ;nth; ;nth; }>>
+    <k19 { t T ;nth; ;nth; }>>
+    <k20 { z Z ;nth; ;nth; }>>
+    <k21 { u U ;nth; ;nth; }>>
+    <k22 { i I ;nth; ;nth; }>>
+    <k23 { o O ;nth; ;nth; }>>
+    <k24 { p P ;nth; ;nth; }>>
+    <k25 { ż ń ÷ ;nth; }>>
+    <k26 { ś ć × ;nth; }>>
+    <k27 { ó ź ;nth; ;nth; }>>
+
+    <k28 { caps ;nth; ;nth; ;nth; }>>
+    <k29 { a A ;nth; ;nth; }>>
+    <k30 { s S đ ;nth; }>>
+    <k31 { d D Đ ;nth; }>>
+    <k32 { f F ;nth; ;nth; }>>
+    <k33 { g G ;nth; ;nth; }>>
+    <k34 { h H ;nth; ;nth; }>>
+    <k35 { j J ;nth; ;nth; }>>
+    <k36 { k K ;nth; ;nth; }>>
+    <k37 { l L ;nth; ;nth; }>>
+    <k38 { ł Ł $ ;nth; }>>
+    <k39 { ą ę ß ;nth; }>>
+    <k40 { enter ;nth; ;nth; ;nth; }>>
+
+    <k41 { shift ;nth; ;nth; ;nth; }>>
+    <k42 { y Y ;nth; ;nth; }>>
+    <k43 { x X ;nth; ;nth; }>>
+    <k44 { c C ;nth; ;nth; }>>
+    <k45 { v V @ ;nth; }>>
+    <k46 { b B ;opbr; ;nth; }>>
+    <k47 { n N ;clbr; ;nth; }>>
+    <k48 { m M § ;nth; }>>
+    <k49 { , ; < ;nth; }>>
+    <k50 { . : > ;nth; }>>
+    <k51 { - _ ;nth; ;nth; }>>
+    <k52 { shift ;nth; ;nth; ;nth; }>>
+
+    <k53 { ctrl ;nth; ;nth; ;nth; }>>
+    <k54 { win ;nth; ;nth; ;nth; }>>
+    <k55 { alt ;nth; ;nth; ;nth; }>>
+    <k56 { ;space; ;nth; ;nth; ;nth; }>>
+    <k57 { altGr ;nth; ;nth; ;nth; }>>
+    <k58 { win ;nth; ;nth; ;nth; }>>
+    <k59 { menu ;nth; ;nth; ;nth;}>>
+    <k60 { ctrl ;nth; ;nth; ;nth; }>>
+:Layout>>

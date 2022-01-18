@@ -18,7 +18,7 @@
     <k15 { ; : ;nth; ;nth; }>>
     <k16 { , ! < ;nth; }>>
     <k17 { . = > ;nth; }>>
-    <k18 { p P ;nth; ;nth; }>>
+    <k18 { p P _ ;nth; }>>
     <k19 { y Y ¢ ;nth; }>>
     <k20 { f F ;nth; ;nth; }>>
     <k21 { g G ;nth; ;nth; }>>
@@ -46,7 +46,7 @@
     <k42 { ;ap; ;qt; ;nth; ;nth; }>>
     <k43 { q Q [ ;nth; }>>
     <k44 { j J ] ;nth; }>>
-    <k45 { k K ;nth; ;nth; }>>
+    <k45 { k K ~ ;nth; }>>
     <k46 { x X ;nth; ;nth; }>>
     <k47 { b B ;nth; ;nth; }>>
     <k48 { m M ;nth; ;nth; }>>

@@ -1,0 +1,67 @@
+<<Layout:
+    <k0 { $ ~ ;nth; ;nth; }>>
+    <k1 { & % ;nth; ;nth; }>>
+    <k2 { [ 7 ;nth; ;nth; }>>
+    <k3 { ;opbr; 5 ;nth; ;nth; }>>
+    <k4 { ;clbr; 3 ;nth; ;nth; }>>
+    <k5 { ( 1 ;nth; ;nth; }>>
+    <k6 { = 9 ;nth; ;nth; }>>
+    <k7 { * 0 ;nth; ;nth; }>>
+    <k8 { ) 2 ;nth; ;nth; }>>
+    <k9 { + 4 ;nth; ;nth; }>>
+    <k10 { ] 6 ;nth; ;nth; }>>
+    <k11 { ! 8 ;nth; ;nth; }>>
+    <k12 { # ` ;nth; ;nth; }>>
+    <k13 { back ;nth; ;nth; ;nth; }>>
+
+    <k14 { tab ;nth; ;nth; ;nth; }>>
+    <k15 { ;ap; ;qt; ;nth; ;nth; }>>
+    <k16 { , < ;nth; ;nth; }>>
+    <k17 { . > ;nth; ;nth; }>>
+    <k18 { p P ;nth; ;nth; }>>
+    <k19 { y Y ;nth; ;nth; }>>
+    <k20 { f F ;nth; ;nth; }>>
+    <k21 { g G ;nth; ;nth; }>>
+    <k22 { c C ;nth; ;nth; }>>
+    <k23 { r R ;nth; ;nth; }>>
+    <k24 { l L ;nth; ;nth; }>>
+    <k25 { / ? ;nth; ;nth; }>>
+    <k26 { @ ^ ;nth; ;nth; }>>
+    <k27 { \ | ;nth; ;nth; }>>
+
+    <k28 { caps ;nth; ;nth; ;nth; }>>
+    <k29 { a A ;nth; ;nth; }>>
+    <k30 { o O ;nth; ;nth; }>>
+    <k31 { e E ;nth; ;nth; }>>
+    <k32 { u U ;nth; ;nth; }>>
+    <k33 { i I ;nth; ;nth; }>>
+    <k34 { d D ;nth; ;nth; }>>
+    <k35 { h H ;nth; ;nth; }>>
+    <k36 { t T ;nth; ;nth; }>>
+    <k37 { n N ;nth; ;nth; }>>
+    <k38 { s S ;nth; ;nth; }>>
+    <k39 { - _ ;nth; ;nth; }>>
+    <k40 { enter ;nth; ;nth; ;nth; }>>
+    <k41 { shift ;nth; ;nth; ;nth; }>>
+    <k42 { ; : ;nth; ;nth; }>>
+    <k43 { q Q ;nth; ;nth; }>>
+    <k44 { j J ;nth; ;nth; }>>
+    <k45 { k K ;nth; ;nth; }>>
+    <k46 { x X ;nth; ;nth; }>>
+    <k47 { b B ;nth; ;nth; }>>
+    <k48 { m M ;nth; ;nth; }>>
+    <k49 { w W ;nth; ;nth; }>>
+    <k50 { v V ;nth; ;nth; }>>
+
+    <k51 { z Z ;nth; ;nth; }>>
+    <k52 { shift ;nth; ;nth; ;nth; }>>
+
+    <k53 { ctrl ;nth; ;nth; ;nth; }>>
+    <k54 { win ;nth; ;nth; ;nth; }>>
+    <k55 { alt ;nth; ;nth; ;nth; }>>
+    <k56 { ;space; ;nth; ;nth; ;nth; }>>
+    <k57 { altGr ;nth; ;nth; ;nth; }>>
+    <k58 { win ;nth; ;nth; ;nth; }>>
+    <k59 { menu ;nth; ;nth; ;nth; }>>
+    <k60 { ctrl ;nth; ;nth; ;nth; }>>
+:Layout>>
