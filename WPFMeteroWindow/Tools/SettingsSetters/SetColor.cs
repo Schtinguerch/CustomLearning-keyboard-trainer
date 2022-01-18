@@ -29,9 +29,13 @@ namespace WPFMeteroWindow
                 return;
             }
 
+            if (!path.Contains("http") && !path.Contains(":\\"))
+            {
+                path = $"{AppDomain.CurrentDomain.BaseDirectory}\\{path}";
+            }
+
             Settings.Default.IsBackgroundImage = true;
             Settings.Default.BackgroundImagePath = path;
-
 
             Intermediary.App.BackgroundImage.Visibility = Visibility.Visible;
             var image = new BitmapImage();
