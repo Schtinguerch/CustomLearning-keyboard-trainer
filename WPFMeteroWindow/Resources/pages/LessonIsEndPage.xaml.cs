@@ -20,6 +20,7 @@ namespace WPFMeteroWindow.Resources.pages
         {
             InitializeComponent();
             CurrLessonButton.Focus();
+            MistakenCharsTextList.Orientation = Orientation.Horizontal;
 
             Intermediary.RichPresentManager.Update(Settings.Default.ItTypingTest ? "Typing test" : Settings.Default.LessonName, "Ending: watching results...", "");
 
@@ -33,8 +34,6 @@ namespace WPFMeteroWindow.Resources.pages
                 EndedLessonHeaderTextBlock.Text = $"{Localization.uTypingTest} {Localization.uIsFinished}!!!";
 
             var typingSpeed = StatisticsManager.TypingSpeedCpm;
-
-            StatisticsManager.IsDemonstrationMode = false;
             var typingMistakePercentage = StatisticsManager.TypingMistakes / (float)LessonManager.DoneRoad.Length * 100d;
 
             WPMtextBlock.Text = $"{typingSpeed:N} {Localization.uCPM}";
@@ -57,22 +56,25 @@ namespace WPFMeteroWindow.Resources.pages
 
                 StatisticsManager.GlobalTypingSpeeds.Add(statistics);
 
-                if (!Settings.Default.IsCourseOpened) return;
-                StatisticsManager.CourseStatistics.Add(statistics);
+                if (Settings.Default.IsCourseOpened)
+                    StatisticsManager.CourseStatistics.Add(statistics);
             }
-                
 
+            if (!Settings.Default.IsCourseOpened || Settings.Default.ItTypingTest)
+                CourseStatsGrid.Height = 0;
+
+            if (StatisticsManager.MistakeWords.Count == 0)
+                MistakenDataGrid.Height = 0;
+
+            StatisticsManager.IsDemonstrationMode = false;
             var valuePlots = new List<List<double>>()
             {
                 StatisticsManager.AverageSpeeds,
                 StatisticsManager.WordSpeeds,
             };
 
-            foreach (var word in StatisticsManager.MistakeWords)
-                MistakenWordsListBox.Items.Add(word);
-
-            foreach (var character in StatisticsManager.MistakeCharacters)
-                MistakenCharsListBox.Items.Add(character);
+            MistakenWordsTextList.Items = StatisticsManager.MistakeWords;
+            MistakenCharsTextList.Items = StatisticsManager.MistakeCharacters;
 
             var timeList = new List<string>();
             int timeCount = 3;
