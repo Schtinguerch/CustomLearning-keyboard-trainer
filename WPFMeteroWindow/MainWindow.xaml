@@ -8,7 +8,7 @@
     xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
     xmlns:globalization="clr-namespace:System.Globalization;assembly=mscorlib"
     Title="CustomLearning" 
-    Width="900" 
+    Width="1120" 
     Height="640"
     MinWidth="880"
     MinHeight="620"
@@ -205,6 +205,7 @@
 
             <Menu 
                 Margin="0 3 0 0"
+                Foreground="{Binding Path=SummaryFontColor ,Source={x:Static prop:Settings.Default}}"
                 FontFamily="{Binding Path=SummaryFont ,Source={x:Static prop:Settings.Default}}"
                 Background="{DynamicResource SecondBackgroundOpacityBrush}">
                 <MenuItem 
