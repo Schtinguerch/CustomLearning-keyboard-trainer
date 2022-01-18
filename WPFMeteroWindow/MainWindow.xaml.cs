@@ -397,10 +397,8 @@ namespace WPFMeteroWindow
         private void TextInputFrame_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e) =>
             bufferTextBox.Focus();
 
-        private void MetroWindow_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
-        {
+        private void MetroWindow_MouseMove(object sender, System.Windows.Input.MouseEventArgs e) =>
             ParallaxEffectPresenter.MakeParallaxEffect(e.GetPosition(MainGrid));
-        }
 
         private void MetroWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         {
