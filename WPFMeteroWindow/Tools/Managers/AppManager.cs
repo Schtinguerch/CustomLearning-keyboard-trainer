@@ -106,7 +106,7 @@ namespace WPFMeteroWindow
         private static void OpenArgumentFiles()
         {
             var paths = Environment.GetCommandLineArgs();
-            if (paths.Length == 0)
+            if (paths == null || paths.Length == 0)
             {
                 return;
             }
