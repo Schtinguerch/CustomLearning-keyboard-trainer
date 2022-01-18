@@ -25,10 +25,10 @@ namespace WPFMeteroWindow
             CountImageOffset(new Point(windowWidth / 2d, windowHeight / 2d));
         }
 
-        public static void MakeParallaxEffect(object sender, MouseEventArgs e)
+        public static void MakeParallaxEffect(Point mousePosition)
         {
             if (Image == null || MoveMultipler == 0) return;
-            CountImageOffset(e.GetPosition(Intermediary.App.MainGrid));
+            CountImageOffset(mousePosition);
         }
 
         private static void CountImageOffset(Point mousePosition)

@@ -399,7 +399,7 @@ namespace WPFMeteroWindow
 
         private void MetroWindow_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            ParallaxEffectPresenter.MakeParallaxEffect(sender, e);
+            ParallaxEffectPresenter.MakeParallaxEffect(e.GetPosition(MainGrid));
         }
 
         private void MetroWindow_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -546,9 +546,10 @@ namespace WPFMeteroWindow
         private void MetroWindow_ContentRendered(object sender, EventArgs e)
         {
             ContentRendered -= MetroWindow_ContentRendered;
-
             _startingThread.Abort();
+
             Activate();
+            ParallaxEffectPresenter.MakeParallaxEffect(new Point(0, 0));
         }
 
         private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
