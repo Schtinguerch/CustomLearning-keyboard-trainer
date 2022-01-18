@@ -63,6 +63,9 @@ namespace WPFMeteroWindow
 
         public CourseEditor(string folderPath, CourseState state)
         {
+            if (string.IsNullOrWhiteSpace(folderPath))
+                state = CourseState.Empty;
+
             _folderPath = folderPath;
             _isNewCourse = false;
 

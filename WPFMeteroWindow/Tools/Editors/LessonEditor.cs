@@ -30,6 +30,12 @@ namespace WPFMeteroWindow
             _filePath = filePath;
             _isNewLesson = false;
 
+            if (string.IsNullOrWhiteSpace(filePath))
+            {
+                _isNewLesson = true;
+                return;
+            }
+
             if (!File.Exists(filePath)) return;
 
             var reader = new Lml(filePath, Lml.Open.FromFile);
