@@ -39,7 +39,6 @@
     </Window.Triggers>
 
     <Grid Background="#222222">
-
         <Grid.Effect>
             <DropShadowEffect 
                 ShadowDepth="0"
@@ -59,6 +58,18 @@
             </Grid.RowDefinitions>
 
             <Image
+                Grid.ColumnSpan="2"
+                Grid.RowSpan="2"
+                
+                Source="Resources/images/Background.jpg"
+                Stretch="UniformToFill">
+
+                <Image.Effect>
+                    <BlurEffect Radius="1"></BlurEffect>
+                </Image.Effect>
+            </Image>
+
+            <Image
                 Grid.Row="0"
                 Grid.RowSpan="2"
                 Source="Resources/images/BigLogo.png">
@@ -69,6 +80,15 @@
                         Y="-8">
                     </TranslateTransform>
                 </Image.RenderTransform>
+
+                <Image.Effect>
+                    <DropShadowEffect 
+                        ShadowDepth="0"
+                        Color="Black"
+                        BlurRadius="30"
+                        Opacity="0.3">
+                    </DropShadowEffect>
+                </Image.Effect>
             </Image>
 
             <TextBlock
@@ -82,6 +102,15 @@
                 FontSize="36"
                 
                 Text="CustomLearning">
+
+                <TextBlock.Effect>
+                    <DropShadowEffect
+                        Color="White"
+                        ShadowDepth="0"
+                        Opacity="0.6"
+                        BlurRadius="24">
+                    </DropShadowEffect>
+                </TextBlock.Effect>
             </TextBlock>
 
             <TextBlock
@@ -120,6 +149,14 @@
                         <TranslateTransform X="100"/>
                     </TransformGroup>
                 </Rectangle.RenderTransform>
+
+                <Rectangle.Effect>
+                    <DropShadowEffect
+                        Color="Aqua"
+                        ShadowDepth="0"
+                        BlurRadius="24">
+                    </DropShadowEffect>
+                </Rectangle.Effect>
             </Rectangle>
         </Grid>
     </Grid>
