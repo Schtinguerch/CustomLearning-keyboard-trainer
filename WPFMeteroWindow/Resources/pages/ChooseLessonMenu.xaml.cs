@@ -1,18 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WPFMeteroWindow.Properties;
 
 namespace WPFMeteroWindow.Resources.pages
@@ -24,23 +15,24 @@ namespace WPFMeteroWindow.Resources.pages
     {
         public ChooseLessonMenu(List<string> lessons)
         {
+            var dictionary = (ResourceDictionary)Application.LoadComponent(new Uri("\\Resources\\dictionaries\\Styles.xaml", UriKind.Relative));
+            var style = (Style)dictionary["SummaryTextStyle"];
+
             InitializeComponent();
             LessonStackPanel.Children.Capacity = 5000;
 
             foreach (var lesson in lessons)
-                AddLesson(lesson);
+                AddLesson(lesson, style);
         }
 
-        private void AddLesson(string filename)
+        private void AddLesson(string filename, Style style)
         {
             var textBlock = new TextBlock()
             {
                 Text = OptimizedGetLessonName(filename),
                 Padding = new Thickness(10, 2, 10, 2),
-
-                Foreground = new BrushConverter().ConvertFromString(Settings.Default.KeyboardFontColor) as SolidColorBrush,
+                Style = style,
                 FontSize = 18d,
-                FontFamily = new FontFamily(Settings.Default.SummaryFont),
             };
 
             textBlock.MouseEnter += (s, e) => 
