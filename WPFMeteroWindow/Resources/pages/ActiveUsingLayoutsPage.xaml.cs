@@ -31,7 +31,8 @@ namespace WPFMeteroWindow.Resources.pages
                 EmptyListTextBox.Visibility = Visibility.Hidden;
 
             foreach (var layout in _recentLayoutData)
-                InsertNewLayout(layout);
+                if (File.Exists(layout) && File.ReadAllText(layout).Contains("<<Layout:"))
+                    InsertNewLayout(layout);
         }
 
         private void InsertNewLayout(string layoutFilename) =>

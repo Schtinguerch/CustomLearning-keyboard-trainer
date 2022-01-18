@@ -35,10 +35,11 @@ namespace WPFMeteroWindow.Resources.pages
                 EmptyListTextBox.Visibility = Visibility.Hidden;
 
             foreach (var layout in _previousConfigsData)
-                ScrollListStackPanel.Children.Insert(0, new ConfigItem(layout)
-                {
-                    Margin = new Thickness(0, 20, 0, 0)
-                });
+                if (File.Exists(layout) && File.ReadAllText(layout).Contains("#config"))
+                    ScrollListStackPanel.Children.Insert(0, new ConfigItem(layout)
+                    {
+                        Margin = new Thickness(0, 20, 0, 0)
+                    });
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
