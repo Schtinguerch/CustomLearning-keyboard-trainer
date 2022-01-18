@@ -160,6 +160,9 @@ namespace WPFMeteroWindow
 
         public static List<double> GetCpmFromStats(List<LessonStatistics> stats)
         {
+            if (stats == null)
+                return new List<double>();
+
             var cpmList = new List<double>(stats.Count);
 
             foreach (var statsItem in stats)
@@ -170,6 +173,9 @@ namespace WPFMeteroWindow
 
         public static List<double> GetPercentageFromStats(List<LessonStatistics> stats)
         {
+            if (stats == null)
+                return new List<double>();
+
             var cpmList = new List<double>(stats.Count);
 
             foreach (var statsItem in stats)
