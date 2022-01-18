@@ -73,7 +73,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Courier New")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Segoe UI")]
         public string LessonLettersFont {
             get {
                 return ((string)(this["LessonLettersFont"]));
@@ -85,7 +85,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Courier New")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Segoe UI")]
         public string KeyboardFont {
             get {
                 return ((string)(this["KeyboardFont"]));
@@ -157,7 +157,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#646464")]
+        [global::System.Configuration.DefaultSettingValueAttribute("#AA004884")]
         public string RaidedFontColor {
             get {
                 return ((string)(this["RaidedFontColor"]));
@@ -169,7 +169,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Bahnschrift")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Segoe UI Semibold")]
         public string SummaryFont {
             get {
                 return ((string)(this["SummaryFont"]));
@@ -181,7 +181,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#282828")]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FF1E1E1E")]
         public string MainBackground {
             get {
                 return ((string)(this["MainBackground"]));
@@ -193,7 +193,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#222222")]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FF121212")]
         public string SecondBackground {
             get {
                 return ((string)(this["SecondBackground"]));
@@ -205,7 +205,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#1A1A1A")]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FF191919")]
         public string ThirdBackground {
             get {
                 return ((string)(this["ThirdBackground"]));
@@ -217,7 +217,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#202020")]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FF121212")]
         public string ThirdSecBackground {
             get {
                 return ((string)(this["ThirdSecBackground"]));
@@ -229,7 +229,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("White")]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FFD1FEFF")]
         public string SummaryFontColor {
             get {
                 return ((string)(this["SummaryFontColor"]));
@@ -241,7 +241,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#2A2A2A")]
+        [global::System.Configuration.DefaultSettingValueAttribute("#66262626")]
         public string KeyboardBackgroundColor {
             get {
                 return ((string)(this["KeyboardBackgroundColor"]));
@@ -253,7 +253,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("White")]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FFDBDBDB")]
         public string KeyboardFontColor {
             get {
                 return ((string)(this["KeyboardFontColor"]));
@@ -265,7 +265,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#202020")]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FF191919")]
         public string KeyboardBorderColor {
             get {
                 return ((string)(this["KeyboardBorderColor"]));
@@ -277,7 +277,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#80F6FF")]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FF17C4F5")]
         public string KeyboardHighlightColor {
             get {
                 return ((string)(this["KeyboardHighlightColor"]));
@@ -421,7 +421,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("LightGray")]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FF7D7D7D")]
         public string HandsColor {
             get {
                 return ((string)(this["HandsColor"]));
@@ -433,7 +433,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0.5")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.8")]
         public string HandsOpacity {
             get {
                 return ((string)(this["HandsOpacity"]));
@@ -517,7 +517,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool IsBackgroundImage {
             get {
                 return ((bool)(this["IsBackgroundImage"]));
@@ -529,7 +529,7 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("DefaultData\\Background.jpg")]
         public string BackgroundImagePath {
             get {
                 return ((string)(this["BackgroundImagePath"]));

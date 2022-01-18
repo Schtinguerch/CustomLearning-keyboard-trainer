@@ -15,10 +15,10 @@
       <Value Profile="(Default)">KeyboardLayouts\Dvorak.lml</Value>
     </Setting>
     <Setting Name="LessonLettersFont" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Courier New</Value>
+      <Value Profile="(Default)">Segoe UI</Value>
     </Setting>
     <Setting Name="KeyboardFont" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Courier New</Value>
+      <Value Profile="(Default)">Segoe UI</Value>
     </Setting>
     <Setting Name="FontContext" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -36,37 +36,37 @@
       <Value Profile="(Default)">White</Value>
     </Setting>
     <Setting Name="RaidedFontColor" Type="System.String" Scope="User">
-      <Value Profile="(Default)">#646464</Value>
+      <Value Profile="(Default)">#AA004884</Value>
     </Setting>
     <Setting Name="SummaryFont" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Bahnschrift</Value>
+      <Value Profile="(Default)">Segoe UI Semibold</Value>
     </Setting>
     <Setting Name="MainBackground" Type="System.String" Scope="User">
-      <Value Profile="(Default)">#282828</Value>
+      <Value Profile="(Default)">#FF1E1E1E</Value>
     </Setting>
     <Setting Name="SecondBackground" Type="System.String" Scope="User">
-      <Value Profile="(Default)">#222222</Value>
+      <Value Profile="(Default)">#FF121212</Value>
     </Setting>
     <Setting Name="ThirdBackground" Type="System.String" Scope="User">
-      <Value Profile="(Default)">#1A1A1A</Value>
+      <Value Profile="(Default)">#FF191919</Value>
     </Setting>
     <Setting Name="ThirdSecBackground" Type="System.String" Scope="User">
-      <Value Profile="(Default)">#202020</Value>
+      <Value Profile="(Default)">#FF121212</Value>
     </Setting>
     <Setting Name="SummaryFontColor" Type="System.String" Scope="User">
-      <Value Profile="(Default)">White</Value>
+      <Value Profile="(Default)">#FFD1FEFF</Value>
     </Setting>
     <Setting Name="KeyboardBackgroundColor" Type="System.String" Scope="User">
-      <Value Profile="(Default)">#2A2A2A</Value>
+      <Value Profile="(Default)">#66262626</Value>
     </Setting>
     <Setting Name="KeyboardFontColor" Type="System.String" Scope="User">
-      <Value Profile="(Default)">White</Value>
+      <Value Profile="(Default)">#FFDBDBDB</Value>
     </Setting>
     <Setting Name="KeyboardBorderColor" Type="System.String" Scope="User">
-      <Value Profile="(Default)">#202020</Value>
+      <Value Profile="(Default)">#FF191919</Value>
     </Setting>
     <Setting Name="KeyboardHighlightColor" Type="System.String" Scope="User">
-      <Value Profile="(Default)">#80F6FF</Value>
+      <Value Profile="(Default)">#FF17C4F5</Value>
     </Setting>
     <Setting Name="LessonName" Type="System.String" Scope="User">
       <Value Profile="(Default)">...</Value>
@@ -102,10 +102,10 @@
       <Value Profile="(Default)">1000000</Value>
     </Setting>
     <Setting Name="HandsColor" Type="System.String" Scope="User">
-      <Value Profile="(Default)">LightGray</Value>
+      <Value Profile="(Default)">#FF7D7D7D</Value>
     </Setting>
     <Setting Name="HandsOpacity" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0.5</Value>
+      <Value Profile="(Default)">0.8</Value>
     </Setting>
     <Setting Name="HandsThickness" Type="System.String" Scope="User">
       <Value Profile="(Default)">6</Value>
@@ -126,10 +126,10 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="IsBackgroundImage" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="BackgroundImagePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">DefaultData\Background.jpg</Value>
     </Setting>
     <Setting Name="TestWordListPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">JustLessons\Typing tests\topWords_EN.lml</Value>
