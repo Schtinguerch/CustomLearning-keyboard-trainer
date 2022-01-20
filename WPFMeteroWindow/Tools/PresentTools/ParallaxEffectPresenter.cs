@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
+using WPFMeteroWindow.Properties;
 
 namespace WPFMeteroWindow
 {
@@ -17,7 +13,7 @@ namespace WPFMeteroWindow
 
         public static void Init()
         {
-            if (Image == null || MoveMultipler == 0) return;
+            if (Image == null || MoveMultipler == 0 || !Settings.Default.EnableParallax) return;
 
             var windowWidth = Intermediary.App.MainGrid.ActualWidth;
             var windowHeight = Intermediary.App.MainGrid.ActualHeight;
@@ -27,7 +23,7 @@ namespace WPFMeteroWindow
 
         public static void MakeParallaxEffect(Point mousePosition)
         {
-            if (Image == null || MoveMultipler == 0) return;
+            if (Image == null || MoveMultipler == 0 || !Settings.Default.EnableParallax) return;
             CountImageOffset(mousePosition);
         }
 

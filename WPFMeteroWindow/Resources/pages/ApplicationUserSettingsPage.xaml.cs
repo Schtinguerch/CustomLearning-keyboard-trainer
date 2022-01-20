@@ -80,6 +80,10 @@ namespace WPFMeteroWindow.Resources.pages
                 case "Hands":
                     Settings.Default.ShowHands = state;
                     break;
+
+                case "Parallax":
+                    Settings.Default.EnableParallax = state;
+                    break;
             }
         }
 
@@ -159,6 +163,7 @@ namespace WPFMeteroWindow.Resources.pages
 
             ShowHandsTextBox.Text = Settings.Default.ShowHands ? Localization.uYes : Localization.uNo;
             ShowStatisticsTextBox.Text = Settings.Default.ShowStatistics ? Localization.uYes : Localization.uNo;
+            EnableParallaxComboBox.Text = Settings.Default.EnableParallax ? Localization.uYes : Localization.uNo;
 
             RequireWPMtextBox.Text = Settings.Default.RequireWPM ? Localization.uYes : Localization.uNo;
             WindowColorType.Text = Settings.Default.IsBackgroundImage ? Localization.uSettImage : Localization.uSettBrush;

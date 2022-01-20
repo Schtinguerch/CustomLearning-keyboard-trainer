@@ -130,6 +130,9 @@ namespace WPFMeteroWindow.Resources.pages
         private void RequireWPMtextBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e) =>
             SetYesOrNo("WPM", (RequireWPMtextBox.SelectedItem as TextBlock).Text);
 
+        private void EnableParallaxComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e) =>
+            SetYesOrNo("Parallax", (EnableParallaxComboBox.SelectedItem as TextBlock).Text);
+
         private void ShowStatisticsTextBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e) =>
             SetYesOrNo("Stats", (ShowStatisticsTextBox.SelectedItem as TextBlock).Text);
 
