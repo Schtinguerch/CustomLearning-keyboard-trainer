@@ -429,6 +429,9 @@
   <data name="uSettCurrentKeyboardLayout" xml:space="preserve">
     <value>Current keyboard layout</value>
   </data>
+  <data name="uSettEnableParallax" xml:space="preserve">
+    <value>Enable Parallax Effect</value>
+  </data>
   <data name="uSettFonts" xml:space="preserve">
     <value>Fonts</value>
   </data>

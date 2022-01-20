@@ -429,6 +429,9 @@
   <data name="uSettCurrentKeyboardLayout" xml:space="preserve">
     <value>Текущая раскладка клавиатуры</value>
   </data>
+  <data name="uSettEnableParallax" xml:space="preserve">
+    <value>Включить эффект Параллакса</value>
+  </data>
   <data name="uSettFonts" xml:space="preserve">
     <value>Шрифты</value>
   </data>
