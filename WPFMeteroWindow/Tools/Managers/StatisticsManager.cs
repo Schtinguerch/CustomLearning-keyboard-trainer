@@ -20,6 +20,13 @@ namespace WPFMeteroWindow
         public List<string> MistakenWords { get; set; }
     }
 
+    public class CourseMarks
+    {
+        public int LastLoadedLessonIndex { get; set; }
+        public List<int> FullyPassedLessons { get; set; }
+        public List<int> PartucularlyPassedLessons { get; set; }
+    }
+
     public static class StatisticsManager
     {
         private const int _millisecondsInMinute = 60000;
@@ -35,6 +42,7 @@ namespace WPFMeteroWindow
             AppManager.JsonReadData<List<LessonStatistics>>(Settings.Default.AllTypingSpeedPath);
 
         public static List<LessonStatistics> CourseStatistics { get; set; }
+        public static CourseMarks CourseMarks { get; set; }
 
         public static bool IsDemonstrationMode { get; set; } = false;
 
@@ -71,7 +79,9 @@ namespace WPFMeteroWindow
 
             TypingSpeedCpm = averageCpm;
             PassPercentage = (inputTextLength +2) / (float)LessonManager.AllLessonText.Length * 100f;
+
             TypingTimeOut = $"{minutes:D2}:{seconds:D2}:{milliseconds / 10:D2}";
+            var mistakePercentage = TypingMistakes / (float)LessonManager.AllLessonText.Length * 100f;
 
             if (TypingMilliseconds > _startTimeToCollectStats)
             {
@@ -81,7 +91,10 @@ namespace WPFMeteroWindow
 
             Intermediary.App.TimerTextBlock.Text = TypingTimeOut;
             Intermediary.App.WPMTextBlock.Text = $"{averageCpm:N} {Localization.uCPM}";
-            Intermediary.App.MistakesTextBloxck.Text = $"{PassPercentage:N}% • {TypingMistakes} {Localization.uMistakes}";
+
+            Intermediary.App.MistakesTextBloxck.Text = 
+                $" {inputTextLength + 1}/{LessonManager.AllLessonText.Length} • " + 
+                $"{PassPercentage:N}%; {TypingMistakes} {Localization.uMistakes} • {mistakePercentage:N}%";
         }
 
         public static void AddWordStatistics(char inputSymbol)
