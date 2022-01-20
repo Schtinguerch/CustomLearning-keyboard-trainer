@@ -74,7 +74,7 @@ namespace WPFMeteroWindow.Controls
         {
             ItemBorder.Background = (SolidColorBrush)new BrushConverter().ConvertFromString(Settings.Default.MainBackground);
             ItemBorder.CornerRadius = new CornerRadius(16);
-            Opener.NewCourse(_courseFullPath, 0);
+            Opener.NewCourse(_courseFullPath, -1);
         }
             
         private void ItemBorder_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)

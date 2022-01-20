@@ -37,9 +37,11 @@ namespace WPFMeteroWindow
                     CourseManager.LoadCourse(fileName, skipUiLoading);
                     LogManager.Log($"Open course: \"{fileName}\" -> success");
 
-                    Settings.Default.IsCourseOpened = true;
-                    Settings.Default.CourseLessonNumber = lessonIndex;
-                    Settings.Default.Save();
+                    if (skipUiLoading)
+                        return;
+
+                    if (lessonIndex != -1)
+                        CourseManager.CurrentLessonIndex = lessonIndex;
                 }
 
                 catch (Exception e)
@@ -61,7 +63,7 @@ namespace WPFMeteroWindow
             var openDialog = new FolderBrowserDialog();
 
             if (openDialog.ShowDialog() == DialogResult.OK)
-                NewCourse(openDialog.SelectedPath + "\\CourseLessons.lml", 0, skipUiLoading);
+                NewCourse(openDialog.SelectedPath + "\\CourseLessons.lml", -1, skipUiLoading);
         }
         
         public static void NewKeyboardLayout(string fileName, bool isFiction = false)

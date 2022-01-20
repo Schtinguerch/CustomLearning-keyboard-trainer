@@ -144,7 +144,7 @@ namespace WPFMeteroWindow.Commands
 
                 case "c":
                     if (hasFileName)
-                        Opener.NewCourse(fileName, 0);
+                        Opener.NewCourse(fileName, -1);
                     else
                         Opener.NewCourseViaExplorer();
                     break;
