@@ -38,6 +38,7 @@ namespace WPFMeteroWindow
                             choosenLesson = value;
 
                         LessonManager.LoadLesson(Lessons[choosenLesson]);
+                        StatisticsManager.CourseMarks.LastLoadedLessonIndex = choosenLesson;
 
                         Settings.Default.CourseLessonNumber = value;
                         Settings.Default.LessonInCourseFileName = Lessons[choosenLesson];
@@ -80,32 +81,43 @@ namespace WPFMeteroWindow
             if (!skipUiLoadng)
             {
                 if (StatisticsManager.CourseStatistics != null)
-                {
                     File.WriteAllText(
                         Settings.Default.LoadedCourseFile + "\\statistics.json",
                         JsonConvert.SerializeObject(
                             StatisticsManager.CourseStatistics,
                             Formatting.Indented));
-                }
+
+                if (StatisticsManager.CourseMarks != null)
+                    File.WriteAllText(
+                        Settings.Default.LoadedCourseFile + "\\marks.json",
+                        JsonConvert.SerializeObject(
+                            StatisticsManager.CourseMarks,
+                            Formatting.Indented));
 
                 Lessons = lessons;
                 LessonsCount = lessons.Count;
 
-                LessonManager.LoadLesson(Lessons[Settings.Default.CourseLessonNumber]);
+                Settings.Default.IsCourseOpened = true;
+                StatisticsManager.CourseStatistics = AppManager.JsonReadData<List<LessonStatistics>>(filename + "\\statistics.json");
+                StatisticsManager.CourseMarks = AppManager.JsonReadData<CourseMarks>(filename + "\\marks.json");
                 Intermediary.App.LoadCourseOrLessonButton.ContextMenu = NewContextMenu();
+
+                if (StatisticsManager.CourseMarks.PartucularlyPassedLessons == null)
+                    StatisticsManager.CourseMarks.PartucularlyPassedLessons = new List<int>();
+
+                if (StatisticsManager.CourseMarks.FullyPassedLessons == null)
+                    StatisticsManager.CourseMarks.FullyPassedLessons = new List<int>();
 
                 Settings.Default.CourseName = courseName;
                 Settings.Default.IsDictionary = isDictionary;
 
-                Settings.Default.LoadedLessonFile = Lessons[Settings.Default.CourseLessonNumber];
                 Settings.Default.LoadedCourseFile = filename;
                 Settings.Default.Save();
 
                 Intermediary.App.NextLessonButton.Visibility = Visibility.Visible;
                 Intermediary.App.PrevLessonButton.Visibility = Visibility.Visible;
 
-                StatisticsManager.CourseStatistics = AppManager.JsonReadData<List<LessonStatistics>>(filename + "\\statistics.json");
-                CurrentLessonIndex = Settings.Default.CourseLessonNumber;
+                CurrentLessonIndex = StatisticsManager.CourseMarks.LastLoadedLessonIndex;
             }
 
             WriteDataToJson(
