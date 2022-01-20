@@ -181,8 +181,8 @@
             x:Name="LogoStackPanel"
             Orientation="Horizontal">
 
-            <Image Source="Resources/images/LogoLight.png" Margin="10 0 6 3"></Image>
-            
+            <Image Source="Resources/images/LogoLight.png" Margin="6 0 6 0"></Image>
+
             <TextBlock
                 x:Name="AppTitle"
                 Style="{StaticResource SummaryTextStyle}"
@@ -190,7 +190,6 @@
                 FontSize="14">
             </TextBlock>
         </StackPanel>
-
 
         <!-- Content -->
         <Grid 
@@ -738,6 +737,14 @@
                  RenderOptions.BitmapScalingMode="NearestNeighbor"
                  RenderOptions.ClearTypeHint="Enabled">
             </Frame>
+
+            <Grid
+                Height="33"
+                VerticalAlignment="Top"
+                Margin="0 0 120 0"
+                MouseMove="Grid_MouseMove"
+                Background="Transparent">
+            </Grid>
         </Grid>
 
         <TextBlock 
