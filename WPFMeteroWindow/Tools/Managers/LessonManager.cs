@@ -149,9 +149,9 @@ namespace WPFMeteroWindow
             DoneRoad = "";
             ErrorInput = "";
 
-            Intermediary.App.TimerTextBlock.Text = "0:0";
-            Intermediary.App.WPMTextBlock.Text = $"0 {Localization.uCPM}";
-            Intermediary.App.MistakesTextBloxck.Text = "0% •  0 " + Localization.uMistakes;
+            Intermediary.App.TimerTextBlock.Text = "00:00:00";
+            Intermediary.App.WPMTextBlock.Text = $"0.00 {Localization.uCPM}";
+            Intermediary.App.MistakesTextBloxck.Text = $"0/{AllLessonText.Length} • 0%; 0 {Localization.uMistakes} • 0%";
 
             TextInputPresenter.LoadText(text);
             StatisticsManager.ReloadStats();
