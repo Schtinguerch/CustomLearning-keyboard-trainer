@@ -38,8 +38,10 @@ namespace WPFMeteroWindow.Resources.pages
             }
             else
             {
-                EditorTitleTextBox.Text = Path.GetFileName(Settings.Default.LoadedLessonFile) + $" - {Localization.uLessonEditor}";
-                _editor = new LessonEditor(Settings.Default.LoadedLessonFile);
+                var file = Settings.Default.IsCourseOpened ? Settings.Default.LessonInCourseFileName : Settings.Default.LoadedLessonFile;
+
+                EditorTitleTextBox.Text = Path.GetFileName(file) + $" - {Localization.uLessonEditor}";
+                _editor = new LessonEditor(file);
                 DisplayDataFromEditor();
             }
 
