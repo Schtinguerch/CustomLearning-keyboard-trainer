@@ -10,6 +10,7 @@ using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 using System.Windows.Media;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace WPFMeteroWindow
 {
@@ -105,7 +106,7 @@ namespace WPFMeteroWindow
 
         private static void OpenArgumentFiles()
         {
-            var paths = Environment.GetCommandLineArgs();
+            var paths = Environment.GetCommandLineArgs().Skip(1).ToArray();
             if (paths == null || paths.Length == 0)
             {
                 return;
@@ -143,14 +144,14 @@ namespace WPFMeteroWindow
                 Opener.NewKeyboardLayout(layout, true);
 
             if (courses.Count == 1)
-                Opener.NewCourse(courses[0], 0);
+                Opener.NewCourse(courses[0], -1);
             else
             foreach (var course in courses)
                 Opener.NewCourse(course, 0, true);
 
             if (lessons.Count == 1)
                 Opener.NewLesson(lessons[0]);
-            else
+            else if (lessons.Count > 0)
             {
                 var editor = new CourseEditor("TemporaryCourse", CourseState.Empty)
                 {
