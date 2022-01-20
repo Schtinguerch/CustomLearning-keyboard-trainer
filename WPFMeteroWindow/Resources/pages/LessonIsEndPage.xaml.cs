@@ -22,7 +22,7 @@ namespace WPFMeteroWindow.Resources.pages
             CurrLessonButton.Focus();
             MistakenCharsTextList.Orientation = Orientation.Horizontal;
 
-            Intermediary.RichPresentManager.Update(Settings.Default.ItTypingTest ? "Typing test" : Settings.Default.LessonName, "Ending: watching results...", "");
+            Intermediary.RichPresentManager.Update(Settings.Default.ItTypingTest ? "Typing test" : Settings.Default.LessonName, $"Ending: watching results, {StatisticsManager.TypingSpeedCpm:N} {Localization.uCPM}", "");
 
             foreach (var run in StatisticsManager.LessonRoadRuns)
                 PassedLessonTextBlock.Inlines.Add(run);
@@ -57,7 +57,10 @@ namespace WPFMeteroWindow.Resources.pages
                 StatisticsManager.GlobalTypingSpeeds.Add(statistics);
 
                 if (Settings.Default.IsCourseOpened)
+                {
                     StatisticsManager.CourseStatistics.Add(statistics);
+                }
+                    
             }
 
             if (!Settings.Default.IsCourseOpened || Settings.Default.ItTypingTest)
