@@ -193,39 +193,41 @@
                                 </TextBlock>
 
                                 <Grid x:Name="MistakenDataGrid">
-                                    <TextBlock
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock
                                         Style="{StaticResource SummaryTextStyle}"
                                         VerticalAlignment="Top"
                                         Text="{x:Static res:Resources.uMistakenWords}"
                                         FontSize="24"
                                         Margin="0 0 0 8">
-                                    </TextBlock>
+                                        </TextBlock>
 
-                                    <ctrls:TextList 
-                                        Width="320"
-                                        Height="280"
-                                        Margin="20 10 0 0"
-                                        HorizontalAlignment="Left"
-                                        x:Name="MistakenWordsTextList"
-                                        Orientation="Vertical">
-                                    </ctrls:TextList>
+                                        <ctrls:TextList 
+                                            Width="320"
+                                            Height="280"
+                                            Margin="20 10 0 0"
+                                            HorizontalAlignment="Left"
+                                            x:Name="MistakenWordsTextList"
+                                            Orientation="Vertical">
+                                        </ctrls:TextList>
 
-                                    <TextBlock
+                                        <TextBlock
                                         Style="{StaticResource SummaryTextStyle}"
                                         VerticalAlignment="Top"
                                         Text="{x:Static res:Resources.uMistakenCharacters}"
                                         FontSize="24"
                                         Margin="0 0 0 8">
-                                    </TextBlock>
+                                        </TextBlock>
 
-                                    <ctrls:TextList 
-                                        Width="320"
-                                        Height="60"
-                                        Margin="20 10 0 0"
-                                        HorizontalAlignment="Left"
-                                        x:Name="MistakenCharsTextList"
-                                        Orientation="Horizontal">
-                                    </ctrls:TextList>
+                                        <ctrls:TextList 
+                                            Width="320"
+                                            Height="60"
+                                            Margin="20 10 0 0"
+                                            HorizontalAlignment="Left"
+                                            x:Name="MistakenCharsTextList"
+                                            Orientation="Horizontal">
+                                        </ctrls:TextList>
+                                    </StackPanel>
                                 </Grid>
 
                                 <Grid x:Name="CourseStatsGrid">
