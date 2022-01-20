@@ -379,9 +379,6 @@ namespace WPFMeteroWindow
         private void OpenLayoutEditorMenuItem_OnClick(object sender, RoutedEventArgs e) =>
             PageManager.OpenPage(TabPage.KeyboardLayoutEditor);
 
-        private void OpenNewGameMenuItem_OnClick(object sender, RoutedEventArgs e) =>
-            PageManager.OpenPage(TabPage.ClickingGame);
-
         private void OpenRecentCourseMenuItem_Click(object sender, RoutedEventArgs e) =>
             PageManager.OpenPage(TabPage.RecentCources);
 
@@ -483,7 +480,7 @@ namespace WPFMeteroWindow
                 for (int i = 0; i < files.Length; i++)
                     Opener.NewCourse(files[i], 0, true);
 
-                Opener.NewCourse(insertionFile, 0);
+                Opener.NewCourse(insertionFile, -1);
             }
 
             DrapAndDropMessageGrid.Visibility = Visibility.Hidden;
@@ -558,16 +555,19 @@ namespace WPFMeteroWindow
                     StatisticsManager.GlobalTypingSpeeds,
                     Formatting.Indented));
 
-            if (StatisticsManager.CourseStatistics == null)
-            {
-                return;
-            }
-
-            File.WriteAllText(
-                Settings.Default.LoadedCourseFile + "\\statistics.json",
-                JsonConvert.SerializeObject(
-                    StatisticsManager.CourseStatistics,
-                    Formatting.Indented));
+            if (StatisticsManager.CourseStatistics != null)
+                File.WriteAllText(
+                    Settings.Default.LoadedCourseFile + "\\statistics.json",
+                    JsonConvert.SerializeObject(
+                        StatisticsManager.CourseStatistics,
+                        Formatting.Indented));
+            
+            if (StatisticsManager.CourseMarks != null)
+                File.WriteAllText(
+                    Settings.Default.LoadedCourseFile + "\\marks.json",
+                    JsonConvert.SerializeObject(
+                        StatisticsManager.CourseMarks,
+                        Formatting.Indented));
         }
     }
 }
