@@ -168,6 +168,8 @@ namespace WPFMeteroWindow.Resources.pages
                 PrevLessonButton.Visibility = Visibility.Hidden;
                 NextLessonButton.Visibility = Visibility.Hidden;
             }
+
+            MistakenWordsTextList.Height = Math.Min(MistakenCharsTextList.ItemsHeight, 300d);
         }
 
         private void PrevLessonButton_OnClick(object sender, RoutedEventArgs e)
