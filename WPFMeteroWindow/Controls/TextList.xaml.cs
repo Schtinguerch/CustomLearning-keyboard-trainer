@@ -1,17 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WPFMeteroWindow.Controls
 {
@@ -20,6 +11,11 @@ namespace WPFMeteroWindow.Controls
     /// </summary>
     public partial class TextList : UserControl
     {
+        public double ItemsHeight => 
+            (ItemStackPanel.Children.Count == 0? 
+                0 : (ItemStackPanel.Children[0] as TextBlock).FontSize + 4)
+                * (ItemStackPanel.Children.Count + 1);
+
         public Orientation Orientation
         {
             get => (Orientation)GetValue(OrientationProperty);
