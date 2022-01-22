@@ -30,7 +30,7 @@ namespace WPFMeteroWindow
     public static class StatisticsManager
     {
         private const int _millisecondsInMinute = 60000;
-        private const int _startTimeToCollectStats = 100;
+        private const int _startTimeToCollectStats = 250;
 
         private static Stopwatch _typingStopWatch;
 
