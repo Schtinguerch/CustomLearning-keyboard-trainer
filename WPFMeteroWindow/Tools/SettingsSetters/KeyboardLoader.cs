@@ -105,7 +105,7 @@ namespace WPFMeteroWindow
             else
             {
                 defaultTextBlock = new TextBlock()
-                { Text = (defaultKey.Length != 2) ? defaultKey.ToUpper() : defaultKey[1].ToString(), Style = textBlockStyle, FontSize = 22d };
+                { Text = (defaultKey.Length != 2) ? (defaultKey.ToUpper() == shiftKey? defaultKey.ToUpper() : defaultKey) : defaultKey[1].ToString(), Style = textBlockStyle, FontSize = 22d };
             }
 
             TextBlock
