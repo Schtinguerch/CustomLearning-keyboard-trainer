@@ -56,7 +56,10 @@ namespace WPFMeteroWindow
             try
             {
                 errorIndex++;
-                Opener.NewKeyboardLayout(Settings.Default.KeyboardLayoutFile);
+                if (Settings.Default.CurrentLayout == 1)
+                    Opener.NewKeyboardLayout(Settings.Default.KeyboardLayoutFile);
+                else
+                    Opener.NewKeyboardLayout(Settings.Default.SecondKeyboardLayoutFile);
 
                 errorIndex++;
                 if (Settings.Default.IsCourseOpened)
