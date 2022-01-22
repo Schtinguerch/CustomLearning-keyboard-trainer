@@ -157,7 +157,8 @@
 
                     <StackPanel
                         Name="TypingStatsStackPanel"
-                        Orientation="Vertical">
+                        Orientation="Vertical"
+                        Margin="0 0 10 0">
 
                         <Grid
                             Name="CanvasGrid"
@@ -205,7 +206,7 @@
                                         <ctrls:TextList 
                                             Width="320"
                                             Height="280"
-                                            Margin="20 10 0 0"
+                                            Margin="0 10 0 10"
                                             HorizontalAlignment="Left"
                                             x:Name="MistakenWordsTextList"
                                             Orientation="Vertical">
@@ -222,7 +223,7 @@
                                         <ctrls:TextList 
                                             Width="320"
                                             Height="60"
-                                            Margin="20 10 0 0"
+                                            Margin="0 10 0 10"
                                             HorizontalAlignment="Left"
                                             x:Name="MistakenCharsTextList"
                                             Orientation="Horizontal">
@@ -231,19 +232,21 @@
                                 </Grid>
 
                                 <Grid x:Name="CourseStatsGrid">
-                                    <TextBlock
-                                        Style="{StaticResource SummaryTextStyle}"
-                                        VerticalAlignment="Top"
-                                        Text="{x:Static res:Resources.uCoursePassingStats}"
-                                        Margin="0 0 0 8"
-                                        FontSize="24">
-                                    </TextBlock>
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock
+                                            Style="{StaticResource SummaryTextStyle}"
+                                            VerticalAlignment="Top"
+                                            Text="{x:Static res:Resources.uCoursePassingStats}"
+                                            Margin="0 0 0 8"
+                                            FontSize="24">
+                                        </TextBlock>
 
-                                    <Grid 
-                                        Name="CoursePassingStatsGrid"
-                                        Margin="-20 0 0 0"
-                                        Height="260">
-                                    </Grid>
+                                        <Grid 
+                                            Name="CoursePassingStatsGrid"
+                                            Margin="-20 0 0 0"
+                                            Height="260">
+                                        </Grid>
+                                    </StackPanel>
                                 </Grid>
                                 
 
