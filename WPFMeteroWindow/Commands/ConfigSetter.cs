@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+
+using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 using ScriptMaker;
 
 namespace WPFMeteroWindow.Commands
@@ -20,6 +23,11 @@ namespace WPFMeteroWindow.Commands
 
             switch (arguments[0])
             {
+                case "log":
+                    Clipboard.SetText(LogManager.LogText);
+                    Intermediary.App.ShowMessage(Localization.uLogDataCopiedSuccessfully);
+                    break;
+
                 case "c":
                     UserConfigManager.CopyConfigToClipboard();
                     break;
