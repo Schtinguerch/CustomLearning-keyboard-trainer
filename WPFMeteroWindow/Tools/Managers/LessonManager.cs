@@ -108,7 +108,8 @@ namespace WPFMeteroWindow
 
             lessonText = lessonText.Randomized();
             lessonText = lessonText.WithDeletedExceptions();
-           
+
+            Intermediary.App.BackToLessonsButton.Width = 0d;
             LoadLessonText(lessonText);
             Intermediary.App.lessonHeaderTextBlock.Text = lessonName;
             
@@ -128,6 +129,7 @@ namespace WPFMeteroWindow
         public static void LoadTest(string lessonText)
         {
             var text = lessonText.WithDeletedExceptions();
+            Intermediary.App.BackToLessonsButton.Width = 120d;
 
             LoadLessonText(text);
             Intermediary.App.lessonHeaderTextBlock.Text = Localization.uTypingTest;
