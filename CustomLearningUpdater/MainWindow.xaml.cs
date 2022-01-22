@@ -1,141 +1,83 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Windows;
 using System.Net;
-using LmlLibrary;
-using Localization = CustomLearningUpdater.localizations.Resources;
-using System.Windows.Threading;
-using System.Threading.Tasks;
-using System.Threading;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
 using System.Reflection;
+
+using Newtonsoft.Json;
 
 namespace CustomLearningUpdater
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
+    public class UpdateData
+    {
+        public List<string> Files { get; set; }
+        public string PreviousVersion { get; set; }
+    }
+
     public partial class MainWindow : Window
     {
-        private const string _baseUrl = "https://raw.githubusercontent.com/Schtinguerch/CustomLearning-keyboard-trainer/master/WPFMeteroWindow/bin/Release";
+        private const string _baseUrl = "https://schtinguerch.github.io/UpdateManifests";
+        private const string _assetsFolder = "UpdateFiles";
         private readonly string _baseFolder = AppDomain.CurrentDomain.BaseDirectory;
-        private const string _manifestFile = "manifest.lml";
-
-        private string _downloadingObject = "";
+        private const string _manifestFile = "lastVersion";
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void SetStatus(string text)
-        {
-            UpdatingStatusTextBox.Text = text;
-            _downloadingObject = text;
-        }
-            
-
         private void StartUpdatingButton_Click(object sender, RoutedEventArgs e)
         {
-            StartUpdatingButton.Visibility = Visibility.Hidden;
-            StartUpdateProcess();
+            UpdatingToVersionTextBox.Text = localizations.Resources.uDownloading;
+
+            var appVersion = AssemblyName.GetAssemblyName(@"CustomLearning.exe").Version.ToString();
+            var files = UpdateFileList(appVersion, _manifestFile, _baseUrl);
+
+            DownloadFiles(files, _baseFolder, $"{_baseUrl}/{_assetsFolder}");
+            UpdatingToVersionTextBox.Text = localizations.Resources.uUpdateIsCompleted;
         }
 
-        private void StartUpdateProcess()
-        {
-            GetCommonData();
-        }
-
-        private void GetCommonData()
+        private List<string> UpdateFileList(string currentVelsion, string manifestFile, string serverUrl)
         {
             var webClient = new WebClient();
-            Lml parcer = new Lml("empty", Lml.Open.FromString);
-            string manifestData;
-            int fileCount;
-            Dictionary<string, string> fileList = new Dictionary<string, string>();
-            System.Diagnostics.Process[] processes;
-            string previousVersion, newVersion = "", appVersion = AssemblyName.GetAssemblyName(@"CustomLearning.exe").Version.ToString();
-            Clipboard.SetText(appVersion);
+            var files = new List<string>();
 
-            ThreadPool.QueueUserWorkItem((o) =>
+            do
             {
-                Dispatcher.Invoke((Action)(() => 
+                try
                 {
-                    SetStatus(Localization.uDownloadingUpdateManifest);
+                    var path = $"{serverUrl}/{manifestFile}.json";
+                    var jsonData = webClient.DownloadString(path);
+                    var data = JsonConvert.DeserializeObject<UpdateData>(jsonData);
 
-                    webClient.DownloadProgressChanged += DownloadProgressed;
-
-                    manifestData = webClient.DownloadString($"{_baseUrl}/{_manifestFile}");
-                    parcer = new Lml(manifestData, Lml.Open.FromString);
-
-                    SetStatus(Localization.uProcessingData);
-                    newVersion = parcer.GetString("Manifest>CurrentVersion");
-                    UpdatingToVersionTextBox.Text = $"{Localization.uUpdateTo} {newVersion}";
-                }));
-                Thread.Sleep(100);
-
-                Dispatcher.Invoke((Action)(() =>
-                {
-                    if (newVersion == appVersion) return;
-
-                    fileList = new Dictionary<string, string>();
-
-                    do
+                    manifestFile = data.PreviousVersion;
+                    foreach (var file in data.Files)
                     {
-                        previousVersion = parcer.GetString("Manifest>PreviousVersion");
-                        fileCount = parcer.GetInt("Manifest>Files>Count");
-
-                        for (int i = 0; i < fileCount; i++)
-                        {
-                            var fileName = parcer.GetString($"Manifest>Files>File{i}");
-                            string buf;
-
-                            if (!fileList.TryGetValue(fileName, out buf))
-                                fileList.Add($"{_baseFolder}{fileName}", $"{_baseUrl}/{fileName}");
-                        }
-
-                        if (previousVersion == "NO") break;
-
-                        manifestData = webClient.DownloadString($"{_baseUrl}/{previousVersion}.lml");
-                        parcer = new Lml(manifestData, Lml.Open.FromString);
+                        files.Add(file);
                     }
-                    while (previousVersion != appVersion);
-
-                }));
-                Thread.Sleep(100);
-
-                foreach (var file in fileList)
-                {
-                    Dispatcher.Invoke((Action)(() =>
-                    {
-                        SetStatus($"{Localization.uDownloading} {System.IO.Path.GetFileName(file.Key)}");
-                        webClient.DownloadFile(file.Value, file.Key);
-                    }));
-                    Thread.Sleep(100);
                 }
-
-                Dispatcher.Invoke((Action)(() =>
+                catch
                 {
-                    SetStatus(Localization.uUpdateIsCompleted);
-                    processes = System.Diagnostics.Process.GetProcessesByName("CustomLearning");
+                    break;
+                }
+            }
+            while (!string.IsNullOrWhiteSpace(manifestFile) && manifestFile != currentVelsion);
 
-                    if (processes == null) return;
-                    if (processes.Length == 0) return;
-
-                    foreach (var process in processes)
-                        process.Kill();
-
-                    System.Diagnostics.Process.Start("CustomLearning.exe", "upd");
-                    
-                }));
-
-                Thread.Sleep(2000);
-                
-            });
+            var filesWithoutDuplicates = files.Distinct().ToList();
+            return filesWithoutDuplicates;
         }
-        
-        private void DownloadProgressed(object sender, DownloadProgressChangedEventArgs e)
+
+        private void DownloadFiles(List<string> files, string localComputerFolder, string serverFolder)
         {
-            UpdatingStatusTextBox.Text = $"{_downloadingObject}, {e.ProgressPercentage}% : {e.BytesReceived}B / {e.TotalBytesToReceive}B";
+            var webClient = new WebClient();
+            foreach (var file in files)
+            {
+                var webAddress = $"{serverFolder}/{file}";
+                var fileName = $"{localComputerFolder}{file}";
+
+                webClient.DownloadFile(webAddress, fileName);
+            }
         }
     }
 }

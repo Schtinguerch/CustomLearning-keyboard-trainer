@@ -88,6 +88,15 @@ namespace CustomLearningUpdater.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Нажмите ENTER для завершения обновления.
+        /// </summary>
+        public static string uPressEnterToFinishUpdate {
+            get {
+                return ResourceManager.GetString("uPressEnterToFinishUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Обработка данных.
         /// </summary>
         public static string uProcessingData {

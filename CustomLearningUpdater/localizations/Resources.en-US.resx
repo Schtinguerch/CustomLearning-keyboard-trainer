@@ -126,6 +126,9 @@
   <data name="uDownloadingUpdateManifest" xml:space="preserve">
     <value>Downloading update manifest</value>
   </data>
+  <data name="uPressEnterToFinishUpdate" xml:space="preserve">
+    <value>Press ENTER to finish the update</value>
+  </data>
   <data name="uProcessingData" xml:space="preserve">
     <value>Processing the data</value>
   </data>

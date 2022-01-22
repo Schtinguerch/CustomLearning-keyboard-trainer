@@ -126,6 +126,9 @@
   <data name="uDownloadingUpdateManifest" xml:space="preserve">
     <value>Скачивание манифеста обновления</value>
   </data>
+  <data name="uPressEnterToFinishUpdate" xml:space="preserve">
+    <value>Нажмите ENTER для завершения обновления</value>
+  </data>
   <data name="uProcessingData" xml:space="preserve">
     <value>Обработка данных</value>
   </data>

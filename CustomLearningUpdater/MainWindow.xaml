@@ -7,7 +7,7 @@
         xmlns:res="clr-namespace:CustomLearningUpdater.localizations"
         mc:Ignorable="d"
         Title="{x:Static res:Resources.uCustomLearningUpdateManager}" 
-        Height="220" Width="400"
+        Height="220" Width="410"
         ResizeMode="NoResize"
         WindowStyle="ToolWindow"
         WindowStartupLocation="CenterScreen"
@@ -24,12 +24,27 @@
             <RowDefinition Height="80"></RowDefinition>
         </Grid.RowDefinitions>
 
+        <Image
+            Grid.Row="0"
+            Grid.Column="0"
+            
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="2"
+            
+            Source="Icons/Background.jpg"
+            Stretch="UniformToFill">
+            
+        </Image>
+
         <Image 
             x:Name="AppLogoImage"
-            Source="Icons/LogoDark.png"
-            
+            Source="Icons/LogoLight.png"
             Grid.Row="0"
             Grid.Column="0">
+
+            <Image.RenderTransform>
+                <TranslateTransform X="6"></TranslateTransform>
+            </Image.RenderTransform>
         </Image>
 
         <Grid
@@ -37,31 +52,54 @@
             Grid.Column="1">
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="1.6*"></RowDefinition>
+                <RowDefinition Height="1.7*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
 
             <TextBlock 
                 Grid.Row="0"
                 VerticalAlignment="Bottom"
+                Margin="14 0 0 0"
             
                 Text="CustomLearning"
                 FontSize="32" 
                 FontFamily="Bahnschrift" 
-                FontWeight="Bold">
+                FontWeight="Bold"
+                Foreground="White">
+
+                <TextBlock.Effect>
+                    <DropShadowEffect
+                        Color="White"
+                        ShadowDepth="0"
+                        BlurRadius="30"
+                        Opacity="0.6">
+                    </DropShadowEffect>
+                </TextBlock.Effect>
             </TextBlock>
 
             <TextBlock 
                 x:Name="UpdatingToVersionTextBox"
                 Grid.Row="1"
                 VerticalAlignment="Top"
-                
-                Margin="2 0 0 0"
-            
+                Margin="16 0 0 0"
                 Text="{x:Static res:Resources.uUpdateManager}"
                 FontSize="16" 
+                HorizontalAlignment="Left"
+                TextAlignment="Left"
                 FontFamily="Bahnschrift" 
-                FontWeight="Bold">
+                FontWeight="Bold"
+                TextWrapping="Wrap"
+                Width="250"
+                Foreground="Gray">
+
+                <TextBlock.Effect>
+                    <DropShadowEffect
+                        Color="Black"
+                        ShadowDepth="0"
+                        BlurRadius="30"
+                        Opacity="0.6">
+                    </DropShadowEffect>
+                </TextBlock.Effect>
             </TextBlock>
         </Grid>
 
@@ -82,12 +120,13 @@
 
         <Button
             x:Name="StartUpdatingButton"
-            Grid.Column="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
             Grid.Row="1"
-            Margin="0 00 20 40"
+            Margin="20 00 20 40"
             
-            Background="WhiteSmoke"
-            BorderBrush="LightGray" Click="StartUpdatingButton_Click">
+            Background="#161616"
+            BorderBrush="#121212" Click="StartUpdatingButton_Click">
 
             <Button.Content>
                 <TextBlock
@@ -96,7 +135,7 @@
                     FontWeight="Bold"
                     
                     Text="{x:Static res:Resources.uStartUpdate}"
-                    Foreground="#484848">
+                    Foreground="#FFDADADA">
                 </TextBlock>
             </Button.Content>
         </Button>

@@ -1,0 +1,52 @@
+#config
+
+<<UserConfig:
+    <<Fonts:
+        <AppGUIFontFamily Segoe UI Semibold, 8.25pt, style=Bold>>
+        <AppGUIFontColor #FFD1FEFF>>
+
+        <LessonFontFamily Segoe UI, 8.25pt, style=Bold>>
+        <LessonFontSize 36>>
+        <LessonFontColor White>>
+        <RaidedLessonFontColor #AA004884>>
+
+        <KeyboardFontFamily Segoe UI, 8.25pt, style=Bold>>
+        <KeyboardFontColor #FFDBDBDB>>
+    :Fonts>>
+
+    <<Opacity:
+        <MenuOpacity 1>>
+        <KeyboardOpacity 1>>
+        <HandsOpacity 0.808695652173913>>
+    :Opacity>>
+
+    <<Hands:
+        <ShowHands True>>
+        <HandsColor #FF7D7D7D>>
+        <HandsThickness 6>>
+    :Hands>>
+
+    <<Keyboard:
+        <KeyColor #66262626>>
+        <BorderColor #FF191919>>
+        <HighlightColor #FF17C4F5>>
+        <MistakeColor #FFFF0B0B>>
+    :Keyboard>>
+
+    <<AppColors:
+        <MainColor #FF1E1E1E>>
+        <SecondaryColor #FF121212>>
+        <TextBoxColor #FF191919>>
+        <SecondaryMenuColor #FF121212>>
+        <Theme dark>>
+        <ControlsHighlightColor steel>>
+        <HasImageBackground True>>
+        <InputTextBox SingleLineWithStaticCaret>>
+    :AppColors>>
+
+    <<Wallpaper:
+        <PathToImage D:\Storage\Photos\Wallpapers\4K-Black-Background-Design-HD-Wallpapers-40664.jpg>>
+        <HasParallaxEffect True>>
+        <BlurRadius 0>>
+    :Wallpaper>>
+:UserConfig>>
