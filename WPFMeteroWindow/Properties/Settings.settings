@@ -203,5 +203,8 @@
     <Setting Name="CourcesStatisticsPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">CoursesStats.json</Value>
     </Setting>
+    <Setting Name="RecentTestDictionariesPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">RecentTests.json</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

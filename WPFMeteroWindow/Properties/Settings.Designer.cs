@@ -826,5 +826,17 @@ namespace WPFMeteroWindow.Properties {
                 this["CourcesStatisticsPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("RecentTests.json")]
+        public string RecentTestDictionariesPath {
+            get {
+                return ((string)(this["RecentTestDictionariesPath"]));
+            }
+            set {
+                this["RecentTestDictionariesPath"] = value;
+            }
+        }
     }
 }
