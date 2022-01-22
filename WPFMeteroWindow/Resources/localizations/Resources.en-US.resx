@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="uAdditional" xml:space="preserve">
+    <value>Additionally</value>
+  </data>
+  <data name="uAll" xml:space="preserve">
+    <value>Capitalized words + numbers + punctuation</value>
+  </data>
   <data name="uAltGrPressed" xml:space="preserve">
     <value>AltGr pressed</value>
   </data>
@@ -129,6 +135,9 @@
   <data name="uAverage" xml:space="preserve">
     <value>Average</value>
   </data>
+  <data name="uBackToLessons" xml:space="preserve">
+    <value>Back to lessons</value>
+  </data>
   <data name="uBlurRadius" xml:space="preserve">
     <value>Blur radius</value>
   </data>
@@ -137,6 +146,9 @@
   </data>
   <data name="uCannotWorkWithEmptyString" xml:space="preserve">
     <value>empty string processing is impossible!</value>
+  </data>
+  <data name="uCapitalize" xml:space="preserve">
+    <value>Capitalized words</value>
   </data>
   <data name="uCharactersCount" xml:space="preserve">
     <value>Char count</value>
@@ -282,6 +294,9 @@
   <data name="uLoadWords" xml:space="preserve">
     <value>Load words</value>
   </data>
+  <data name="uLogDataCopiedSuccessfully" xml:space="preserve">
+    <value>Log-data copied successfully</value>
+  </data>
   <data name="uMaxMistakes" xml:space="preserve">
     <value>Max mistakes count</value>
   </data>
@@ -375,6 +390,12 @@
   <data name="uNo" xml:space="preserve">
     <value>No</value>
   </data>
+  <data name="uNothing" xml:space="preserve">
+    <value>Nothing</value>
+  </data>
+  <data name="uNumbers" xml:space="preserve">
+    <value>Numbers</value>
+  </data>
   <data name="uOpen" xml:space="preserve">
     <value>Open</value>
   </data>
@@ -384,14 +405,26 @@
   <data name="uOpenFileMessageError" xml:space="preserve">
     <value>Error: the opening file does not exist!</value>
   </data>
+  <data name="uOpenNew" xml:space="preserve">
+    <value>Open new</value>
+  </data>
   <data name="uOpenNewMap" xml:space="preserve">
     <value>Open a new map</value>
   </data>
   <data name="uOtherReferences" xml:space="preserve">
     <value>Add. references</value>
   </data>
+  <data name="uParameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="uPassTypingSpeedTest" xml:space="preserve">
+    <value>Pass typing speed test</value>
+  </data>
   <data name="uPinky" xml:space="preserve">
     <value>pinky on </value>
+  </data>
+  <data name="uPunctuation" xml:space="preserve">
+    <value>Punctuation</value>
   </data>
   <data name="uRecentConfigs" xml:space="preserve">
     <value>Recent loaded app styles</value>
@@ -531,6 +564,9 @@
   <data name="uShowHands" xml:space="preserve">
     <value>Show hands</value>
   </data>
+  <data name="uShowWords" xml:space="preserve">
+    <value>Show words</value>
+  </data>
   <data name="uShuffledWords" xml:space="preserve">
     <value>Words shuffled</value>
   </data>
@@ -555,6 +591,9 @@
   <data name="uSystemReplaceProblemFileIntoStandard" xml:space="preserve">
     <value>System will replace the problem file by a standard file</value>
   </data>
+  <data name="uTestSource" xml:space="preserve">
+    <value>Test's words filename</value>
+  </data>
   <data name="uTheLesson" xml:space="preserve">
     <value>The lesson</value>
   </data>
@@ -567,8 +606,29 @@
   <data name="uTime" xml:space="preserve">
     <value>Time</value>
   </data>
+  <data name="uTop1000Words" xml:space="preserve">
+    <value>Top 1000 most frequent words</value>
+  </data>
+  <data name="uTop100Words" xml:space="preserve">
+    <value>Top 100 most frequent words</value>
+  </data>
+  <data name="uTop2000Words" xml:space="preserve">
+    <value>Top 2000 most frequent words</value>
+  </data>
+  <data name="uTop200Words" xml:space="preserve">
+    <value>Top 200 most frequent words</value>
+  </data>
+  <data name="uTop5000Words" xml:space="preserve">
+    <value>Top 5000 most frequent words</value>
+  </data>
+  <data name="uTop500Words" xml:space="preserve">
+    <value>Top 500 most frequent words</value>
+  </data>
   <data name="uTypingTest" xml:space="preserve">
     <value>Typing speed test</value>
+  </data>
+  <data name="uTypingTestSettings" xml:space="preserve">
+    <value>Typing test settings</value>
   </data>
   <data name="uUnknownColorError" xml:space="preserve">
     <value>Error: unknown color</value>
@@ -579,8 +639,17 @@
   <data name="uUserLessons" xml:space="preserve">
     <value>User lessons</value>
   </data>
+  <data name="uUserSettings" xml:space="preserve">
+    <value>User value</value>
+  </data>
+  <data name="uWordCount" xml:space="preserve">
+    <value>Word count</value>
+  </data>
   <data name="uWordCountInLesson" xml:space="preserve">
     <value>Word count in a lesson</value>
+  </data>
+  <data name="uWordCountRange" xml:space="preserve">
+    <value>Word count range</value>
   </data>
   <data name="uWordPracticeCourseEditor" xml:space="preserve">
     <value>Word practicing course editor</value>

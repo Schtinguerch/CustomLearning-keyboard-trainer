@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="uAdditional" xml:space="preserve">
+    <value>Дополнительно</value>
+  </data>
+  <data name="uAll" xml:space="preserve">
+    <value>Заглавные буквы + числа + пунктуация</value>
+  </data>
   <data name="uAltGrPressed" xml:space="preserve">
     <value>С зажатым AltGr</value>
   </data>
@@ -129,6 +135,9 @@
   <data name="uAverage" xml:space="preserve">
     <value>В среднем</value>
   </data>
+  <data name="uBackToLessons" xml:space="preserve">
+    <value>Вернуться к урокам</value>
+  </data>
   <data name="uBlurRadius" xml:space="preserve">
     <value>Радиус размытия</value>
   </data>
@@ -137,6 +146,9 @@
   </data>
   <data name="uCannotWorkWithEmptyString" xml:space="preserve">
     <value>работа с пустой строкой невозможна!</value>
+  </data>
+  <data name="uCapitalize" xml:space="preserve">
+    <value>Слова с заглавной буквы</value>
   </data>
   <data name="uCharactersCount" xml:space="preserve">
     <value>Кол-во симв</value>
@@ -282,6 +294,9 @@
   <data name="uLoadWords" xml:space="preserve">
     <value>Загрузить слова</value>
   </data>
+  <data name="uLogDataCopiedSuccessfully" xml:space="preserve">
+    <value>Log-данные успешно скопированы</value>
+  </data>
   <data name="uMaxMistakes" xml:space="preserve">
     <value>Максимум ошибок</value>
   </data>
@@ -375,6 +390,12 @@
   <data name="uNo" xml:space="preserve">
     <value>Нет</value>
   </data>
+  <data name="uNothing" xml:space="preserve">
+    <value>Ничего</value>
+  </data>
+  <data name="uNumbers" xml:space="preserve">
+    <value>Числа</value>
+  </data>
   <data name="uOpen" xml:space="preserve">
     <value>Открыть</value>
   </data>
@@ -384,14 +405,26 @@
   <data name="uOpenFileMessageError" xml:space="preserve">
     <value>Ошибка: файл, который Вы пытаетесь открыть не существует!</value>
   </data>
+  <data name="uOpenNew" xml:space="preserve">
+    <value>Открыть новый</value>
+  </data>
   <data name="uOpenNewMap" xml:space="preserve">
     <value>Открыть игру</value>
   </data>
   <data name="uOtherReferences" xml:space="preserve">
     <value>Доп. ссылки</value>
   </data>
+  <data name="uParameters" xml:space="preserve">
+    <value>Параметры</value>
+  </data>
+  <data name="uPassTypingSpeedTest" xml:space="preserve">
+    <value>Пройти тест на скорость печати</value>
+  </data>
   <data name="uPinky" xml:space="preserve">
     <value>мизинцем на </value>
+  </data>
+  <data name="uPunctuation" xml:space="preserve">
+    <value>Пунктуация</value>
   </data>
   <data name="uRecentConfigs" xml:space="preserve">
     <value>Недавно использованные стили</value>
@@ -531,6 +564,9 @@
   <data name="uShowHands" xml:space="preserve">
     <value>Показывать руки</value>
   </data>
+  <data name="uShowWords" xml:space="preserve">
+    <value>Показать слова</value>
+  </data>
   <data name="uShuffledWords" xml:space="preserve">
     <value>Слова перемешаны</value>
   </data>
@@ -555,6 +591,9 @@
   <data name="uSystemReplaceProblemFileIntoStandard" xml:space="preserve">
     <value>Система заменит проблемный файл на стандартный</value>
   </data>
+  <data name="uTestSource" xml:space="preserve">
+    <value>Файл со словами для теста</value>
+  </data>
   <data name="uTheLesson" xml:space="preserve">
     <value>Урок</value>
   </data>
@@ -567,8 +606,29 @@
   <data name="uTime" xml:space="preserve">
     <value>Время</value>
   </data>
+  <data name="uTop1000Words" xml:space="preserve">
+    <value>1000 самых частотных слов</value>
+  </data>
+  <data name="uTop100Words" xml:space="preserve">
+    <value>100 самых частотных слов</value>
+  </data>
+  <data name="uTop2000Words" xml:space="preserve">
+    <value>2000 самых частотных слов</value>
+  </data>
+  <data name="uTop200Words" xml:space="preserve">
+    <value>200 самых частотных слов</value>
+  </data>
+  <data name="uTop5000Words" xml:space="preserve">
+    <value>5000 самых частотных слов</value>
+  </data>
+  <data name="uTop500Words" xml:space="preserve">
+    <value>500 самых частотных слов</value>
+  </data>
   <data name="uTypingTest" xml:space="preserve">
     <value>Тест на скорость печати</value>
+  </data>
+  <data name="uTypingTestSettings" xml:space="preserve">
+    <value>Настройки теста скорости печати</value>
   </data>
   <data name="uUnknownColorError" xml:space="preserve">
     <value>Ошибка: неизвестный цвет</value>
@@ -579,8 +639,17 @@
   <data name="uUserLessons" xml:space="preserve">
     <value>Пользовательские уроки</value>
   </data>
+  <data name="uUserSettings" xml:space="preserve">
+    <value>Пользовательские параметры</value>
+  </data>
+  <data name="uWordCount" xml:space="preserve">
+    <value>Количество слов</value>
+  </data>
   <data name="uWordCountInLesson" xml:space="preserve">
     <value>Количество слов в уроке</value>
+  </data>
+  <data name="uWordCountRange" xml:space="preserve">
+    <value>Диапазон слов</value>
   </data>
   <data name="uWordPracticeCourseEditor" xml:space="preserve">
     <value>Редактор курса тренировки слов</value>
