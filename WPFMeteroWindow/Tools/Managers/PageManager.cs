@@ -20,6 +20,7 @@ namespace WPFMeteroWindow
         RecentCources,
         RecentLayouts,
         RecentConfigs,
+        TypingTestParameters,
         EmptyPage,
     }
     
@@ -46,6 +47,7 @@ namespace WPFMeteroWindow
             _baseFolder + "ActiveUsingLessonsPage.xaml",
             _baseFolder + "ActiveUsingLayoutsPage.xaml",
             _baseFolder + "ActiveUsingConfigs.xaml",
+            _baseFolder + "TypingTestParametersPage.xaml",
             null,
         };
         
