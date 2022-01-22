@@ -28,34 +28,30 @@ namespace WPFMeteroWindow
         Numbers,
         AllAdditionals
     }
+
+    public class TestData
+    {
+        public int TestWordRangeIndex { get; set; }
+        public int TestAdditionalModeIndex { get; set; }
+        public int TestWordCount { get; set; }
+
+        public List<string> RecentTestDictionaries { get; set; }
+        public List<LessonStatistics> Results { get; set; }
+
+        public int FirstWordIndex { get; set; }
+        public int LastWordIndex { get; set; }
+    }
     
     public static class TestManager
     {
-        private static int _wordCount = Settings.Default.TestWordCount;
+        public static TestData Data { get; set; } = AppManager.JsonReadData<TestData>(Settings.Default.RecentTestDictionariesPath);
+
+        private static Random _random = new Random();
 
         private static string _punctuationSymbols = "..........,,,,,,,,,,,,,::::;;;;;-----                      \"\"'''$@@*!!!!???+==#__((()))^%{}[]<>";
 
-        public static int WordCount
-        {
-            get => _wordCount;
-            set
-            {
-                if (value > 0)
-                {
-                    _wordCount = value;
-                    Settings.Default.TestWordCount = value;
-                    Settings.Default.Save();
-                }
-            }
-        }
-
         private static List<string> _words = new List<string>();
-
         private static TestAdditional _testAdditional;
-
-        private static int _firstWordIndex;
-
-        private static int _lastWordIndex;
 
         private static string ToTitle(string word)
         {
@@ -67,10 +63,10 @@ namespace WPFMeteroWindow
             return newWord;
         }
 
-        private static string PunctuationSymbol(int seed)
+        private static string PunctuationSymbol()
         {
-            var rand = new Random(seed * DateTime.Now.Millisecond);
-            int index = rand.Next(0, _punctuationSymbols.Length);
+            
+            int index = _random.Next(0, _punctuationSymbols.Length);
 
             string value = "";
             char pnct = _punctuationSymbols[index];
@@ -145,6 +141,9 @@ namespace WPFMeteroWindow
                 Settings.Default.TestWordListPath = fileName;
                 Settings.Default.Save();
 
+                if (!Data.RecentTestDictionaries.Contains(fileName))
+                    Data.RecentTestDictionaries.Add(fileName);
+
                 LogManager.Log($"Open world list for test: \"{fileName}\" -> success");
             }
 
@@ -157,35 +156,25 @@ namespace WPFMeteroWindow
 
         private static void FormUpTheLesson(int firstWordIndex, int lastWordIndex, TestAdditional additional)
         {
-            var randomizer = new Random(DateTime.Now.Millisecond);
             var lesson = "";
-            
-            for (int i = 0; i < _wordCount; i++)
+            lastWordIndex = Math.Min(lastWordIndex, _words.Count);
+
+            var generatorFunctions = new Func<int, string>[]
             {
-                int index = randomizer.Next(firstWordIndex, lastWordIndex);
-                switch (additional)
-                {
-                    case TestAdditional.None:
-                        lesson += _words[index] + ' ';
-                        break;
-                    
-                    case TestAdditional.Numbers:
-                        lesson += _words[index] + ' ' + ((index / 2 % 3 == 0) ? randomizer.Next(0, 10000).ToString() + ' ' : "");
-                        break;
-                    
-                    case TestAdditional.Punctuation:
-                        lesson += _words[index] + PunctuationSymbol(i);
-                        break;
-                    
-                    case TestAdditional.Uppercase:
-                        lesson += ToTitle(_words[index]) + ' ';
-                        break;
-                    
-                    case TestAdditional.AllAdditionals:
-                        lesson += ToTitle(_words[index]) + PunctuationSymbol(i) +
-                                  ((index / 2 % 5 == 0) ? randomizer.Next(0, 10000).ToString() + ' ' : "");
-                        break;
-                }
+                index => _words[index] + ' ',
+                index => _words[index] + ' ' + ((index / 2 % 3 == 0) ? _random.Next(0, 10000).ToString() + ' ' : ""),
+                index => _words[index] + PunctuationSymbol(),
+                index => ToTitle(_words[index]) + ' ',
+                index => ToTitle(_words[index]) + PunctuationSymbol() +
+                         ((index / 2 % 5 == 0) ? _random.Next(0, 10000).ToString() + ' ' : ""),
+            };
+
+            for (int i = 0; i < Data.TestWordCount; i++)
+            {
+                int index = _random.Next(firstWordIndex, lastWordIndex);
+                int function = (int) additional;
+
+                lesson += generatorFunctions[function](index);
             }
             
             LessonManager.LoadTest(Regex.Replace(lesson, "\n", " ", RegexOptions.Multiline));
@@ -193,47 +182,20 @@ namespace WPFMeteroWindow
 
         public static void StartTest(TestWords wordCount, TestAdditional additional)
         {
-            int
-                firstWordIndex = 0,
-                lastWordIndex = 0;
-            
-            switch (wordCount)
-            {
-                case TestWords.Top100:
-                    lastWordIndex = 100;
-                    break;
-                
-                case TestWords.Top200:
-                    lastWordIndex = 200;
-                    break;
-                
-                case TestWords.Top500:
-                    lastWordIndex = 500;
-                    break;
-                
-                case TestWords.Top1000:
-                    lastWordIndex = 1000;
-                    break;
-                
-                case TestWords.Top2000:
-                    lastWordIndex = 2000;
-                    break;
-                
-                case TestWords.Top5000:
-                    lastWordIndex = 5000;
-                    break;
-            }
+            int firstWordIndex = 0;
+            var wordLengths = new int[] { 100, 200, 500, 1000, 2000, 5000 };
 
+            int lastWordIndex = wordLengths[(int)wordCount];
             StartTest(firstWordIndex, lastWordIndex, additional);
         }
 
         public static void StartTest(int firstWordIndex, int lastWordIndex, TestAdditional additional)
         {
-            if ((_words.Count == null) || (_words.Count == 0))
+            if ((_words == null) || (_words.Count == 0))
                 LoadWords(Settings.Default.TestWordListPath);
 
-            _firstWordIndex = firstWordIndex;
-            _lastWordIndex = lastWordIndex;
+            Data.FirstWordIndex = firstWordIndex;
+            Data.LastWordIndex = lastWordIndex;
             _testAdditional = additional;
 
             LessonManager.ErrorInput = "";
@@ -243,7 +205,7 @@ namespace WPFMeteroWindow
         public static void RestartTest()
         {
             LessonManager.ErrorInput = "";
-            FormUpTheLesson(_firstWordIndex, _lastWordIndex, _testAdditional);
+            FormUpTheLesson(Data.FirstWordIndex, Data.LastWordIndex, _testAdditional);
         }
     }
 }
