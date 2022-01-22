@@ -568,6 +568,19 @@ namespace WPFMeteroWindow
                     JsonConvert.SerializeObject(
                         StatisticsManager.CourseMarks,
                         Formatting.Indented));
+
+            if (TestManager.Data != null)
+                File.WriteAllText(
+                    Settings.Default.RecentTestDictionariesPath,
+                    JsonConvert.SerializeObject(
+                        TestManager.Data,
+                        Formatting.Indented));
         }
+
+        private void PassTypingTestItem_Click(object sender, RoutedEventArgs e) =>
+            PageManager.OpenPage(TabPage.TypingTestParameters);
+
+        private void BackToLessonsButton_Click(object sender, RoutedEventArgs e) =>
+            CourseManager.CurrentLessonIndex = CourseManager.CurrentLessonIndex;
     }
 }

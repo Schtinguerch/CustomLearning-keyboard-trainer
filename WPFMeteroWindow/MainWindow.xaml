@@ -225,6 +225,13 @@
                         Click="OpenNewCourseMenuItem_OnClick">
                     </MenuItem>
 
+                    <MenuItem 
+                        x:Name="PassTypingTestItem"
+                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
+                        Header="{x:Static res:Resources.uPassTypingSpeedTest}"
+                        Click="PassTypingTestItem_Click">
+                    </MenuItem>
+
                     <MenuItem
                         x:Name="OpenPreviousLessonMenuItem"
                         Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
@@ -316,6 +323,33 @@
                     x:Name="AdditionalInfoPanel"
                     Orientation="Horizontal"
                     HorizontalAlignment="Right">
+
+                    <Button 
+                        Width="100"
+                        Margin="0 0 6 0"
+                        VerticalAlignment="Center" 
+                        FontSize="9"
+                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                        Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+                    
+                        x:Name="BackToLessonsButton"
+                        Click="BackToLessonsButton_Click"
+                        Content="{x:Static res:Resources.uBackToLessons}" Height="5">
+
+                        <Button.Background>
+                            <SolidColorBrush
+                                Color="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
+                                Opacity="{Binding MenuOpacity, Source={x:Static prop:Settings.Default}}">
+                            </SolidColorBrush>
+                        </Button.Background>
+
+                        <Button.BorderBrush>
+                            <SolidColorBrush
+                                Color="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
+                                Opacity="{Binding MenuOpacity, Source={x:Static prop:Settings.Default}}">
+                            </SolidColorBrush>
+                        </Button.BorderBrush>
+                    </Button>
 
                     <TextBlock
                         x:Name="RandomizedTextBlock"
