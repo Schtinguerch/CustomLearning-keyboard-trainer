@@ -379,6 +379,9 @@
     <Compile Include="Resources\pages\LessonLoaderPage.xaml.cs">
       <DependentUpon>LessonLoaderPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\pages\TypingTestParametersPage.xaml.cs">
+      <DependentUpon>TypingTestParametersPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\pages\WordPracticingEditorPage.xaml.cs">
       <DependentUpon>WordPracticingEditorPage.xaml</DependentUpon>
     </Compile>
@@ -731,6 +734,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\pages\LessonLoaderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\pages\TypingTestParametersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
