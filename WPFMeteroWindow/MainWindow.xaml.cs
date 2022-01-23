@@ -547,35 +547,8 @@ namespace WPFMeteroWindow
             ParallaxEffectPresenter.MakeParallaxEffect(new Point(0, 0));
         }
 
-        private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            File.WriteAllText(
-                Settings.Default.AllTypingSpeedPath,
-                JsonConvert.SerializeObject(
-                    StatisticsManager.GlobalTypingSpeeds,
-                    Formatting.Indented));
-
-            if (StatisticsManager.CourseStatistics != null)
-                File.WriteAllText(
-                    Settings.Default.LoadedCourseFile + "\\statistics.json",
-                    JsonConvert.SerializeObject(
-                        StatisticsManager.CourseStatistics,
-                        Formatting.Indented));
-            
-            if (StatisticsManager.CourseMarks != null)
-                File.WriteAllText(
-                    Settings.Default.LoadedCourseFile + "\\marks.json",
-                    JsonConvert.SerializeObject(
-                        StatisticsManager.CourseMarks,
-                        Formatting.Indented));
-
-            if (TestManager.Data != null)
-                File.WriteAllText(
-                    Settings.Default.RecentTestDictionariesPath,
-                    JsonConvert.SerializeObject(
-                        TestManager.Data,
-                        Formatting.Indented));
-        }
+        private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e) =>
+            AppManager.SaveJsonDataFromManagers();
 
         private void PassTypingTestItem_Click(object sender, RoutedEventArgs e) =>
             PageManager.OpenPage(TabPage.TypingTestParameters);
