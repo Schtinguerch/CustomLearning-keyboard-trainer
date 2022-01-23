@@ -390,6 +390,36 @@ namespace WPFMeteroWindow
             }
         }
 
+        public static void SaveJsonDataFromManagers()
+        {
+            File.WriteAllText(
+                Settings.Default.AllTypingSpeedPath,
+                JsonConvert.SerializeObject(
+                    StatisticsManager.GlobalTypingSpeeds,
+                    Formatting.Indented));
+
+            if (StatisticsManager.CourseStatistics != null)
+                File.WriteAllText(
+                    Settings.Default.LoadedCourseFile + "\\statistics.json",
+                    JsonConvert.SerializeObject(
+                        StatisticsManager.CourseStatistics,
+                        Formatting.Indented));
+
+            if (StatisticsManager.CourseMarks != null)
+                File.WriteAllText(
+                    Settings.Default.LoadedCourseFile + "\\marks.json",
+                    JsonConvert.SerializeObject(
+                        StatisticsManager.CourseMarks,
+                        Formatting.Indented));
+
+            if (TestManager.Data != null)
+                File.WriteAllText(
+                    Settings.Default.RecentTestDictionariesPath,
+                    JsonConvert.SerializeObject(
+                        TestManager.Data,
+                        Formatting.Indented));
+        }
+
         public static List<string> GetFileList(string[] badArray, string parentFolder = "")
         {
             var rightFileList = new List<string>();
