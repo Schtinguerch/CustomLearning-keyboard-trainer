@@ -45,7 +45,7 @@ namespace WPFMeteroWindow.Resources.pages
             TypingTimeTextBlock.Text = $"{Localization.uTime}: {typingSeconds:N}";
             CharactersCountTextBlock.Text = $"{Localization.uCharactersCount}: {LessonManager.DoneRoad.Length}";
 
-            if (!StatisticsManager.IsDemonstrationMode && !Settings.Default.ItTypingTest)
+            if (!StatisticsManager.IsDemonstrationMode)
             {
                 var statistics = new LessonStatistics()
                 {
@@ -56,14 +56,21 @@ namespace WPFMeteroWindow.Resources.pages
 
                 StatisticsManager.GlobalTypingSpeeds.Add(statistics);
 
-                if (Settings.Default.IsCourseOpened)
+                if (Settings.Default.ItTypingTest)
+                {
+                    if (TestManager.Data.Results == null)
+                        TestManager.Data.Results = new List<LessonStatistics>();
+
+                    TestManager.Data.Results.Add(statistics);
+                }
+
+                else if (Settings.Default.IsCourseOpened)
                 {
                     StatisticsManager.CourseStatistics.Add(statistics);
                 }
-                    
             }
 
-            if (!Settings.Default.IsCourseOpened || Settings.Default.ItTypingTest)
+            if (!Settings.Default.IsCourseOpened && !Settings.Default.ItTypingTest)
                 CourseStatsGrid.Height = 0;
 
             if (StatisticsManager.MistakeWords.Count == 0)
@@ -107,12 +114,21 @@ namespace WPFMeteroWindow.Resources.pages
                         StatisticsManager.GetPercentageFromStats(StatisticsManager.GlobalTypingSpeeds), 
                     }, null, null, null, null, -1, 3));
 
+            var mainStatistcsData = StatisticsManager.GetCpmFromStats(StatisticsManager.CourseStatistics);
+            var mistakeStatisticsData = StatisticsManager.GetPercentageFromStats(StatisticsManager.CourseStatistics);
+
+            if (Settings.Default.ItTypingTest)
+            {
+                mainStatistcsData = StatisticsManager.GetCpmFromStats(TestManager.Data.Results);
+                mistakeStatisticsData = StatisticsManager.GetPercentageFromStats(TestManager.Data.Results);
+            }
+
             CoursePassingStatsGrid.Children.Add(
                 new StatsVisualizer(
                     new List<List<double>>()
                     {
-                        StatisticsManager.GetCpmFromStats(StatisticsManager.CourseStatistics),
-                        StatisticsManager.GetPercentageFromStats(StatisticsManager.CourseStatistics),
+                        mainStatistcsData,
+                        mistakeStatisticsData,
                     }, null, null, null, null, -1, 3));
 
             var reqCPM = Settings.Default.NecessaryCPM;
