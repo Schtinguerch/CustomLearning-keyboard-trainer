@@ -93,15 +93,30 @@ namespace WPFMeteroWindow.Resources.pages
         private void wrapPanel_Drop(object sender, DragEventArgs e)
         {
             if (!e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                wrapPanel_DragLeave(null, null);
                 return;
+            }
             
             var cources = e.Data.GetData(DataFormats.FileDrop) as string[];
 
             if (cources == null)
+            {
+                wrapPanel_DragLeave(null, null);
                 return;
+            }
 
             foreach (var course in cources)
-                Opener.NewCourse(course, 0, true);
+            {
+                try
+                {
+                    Opener.NewCourse(course, -1, true);
+                }
+                catch
+                {
+                    //Now, thinking
+                }
+            }
 
             ReinitializeRecentCoursesList();
             wrapPanel_DragLeave(null, null);

@@ -86,15 +86,31 @@ namespace WPFMeteroWindow.Resources.pages
         private void wrapPanel_Drop(object sender, DragEventArgs e)
         {
             if (!e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                wrapPanel_DragLeave(null, null);
                 return;
+            }
+                
 
-            var cources = e.Data.GetData(DataFormats.FileDrop) as string[];
+            var layouts = e.Data.GetData(DataFormats.FileDrop) as string[];
 
-            if (cources == null)
+            if (layouts == null)
+            {
+                wrapPanel_DragLeave(null, null);
                 return;
+            }
 
-            foreach (var course in cources)
-                Opener.NewKeyboardLayout(course);
+            foreach (var layout in layouts)
+            {
+                try
+                {
+                    Opener.NewKeyboardLayout(layout);
+                }
+                catch
+                {
+                    //Now, thinking
+                }
+            }
 
             ReinitializeRecentLayoutList();
             wrapPanel_DragLeave(null, null);

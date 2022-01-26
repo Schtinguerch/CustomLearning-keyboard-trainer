@@ -83,15 +83,32 @@ namespace WPFMeteroWindow.Resources.pages
         private void wrapPanel_Drop(object sender, DragEventArgs e)
         {
             if (!e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                wrapPanel_DragLeave(null, null);
                 return;
+            }
+                
 
             var configs = e.Data.GetData(DataFormats.FileDrop) as string[];
 
             if (configs == null)
+            {
+                wrapPanel_DragLeave(null, null);
                 return;
+            }
+                
 
             foreach (var config in configs)
-                UserConfigManager.AddToRecent(config);
+            {
+                try
+                {
+                    UserConfigManager.AddToRecent(config);
+                }
+                catch
+                {
+                    //Now, thinking
+                }
+            }
 
             ReinitializeSkinList();
             wrapPanel_DragLeave(null, null);
