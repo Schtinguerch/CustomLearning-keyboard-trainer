@@ -48,10 +48,10 @@ namespace WPFMeteroWindow
                 return;
             }
 
-            AddToRecent(filename);
-
             LoadConfig(File.ReadAllText(filename));
             LogManager.Log($"Read from \"{filename}\" -> success");
+
+            AddToRecent(filename);
         }
 
         public static void ImportConfigFromClipboard() =>
