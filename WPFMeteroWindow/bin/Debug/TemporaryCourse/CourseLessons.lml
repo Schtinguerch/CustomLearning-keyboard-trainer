@@ -1,0 +1,12 @@
+
+<<Course:
+    <Name User lessons>>
+    <LessonList {
+    }>>
+:Course>>
+
+<<Author:
+    <Name CustomLearningApp>>
+    <References {
+    }>>
+:Author>>
