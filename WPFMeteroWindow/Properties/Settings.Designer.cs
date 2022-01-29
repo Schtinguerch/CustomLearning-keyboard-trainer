@@ -838,5 +838,53 @@ namespace WPFMeteroWindow.Properties {
                 this["RecentTestDictionariesPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShakeBackgroundInTyping {
+            get {
+                return ((bool)(this["ShakeBackgroundInTyping"]));
+            }
+            set {
+                this["ShakeBackgroundInTyping"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShakeBackgroundInClicking {
+            get {
+                return ((bool)(this["ShakeBackgroundInClicking"]));
+            }
+            set {
+                this["ShakeBackgroundInClicking"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HideImageWhenLessonStart {
+            get {
+                return ((bool)(this["HideImageWhenLessonStart"]));
+            }
+            set {
+                this["HideImageWhenLessonStart"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool BlurUpImageWhenLessonStart {
+            get {
+                return ((bool)(this["BlurUpImageWhenLessonStart"]));
+            }
+            set {
+                this["BlurUpImageWhenLessonStart"] = value;
+            }
+        }
     }
 }

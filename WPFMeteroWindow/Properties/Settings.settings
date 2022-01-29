@@ -206,5 +206,17 @@
     <Setting Name="RecentTestDictionariesPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">RecentTests.json</Value>
     </Setting>
+    <Setting Name="ShakeBackgroundInTyping" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ShakeBackgroundInClicking" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="HideImageWhenLessonStart" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="BlurUpImageWhenLessonStart" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
