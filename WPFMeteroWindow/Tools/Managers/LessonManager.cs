@@ -78,9 +78,15 @@ namespace WPFMeteroWindow
             try
             {
                 if (Settings.Default.IsCourseOpened)
+                {
+                    Intermediary.App.PassedIndicator.Visibility = Visibility.Visible;
                     lessonName = Settings.Default.CourseName + ": " + reader.GetString("Lesson>Name");
+                }
+                    
                 else
                 {
+                    Intermediary.App.PassedIndicator.Visibility = Visibility.Collapsed;
+
                     lessonName = reader.GetString("Lesson>Name");
                     Intermediary.App.LoadCourseOrLessonButton.ContextMenu = null;
                 }
@@ -130,6 +136,7 @@ namespace WPFMeteroWindow
         {
             var text = lessonText.WithDeletedExceptions();
             Intermediary.App.BackToLessonsButton.Width = 120d;
+            Intermediary.App.PassedIndicator.Visibility = Visibility.Collapsed;
 
             LoadLessonText(text);
             Intermediary.App.lessonHeaderTextBlock.Text = Localization.uTypingTest;
@@ -192,7 +199,7 @@ namespace WPFMeteroWindow
             foreach (var exception in _exceptions)
                 value = value.Replace(exception.Key, exception.Value);
 
-            return value;
+            return value.Trim();
         }
     }
 }
