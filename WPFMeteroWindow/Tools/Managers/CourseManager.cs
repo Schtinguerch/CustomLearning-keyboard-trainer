@@ -28,6 +28,9 @@ namespace WPFMeteroWindow
                 try
                 {
                     StatisticsManager.ReloadTimer();
+                    Intermediary.App.UnblurImage();
+                    Intermediary.App.ShowImage();
+
                     if (Settings.Default.IsCourseOpened)
                     {
                         int choosenLesson = 0;
@@ -36,6 +39,14 @@ namespace WPFMeteroWindow
                             choosenLesson = new Random().Next(0, LessonsCount);
                         else
                             choosenLesson = value;
+
+                        Intermediary.App.PassedIndicator.Fill =
+                            StatisticsManager.CourseMarks.FullyPassedLessons.Contains(choosenLesson) ?
+                                XamlManager.FindResource<SolidColorBrush>("PassedIndicatorBrush") :
+
+                                StatisticsManager.CourseMarks.PartucularlyPassedLessons.Contains(choosenLesson) ?
+                                XamlManager.FindResource<SolidColorBrush>("FailedIndicatorBrush") :
+                                XamlManager.FindResource<SolidColorBrush>("NotPassedIndicatorBrush");
 
                         LessonManager.LoadLesson(Lessons[choosenLesson]);
                         StatisticsManager.CourseMarks.LastLoadedLessonIndex = choosenLesson;
@@ -50,9 +61,9 @@ namespace WPFMeteroWindow
                     int lessonsCount = (Lessons != null) ? Lessons.Count : 0;
                     
                     Intermediary.App.PrevLessonButton.Visibility 
-                        = (value == 0) || !Settings.Default.IsCourseOpened ? Visibility.Hidden : Visibility.Visible;
+                        = (value == 0) || !Settings.Default.IsCourseOpened ? Visibility.Collapsed : Visibility.Visible;
                     Intermediary.App.NextLessonButton.Visibility 
-                        = (value == lessonsCount - 1) || !Settings.Default.IsCourseOpened ? Visibility.Hidden : Visibility.Visible;
+                        = (value == lessonsCount - 1) || !Settings.Default.IsCourseOpened ? Visibility.Collapsed : Visibility.Visible;
                 }
                 
                 catch { }
@@ -100,13 +111,14 @@ namespace WPFMeteroWindow
                 Settings.Default.IsCourseOpened = true;
                 StatisticsManager.CourseStatistics = AppManager.JsonReadData<List<LessonStatistics>>(filename + "\\statistics.json");
                 StatisticsManager.CourseMarks = AppManager.JsonReadData<CourseMarks>(filename + "\\marks.json");
-                Intermediary.App.LoadCourseOrLessonButton.ContextMenu = NewContextMenu();
 
                 if (StatisticsManager.CourseMarks.PartucularlyPassedLessons == null)
                     StatisticsManager.CourseMarks.PartucularlyPassedLessons = new List<int>();
 
                 if (StatisticsManager.CourseMarks.FullyPassedLessons == null)
                     StatisticsManager.CourseMarks.FullyPassedLessons = new List<int>();
+
+                Intermediary.App.LoadCourseOrLessonButton.ContextMenu = NewContextMenu();
 
                 Settings.Default.CourseName = courseName;
                 Settings.Default.IsDictionary = isDictionary;
