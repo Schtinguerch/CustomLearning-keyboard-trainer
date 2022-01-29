@@ -195,7 +195,7 @@ namespace WPFMeteroWindow
             switch (name)
             {
                 case "Classic":
-                case "SingleWord":
+                case "Competitive":
                 case "SingleLineWithStaticCaret":
                     LessonManager.TextInputPresenter.TextInputControlName = name;
                     Settings.Default.TextInputType = name;
