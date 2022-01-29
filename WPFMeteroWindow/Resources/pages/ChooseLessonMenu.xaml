@@ -7,7 +7,7 @@
              xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
              xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="400">
+             d:DesignHeight="450" d:DesignWidth="400" IsVisibleChanged="UserControl_IsVisibleChanged" >
     <Grid 
         Width="300"
         Height="500"
