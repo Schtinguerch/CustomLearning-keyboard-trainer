@@ -83,9 +83,6 @@ namespace WPFMeteroWindow.Resources.pages
                 StatisticsManager.WordSpeeds,
             };
 
-            MistakenWordsTextList.Items = StatisticsManager.MistakeWords;
-            MistakenCharsTextList.Items = StatisticsManager.MistakeCharacters;
-
             var timeList = new List<string>();
             int timeCount = 3;
 
@@ -138,9 +135,9 @@ namespace WPFMeteroWindow.Resources.pages
             var raidLessonStatus = false;
             var statusText = Localization.uCPM + ": ";
 
-            if ((reqCPM != -1) && (reqMistakes != -1) && 
+             if ((reqCPM != -1) && (reqMistakes != -1) && 
                 !Settings.Default.ItTypingTest && Settings.Default.RequireWPM)
-            {
+             {
                 statusText += (typingSpeed > reqCPM) ? $"{typingSpeed} > {reqCPM}; " :
                     (typingSpeed == reqCPM) ? $"{typingSpeed} = {reqCPM}!!!; " :
                     $"{typingSpeed} < {reqCPM}!!!; ";
@@ -171,21 +168,53 @@ namespace WPFMeteroWindow.Resources.pages
                 PrevLessonButton.Visibility = 
                     (Settings.Default.CourseLessonNumber == 0) 
                     || !Settings.Default.IsCourseOpened ? 
-                        Visibility.Hidden : Visibility.Visible;
+                        Visibility.Hidden : Visibility.Collapsed;
                 
                 NextLessonButton.Visibility = 
                     (Settings.Default.CourseLessonNumber == CourseManager.LessonsCount - 1) 
                     || !Settings.Default.IsCourseOpened 
                     || !raidLessonStatus ? 
-                        Visibility.Hidden : Visibility.Visible;
+                        Visibility.Hidden : Visibility.Collapsed;
             }
             catch
             {
-                PrevLessonButton.Visibility = Visibility.Hidden;
-                NextLessonButton.Visibility = Visibility.Hidden;
+                PrevLessonButton.Visibility = Visibility.Collapsed;
+                NextLessonButton.Visibility = Visibility.Collapsed;
+            }
+
+             if (Settings.Default.IsCourseOpened && !StatisticsManager.IsDemonstrationMode)
+             {
+                if (StatisticsManager.CourseMarks.FullyPassedLessons == null)
+                    StatisticsManager.CourseMarks.FullyPassedLessons = new List<int>();
+
+                if (StatisticsManager.CourseMarks.PartucularlyPassedLessons == null)
+                    StatisticsManager.CourseMarks.PartucularlyPassedLessons = new List<int>();
+
+                if (raidLessonStatus)
+                {
+                    if (!StatisticsManager.CourseMarks.FullyPassedLessons.Contains(CourseManager.CurrentLessonIndex))
+                    {
+                        StatisticsManager.CourseMarks.FullyPassedLessons.Add(CourseManager.CurrentLessonIndex);
+                    }
+
+                    StatisticsManager.CourseMarks.PartucularlyPassedLessons.Remove(CourseManager.CurrentLessonIndex);
+                    Intermediary.App.PassedIndicator.Fill = XamlManager.FindResource<SolidColorBrush>("PassedIndicatorBrush");
+                }
+                else
+                {
+                    if (!StatisticsManager.CourseMarks.PartucularlyPassedLessons.Contains(CourseManager.CurrentLessonIndex) &&
+                        !StatisticsManager.CourseMarks.FullyPassedLessons.Contains(CourseManager.CurrentLessonIndex))
+                    {
+                        StatisticsManager.CourseMarks.PartucularlyPassedLessons.Add(CourseManager.CurrentLessonIndex);
+                    }
+
+                    Intermediary.App.PassedIndicator.Fill = XamlManager.FindResource<SolidColorBrush>("FailedIndicatorBrush");
+                }
             }
 
             MistakenWordsTextList.Height = Math.Min(MistakenCharsTextList.ItemsHeight, 300d);
+            MistakenWordsTextList.Items = StatisticsManager.MistakeWords;
+            MistakenCharsTextList.Items = StatisticsManager.MistakeCharacters;
         }
 
         private void PrevLessonButton_OnClick(object sender, RoutedEventArgs e)
