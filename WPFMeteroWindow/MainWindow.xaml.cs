@@ -23,7 +23,13 @@ namespace WPFMeteroWindow
 {
     public partial class MainWindow : MetroWindow
     {
-        private Storyboard _showMessageStoryboard;
+        private Storyboard 
+            _showMessageStoryboard, 
+            _shakeImageStoryboard, 
+            _hideImageStoryboard, 
+            _showBackImageStoryboard,
+            _blurUpImageBackgroundStoryboard,
+            _blurBackImageBackgroundStoryboard;
 
         private Thread _startingThread;
 
@@ -43,6 +49,50 @@ namespace WPFMeteroWindow
                 _isTyping = value;
                 Intermediary.RichPresentManager.Update(Settings.Default.ItTypingTest? "Typing test" : Settings.Default.LessonName, !value ? "Chilling..." : "Typing...", "");
             }
+        }
+
+        public void ShakeImage(bool hasToDo)
+        {
+            if (!hasToDo || !Settings.Default.IsBackgroundImage)
+                return;
+
+            _shakeImageStoryboard.Begin();
+        }
+
+        public void HideImage()
+        {
+            if (!Settings.Default.HideImageWhenLessonStart)
+                return;
+
+            _hideImageStoryboard.Begin();
+        }
+
+        public void ShowImage()
+        {
+            if (!Settings.Default.HideImageWhenLessonStart 
+                || BackgroundImage.Opacity == 1d)
+                return;
+
+            _showBackImageStoryboard.Begin();
+        }
+
+        public void BlurImage()
+        {
+            if (!Settings.Default.BlurUpImageWhenLessonStart || 
+                Settings.Default.BackgroundBlurRadius != "0")
+                return;
+
+            _blurUpImageBackgroundStoryboard.Begin();
+        }
+
+        public void UnblurImage()
+        {
+            if (!Settings.Default.BlurUpImageWhenLessonStart || 
+                Settings.Default.BackgroundBlurRadius != "0" || 
+                ImageBlurEffect.Radius == 0d)
+                return;
+
+            _blurBackImageBackgroundStoryboard.Begin();
         }
 
         public void RestartLesson()
@@ -121,7 +171,15 @@ namespace WPFMeteroWindow
             
             IsTyping = false;
             Settings.Default.IsFirstTextInputOpen = true;
+
             _showMessageStoryboard = FindResource("ShowMessageStoryboard") as Storyboard;
+            _shakeImageStoryboard = FindResource("ShakeImageStoryboard") as Storyboard;
+
+            _hideImageStoryboard = FindResource("HideImageStoryboard") as Storyboard;
+            _showBackImageStoryboard = FindResource("ShowBackImageStoryboard") as Storyboard;
+
+            _blurUpImageBackgroundStoryboard = FindResource("BlurUpImageBackground") as Storyboard;
+            _blurBackImageBackgroundStoryboard = FindResource("BlurBackImageBackground") as Storyboard;
 
             //The special window to test new app features
             //new TestWindow().Show();
@@ -169,6 +227,8 @@ namespace WPFMeteroWindow
                 {
                     StatisticsManager.StartTimer();
                     StatisticsManager.LessonRoadRuns.Add(_lastRun = new Run());
+                    HideImage();
+                    BlurImage();
                 }
 
                 if (LessonManager.LeftRoad.Length >= 1)
@@ -182,6 +242,7 @@ namespace WPFMeteroWindow
 
                         if (charactersEquals)
                         {
+                            ShakeImage(Settings.Default.ShakeBackgroundInTyping);
                             SoundManager.PlayType();
                             LessonManager.ErrorInput = "";
 
@@ -197,7 +258,11 @@ namespace WPFMeteroWindow
                             if (LessonManager.LeftRoad.Length >= 1)
                                 KeyboardManager.ShowTypingHint(LessonManager.LeftRoad[0]);
                             else
+                            {
+                                ShowImage();
+                                UnblurImage();
                                 LessonManager.EndLesson();
+                            }
 
                             if (_wasMistake)
                             {
@@ -233,7 +298,12 @@ namespace WPFMeteroWindow
                     }
                 }
                 else
+                {
+                    ShowImage();
+                    UnblurImage();
                     LessonManager.EndLesson();
+                }
+                    
             }
             else
             {
@@ -555,5 +625,8 @@ namespace WPFMeteroWindow
 
         private void BackToLessonsButton_Click(object sender, RoutedEventArgs e) =>
             CourseManager.CurrentLessonIndex = CourseManager.CurrentLessonIndex;
+
+        private void MetroWindow_PreviewMouseDown(object sender, MouseButtonEventArgs e) =>
+            ShakeImage(Settings.Default.ShakeBackgroundInClicking);
     }
 }

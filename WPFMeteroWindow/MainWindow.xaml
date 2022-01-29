@@ -14,7 +14,7 @@
     MinHeight="620"
     GlowBrush="#202020"
     WindowStartupLocation="CenterScreen"
-    
+    PreviewMouseDown="MetroWindow_PreviewMouseDown"
     KeyDown="MainWindow_OnKeyDown"
     MouseMove="MetroWindow_MouseMove"
     SizeChanged="MetroWindow_SizeChanged"
@@ -46,6 +46,94 @@
                 From="1"
                 To="0"
                 Duration="0:0:0.5">
+            </DoubleAnimation>
+        </Storyboard>
+
+        <Storyboard
+            x:Key="ShakeImageStoryboard">
+            
+            <DoubleAnimation 
+                Storyboard.TargetName="ScaleTranslateTransform"
+                Storyboard.TargetProperty="ScaleX"
+                            
+                From="1.2" To="1.22" Duration="0:0:0.05"
+                AutoReverse="True" 
+                RepeatBehavior="1x"
+                FillBehavior="Stop">
+            </DoubleAnimation>
+
+            <DoubleAnimation 
+                Storyboard.TargetName="ScaleTranslateTransform"
+                Storyboard.TargetProperty="ScaleY"
+                            
+                From="1.2" To="1.22" Duration="0:0:0.05"
+                AutoReverse="True" 
+                RepeatBehavior="1x"
+                FillBehavior="Stop">
+            </DoubleAnimation>
+        </Storyboard>
+
+        <Storyboard
+            x:Key="HideImageStoryboard">
+
+            <DoubleAnimation
+                Storyboard.TargetName="BackgroundImage"
+                Storyboard.TargetProperty="Opacity"
+                
+                From="1" To="0" 
+                Duration="00:00:01">
+                
+                <DoubleAnimation.EasingFunction>
+                    <PowerEase Power="2"></PowerEase>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+
+        <Storyboard
+            x:Key="ShowBackImageStoryboard">
+
+            <DoubleAnimation
+                Storyboard.TargetName="BackgroundImage"
+                Storyboard.TargetProperty="Opacity"
+                
+                From="0" To="1" 
+                Duration="00:00:01">
+
+                <DoubleAnimation.EasingFunction>
+                    <PowerEase Power="2"></PowerEase>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+
+        <Storyboard
+            x:Key="BlurUpImageBackground">
+
+            <DoubleAnimation
+                Storyboard.TargetName="ImageBlurEffect"
+                Storyboard.TargetProperty="Radius"
+                
+                From="0" To="100"
+                Duration="00:00:01">
+
+                <DoubleAnimation.EasingFunction>
+                    <PowerEase Power="2"></PowerEase>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+
+        <Storyboard
+            x:Key="BlurBackImageBackground">
+
+            <DoubleAnimation
+                Storyboard.TargetName="ImageBlurEffect"
+                Storyboard.TargetProperty="Radius"
+                
+                From="100" To="0"
+                Duration="00:00:01">
+
+                <DoubleAnimation.EasingFunction>
+                    <PowerEase Power="2"></PowerEase>
+                </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
         </Storyboard>
 
@@ -87,6 +175,7 @@
             HorizontalAlignment="Center" VerticalAlignment="Center"
             
             Stretch="UniformToFill"
+            Opacity="1"
             
             Grid.RowSpan="5"
             Grid.ColumnSpan="3">
@@ -99,7 +188,10 @@
             </Image.RenderTransform>
 
             <Image.Effect>
-                <BlurEffect Radius="{Binding BackgroundBlurRadius, Source={x:Static prop:Settings.Default}}"></BlurEffect>
+                <BlurEffect 
+                    x:Name="ImageBlurEffect"
+                    Radius="{Binding BackgroundBlurRadius, Source={x:Static prop:Settings.Default}}">
+                </BlurEffect>
             </Image.Effect>
         </Image>
 
@@ -203,7 +295,7 @@
             </Grid.ColumnDefinitions>
 
             <Menu 
-                Margin="0 3 0 0"
+                Margin="0 2 0 0"
                 Foreground="{Binding Path=SummaryFontColor ,Source={x:Static prop:Settings.Default}}"
                 FontFamily="{Binding Path=SummaryFont ,Source={x:Static prop:Settings.Default}}"
                 Background="{DynamicResource SecondBackgroundOpacityBrush}">
@@ -393,6 +485,7 @@
                         Click="PrevLessonButton_OnClick">
                         ⮜
                     </Button>
+                    
                     <Button 
                         Width="54" 
                         x:Name="LoadCourseOrLessonButton"
@@ -404,6 +497,7 @@
                         Click="ReLesson_OnClick">
                         ⭯
                     </Button>
+                    
                     <Button 
                         Width="54" 
                         BorderBrush="Transparent" 
@@ -415,13 +509,20 @@
                         Click="NextLessonButton_OnClick">
                         ⮞
                     </Button>
+
+                    <Ellipse
+                        x:Name="PassedIndicator"
+                        Margin="6 0 12 0"
+                        Width="8"
+                        Height="8"
+                        Fill="{Binding KeyboardErrorHighlightColor, Source={x:Static prop:Settings.Default}}">
+                    </Ellipse>
+                    
                     <TextBlock 
                         Style="{StaticResource SummaryTextStyle}"
-                        Margin="10 0 0 0"
                         FontSize="18"
                         HorizontalAlignment="Center"
                         x:Name="lessonHeaderTextBlock">
-                        
                     </TextBlock>
                 </StackPanel>
                 
