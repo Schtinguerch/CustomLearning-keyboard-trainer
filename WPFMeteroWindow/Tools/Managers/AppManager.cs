@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
@@ -33,6 +34,8 @@ namespace WPFMeteroWindow
 
             ParallaxEffectPresenter.Image = Intermediary.App.BackgroundImage;
             ParallaxEffectPresenter.Init();
+
+            Intermediary.App.ImageBlurEffect.Radius = Settings.Default.BackgroundBlurRadius.Parse();
 
             if (!Settings.Default.ShowStatistics)
                 Opener.Statistics(false);
@@ -452,5 +455,8 @@ namespace WPFMeteroWindow
 
             return milliseconds;
         }
+
+        public static double Parse(this string line) =>
+            double.Parse(line.Replace(",", "."), CultureInfo.InvariantCulture);
     }
 }
