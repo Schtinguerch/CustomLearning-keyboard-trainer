@@ -453,14 +453,26 @@
   <data name="uSave" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="uSettAnimations" xml:space="preserve">
+    <value>Animations</value>
+  </data>
   <data name="uSettBaseColors" xml:space="preserve">
     <value>Main colors</value>
+  </data>
+  <data name="uSettBlurImageLessonStart" xml:space="preserve">
+    <value>Blur up image when lesson starts</value>
   </data>
   <data name="uSettBrush" xml:space="preserve">
     <value>Color brush</value>
   </data>
   <data name="uSettCurrentKeyboardLayout" xml:space="preserve">
     <value>Current keyboard layout</value>
+  </data>
+  <data name="uSettEnableBumpAnimationClicking" xml:space="preserve">
+    <value>Enable bump animation in mouse clicking</value>
+  </data>
+  <data name="uSettEnableBumpAnimationTyping" xml:space="preserve">
+    <value>Enable bump animation in typing</value>
   </data>
   <data name="uSettEnableParallax" xml:space="preserve">
     <value>Enable Parallax Effect</value>
@@ -470,6 +482,9 @@
   </data>
   <data name="uSettHeader" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="uSettHideImageLessonStart" xml:space="preserve">
+    <value>Hide image when lesson starts</value>
   </data>
   <data name="uSettImage" xml:space="preserve">
     <value>Image</value>

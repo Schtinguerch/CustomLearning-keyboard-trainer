@@ -1069,11 +1069,29 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Анимации.
+        /// </summary>
+        public static string uSettAnimations {
+            get {
+                return ResourceManager.GetString("uSettAnimations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Основные цвета.
         /// </summary>
         public static string uSettBaseColors {
             get {
                 return ResourceManager.GetString("uSettBaseColors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Размытие изображения в начале урока.
+        /// </summary>
+        public static string uSettBlurImageLessonStart {
+            get {
+                return ResourceManager.GetString("uSettBlurImageLessonStart", resourceCulture);
             }
         }
         
@@ -1092,6 +1110,24 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uSettCurrentKeyboardLayout {
             get {
                 return ResourceManager.GetString("uSettCurrentKeyboardLayout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Включить анимацию ударов при нажатии ЛКМ.
+        /// </summary>
+        public static string uSettEnableBumpAnimationClicking {
+            get {
+                return ResourceManager.GetString("uSettEnableBumpAnimationClicking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Включить анимацию ударов при печати.
+        /// </summary>
+        public static string uSettEnableBumpAnimationTyping {
+            get {
+                return ResourceManager.GetString("uSettEnableBumpAnimationTyping", resourceCulture);
             }
         }
         
@@ -1119,6 +1155,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uSettHeader {
             get {
                 return ResourceManager.GetString("uSettHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Скрывать изображение в начале урока.
+        /// </summary>
+        public static string uSettHideImageLessonStart {
+            get {
+                return ResourceManager.GetString("uSettHideImageLessonStart", resourceCulture);
             }
         }
         

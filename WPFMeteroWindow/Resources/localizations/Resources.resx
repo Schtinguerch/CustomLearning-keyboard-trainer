@@ -453,14 +453,26 @@
   <data name="uSave" xml:space="preserve">
     <value>Сохранить</value>
   </data>
+  <data name="uSettAnimations" xml:space="preserve">
+    <value>Анимации</value>
+  </data>
   <data name="uSettBaseColors" xml:space="preserve">
     <value>Основные цвета</value>
+  </data>
+  <data name="uSettBlurImageLessonStart" xml:space="preserve">
+    <value>Размытие изображения в начале урока</value>
   </data>
   <data name="uSettBrush" xml:space="preserve">
     <value>Сплошной цвет</value>
   </data>
   <data name="uSettCurrentKeyboardLayout" xml:space="preserve">
     <value>Текущая раскладка клавиатуры</value>
+  </data>
+  <data name="uSettEnableBumpAnimationClicking" xml:space="preserve">
+    <value>Включить анимацию ударов при нажатии ЛКМ</value>
+  </data>
+  <data name="uSettEnableBumpAnimationTyping" xml:space="preserve">
+    <value>Включить анимацию ударов при печати</value>
   </data>
   <data name="uSettEnableParallax" xml:space="preserve">
     <value>Включить эффект Параллакса</value>
@@ -470,6 +482,9 @@
   </data>
   <data name="uSettHeader" xml:space="preserve">
     <value>Настройки</value>
+  </data>
+  <data name="uSettHideImageLessonStart" xml:space="preserve">
+    <value>Скрывать изображение в начале урока</value>
   </data>
   <data name="uSettImage" xml:space="preserve">
     <value>Изображение</value>
