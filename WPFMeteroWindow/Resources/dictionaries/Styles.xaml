@@ -2,7 +2,23 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:WPFMeteroWindow"
                     xmlns:prop="clr-namespace:WPFMeteroWindow.Properties">
-    
+
+    <SolidColorBrush 
+        x:Key="PassedIndicatorBrush"
+        Color="{Binding KeyboardHighlightColor, Source={x:Static prop:Settings.Default}}">
+    </SolidColorBrush>
+
+    <SolidColorBrush 
+        x:Key="NotPassedIndicatorBrush"
+        Color="{Binding KeyboardErrorHighlightColor, Source={x:Static prop:Settings.Default}}">
+    </SolidColorBrush>
+
+    <SolidColorBrush 
+        x:Key="FailedIndicatorBrush"
+        Color="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}">
+    </SolidColorBrush>
+
+
     <Style TargetType="TextBox" x:Key="MainEditorStyle">
         <Setter Property="FontFamily" Value="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"></Setter>
         <Setter Property="FontSize" Value="{Binding Path=LessonLettersFontSize ,Source={x:Static prop:Settings.Default}}"></Setter>
@@ -24,6 +40,23 @@
         <Setter Property="VerticalAlignment" Value="Center"></Setter>
         <Setter Property="Foreground" Value="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}"></Setter>
         <Setter Property="Margin" Value="-2 0 0 0"></Setter>
+    </Style>
+
+    <Style 
+        TargetType="TextBlock" 
+        x:Key="CompetitiveTextStyle" 
+        BasedOn="{StaticResource MainTextStyle}"
+        xmlns:mw="clr-namespace:WPFMeteroWindow">
+        <Style.Resources>
+            <mw:MathConverter x:Key="MathConverter"></mw:MathConverter>
+        </Style.Resources>
+
+        <Setter Property="Margin" Value="0 6 0 6"></Setter>
+        <Setter Property="FontSize" Value="{Binding Path=LessonLettersFontSize, Source={x:Static prop:Settings.Default}, ConverterParameter=@VALUE*0.75, Converter={StaticResource MathConverter}}"></Setter>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="HighlightedCompititiveTextStyle" BasedOn="{StaticResource CompetitiveTextStyle}">
+        <Setter Property="Foreground" Value="{Binding Path=KeyboardHighlightColor ,Source={x:Static prop:Settings.Default}}"></Setter>
     </Style>
 
     <Style TargetType="TextBlock" x:Key="SummaryTextStyle">
