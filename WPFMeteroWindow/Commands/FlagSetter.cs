@@ -35,10 +35,9 @@ namespace WPFMeteroWindow.Commands
                             Opener.NewTextInputWay("Classic");
                             break;
 
-                        case "w":
-                        case "sw":
-                        case "ow":
-                            Opener.NewTextInputWay("SingleWord");
+                        case "m":
+                        case "co":
+                            Opener.NewTextInputWay("Competitive");
                             break;
                     }
                     break;
