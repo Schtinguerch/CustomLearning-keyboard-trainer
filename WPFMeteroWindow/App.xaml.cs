@@ -51,7 +51,7 @@ namespace WPFMeteroWindow
             var message = exception.Message;
 
             LogManager.Log($"Critical error: {message}");
-            MessageBox.Show($"{Localization.uError}", $"{message}");
+            MessageBox.Show($"{message}", $"{Localization.uError}");
         }
     }
 }
