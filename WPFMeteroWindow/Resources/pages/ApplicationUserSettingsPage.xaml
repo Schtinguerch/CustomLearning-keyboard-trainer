@@ -212,42 +212,6 @@
                     </Grid>
 
                     <Grid Style="{StaticResource SettingsItemStyle}"
-                          >
-                        <TextBlock
-                            Style="{StaticResource SummaryTextStyle}"
-                            VerticalAlignment="Top"
-                            Text="{x:Static res:Resources.uSettEnableParallax}"
-                            FontSize="18">
-                        </TextBlock>
-
-                        <StackPanel
-                            Height="32"
-                            Width="400"
-                            VerticalAlignment="Bottom"
-                            HorizontalAlignment="Left"
-                            Orientation="Horizontal">
-
-                            <ComboBox
-                                FontSize="18"
-                                Height="32"
-                                Width="350"
-                                VerticalAlignment="Bottom"
-                                HorizontalAlignment="Left"
-                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                                BorderBrush="#121212"
-                                x:Name="EnableParallaxComboBox"
-                                SelectionChanged="EnableParallaxComboBox_OnSelectionChanged">
-
-                                <TextBlock Text="{x:Static res:Resources.uYes}"></TextBlock>
-                                <TextBlock Text="{x:Static res:Resources.uNo}"></TextBlock>
-                            </ComboBox>
-
-
-                        </StackPanel>
-                    </Grid>
-
-                    <Grid Style="{StaticResource SettingsItemStyle}"
                     >
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
@@ -600,6 +564,187 @@
                                 Click="UItextColorButton_OnClick">
                                 🖌
                             </Button>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                          Margin="0 24 0 10"
+                          Height="30">
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uSettAnimations}"
+                            FontSize="24">
+                        </TextBlock>
+                    </Grid>
+                    
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                          >
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uSettEnableParallax}"
+                            FontSize="18">
+                        </TextBlock>
+
+                        <StackPanel
+                            Height="32"
+                            Width="400"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+
+                            <ComboBox
+                                FontSize="18"
+                                Height="32"
+                                Width="350"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="EnableParallaxComboBox"
+                                SelectionChanged="EnableParallaxComboBox_OnSelectionChanged">
+
+                                <TextBlock Text="{x:Static res:Resources.uYes}"></TextBlock>
+                                <TextBlock Text="{x:Static res:Resources.uNo}"></TextBlock>
+                            </ComboBox>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                          >
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uSettHideImageLessonStart}"
+                            FontSize="18">
+                        </TextBlock>
+
+                        <StackPanel
+                            Height="32"
+                            Width="400"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+
+                            <ComboBox
+                                FontSize="18"
+                                Height="32"
+                                Width="350"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="HideImageLessonStartComboBox"
+                                SelectionChanged="HideImageLessonStartComboBox_OnSelectionChanged">
+
+                                <TextBlock Text="{x:Static res:Resources.uYes}"></TextBlock>
+                                <TextBlock Text="{x:Static res:Resources.uNo}"></TextBlock>
+                            </ComboBox>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                          >
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uSettBlurImageLessonStart}"
+                            FontSize="18">
+                        </TextBlock>
+
+                        <StackPanel
+                            Height="32"
+                            Width="400"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+
+                            <ComboBox
+                                FontSize="18"
+                                Height="32"
+                                Width="350"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="BlurImageLessonStartComboBox"
+                                SelectionChanged="BlurImageLessonStartComboBox_OnSelectionChanged">
+
+                                <TextBlock Text="{x:Static res:Resources.uYes}"></TextBlock>
+                                <TextBlock Text="{x:Static res:Resources.uNo}"></TextBlock>
+                            </ComboBox>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                          >
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uSettEnableBumpAnimationClicking}"
+                            FontSize="18">
+                        </TextBlock>
+
+                        <StackPanel
+                            Height="32"
+                            Width="400"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+
+                            <ComboBox
+                                FontSize="18"
+                                Height="32"
+                                Width="350"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="EnableBumpClickAnimationComboBox"
+                                SelectionChanged="EnableBumpAnimationClickingComboBox_OnSelectionChanged">
+
+                                <TextBlock Text="{x:Static res:Resources.uYes}"></TextBlock>
+                                <TextBlock Text="{x:Static res:Resources.uNo}"></TextBlock>
+                            </ComboBox>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                          >
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uSettEnableBumpAnimationTyping}"
+                            FontSize="18">
+                        </TextBlock>
+
+                        <StackPanel
+                            Height="32"
+                            Width="400"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+
+                            <ComboBox
+                                FontSize="18"
+                                Height="32"
+                                Width="350"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="EnableBumpAnimationComboBox"
+                                SelectionChanged="EnableBumpAnimationComboBox_OnSelectionChanged">
+
+                                <TextBlock Text="{x:Static res:Resources.uYes}"></TextBlock>
+                                <TextBlock Text="{x:Static res:Resources.uNo}"></TextBlock>
+                            </ComboBox>
                         </StackPanel>
                     </Grid>
 

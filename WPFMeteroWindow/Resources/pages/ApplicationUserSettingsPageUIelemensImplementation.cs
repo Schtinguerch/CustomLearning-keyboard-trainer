@@ -133,6 +133,18 @@ namespace WPFMeteroWindow.Resources.pages
         private void EnableParallaxComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e) =>
             SetYesOrNo("Parallax", (EnableParallaxComboBox.SelectedItem as TextBlock).Text);
 
+        private void EnableBumpAnimationComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e) =>
+            SetYesOrNo("BumpTyping", (EnableBumpAnimationComboBox.SelectedItem as TextBlock).Text);
+
+        private void EnableBumpAnimationClickingComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e) =>
+            SetYesOrNo("BumpClick", (EnableBumpClickAnimationComboBox.SelectedItem as TextBlock).Text);
+
+        private void HideImageLessonStartComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e) =>
+            SetYesOrNo("HideImage", (HideImageLessonStartComboBox.SelectedItem as TextBlock).Text);
+
+        private void BlurImageLessonStartComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e) =>
+            SetYesOrNo("BlurImage", (BlurImageLessonStartComboBox.SelectedItem as TextBlock).Text);
+
         private void ShowStatisticsTextBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e) =>
             SetYesOrNo("Stats", (ShowStatisticsTextBox.SelectedItem as TextBlock).Text);
 

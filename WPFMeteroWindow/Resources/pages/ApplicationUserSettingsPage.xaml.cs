@@ -84,6 +84,22 @@ namespace WPFMeteroWindow.Resources.pages
                 case "Parallax":
                     Settings.Default.EnableParallax = state;
                     break;
+
+                case "BumpTyping":
+                    Settings.Default.ShakeBackgroundInTyping = state;
+                    break;
+
+                case "BumpClick":
+                    Settings.Default.ShakeBackgroundInClicking = state;
+                    break;
+
+                case "HideImage":
+                    Settings.Default.HideImageWhenLessonStart = state;
+                    break;
+
+                case "BlurImage":
+                    Settings.Default.BlurUpImageWhenLessonStart = state;
+                    break;
             }
         }
 
@@ -164,6 +180,10 @@ namespace WPFMeteroWindow.Resources.pages
             ShowHandsTextBox.Text = Settings.Default.ShowHands ? Localization.uYes : Localization.uNo;
             ShowStatisticsTextBox.Text = Settings.Default.ShowStatistics ? Localization.uYes : Localization.uNo;
             EnableParallaxComboBox.Text = Settings.Default.EnableParallax ? Localization.uYes : Localization.uNo;
+            EnableBumpAnimationComboBox.Text = Settings.Default.ShakeBackgroundInTyping ? Localization.uYes : Localization.uNo;
+            EnableBumpClickAnimationComboBox.Text = Settings.Default.ShakeBackgroundInClicking ? Localization.uYes : Localization.uNo;
+            HideImageLessonStartComboBox.Text = Settings.Default.HideImageWhenLessonStart ? Localization.uYes : Localization.uNo;
+            BlurImageLessonStartComboBox.Text = Settings.Default.BlurUpImageWhenLessonStart ? Localization.uYes : Localization.uNo;
 
             RequireWPMtextBox.Text = Settings.Default.RequireWPM ? Localization.uYes : Localization.uNo;
             WindowColorType.Text = Settings.Default.IsBackgroundImage ? Localization.uSettImage : Localization.uSettBrush;
@@ -206,6 +226,7 @@ namespace WPFMeteroWindow.Resources.pages
             if (!Settings.Default.IsBackgroundImage)
                 SetColor.FirstColor(_defaultBackgroundColor);
 
+            Intermediary.App.ImageBlurEffect.Radius = Settings.Default.BackgroundBlurRadius.Parse();
             PageManager.HidePages();
         }
 
@@ -225,7 +246,11 @@ namespace WPFMeteroWindow.Resources.pages
 
         private void ImageBlurSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            ImageBlurTextBox.Text = ImageBlurSlider.Value.ToString("N");
+            double value = ImageBlurSlider.Value;
+            ImageBlurTextBox.Text = value.ToString("N");
+
+            Settings.Default.BackgroundBlurRadius = value.ToString();
+            Intermediary.App.ImageBlurEffect.Radius = value;
 
             if (Mouse.LeftButton == MouseButtonState.Pressed)
                 PageManager.MakeTrasparency();
