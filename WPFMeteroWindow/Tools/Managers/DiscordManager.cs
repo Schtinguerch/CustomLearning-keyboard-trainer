@@ -8,7 +8,24 @@ namespace WPFMeteroWindow
     {
         private DiscordRpcClient Client { get; set; }
 
-        public void Initialize()
+        public bool EnableRPC
+        {
+            get => Settings.Default.EnableDiscordRPC;
+            set
+            {
+                Settings.Default.EnableDiscordRPC = value;
+
+                if (value)
+                    InitializeRPC();
+                else
+                {
+                    Client?.Deinitialize();
+                    Client = null;
+                }
+            }
+        }
+
+        private void InitializeRPC()
         {
             Client = new DiscordRpcClient(Settings.Default.DiscordID);
             Client.Logger = new ConsoleLogger()
@@ -28,9 +45,17 @@ namespace WPFMeteroWindow
             Client.Initialize();
         }
 
+        public void Initialize()
+        {
+            if (!EnableRPC)
+                return;
+
+            InitializeRPC();
+        }
+
         public void Update(string lessonName, string status, string imageKey)
         {
-            Client.SetPresence(new RichPresence()
+            Client?.SetPresence(new RichPresence()
             {
                 Details = lessonName,
                 State = status,
