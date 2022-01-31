@@ -12,7 +12,6 @@ using Key = System.Windows.Input.Key;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 using Visibility = System.Windows.Visibility;
-using Newtonsoft.Json;
 using System.IO;
 using System.Linq;
 using Thread = System.Threading.Thread;
@@ -158,6 +157,9 @@ namespace WPFMeteroWindow
             
             PageManager.PageGrid = aoeiGrid;
             PageManager.PageFrame = SettingFrame;
+
+            PageManager.OpenPageStoryboard = FindResource("ShowPageFrameStoryboard") as Storyboard;
+            PageManager.ClosePageStoryboard = FindResource("HidePageFrameStoryboard") as Storyboard;
 
             Intermediary.App = this;
             Intermediary.RichPresentManager = new DiscordManager();
