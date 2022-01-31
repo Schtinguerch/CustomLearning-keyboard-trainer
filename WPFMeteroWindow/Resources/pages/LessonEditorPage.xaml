@@ -11,25 +11,6 @@
       Title="LessonEditorPage"
       KeyDown="LessonEditorPage_OnKeyDown">
 
-    <Page.Triggers>
-        <EventTrigger RoutedEvent="Page.Loaded">
-            <EventTrigger.Actions>
-                <BeginStoryboard>
-                    <Storyboard TargetName="LessonEditorGrid">
-                        <DoubleAnimation 
-                            x:Name="ShowSceneAnimation"
-                            Storyboard.TargetProperty="Opacity"
-                            From="0"
-                            To="1"
-                            Duration="0:0:0:0.5"
-                            DecelerationRatio="0.618">
-                        </DoubleAnimation>
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger.Actions>
-        </EventTrigger>
-    </Page.Triggers>
-
     <Grid
         x:Name="LessonEditorGrid"
         Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"

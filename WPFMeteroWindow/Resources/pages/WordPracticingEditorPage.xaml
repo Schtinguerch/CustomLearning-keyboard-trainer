@@ -7,33 +7,14 @@
       xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
       xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
       mc:Ignorable="d" 
-      d:DesignHeight="330" d:DesignWidth="800"
+      d:DesignHeight="350" d:DesignWidth="800"
       Title="WordPracticingEditorPage">
-
-    <Page.Triggers>
-        <EventTrigger RoutedEvent="Page.Loaded">
-            <EventTrigger.Actions>
-                <BeginStoryboard>
-                    <Storyboard TargetName="LessonEditorGrid">
-                        <DoubleAnimation 
-                            x:Name="ShowSceneAnimation"
-                            Storyboard.TargetProperty="Opacity"
-                            From="0"
-                            To="1"
-                            Duration="0:0:0:0.5"
-                            DecelerationRatio="0.618">
-                        </DoubleAnimation>
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger.Actions>
-        </EventTrigger>
-    </Page.Triggers>
 
     <Grid
         x:Name="LessonEditorGrid"
         Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
         Width="800"
-        Height="330">
+        Height="350">
 
         <Grid.Effect>
             <DropShadowEffect BlurRadius="30"></DropShadowEffect>
