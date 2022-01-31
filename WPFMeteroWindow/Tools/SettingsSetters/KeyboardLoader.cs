@@ -50,6 +50,10 @@ namespace WPFMeteroWindow
 
         public static void SetContent(Button targetButton, string defaultKey, string shiftKey, string altGrKey, string shiftAltGrKey)
         {
+            var scale = new ScaleTransform(1.0, 1.0);
+            targetButton.RenderTransformOrigin = new Point(0.5, 0.5);
+            targetButton.RenderTransform = scale;
+
             var isModifierKey = (defaultKey == "ctrl") || (defaultKey == "shift") || (defaultKey == "caps") ||
                                 (defaultKey == "win") || (defaultKey == "alt") || (defaultKey == "altGr") ||
                                 (defaultKey == "enter") || (defaultKey == "back") || (defaultKey == "tab") || (defaultKey == "menu");
