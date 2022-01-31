@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Animation;
 using WPFMeteroWindow.Properties;
 
 namespace WPFMeteroWindow
@@ -29,8 +30,10 @@ namespace WPFMeteroWindow
         private static string _baseFolder = "Resources/pages/";
 
         public static Frame PageFrame { get; set; }
-        
         public static Grid PageGrid { get; set; }
+
+        public static Storyboard OpenPageStoryboard { get; set; }
+        public static Storyboard ClosePageStoryboard { get; set; }
         
         public static string[] Pages =
         {
@@ -50,8 +53,20 @@ namespace WPFMeteroWindow
             _baseFolder + "TypingTestParametersPage.xaml",
             null,
         };
-        
+
         public static void HidePages()
+        {
+            if (ClosePageStoryboard == null)
+            {
+                ClearPages();
+                return;
+            }
+
+            ClosePageStoryboard.Completed += StoryboardCompleted;
+            ClosePageStoryboard.Begin();
+        }
+
+        private static void ClearPages()
         {
             PageGrid.Visibility = Visibility.Hidden;
             PageFrame.Source = null;
@@ -66,16 +81,28 @@ namespace WPFMeteroWindow
         public static void OpenPage(TabPage page)
         {
             int pageIndex = (int)page;
-            if (pageIndex >= 0)
+
+            if (pageIndex == Pages.Length - 1)
+            {
+                HidePages();
+            } 
+
+            else if (pageIndex >= 0)
             {
                 PageGrid.Visibility = Visibility.Visible;
+                OpenPageStoryboard?.Begin();
+
                 PageFrame.Source = new Uri(Pages[pageIndex], UriKind.Relative);
             }
-            else if (pageIndex == Pages.Length - 1)
-                HidePages();
         }
 
         public static void MakeTrasparency()  => PageGrid.Opacity = 0.2d;
         public static void CancelTransparency() => PageGrid.Opacity = 1d;
+
+        private static void StoryboardCompleted(object sender, EventArgs e)
+        {
+            ClearPages();
+            ClosePageStoryboard.Completed -= StoryboardCompleted;
+        }
     }
 }
