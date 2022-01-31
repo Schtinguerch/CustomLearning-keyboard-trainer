@@ -886,5 +886,17 @@ namespace WPFMeteroWindow.Properties {
                 this["BlurUpImageWhenLessonStart"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EnableDiscordRPC {
+            get {
+                return ((bool)(this["EnableDiscordRPC"]));
+            }
+            set {
+                this["EnableDiscordRPC"] = value;
+            }
+        }
     }
 }
