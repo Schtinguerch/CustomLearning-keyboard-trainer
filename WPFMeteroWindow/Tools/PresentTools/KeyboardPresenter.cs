@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using WPFMeteroWindow.Properties;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 
@@ -39,11 +41,46 @@ namespace WPFMeteroWindow
 
                 Intermediary.KeyboardData.buttons[keyIndex].Background =
                     new BrushConverter().ConvertFromString(Settings.Default.KeyboardHighlightColor) as SolidColorBrush;
+
+                BumpButtonAnimation(Intermediary.KeyboardData.buttons[keyIndex]);
             }
             catch
             {
 
             }
+        }
+
+        private static Storyboard _bumpStoryboard = new Storyboard()
+        {
+            Children = new TimelineCollection()
+            {
+                new DoubleAnimation()
+                {
+                    Duration = TimeSpan.FromMilliseconds(60),
+                    From = 1,
+                    To = 0.86,
+                    AutoReverse = true,
+                },
+
+                new DoubleAnimation()
+                {
+                    Duration = TimeSpan.FromMilliseconds(60),
+                    From = 1,
+                    To = 0.86,
+                    AutoReverse = true,
+                },
+            }
+        };
+
+        private static void BumpButtonAnimation(Button button)
+        {
+            Storyboard.SetTargetProperty(_bumpStoryboard.Children[0], new PropertyPath("RenderTransform.ScaleX"));
+            Storyboard.SetTargetProperty(_bumpStoryboard.Children[1], new PropertyPath("RenderTransform.ScaleY"));
+
+            Storyboard.SetTarget(_bumpStoryboard.Children[0], button);
+            Storyboard.SetTarget(_bumpStoryboard.Children[1], button);
+
+            _bumpStoryboard.Begin();
         }
         
         public static void ShowErrorTyping(char errorCharacter)
