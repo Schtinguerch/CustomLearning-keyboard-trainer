@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using WPFMeteroWindow.Controls;
 using WPFMeteroWindow.Properties;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 
@@ -10,6 +11,11 @@ namespace WPFMeteroWindow
 {
     public class KeyboardPresenter
     {
+        //56 - spacebar button
+        private int _previousButtonIndex = 56;
+
+        public LightingDonut[] Donuts { get; set; }
+
         public void ShowTheNecessaryHints(char character)
         {
             int keyIndex = -1, statusIndex = -1;
@@ -42,7 +48,11 @@ namespace WPFMeteroWindow
                 Intermediary.KeyboardData.buttons[keyIndex].Background =
                     new BrushConverter().ConvertFromString(Settings.Default.KeyboardHighlightColor) as SolidColorBrush;
 
-                BumpButtonAnimation(Intermediary.KeyboardData.buttons[keyIndex]);
+                PressButtonAnimation(Intermediary.KeyboardData.buttons[_previousButtonIndex]);
+                SplashAnimation(_previousButtonIndex);
+
+                GrowButtonAnimation(Intermediary.KeyboardData.buttons[keyIndex]);
+                _previousButtonIndex = keyIndex;
             }
             catch
             {
@@ -50,7 +60,7 @@ namespace WPFMeteroWindow
             }
         }
 
-        private static Storyboard _bumpStoryboard = new Storyboard()
+        private Storyboard _growUpStoryboard = new Storyboard()
         {
             Children = new TimelineCollection()
             {
@@ -58,32 +68,85 @@ namespace WPFMeteroWindow
                 {
                     Duration = TimeSpan.FromMilliseconds(60),
                     From = 1,
-                    To = 0.86,
-                    AutoReverse = true,
+                    To = 1.12,
                 },
 
                 new DoubleAnimation()
                 {
                     Duration = TimeSpan.FromMilliseconds(60),
                     From = 1,
-                    To = 0.86,
-                    AutoReverse = true,
+                    To = 1.12,
                 },
             }
         };
 
-        private static void BumpButtonAnimation(Button button)
+        private Storyboard _slipStoryboard = new Storyboard()
         {
-            Storyboard.SetTargetProperty(_bumpStoryboard.Children[0], new PropertyPath("RenderTransform.ScaleX"));
-            Storyboard.SetTargetProperty(_bumpStoryboard.Children[1], new PropertyPath("RenderTransform.ScaleY"));
+            Children = new TimelineCollection()
+            {
+                new DoubleAnimation()
+                {
+                    Duration = TimeSpan.FromMilliseconds(100),
+                    From = 1.12,
+                    To = 1,
+                },
 
-            Storyboard.SetTarget(_bumpStoryboard.Children[0], button);
-            Storyboard.SetTarget(_bumpStoryboard.Children[1], button);
+                new DoubleAnimation()
+                {
+                    Duration = TimeSpan.FromMilliseconds(100),
+                    From = 1.12,
+                    To = 1,
+                },
+            }
+        };
 
-            _bumpStoryboard.Begin();
+        private void GrowButtonAnimation(Button button)
+        {
+            Storyboard.SetTargetProperty(_growUpStoryboard.Children[0], new PropertyPath("RenderTransform.ScaleX"));
+            Storyboard.SetTargetProperty(_growUpStoryboard.Children[1], new PropertyPath("RenderTransform.ScaleY"));
+
+            Storyboard.SetTarget(_growUpStoryboard.Children[0], button);
+            Storyboard.SetTarget(_growUpStoryboard.Children[1], button);
+
+            _growUpStoryboard.Begin();
         }
-        
-        public static void ShowErrorTyping(char errorCharacter)
+
+        private void PressButtonAnimation(Button button)
+        {
+            Storyboard.SetTargetProperty(_slipStoryboard.Children[0], new PropertyPath("RenderTransform.ScaleX"));
+            Storyboard.SetTargetProperty(_slipStoryboard.Children[1], new PropertyPath("RenderTransform.ScaleY"));
+
+            Storyboard.SetTarget(_slipStoryboard.Children[0], button);
+            Storyboard.SetTarget(_slipStoryboard.Children[1], button);
+
+            _slipStoryboard.Begin();
+        }
+
+        private void SplashAnimation(int buttonIndex)
+        {
+            int[] keysInRow = { 14, 14, 13, 12, 8 };
+
+            int rowIndex = 0, columnIndex = 0, countedIndex = -1;
+
+            for (int i = 0; i < keysInRow.Length; i++)
+            {
+                for (int j = 0; j < keysInRow[i]; j++)
+                {
+                    countedIndex += 1;
+                    if (countedIndex == buttonIndex)
+                    {
+                        rowIndex = i;
+                        columnIndex = j;
+                        break;
+                    }
+                }
+            }
+
+            Grid.SetColumn(Donuts[rowIndex], columnIndex);
+            Donuts[rowIndex].StartSplash();
+        }
+
+        public void ShowErrorTyping(char errorCharacter)
         {
             int keyIndex = -1;
 
@@ -102,7 +165,7 @@ namespace WPFMeteroWindow
             catch { }
         }
 
-        private static void ShowTextHint(int keyIndex, int statusIndex)
+        private void ShowTextHint(int keyIndex, int statusIndex)
         {
             if (keyIndex == 56)
             {
