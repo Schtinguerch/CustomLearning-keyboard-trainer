@@ -100,6 +100,10 @@ namespace WPFMeteroWindow.Resources.pages
                 case "BlurImage":
                     Settings.Default.BlurUpImageWhenLessonStart = state;
                     break;
+
+                case "BumpKey":
+                    Settings.Default.EnableSplashAnimation = state;
+                    break;
             }
         }
 
@@ -184,12 +188,12 @@ namespace WPFMeteroWindow.Resources.pages
             EnableBumpClickAnimationComboBox.Text = Settings.Default.ShakeBackgroundInClicking ? Localization.uYes : Localization.uNo;
             HideImageLessonStartComboBox.Text = Settings.Default.HideImageWhenLessonStart ? Localization.uYes : Localization.uNo;
             BlurImageLessonStartComboBox.Text = Settings.Default.BlurUpImageWhenLessonStart ? Localization.uYes : Localization.uNo;
+            EnableKeyboardBumpComboBox.Text = Settings.Default.EnableSplashAnimation ? Localization.uYes : Localization.uNo;
 
             RequireWPMtextBox.Text = Settings.Default.RequireWPM ? Localization.uYes : Localization.uNo;
             WindowColorType.Text = Settings.Default.IsBackgroundImage ? Localization.uSettImage : Localization.uSettBrush;
 
             WindowTheme.Text = Settings.Default.ThemeResourceDictionary.ToLower().Contains("light") ? Localization.uLight : Localization.uDark;
-
             _loadImage = true;
         }
 

@@ -666,6 +666,40 @@
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uSettEnableSplash}"
+                            FontSize="18">
+                        </TextBlock>
+
+                        <StackPanel
+                            Height="32"
+                            Width="400"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+
+                            <ComboBox
+                                FontSize="18"
+                                Height="32"
+                                Width="350"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="EnableKeyboardBumpComboBox"
+                                SelectionChanged="EnableKeyboardBumpComboBox_OnSelectionChanged">
+
+                                <TextBlock Text="{x:Static res:Resources.uYes}"></TextBlock>
+                                <TextBlock Text="{x:Static res:Resources.uNo}"></TextBlock>
+                            </ComboBox>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                          >
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
                             Text="{x:Static res:Resources.uSettEnableBumpAnimationClicking}"
                             FontSize="18">
                         </TextBlock>
@@ -1654,6 +1688,7 @@
                 Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                 BorderBrush="#121212"
+                
                 
                 TextChanged="SearchPropertyTextBox_TextChanged">
             </TextBox>

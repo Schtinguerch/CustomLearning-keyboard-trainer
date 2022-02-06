@@ -133,6 +133,9 @@ namespace WPFMeteroWindow.Resources.pages
         private void EnableParallaxComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e) =>
             SetYesOrNo("Parallax", (EnableParallaxComboBox.SelectedItem as TextBlock).Text);
 
+        private void EnableKeyboardBumpComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e) =>
+            SetYesOrNo("BumpKey", (EnableKeyboardBumpComboBox.SelectedItem as TextBlock).Text);
+
         private void EnableBumpAnimationComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e) =>
             SetYesOrNo("BumpTyping", (EnableBumpAnimationComboBox.SelectedItem as TextBlock).Text);
 
