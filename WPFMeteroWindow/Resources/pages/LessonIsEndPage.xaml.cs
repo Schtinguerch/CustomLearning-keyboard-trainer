@@ -168,13 +168,13 @@ namespace WPFMeteroWindow.Resources.pages
                 PrevLessonButton.Visibility = 
                     (Settings.Default.CourseLessonNumber == 0) 
                     || !Settings.Default.IsCourseOpened ? 
-                        Visibility.Hidden : Visibility.Collapsed;
+                        Visibility.Collapsed : Visibility.Visible;
                 
                 NextLessonButton.Visibility = 
                     (Settings.Default.CourseLessonNumber == CourseManager.LessonsCount - 1) 
                     || !Settings.Default.IsCourseOpened 
                     || !raidLessonStatus ? 
-                        Visibility.Hidden : Visibility.Collapsed;
+                        Visibility.Collapsed : Visibility.Visible;
             }
             catch
             {
