@@ -1,7 +1,8 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
+using WPFMeteroWindow.Controls;
 using WPFMeteroWindow.Resources.pages;
 
 namespace WPFMeteroWindow
@@ -21,22 +22,17 @@ namespace WPFMeteroWindow
         public static KeyboardLayoutEditorPage LayoutPage { get; set; }
         
         public static DiscordManager RichPresentManager { get; set; }
+
+        public static AllSplashShapes AllSplashShapes { get; set; }
+        public static Dictionary<string, Grid> KeyboardShapesDictionary { get; set; }
+
+        public static MouseSplashShapes MouseSplashShapes { get; set; }
+        public static Dictionary<string, Grid> MouseShapesDictionary { get; set; }
         
         public static (string[][] keys, Button[] buttons) KeyboardData { get; set; }
         
         public static int KeyboardCharIndex { get; set; }
         
         public static int KeyboardModifierIndex { get; set; }
-
-
-        public static T GetCopy<T>(this T element) where T : UIElement
-        {
-            using (var ms = new MemoryStream())
-            {
-                XamlWriter.Save(element, ms);
-                ms.Seek(0, SeekOrigin.Begin);
-                return (T)XamlReader.Load(ms);
-            }
-        }
     }
 }
