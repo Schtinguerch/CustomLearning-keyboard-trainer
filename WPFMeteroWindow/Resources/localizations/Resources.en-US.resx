@@ -475,7 +475,10 @@
     <value>Enable bump animation in typing</value>
   </data>
   <data name="uSettEnableParallax" xml:space="preserve">
-    <value>Enable Parallax Effect</value>
+    <value>Enable parallax Effect</value>
+  </data>
+  <data name="uSettEnableSplash" xml:space="preserve">
+    <value>Enable splash effects</value>
   </data>
   <data name="uSettFonts" xml:space="preserve">
     <value>Fonts</value>

@@ -1132,11 +1132,20 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Включить эффект Параллакса.
+        ///   Ищет локализованную строку, похожую на Включить эффект параллакса.
         /// </summary>
         public static string uSettEnableParallax {
             get {
                 return ResourceManager.GetString("uSettEnableParallax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Включить эффекты всплеска.
+        /// </summary>
+        public static string uSettEnableSplash {
+            get {
+                return ResourceManager.GetString("uSettEnableSplash", resourceCulture);
             }
         }
         

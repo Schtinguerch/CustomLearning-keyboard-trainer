@@ -475,7 +475,10 @@
     <value>Включить анимацию ударов при печати</value>
   </data>
   <data name="uSettEnableParallax" xml:space="preserve">
-    <value>Включить эффект Параллакса</value>
+    <value>Включить эффект параллакса</value>
+  </data>
+  <data name="uSettEnableSplash" xml:space="preserve">
+    <value>Включить эффекты всплеска</value>
   </data>
   <data name="uSettFonts" xml:space="preserve">
     <value>Шрифты</value>
