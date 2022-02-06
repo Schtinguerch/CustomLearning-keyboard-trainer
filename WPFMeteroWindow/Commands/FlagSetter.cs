@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Windows;
+using System.Windows.Media;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -61,6 +63,26 @@ namespace WPFMeteroWindow.Commands
 
                     if (status)
                         Settings.Default.TestWordCount = wordCount;
+                    break;
+
+                case "qu":
+                    switch (arguments[1].ToLower())
+                    {
+                        case "low":
+                            RenderOptions.SetBitmapScalingMode(Intermediary.App, BitmapScalingMode.LowQuality);
+                            RenderOptions.SetEdgeMode(Intermediary.App, EdgeMode.Aliased);
+                            break;
+
+                        case "mid":
+                            RenderOptions.SetBitmapScalingMode(Intermediary.App, BitmapScalingMode.Unspecified);
+                            RenderOptions.SetEdgeMode(Intermediary.App, EdgeMode.Unspecified);
+                            break;
+
+                        case "hiq":
+                            RenderOptions.SetBitmapScalingMode(Intermediary.App, BitmapScalingMode.HighQuality);
+                            RenderOptions.SetEdgeMode(Intermediary.App, EdgeMode.Unspecified);
+                            break;
+                    }
                     break;
             }
         }
