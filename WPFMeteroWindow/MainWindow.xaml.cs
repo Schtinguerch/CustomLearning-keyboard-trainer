@@ -466,8 +466,11 @@ namespace WPFMeteroWindow
         private void TextInputFrame_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e) =>
             bufferTextBox.Focus();
 
-        private void MetroWindow_MouseMove(object sender, System.Windows.Input.MouseEventArgs e) =>
-            ParallaxEffectPresenter.MakeParallaxEffect(e.GetPosition(MainGrid));
+        private void MetroWindow_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            var mousePoint = e.GetPosition(MainGrid);
+            ParallaxEffectPresenter.MakeParallaxEffect(mousePoint);
+        }
 
         private void MetroWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         {
@@ -628,7 +631,13 @@ namespace WPFMeteroWindow
         private void BackToLessonsButton_Click(object sender, RoutedEventArgs e) =>
             CourseManager.CurrentLessonIndex = CourseManager.CurrentLessonIndex;
 
-        private void MetroWindow_PreviewMouseDown(object sender, MouseButtonEventArgs e) =>
+        private void MetroWindow_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
             ShakeImage(Settings.Default.ShakeBackgroundInClicking);
+            MouseSplashShape.StartSplash();
+
+            var mousePoint = e.GetPosition(MainGrid);
+            MouseSplashShape.Margin = new Thickness(mousePoint.X - 10, mousePoint.Y - 10, 0, 0);
+        }  
     }
 }

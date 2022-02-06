@@ -6,7 +6,7 @@
     xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
     xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
     xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
-    xmlns:globalization="clr-namespace:System.Globalization;assembly=mscorlib"
+    xmlns:globalization="clr-namespace:System.Globalization;assembly=mscorlib" xmlns:controls1="clr-namespace:WPFMeteroWindow.Controls"
     Title="CustomLearning" 
     Width="1120" 
     Height="640"
@@ -926,6 +926,16 @@
             Margin="20">
         </TextBlock>
 
+        <controls1:MouseLightingDonut
+            Width="20"
+            Height="20"
+            x:Name="MouseSplashShape"
+            
+            Grid.RowSpan="5"
+            Grid.ColumnSpan="3"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+        </controls1:MouseLightingDonut>
     </Grid>
 
 </controls:MetroWindow>
