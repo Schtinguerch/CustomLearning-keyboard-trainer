@@ -4,6 +4,8 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using WPFMeteroWindow.Properties;
 using LmlLibrary;
+using System.Windows.Media.Effects;
+using WPFMeteroWindow.Controls;
 
 namespace WPFMeteroWindow
 {
@@ -12,6 +14,7 @@ namespace WPFMeteroWindow
         public static (string[][], Button[]) LoadButtons(this Grid grid, string filename)
         {
             ClearKeys(grid);
+            var donuts = new LightingDonut[5];
 
             var keyboardData = new Lml(filename, Lml.Open.FromFile);
             var keyData = new string[61][];
@@ -43,8 +46,18 @@ namespace WPFMeteroWindow
                     var rowGrid = (Grid)grid.Children[i];
                     rowGrid.Children.Add(button);
                 }
+
+                var row = (Grid)grid.Children[i];
+                var newDonut = new LightingDonut() 
+                { 
+                    Shape = Intermediary.KeyboardShapesDictionary[Settings.Default.ChosenSplashShapeName] 
+                };
+
+                row.Children.Add(newDonut);
+                donuts[i] = newDonut;
             }
 
+            KeyboardManager.KeyboardPresenter.Donuts = donuts;
             return (keyData, buttons);
         }
 
@@ -164,6 +177,11 @@ namespace WPFMeteroWindow
                 {
                     var gridRow = element as Grid;
                     gridRow.Children.Clear();
+                }
+
+                else if (element is LightingDonut)
+                {
+                    grid.Children.Remove(element as LightingDonut);
                 }
             }
         }
