@@ -207,7 +207,7 @@ namespace WPFMeteroWindow.Controls
                 var offsetX = ArgumentCanvas.ActualWidth * i / (_argumentSummaries.Count - 1) - offset;
 
                 Canvas.SetLeft(textBlock, offsetX);
-                Canvas.SetTop(textBlock, 20d);
+                Canvas.SetTop(textBlock, 2d);
             }
         }
 
@@ -330,8 +330,7 @@ namespace WPFMeteroWindow.Controls
             SpeedTextBlock.Text = $"{currentValue.ToString("N")} {Localization.uCPM}";
 
 
-            TimeTextBlock.Text = (_times == null)? "" : _times[currentIndex];
-
+            TimeTextBlock.Text = (_times == null || _times.Count != mainValueList.Count)? "" : _times[currentIndex];
             CurrentValuePoint.Margin = new Thickness(selectedPoint.X - 5, selectedPoint.Y - 5, 0, 0);
         }
 
