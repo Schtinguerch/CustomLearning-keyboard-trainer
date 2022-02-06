@@ -29,7 +29,9 @@ namespace WPFMeteroWindow
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             CanvasGrid.Children?.Clear();
-            CanvasGrid.Children.Add(new StatsVisualizer(ValuesFromText(), ArgsTextBox.Text.Split(new char[] { ';' },  StringSplitOptions.RemoveEmptyEntries).ToList()));
+            CanvasGrid.Children.Add(new StatsVisualizer(
+                ValuesFromText(), null,
+                null, null, null, -1, -1));
         }
 
         private List<List<double>> ValuesFromText()
