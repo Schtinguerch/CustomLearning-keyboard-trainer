@@ -12,6 +12,9 @@ using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 using System.Windows.Media;
 using Newtonsoft.Json;
 using System.Linq;
+using System.Windows.Markup;
+using System.Xml;
+using Formatting = Newtonsoft.Json.Formatting;
 
 namespace WPFMeteroWindow
 {
@@ -36,6 +39,24 @@ namespace WPFMeteroWindow
             ParallaxEffectPresenter.Init();
 
             Intermediary.App.ImageBlurEffect.Radius = Settings.Default.BackgroundBlurRadius.Parse();
+            Intermediary.AllSplashShapes = new Controls.AllSplashShapes();
+            Intermediary.MouseSplashShapes = new Controls.MouseSplashShapes();
+
+            Intermediary.KeyboardShapesDictionary = new Dictionary<string, Grid>();
+            foreach (var shape in Intermediary.AllSplashShapes.ShapeWrapPanel.Children)
+            {
+                var shapeGrid = shape as Grid;
+                Intermediary.KeyboardShapesDictionary.Add(shapeGrid.Name, shapeGrid);
+            }
+
+            Intermediary.MouseShapesDictionary = new Dictionary<string, Grid>();
+            foreach (var shape in Intermediary.MouseSplashShapes.ShapeWrapPanel.Children)
+            {
+                var shapeGrid = shape as Grid;
+                Intermediary.MouseShapesDictionary.Add(shapeGrid.Name, shapeGrid);
+            }
+
+            Intermediary.App.MouseSplashShape.Shape = Intermediary.MouseShapesDictionary[Settings.Default.ChosenClickSplash];
 
             if (!Settings.Default.ShowStatistics)
                 Opener.Statistics(false);
@@ -454,6 +475,15 @@ namespace WPFMeteroWindow
                 Convert.ToInt32(tokens[2]) * 10;
 
             return milliseconds;
+        }
+
+        public static Grid Copy(this Grid grid)
+        {
+            var stringReader = new StringReader(XamlWriter.Save(grid));
+            var xmlReader = XmlReader.Create(stringReader);
+
+            var newGrid = XamlReader.Load(xmlReader) as Grid;
+            return newGrid;
         }
 
         public static double Parse(this string line) =>
