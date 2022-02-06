@@ -898,5 +898,41 @@ namespace WPFMeteroWindow.Properties {
                 this["EnableDiscordRPC"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("JapaneseKeyboard")]
+        public string ChosenSplashShapeName {
+            get {
+                return ((string)(this["ChosenSplashShapeName"]));
+            }
+            set {
+                this["ChosenSplashShapeName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EnableSplashAnimation {
+            get {
+                return ((bool)(this["EnableSplashAnimation"]));
+            }
+            set {
+                this["EnableSplashAnimation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NiceLightingDonut")]
+        public string ChosenClickSplash {
+            get {
+                return ((string)(this["ChosenClickSplash"]));
+            }
+            set {
+                this["ChosenClickSplash"] = value;
+            }
+        }
     }
 }
