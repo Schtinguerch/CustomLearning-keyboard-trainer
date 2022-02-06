@@ -67,7 +67,14 @@ namespace WPFMeteroWindow.Resources.pages
             SetStandardBorderBrush(
                 FirstWordIndexTextBox, 
                 LastWordIndexTextBox, 
-                WordCountTextBox);
+                WordCountTextBox,
+                TestDictionaryFilenameComboBox);
+
+            if (TestDictionaryFilenameComboBox.SelectedItem == null)
+            {
+                InvalidDataHighlighting(TestDictionaryFilenameComboBox);
+                return;
+            }
 
             var successfulReading = int.TryParse(FirstWordIndexTextBox.Text, out int firstWordIndex);
             if (!successfulReading || firstWordIndex <= 0)
@@ -115,21 +122,35 @@ namespace WPFMeteroWindow.Resources.pages
             LastWordIndexTextBox.Text = _lastWordIndexes[WordsCountComboBox.SelectedIndex];
         }
 
-        private void InvalidDataHighlighting(TextBox textBox)
+        private void InvalidDataHighlighting(UIElement control)
         {
-            textBox.BorderBrush = 
+            dynamic item = control;
+
+            if (item is TextBox) item = item as TextBox;
+            else if (item is ComboBox) item = item as ComboBox;
+            else return;
+
+            item.BorderBrush = 
                 (SolidColorBrush)new BrushConverter()
                 .ConvertFromString(Settings.Default.KeyboardErrorHighlightColor);
 
             Intermediary.App.ShowMessage($"{Localization.uError}: {Localization.uInvalidDataInput}");
         }
 
-        private void SetStandardBorderBrush(params TextBox[] textBoxes)
+        private void SetStandardBorderBrush(params UIElement[] controls)
         {
-            foreach(var textBox in textBoxes)
-                textBox.BorderBrush =
+            foreach (var control in controls)
+            {
+                dynamic item = control;
+
+                if (item is TextBox) item = item as TextBox;
+                else if (item is ComboBox) item = item as ComboBox;
+                else return;
+
+                item.BorderBrush =
                     (SolidColorBrush)new BrushConverter()
                     .ConvertFromString("#121212");
+            } 
         }
 
         private void TestDictionaryFilenameComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
