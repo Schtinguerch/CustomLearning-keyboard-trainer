@@ -173,6 +173,9 @@
     <Compile Include="Commands\FileOpener.cs" />
     <Compile Include="Commands\FlagSetter.cs" />
     <Compile Include="Commands\FontSetter.cs" />
+    <Compile Include="Controls\AllSplashShapes.xaml.cs">
+      <DependentUpon>AllSplashShapes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ConfigItem.xaml.cs">
       <DependentUpon>ConfigItem.xaml</DependentUpon>
     </Compile>
@@ -182,8 +185,17 @@
     <Compile Include="Controls\KeyboardLayoutItem.xaml.cs">
       <DependentUpon>KeyboardLayoutItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\LightingDonut.xaml.cs">
+      <DependentUpon>LightingDonut.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MistakeCross.xaml.cs">
       <DependentUpon>MistakeCross.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MouseLightingDonut.xaml.cs">
+      <DependentUpon>MouseLightingDonut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MouseSplashShapes.xaml.cs">
+      <DependentUpon>MouseSplashShapes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\StatsVisualizer.xaml.cs">
       <DependentUpon>StatsVisualizer.xaml</DependentUpon>
@@ -460,6 +472,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\AllSplashShapes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\ConfigItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -472,7 +488,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\LightingDonut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\MistakeCross.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MouseLightingDonut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MouseSplashShapes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
