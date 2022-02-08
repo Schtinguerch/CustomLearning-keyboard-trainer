@@ -25,7 +25,8 @@ namespace WPFMeteroWindow.Controls
             get => ShapeGrid;
             set
             {
-                var newShape = value.Copy();
+                var newShape = value.Copy<Grid>();
+                Settings.Default.ChosenSplashShapeName = newShape.Name;
 
                 MainGrid.Children.Clear();
                 MainGrid.Children.Add(newShape);
@@ -38,9 +39,16 @@ namespace WPFMeteroWindow.Controls
             set
             {
                 if (value)
+                {
                     _splashStoryboard.RepeatBehavior = RepeatBehavior.Forever;
-                else 
+                    _splashStoryboard.Begin();
+                }
+                    
+                else
+                {
                     _splashStoryboard.RepeatBehavior = new RepeatBehavior(1.0);
+                    _splashStoryboard.Stop();
+                }
             }
         }
 

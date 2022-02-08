@@ -10,7 +10,9 @@
     d:DesignHeight="50" d:DesignWidth="50">
 
     <UserControl.Resources>
-        <Storyboard x:Key="SplashStoryboard">
+        <Storyboard 
+            x:Key="SplashStoryboard"
+            Duration="00:00:01">
             <DoubleAnimation
                 Storyboard.TargetName="GridScaleTransform"
                 Storyboard.TargetProperty="ScaleX"
