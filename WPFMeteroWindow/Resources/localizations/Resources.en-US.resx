@@ -258,8 +258,14 @@
   <data name="uKbLayoutEditor" xml:space="preserve">
     <value>Keyboard layout editor</value>
   </data>
+  <data name="uKeyAlreadyIsInDictionary" xml:space="preserve">
+    <value>Replacement key is already exist in the dictionary</value>
+  </data>
   <data name="uKeyboadLayout" xml:space="preserve">
     <value>Keyboard layout</value>
+  </data>
+  <data name="uKeyIsEmpty" xml:space="preserve">
+    <value>One of replacement dictionary key is empty</value>
   </data>
   <data name="uLeft" xml:space="preserve">
     <value>Left </value>
@@ -542,6 +548,9 @@
   </data>
   <data name="uSettRaidedLessonSymbolsColor" xml:space="preserve">
     <value>Lesson's raided symbols font color</value>
+  </data>
+  <data name="uSettReplacementDictionary" xml:space="preserve">
+    <value>Replacement dictionary</value>
   </data>
   <data name="uSettRequireWPM" xml:space="preserve">
     <value>Require do exersises at the necessary WPM</value>

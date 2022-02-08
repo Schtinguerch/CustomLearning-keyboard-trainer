@@ -484,11 +484,29 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Ключ замены уже присутствует в словаре.
+        /// </summary>
+        public static string uKeyAlreadyIsInDictionary {
+            get {
+                return ResourceManager.GetString("uKeyAlreadyIsInDictionary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Раскладка клавиатуры.
         /// </summary>
         public static string uKeyboadLayout {
             get {
                 return ResourceManager.GetString("uKeyboadLayout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Один из ключей в словаре замен пустой.
+        /// </summary>
+        public static string uKeyIsEmpty {
+            get {
+                return ResourceManager.GetString("uKeyIsEmpty", resourceCulture);
             }
         }
         
@@ -1335,6 +1353,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uSettRaidedLessonSymbolsColor {
             get {
                 return ResourceManager.GetString("uSettRaidedLessonSymbolsColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Словарь с заменами.
+        /// </summary>
+        public static string uSettReplacementDictionary {
+            get {
+                return ResourceManager.GetString("uSettReplacementDictionary", resourceCulture);
             }
         }
         

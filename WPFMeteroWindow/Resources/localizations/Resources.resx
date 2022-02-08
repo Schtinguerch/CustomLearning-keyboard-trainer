@@ -258,8 +258,14 @@
   <data name="uKbLayoutEditor" xml:space="preserve">
     <value>Редактор раскладок</value>
   </data>
+  <data name="uKeyAlreadyIsInDictionary" xml:space="preserve">
+    <value>Ключ замены уже присутствует в словаре</value>
+  </data>
   <data name="uKeyboadLayout" xml:space="preserve">
     <value>Раскладка клавиатуры</value>
+  </data>
+  <data name="uKeyIsEmpty" xml:space="preserve">
+    <value>Один из ключей в словаре замен пустой</value>
   </data>
   <data name="uLeft" xml:space="preserve">
     <value>Левым </value>
@@ -542,6 +548,9 @@
   </data>
   <data name="uSettRaidedLessonSymbolsColor" xml:space="preserve">
     <value>Цвет успешно введённых символов урока</value>
+  </data>
+  <data name="uSettReplacementDictionary" xml:space="preserve">
+    <value>Словарь с заменами</value>
   </data>
   <data name="uSettRequireWPM" xml:space="preserve">
     <value>Требовать выполнение упражнений с заданной скоростью</value>
