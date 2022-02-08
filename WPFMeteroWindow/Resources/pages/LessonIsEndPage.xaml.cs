@@ -76,7 +76,6 @@ namespace WPFMeteroWindow.Resources.pages
             if (StatisticsManager.MistakeWords.Count == 0)
                 MistakenDataGrid.Height = 0;
 
-            StatisticsManager.IsDemonstrationMode = false;
             var valuePlots = new List<List<double>>()
             {
                 StatisticsManager.AverageSpeeds,
@@ -190,7 +189,7 @@ namespace WPFMeteroWindow.Resources.pages
                 if (StatisticsManager.CourseMarks.PartucularlyPassedLessons == null)
                     StatisticsManager.CourseMarks.PartucularlyPassedLessons = new List<int>();
 
-                if (raidLessonStatus)
+                if (raidLessonStatus && !StatisticsManager.IsDemonstrationMode)
                 {
                     if (!StatisticsManager.CourseMarks.FullyPassedLessons.Contains(CourseManager.CurrentLessonIndex))
                     {
@@ -213,6 +212,8 @@ namespace WPFMeteroWindow.Resources.pages
             }
 
             MistakenWordsTextList.Height = Math.Min(MistakenCharsTextList.ItemsHeight, 300d);
+            StatisticsManager.IsDemonstrationMode = false;
+
             MistakenWordsTextList.Items = StatisticsManager.MistakeWords;
             MistakenCharsTextList.Items = StatisticsManager.MistakeCharacters;
         }
