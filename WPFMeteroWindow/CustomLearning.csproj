@@ -197,6 +197,9 @@
     <Compile Include="Controls\MouseSplashShapes.xaml.cs">
       <DependentUpon>MouseSplashShapes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ReplaceItem.xaml.cs">
+      <DependentUpon>ReplaceItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\StatsVisualizer.xaml.cs">
       <DependentUpon>StatsVisualizer.xaml</DependentUpon>
     </Compile>
@@ -501,6 +504,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\MouseSplashShapes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ReplaceItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
