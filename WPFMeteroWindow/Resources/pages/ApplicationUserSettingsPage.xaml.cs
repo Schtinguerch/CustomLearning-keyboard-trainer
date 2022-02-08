@@ -12,6 +12,7 @@ using Point = System.Windows.Point;
 using TextBox = System.Windows.Controls.TextBox;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 using System.Windows.Media.Animation;
+using WPFMeteroWindow.Controls;
 
 namespace WPFMeteroWindow.Resources.pages
 {
@@ -213,6 +214,9 @@ namespace WPFMeteroWindow.Resources.pages
             button.Margin = new Thickness(0, 10, 0, 0);
 
             KeyboardDonutGrid.Children.Insert(0, button);
+
+            foreach (var replacement in LessonManager.Exceptions)
+                AddReplacement(replacement.Key, replacement.Value);
         }
 
         private void SetupColorPicker_OnSelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
@@ -228,6 +232,8 @@ namespace WPFMeteroWindow.Resources.pages
                 KeyboardManager.LoadKeyboardData(Settings.Default.SecondKeyboardLayoutFile);
 
             Settings.Default.Save();
+            LessonManager.Exceptions = GetReplacementDictionary();
+
             PageManager.HidePages();
         }
 
@@ -342,6 +348,9 @@ namespace WPFMeteroWindow.Resources.pages
             HighlightControl(_foundControls[_chosenItemIndex]);
         }
 
+        private void AddReplacement(string key = "", string replacement = "") =>
+            ReplacementStackPanel.Children.Add(new ReplaceItem(ReplacementStackPanel, key, replacement));
+
         private bool ContainsText(object control, string text)
         {
             var containsText = false;
@@ -384,6 +393,33 @@ namespace WPFMeteroWindow.Resources.pages
                 e.Handled = true;
                 HighlightPrevious();
             }
+        }
+
+        private void AddReplacementButton_Click(object sender, RoutedEventArgs e) => AddReplacement();
+
+        private Dictionary<string, string> GetReplacementDictionary()
+        {
+            var dictionary = new Dictionary<string, string>();
+            foreach (var child in ReplacementStackPanel.Children)
+            {
+                var replacementControl = child as ReplaceItem;
+
+                if (string.IsNullOrEmpty(replacementControl.InputKey))
+                {
+                    Intermediary.App.ShowMessage($"{Localization.uError}: {Localization.uKeyIsEmpty}");
+                    continue;
+                }
+
+                if (dictionary.TryGetValue(replacementControl.InputKey, out _))
+                {
+                    Intermediary.App.ShowMessage($"{Localization.uError}: {Localization.uKeyAlreadyIsInDictionary}");
+                    continue;
+                }
+
+                dictionary.Add(replacementControl.InputKey, replacementControl.Replacement);
+            }
+
+            return dictionary;
         }
     }
 }

@@ -1572,9 +1572,12 @@
                         </StackPanel>
                     </Grid>
                     
-                    <Grid Style="{StaticResource SettingsItemStyle}"
-                          Margin="0 24 0 10"
-                          Height="30">
+                    
+                    <Grid 
+                        Style="{StaticResource SettingsItemStyle}"
+                        Margin="0 24 0 10"
+                        Height="30">
+                        
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
@@ -1582,6 +1585,53 @@
                             FontSize="24">
                         </TextBlock>
                     </Grid>
+
+                    <StackPanel
+                        Margin="0 10 0 10"
+                        Orientation="Vertical">
+
+                        <Grid Margin="0 0 2 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="38"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock
+                                Style="{StaticResource SummaryTextStyle}"
+                                VerticalAlignment="Top"
+                                Text="{x:Static res:Resources.uSettReplacementDictionary}"
+                                FontSize="18">
+                            </TextBlock>
+
+                            <Button
+                                Grid.Column="1"
+                                Margin="0"
+                                Height="32"
+                                BorderBrush="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}" 
+                                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                                FontSize="12"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+                                
+                                x:Name="AddReplacementButton"
+                                Click="AddReplacementButton_Click">
+                                +
+                            </Button>
+                        </Grid>
+
+                        <ScrollViewer
+                            VerticalScrollBarVisibility="Visible"
+                            HorizontalScrollBarVisibility="Disabled"
+                            Padding="0 5 5 5"
+                            Margin="0 0 -18 0"
+                            MaxHeight="300">
+
+                            <StackPanel 
+                                x:Name="ReplacementStackPanel"
+                                Orientation="Vertical">
+                            </StackPanel>
+                        </ScrollViewer>
+                    </StackPanel>
                     
                     <Grid Style="{StaticResource SettingsItemStyle}"
                           >
