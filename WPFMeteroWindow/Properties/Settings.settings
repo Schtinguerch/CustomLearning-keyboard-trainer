@@ -230,5 +230,8 @@
     <Setting Name="ChosenClickSplashName" Type="System.String" Scope="User">
       <Value Profile="(Default)">NiceLightingDonut</Value>
     </Setting>
+    <Setting Name="ReplaceDictionaryPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ReplaceDictionary.json</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

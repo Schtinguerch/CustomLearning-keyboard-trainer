@@ -934,5 +934,17 @@ namespace WPFMeteroWindow.Properties {
                 this["ChosenClickSplashName"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ReplaceDictionary.json")]
+        public string ReplaceDictionaryPath {
+            get {
+                return ((string)(this["ReplaceDictionaryPath"]));
+            }
+            set {
+                this["ReplaceDictionaryPath"] = value;
+            }
+        }
     }
 }
