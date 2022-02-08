@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CustomLearning.exe" size="3660752">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CustomLearning.exe" size="3663824">
       <assemblyIdentity name="CustomLearning" version="0.9.7.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>KkfJ3C9TmfiQe9/VCTngvXl2CJ9bTr041I/LHCqjCLk=</dsig:DigestValue>
+        <dsig:DigestValue>EW/0ZK97T/pNxe/PHgZ6lzacVl4lVGO6T8VuWwJ8G3s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>4CxcU2rvDsczVWkcYmwK7VWWdC+cRe536Q1Ty79t1oM=</dsig:DigestValue>
+        <dsig:DigestValue>2ZLnHIP5makeKOLQZshIu0GJTTnV4ug/xj46mTvZnpw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -246,13 +246,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="CustomLearning.exe.config" size="11140">
+  <file name="CustomLearning.exe.config" size="11144">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>ho2azLSfW7Q3dSYMQOGiB1Xpo7c8eaHUqbow0UOfdwY=</dsig:DigestValue>
+      <dsig:DigestValue>d/keJiNslYnWXMwbpu0kUrtJVuI1Q1GQzojFmKHuQ5E=</dsig:DigestValue>
     </hash>
   </file>
   <file name="LogoLight.ico" size="268286">
