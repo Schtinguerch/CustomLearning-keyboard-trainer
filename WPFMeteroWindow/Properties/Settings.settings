@@ -227,7 +227,7 @@
     <Setting Name="EnableSplashAnimation" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="ChosenClickSplash" Type="System.String" Scope="User">
+    <Setting Name="ChosenClickSplashName" Type="System.String" Scope="User">
       <Value Profile="(Default)">NiceLightingDonut</Value>
     </Setting>
   </Settings>

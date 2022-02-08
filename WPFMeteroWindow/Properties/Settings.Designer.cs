@@ -926,12 +926,12 @@ namespace WPFMeteroWindow.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("NiceLightingDonut")]
-        public string ChosenClickSplash {
+        public string ChosenClickSplashName {
             get {
-                return ((string)(this["ChosenClickSplash"]));
+                return ((string)(this["ChosenClickSplashName"]));
             }
             set {
-                this["ChosenClickSplash"] = value;
+                this["ChosenClickSplashName"] = value;
             }
         }
     }
