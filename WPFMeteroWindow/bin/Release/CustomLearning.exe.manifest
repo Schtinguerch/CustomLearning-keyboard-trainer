@@ -55,26 +55,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CustomLearning.exe" size="3568592">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CustomLearning.exe" size="3574736">
       <assemblyIdentity name="CustomLearning" version="0.9.7.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>iI65lfZwhqEcd4bkRi8aHNAdpVSVUQzswXz+1F2Kdfk=</dsig:DigestValue>
+        <dsig:DigestValue>TmCajwjSCsdPXbFpReOFkmDrvQ268u1sP82WzLVtdfo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="en-US\CustomLearning.resources.dll" size="15360">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="en-US\CustomLearning.resources.dll" size="15872">
       <assemblyIdentity name="CustomLearning.resources" version="0.9.7.0" language="en-US" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>R1zSXVRvZi7vGhmEhm2Jnj5ScFc+dJcrlwFe+zwnL1g=</dsig:DigestValue>
+        <dsig:DigestValue>pYTI8iNbmA2ExZQeYwiByM0gJIoHj/z4ELKFeWmAEQY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -246,13 +246,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="CustomLearning.exe.config" size="11144">
+  <file name="CustomLearning.exe.config" size="11296">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>d/keJiNslYnWXMwbpu0kUrtJVuI1Q1GQzojFmKHuQ5E=</dsig:DigestValue>
+      <dsig:DigestValue>NBby103gy8LOS1cbJ914UQ0ow5tDG//2lbSU6zxyRkw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="LogoLight.ico" size="268286">
