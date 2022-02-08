@@ -58,12 +58,12 @@ namespace WPFMeteroWindow.Controls
 
             InitializeComponent();
 
-            _plotValues = plotValues;
-            _argumentSummaries = argumentSummaries;
+            _plotValues = plotValues.CloneList();
+            _argumentSummaries = argumentSummaries.CloneList();
 
-            _times = times;
-            _mistakes = mistakeTimes;
-            _mistakeCharacters = mistakeChacacters;
+            _times = times.CloneList();
+            _mistakes = mistakeTimes.CloneList();
+            _mistakeCharacters = mistakeChacacters.CloneList();
 
             foreach (var plot in plotValues)
                 foreach (var number in plot)
