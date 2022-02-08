@@ -56,7 +56,7 @@ namespace WPFMeteroWindow
                 Intermediary.MouseShapesDictionary.Add(shapeGrid.Name, shapeGrid);
             }
 
-            Intermediary.App.MouseSplashShape.Shape = Intermediary.MouseShapesDictionary[Settings.Default.ChosenClickSplash];
+            Intermediary.App.MouseSplashShape.Shape = Intermediary.MouseShapesDictionary[Settings.Default.ChosenClickSplashName];
 
             if (!Settings.Default.ShowStatistics)
                 Opener.Statistics(false);
@@ -477,13 +477,21 @@ namespace WPFMeteroWindow
             return milliseconds;
         }
 
-        public static Grid Copy(this Grid grid)
+        public static T Copy<T>(this T grid) where T : UIElement
         {
             var stringReader = new StringReader(XamlWriter.Save(grid));
             var xmlReader = XmlReader.Create(stringReader);
 
-            var newGrid = XamlReader.Load(xmlReader) as Grid;
+            var newGrid = XamlReader.Load(xmlReader) as T;
             return newGrid;
+        }
+
+        public static List<T> CloneList<T>(this List<T> list)
+        {
+            if (list == null)
+                return null;
+
+            return new List<T>(list);
         }
 
         public static double Parse(this string line) =>
