@@ -7,6 +7,7 @@ using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 using System;
 using System.Linq;
 using System.Windows;
+using Newtonsoft.Json;
 
 namespace WPFMeteroWindow
 {
@@ -16,24 +17,23 @@ namespace WPFMeteroWindow
         private static string _leftRoad;
         private static string _errorInput;
 
-        public static LessonTextInputPresenter TextInputPresenter { get; set; }
+        private static Dictionary<string, string> _exceptions =
+            AppManager.JsonReadData<Dictionary<string, string>>(Settings.Default.ReplaceDictionaryPath);
 
+        public static LessonTextInputPresenter TextInputPresenter { get; set; }
         public static string AllLessonText { get; private set; }
 
-        private static Dictionary<string, string> _exceptions = new Dictionary<string, string>()
+        public static Dictionary<string, string> Exceptions
         {
-            { "\n", " " },
-            { "\t", " " },
-            { "–", "-" },
-            { "—", "-" },
-            { "“", "\"" },
-            { "”", "\"" },
-            { "‘", "'" },
-            { "’", "'" },
-            { "«", "\"" },
-            { "»", "\"" },
-            { "…", "..." }
-        };
+            get => _exceptions;
+            set
+            {
+                _exceptions = value;
+
+                var jsonData = JsonConvert.SerializeObject(value);
+                File.WriteAllText(Settings.Default.ReplaceDictionaryPath, jsonData);
+            }
+        }
 
         public static string DoneRoad
         {
@@ -196,7 +196,7 @@ namespace WPFMeteroWindow
         {
             var value = s;
 
-            foreach (var exception in _exceptions)
+            foreach (var exception in Exceptions)
                 value = value.Replace(exception.Key, exception.Value);
 
             return value.Trim();
