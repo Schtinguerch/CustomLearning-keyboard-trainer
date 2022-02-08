@@ -154,6 +154,12 @@ namespace WPFMeteroWindow.Resources.pages
         private void ShowHandsTextBox_SelectionChanged(object sender, SelectionChangedEventArgs e) =>
             SetYesOrNo("Hands", (ShowHandsTextBox.SelectedItem as TextBlock).Text);
 
+        private void TypingAnimationComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) =>
+            KeyboardLightingDonut.Shape = Intermediary.KeyboardShapesDictionary[TypingAnimationComboBox.SelectedItem as string];
+
+        private void ClickAnimationComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) =>
+            MouseLightingDonut.Shape = Intermediary.MouseShapesDictionary[ClickAnimationComboBox.SelectedItem as string];
+
         private void LessonRaidedSymbolsColorTextBox_OnTextChanged(object sender, TextChangedEventArgs e) =>
             SetFont.MainRaidedLetters_Color(LessonRaidedSymbolsColorTextBox.Text);
 

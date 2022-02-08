@@ -6,7 +6,7 @@
       xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
       xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
       xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
-      xmlns:ext="http://schemas.xceed.com/wpf/xaml/toolkit"
+      xmlns:ext="http://schemas.xceed.com/wpf/xaml/toolkit" xmlns:controls="clr-namespace:WPFMeteroWindow.Controls"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="800"
       Title="ApplicationUserSettingsPage"
@@ -762,6 +762,110 @@
                             </ComboBox>
                         </StackPanel>
                     </Grid>
+
+                    <Grid
+                        Style="{StaticResource SettingsItemStyle}"
+                        Height="120">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="120"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Orientation="Vertical">
+
+                            <TextBlock
+                                Style="{StaticResource SummaryTextStyle}"
+                                VerticalAlignment="Top"
+                                Text="KeyboardTypingAnimation"
+                                FontSize="18"
+                                Margin="0 0 0 4">
+                            </TextBlock>
+
+                            <ComboBox
+                                FontSize="18"
+                                Height="32"
+                                Width="260"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="TypingAnimationComboBox"
+                                SelectionChanged="TypingAnimationComboBox_SelectionChanged">
+                            </ComboBox>
+                        </StackPanel>
+
+                        <Grid
+                            x:Name="KeyboardDonutGrid"
+                            Grid.Column="1">
+                            
+                            <controls:LightingDonut x:Name="KeyboardLightingDonut"/>
+                            <Rectangle Fill="Transparent"/>
+                        </Grid>
+                    </Grid>
+
+                    <Grid
+                        Style="{StaticResource SettingsItemStyle}"
+                        Height="120">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="120"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Orientation="Vertical">
+
+                            <TextBlock
+                                Style="{StaticResource SummaryTextStyle}"
+                                VerticalAlignment="Top"
+                                Text="MouseClickAnimation"
+                                FontSize="18"
+                                Margin="0 0 0 4">
+                            </TextBlock>
+
+                            <ComboBox
+                                FontSize="18"
+                                Height="32"
+                                Width="260"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="ClickAnimationComboBox"
+                                SelectionChanged="ClickAnimationComboBox_SelectionChanged">
+                            </ComboBox>
+                        </StackPanel>
+
+                        <Grid
+                            x:Name="MouseDonutGrid"
+                            Grid.Column="1">
+
+                            <Polygon
+                                Fill="{Binding KeyboardHighlightColor, Source={x:Static prop:Settings.Default}}"
+                                Width="30"
+                                Height="30"
+                                Margin="30 30 0 0"
+                                
+                                Points="0,0 15,15 5,14 0,21">
+                                
+                            </Polygon>
+
+                            <controls:MouseLightingDonut x:Name="MouseLightingDonut"/>
+                            <Rectangle Fill="Transparent"/>
+                        </Grid>
+                    </Grid>
+
+
+
+
 
                     <Grid Style="{StaticResource SettingsItemStyle}"
                           Margin="0 24 0 10"

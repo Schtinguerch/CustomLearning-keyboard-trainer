@@ -195,6 +195,24 @@ namespace WPFMeteroWindow.Resources.pages
 
             WindowTheme.Text = Settings.Default.ThemeResourceDictionary.ToLower().Contains("light") ? Localization.uLight : Localization.uDark;
             _loadImage = true;
+
+            foreach (var key in Intermediary.KeyboardShapesDictionary.Keys)
+                TypingAnimationComboBox.Items.Add(key);
+
+            foreach (var key in Intermediary.MouseShapesDictionary.Keys)
+                ClickAnimationComboBox.Items.Add(key);
+
+            TypingAnimationComboBox.Text = Settings.Default.ChosenSplashShapeName;
+            ClickAnimationComboBox.Text = Settings.Default.ChosenClickSplashName;
+
+            KeyboardLightingDonut.RepeatForever = true;
+            MouseLightingDonut.RepeatForever = true;
+
+            var button = Intermediary.KeyboardData.buttons[29].Copy();
+            button.Width = button.Height = 50d;
+            button.Margin = new Thickness(0, 10, 0, 0);
+
+            KeyboardDonutGrid.Children.Insert(0, button);
         }
 
         private void SetupColorPicker_OnSelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
