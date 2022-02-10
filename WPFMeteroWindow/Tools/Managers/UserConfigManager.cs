@@ -80,7 +80,6 @@ namespace WPFMeteroWindow
             SetColor.KeyboardBorder(reader.GetString("UserConfig>Keyboard>BorderColor"));
             SetColor.KeyboardHighlight(reader.GetString("UserConfig>Keyboard>HighlightColor"));
             SetColor.KeyboardErrorHighlight(reader.GetString("UserConfig>Keyboard>MistakeColor"));
-            Settings.Default.CurrentLayout = reader.GetInt("UserConfig>Keyboard>CurrentLayout");
 
             SetColor.SecondColor(reader.GetString("UserConfig>AppColors>SecondaryColor"));
             SetColor.CommandLineFirstColor(reader.GetString("UserConfig>AppColors>TextBoxColor"));
@@ -109,11 +108,6 @@ namespace WPFMeteroWindow
             Settings.Default.ChosenClickSplashName = reader.GetString("UserConfig>Animations>ChosenMouseShape");
             Settings.Default.ShakeBackgroundInClicking = reader.GetBool("UserConfig>Animations>EnableClickBump");
             Settings.Default.ShakeBackgroundInTyping = reader.GetBool("UserConfig>Animations>EnableTypeBump");
-
-            if (Settings.Default.CurrentLayout == 1)
-                Opener.NewKeyboardLayout(Settings.Default.KeyboardLayoutFile);
-            else
-                Opener.NewKeyboardLayout(Settings.Default.SecondKeyboardLayoutFile);
 
             Intermediary.App.MouseSplashShape.Shape = Intermediary.MouseShapesDictionary[Settings.Default.ChosenClickSplashName];
 
@@ -183,7 +177,6 @@ namespace WPFMeteroWindow
             data += $"        <BorderColor {Settings.Default.KeyboardBorderColor}>>\n";
             data += $"        <HighlightColor {Settings.Default.KeyboardHighlightColor}>>\n";
             data += $"        <MistakeColor {Settings.Default.KeyboardErrorHighlightColor}>>\n";
-            data += $"        <CurrentLayout {Settings.Default.CurrentLayout}>>\n";
             data += $"    :Keyboard>>\n\n";
 
             data += $"    <<AppColors:\n";
