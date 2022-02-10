@@ -185,6 +185,18 @@ namespace WPFMeteroWindow
 
             //The special window to test new app features
             //new TestWindow().Show();
+
+            if (!File.Exists(Settings.Default.FirstLaunchFileIndicatorPath))
+            {
+                PageManager.OpenPage(TabPage.WelcomePage);
+                File.WriteAllText(
+                    Settings.Default.FirstLaunchFileIndicatorPath, 
+                    "Yep dude!!!\n" +
+                    "You can write me in Discord: Schtinguerch#7516\n" +
+                    "Just send the screenshot with the message if you want...\n\n" +
+                    "А если по-русски умеешь изъявляться, то вообще замечательно!\n" +
+                    "Буду очень рад поболтать"); 
+            }
         }
 
         public void ShowMessage(string message)
