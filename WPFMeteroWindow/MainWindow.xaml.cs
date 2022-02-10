@@ -30,8 +30,6 @@ namespace WPFMeteroWindow
             _blurUpImageBackgroundStoryboard,
             _blurBackImageBackgroundStoryboard;
 
-        private Thread _startingThread;
-
         private bool _breakTextProcessing = false;
 
         private bool _isFirstMistake = true;
@@ -124,31 +122,10 @@ namespace WPFMeteroWindow
         public void FocusOnTextInputControl() =>
             bufferTextBox.Focus();
 
-        private void LoadMainAppWindow()
-        {
-            var appWindow = new AppLoadingWindow();
-            appWindow.Show();
-            
-            try
-            {
-                System.Windows.Threading.Dispatcher.Run();
-            }
-
-            catch (System.Threading.ThreadAbortException ex)
-            {
-                //IDK how does it work, but it's necessary to prevent app crashing in debigging from Visual Studio, SORRY
-            }
-        }
 
         [Obsolete]
         public MainWindow()
         {
-            _startingThread = new Thread(LoadMainAppWindow);
-            _startingThread.ApartmentState = System.Threading.ApartmentState.STA;
-
-            _startingThread.IsBackground = true;
-            _startingThread.Start();
-
             InitializeComponent();
 
             KeyboardManager.Board = keyboardGrid;
@@ -627,10 +604,7 @@ namespace WPFMeteroWindow
 
         private void MetroWindow_ContentRendered(object sender, EventArgs e)
         {
-            ContentRendered -= MetroWindow_ContentRendered;
-            _startingThread.Abort();
-
-            Activate();
+            ContentRendered -= MetroWindow_ContentRendered;;
             ParallaxEffectPresenter.MakeParallaxEffect(new Point(0, 0));
         }
 
