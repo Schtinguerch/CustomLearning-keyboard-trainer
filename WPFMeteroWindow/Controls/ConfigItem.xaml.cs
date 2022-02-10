@@ -74,6 +74,11 @@ namespace WPFMeteroWindow.Controls
 
             if (_hasImage)
             {
+                if (!ImagePath.Contains(":\\") && !ImagePath.Contains("http"))
+                {
+                    ImagePath = $"{AppDomain.CurrentDomain.BaseDirectory}\\{ImagePath}";
+                }
+
                 _backgroundImage.ImageSource  = new BitmapImage(new Uri(ImagePath));
                 _imageBlurEffect.Radius = BlurRadius;
             }
