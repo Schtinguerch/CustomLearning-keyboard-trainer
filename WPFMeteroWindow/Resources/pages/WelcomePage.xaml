@@ -1,0 +1,531 @@
+﻿<Page x:Class="WPFMeteroWindow.Resources.pages.WelcomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
+      xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
+      xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
+      mc:Ignorable="d" 
+      d:DesignHeight="640" d:DesignWidth="1120"
+      Title="WelcomePage">
+
+    <Page.Resources>
+        <Storyboard 
+            x:Key="NiceStoryboard"
+            RepeatBehavior="Forever"
+            AutoReverse="False"
+            BeginTime="00:00:01"
+            Duration="00:00:10">
+
+            <DoubleAnimation
+                Storyboard.TargetName="WhiteCircle"
+                Storyboard.TargetProperty="Opacity"
+                
+                From="0"
+                To="1"
+                
+                DecelerationRatio="1"
+                Duration="00:00:02"
+                AutoReverse="True">
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="BlueCircle"
+                Storyboard.TargetProperty="Opacity"
+                
+                From="0"
+                To="1"
+                
+                BeginTime="00:00:02"
+                DecelerationRatio="1"
+                Duration="00:00:02"
+                AutoReverse="True">
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="BlueVioletCircle"
+                Storyboard.TargetProperty="Opacity"
+                
+                From="0"
+                To="1"
+                
+                BeginTime="00:00:04"
+                DecelerationRatio="1"
+                Duration="00:00:02"
+                AutoReverse="True">
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="VioletCircle"
+                Storyboard.TargetProperty="Opacity"
+                
+                From="0"
+                To="1"
+                
+                BeginTime="00:00:06"
+                DecelerationRatio="1"
+                Duration="00:00:02"
+                AutoReverse="True">
+            </DoubleAnimation>
+        </Storyboard>
+        
+        <Storyboard 
+            x:Key="ShowHelloStoryboard"
+            AutoReverse="False"
+            BeginTime="00:00:02">
+
+            <DoubleAnimation
+                Storyboard.TargetName="HelloTextBlock"
+                Storyboard.TargetProperty="Opacity"
+                
+                Duration="00:00:02"
+                
+                From="0"
+                To="1"
+                AccelerationRatio="1">
+
+                <DoubleAnimation.EasingFunction>
+                    <PowerEase EasingMode="EaseIn" Power="2"></PowerEase>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="LightingEffect"
+                Storyboard.TargetProperty="BlurRadius"
+                
+                Duration="00:00:01"
+                
+                From="0"
+                To="20"
+                AccelerationRatio="1"
+                AutoReverse="True">
+
+                <DoubleAnimation.EasingFunction>
+                    <PowerEase EasingMode="EaseIn" Power="2"></PowerEase>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="HelloTextBlock"
+                Storyboard.TargetProperty="Opacity"
+                
+                BeginTime="00:00:05"
+                Duration="00:00:01"
+                
+                From="1"
+                To="0"
+                DecelerationRatio="1">
+
+                <DoubleAnimation.EasingFunction>
+                    <PowerEase EasingMode="EaseIn" Power="2"></PowerEase>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <StringAnimationUsingKeyFrames
+                Storyboard.TargetName="HelloTextBlock"
+                Storyboard.TargetProperty="Text"
+                BeginTime="00:00:06">
+
+                <DiscreteStringKeyFrame 
+                    KeyTime="00:00:00"
+                    Value="{x:Static res:Resources.uLetsSetupTheApp}">
+                </DiscreteStringKeyFrame>
+            </StringAnimationUsingKeyFrames>
+
+            <DoubleAnimation
+                Storyboard.TargetName="HelloTextBlock"
+                Storyboard.TargetProperty="Opacity"
+                
+                BeginTime="00:00:07"
+                Duration="00:00:02"
+                
+                From="0"
+                To="1"
+                AccelerationRatio="1">
+
+                <DoubleAnimation.EasingFunction>
+                    <PowerEase EasingMode="EaseIn" Power="2"></PowerEase>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="LightingEffect"
+                Storyboard.TargetProperty="BlurRadius"
+                
+                BeginTime="00:00:07"
+                Duration="00:00:01"
+                
+                From="0"
+                To="20"
+                AccelerationRatio="1"
+                AutoReverse="True">
+
+                <DoubleAnimation.EasingFunction>
+                    <PowerEase EasingMode="EaseIn" Power="2"></PowerEase>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="ButtonGrid"
+                Storyboard.TargetProperty="Opacity"
+                
+                BeginTime="00:00:08"
+                Duration="00:00:02"
+                
+                From="0"
+                To="1"
+                AccelerationRatio="1">
+
+                <DoubleAnimation.EasingFunction>
+                    <PowerEase EasingMode="EaseIn" Power="2"></PowerEase>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="ButtonLightingEffect"
+                Storyboard.TargetProperty="Opacity"
+                
+                BeginTime="00:00:08"
+                Duration="00:00:01.6"
+                
+                From="0"
+                To="1"
+                AccelerationRatio="1"
+                AutoReverse="True">
+
+                <DoubleAnimation.EasingFunction>
+                    <PowerEase EasingMode="EaseIn" Power="2"></PowerEase>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+
+        <Storyboard
+            x:Key="ShowSetupPanelStoryboard"
+            AutoReverse="False">
+
+            <DoubleAnimation
+                Storyboard.TargetName="HeaderTransform"
+                Storyboard.TargetProperty="Y"
+                
+                From="0"
+                To="-210"
+                DecelerationRatio="1"
+                Duration="00:00:01">
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="SetupPanelGrid"
+                Storyboard.TargetProperty="Opacity"
+                BeginTime="00:00:01"
+                
+                From="0"
+                To="1"
+                DecelerationRatio="1"
+                Duration="00:00:0.5">
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="ButtonGrid"
+                Storyboard.TargetProperty="Opacity"
+                
+                From="1"
+                To="0"
+                AccelerationRatio="1"
+                Duration="00:00:0.5">
+            </DoubleAnimation>
+        </Storyboard>
+    </Page.Resources>
+
+    <Grid 
+        x:Name="BackgroundGrid"
+        Background="#121212">
+
+        <Canvas 
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            RenderTransformOrigin="0.5 0.5"
+            
+            Opacity="0.6"
+            x:Name="CirclesCanvas"
+            
+            Height="600"
+            Width="800">
+
+            <Canvas.Effect>
+                <BlurEffect Radius="200"></BlurEffect>
+            </Canvas.Effect>
+
+            <Canvas.RenderTransform>
+                <ScaleTransform
+                    ScaleX="1.2"
+                    ScaleY="1.2">
+                </ScaleTransform>
+            </Canvas.RenderTransform>
+
+            <Ellipse
+                x:Name="BlueCircle"
+                d:Opacity="1"
+                Opacity="0"
+                
+                Width="240"
+                Height="240"
+                Fill="DeepSkyBlue"
+                
+                Canvas.Left="120"
+                Canvas.Top="160">
+            </Ellipse>
+
+            <Ellipse
+                x:Name="BlueVioletCircle"
+                d:Opacity="1"
+                Opacity="0"
+                
+                Width="120"
+                Height="120"
+                Fill="BlueViolet"
+                
+                Canvas.Left="460"
+                Canvas.Top="360">
+            </Ellipse>
+
+            <Ellipse
+                x:Name="VioletCircle"
+                d:Opacity="1"
+                Opacity="0"
+                
+                Width="160"
+                Height="160"
+                Fill="#5662F6"
+                
+                Canvas.Left="500"
+                Canvas.Top="120">
+            </Ellipse>
+
+            <Ellipse
+                x:Name="WhiteCircle"
+                d:Opacity="1"
+                Opacity="0"
+                
+                Width="100"
+                Height="100"
+                Fill="White"
+                
+                Canvas.Left="380"
+                Canvas.Top="250">
+            </Ellipse>
+        </Canvas>
+
+        <Grid 
+            x:Name="SetupPanelGrid"
+            Opacity="0"
+            d:Opacity="1"
+            
+            Width="700"
+            Height="500">
+
+            <Grid.Background>
+                <SolidColorBrush
+                    Color="Black"
+                    Opacity="0.">
+                </SolidColorBrush>
+            </Grid.Background>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Rectangle
+                Grid.Row="0"
+                Fill="#11000000">
+            </Rectangle>
+
+            <Rectangle
+                Grid.Row="2"
+                Fill="#11000000">
+            </Rectangle>
+
+            <Grid
+                Grid.Row="2"
+                Background="#11000000">
+
+                <StackPanel
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+
+                    <Button
+                        Grid.Column="0"
+                        Grid.Row="1"
+                
+                        Background="#88242424"
+                        BorderThickness="0"
+                        Margin="0 10 8 10"
+                        Width="120"
+                        
+                        Click="Button_Click_2">
+
+                        <Button.Content>
+                            <TextBlock
+                                FontSize="18"
+                                Text="{x:Static res:Resources.uSkip}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}">
+                            </TextBlock>
+                        </Button.Content>
+                    </Button>
+
+                    <Button
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Margin="0 10 16 10"
+                        Width="120"
+                
+                        Background="#885e0086"
+                        BorderThickness="0"
+                        
+                        Click="Button_Click_3">
+
+                        <Button.Content>
+                            <TextBlock
+                                FontSize="18"
+                                Text="{x:Static res:Resources.uApply}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}">
+
+                                <TextBlock.Effect>
+                                    <DropShadowEffect
+                                        ShadowDepth="0"
+                                        BlurRadius="20"
+                                        Color="White">
+                                    </DropShadowEffect>
+                                </TextBlock.Effect>
+                            </TextBlock>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <Frame
+                x:Name="SetupPageFrame"
+                Grid.Row="1">
+            </Frame>
+        </Grid>
+
+        <TextBlock
+            x:Name="HelloTextBlock"
+            Style="{StaticResource SummaryTextStyle}"
+            Text="{x:Static res:Resources.uHelloInCustomLearning}"
+            
+            d:Opacity="1"
+            Opacity="0"
+            
+            TextAlignment="Center"
+            FontSize="42"
+            FontWeight="Bold">
+
+            <TextBlock.RenderTransform>
+                <TranslateTransform
+                    x:Name="HeaderTransform"
+                    X="0"
+                    d:Y="-210"
+                    Y="0">
+                </TranslateTransform>
+            </TextBlock.RenderTransform>
+
+            <TextBlock.Effect>
+                <DropShadowEffect
+                    x:Name="LightingEffect"
+                    BlurRadius="0"
+                    d:BlurRadius="20"
+                    
+                    ShadowDepth="0"
+                    Color="White">
+
+                </DropShadowEffect>
+            </TextBlock.Effect>
+        </TextBlock>
+
+        <Grid
+            Name="ButtonGrid"
+            d:Opacity="1"
+            Opacity="0"
+            
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="300"
+            Height="200">
+
+            <Grid.Effect>
+                <DropShadowEffect
+                    x:Name="ButtonLightingEffect"
+                    
+                    d:Opacity="1"
+                    Opacity="0"
+                    
+                    ShadowDepth="0"
+                    Color="White"
+                    BlurRadius="30">
+                </DropShadowEffect>
+            </Grid.Effect>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Button
+                Grid.Column="0"
+                Grid.Row="1"
+                
+                Background="#88242424"
+                BorderThickness="0"
+                Margin="5 0 5 0"
+                
+                Click="Button_Click">
+
+                <Button.Content>
+                    <TextBlock
+                        FontSize="18"
+                        Text="{x:Static res:Resources.uSkip}"
+                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                        Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}">
+                    </TextBlock>
+                </Button.Content>
+            </Button>
+
+            <Button
+                Grid.Column="1"
+                Grid.Row="1"
+                
+                Background="#885e0086"
+                BorderThickness="0"
+                
+                Click="Button_Click_1">
+
+                <Button.Content>
+                    <TextBlock
+                        FontSize="18"
+                        Text="{x:Static res:Resources.uDoSetup}"
+                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                        Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}">
+
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                ShadowDepth="0"
+                                BlurRadius="20"
+                                Color="White">
+                            </DropShadowEffect>
+                        </TextBlock.Effect>
+                    </TextBlock>
+                </Button.Content>
+            </Button>
+        </Grid>
+    </Grid>
+</Page>
