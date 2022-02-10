@@ -69,7 +69,7 @@ namespace WPFMeteroWindow
 
             if (Settings.Default.IsBackgroundImage)
             {
-                if (File.Exists(Settings.Default.BackgroundImagePath))
+                if (File.Exists(Settings.Default.BackgroundImagePath) || Settings.Default.BackgroundImagePath.Contains("http"))
                     SetColor.WindowBackgroundImage(Settings.Default.BackgroundImagePath);
                 else 
                     SetColor.WindowStandardColor();
