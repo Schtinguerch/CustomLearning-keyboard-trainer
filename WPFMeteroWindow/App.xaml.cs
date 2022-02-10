@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
@@ -51,6 +52,8 @@ namespace WPFMeteroWindow
             var message = exception.Message;
 
             LogManager.Log($"Critical error: {message}");
+            File.WriteAllText("logs.log", $"{message}\n\n{LogManager.LogText}");
+
             MessageBox.Show($"{message}", $"{Localization.uError}");
         }
     }
