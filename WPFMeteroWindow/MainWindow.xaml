@@ -570,7 +570,7 @@
                     <TextBlock 
                         Style="{StaticResource SummaryTextStyle}"
                         Margin="0 0 12 0"
-                        FontSize="20"
+                        FontSize="18"
                         HorizontalAlignment="Right"
                         x:Name="TimerTextBlock"
                         Text="0:0">
