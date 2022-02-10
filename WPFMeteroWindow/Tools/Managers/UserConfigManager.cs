@@ -111,6 +111,11 @@ namespace WPFMeteroWindow
 
             Intermediary.App.MouseSplashShape.Shape = Intermediary.MouseShapesDictionary[Settings.Default.ChosenClickSplashName];
 
+            if (Settings.Default.CurrentLayout == 1)
+                Opener.NewKeyboardLayout(Settings.Default.KeyboardLayoutFile);
+            else
+                Opener.NewKeyboardLayout(Settings.Default.SecondKeyboardLayoutFile);
+
             Settings.Default.BackgroundBlurRadius = reader.GetString("UserConfig>Wallpaper>BlurRadius");
             Settings.Default.Save();
         }
