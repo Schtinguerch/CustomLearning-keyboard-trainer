@@ -101,7 +101,6 @@ namespace WPFMeteroWindow
                 SetColor.WindowBackgroundImage(reader.GetString("UserConfig>Wallpaper>PathToImage"));
 
             SetColor.FirstColor(reader.GetString("UserConfig>AppColors>MainColor"));
-            Settings.Default.BackgroundBlurRadius = reader.GetString("UserConfig>Wallpaper>BlurRadius");
 
             Settings.Default.EnableParallax = reader.GetBool("UserConfig>Animations>EnableParallaxEffect");
             Settings.Default.EnableSplashAnimation = reader.GetBool("UserConfig>Animations>EnabledSplash");
@@ -116,6 +115,9 @@ namespace WPFMeteroWindow
             else
                 Opener.NewKeyboardLayout(Settings.Default.SecondKeyboardLayoutFile);
 
+            Intermediary.App.MouseSplashShape.Shape = Intermediary.MouseShapesDictionary[Settings.Default.ChosenClickSplashName];
+
+            Settings.Default.BackgroundBlurRadius = reader.GetString("UserConfig>Wallpaper>BlurRadius");
             Settings.Default.Save();
         }
 
