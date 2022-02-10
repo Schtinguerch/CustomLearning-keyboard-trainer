@@ -129,6 +129,9 @@
   <data name="uAppAppearance" xml:space="preserve">
     <value>Внешний вид</value>
   </data>
+  <data name="uApply" xml:space="preserve">
+    <value>Применить</value>
+  </data>
   <data name="uAuthor" xml:space="preserve">
     <value>Автор</value>
   </data>
@@ -183,6 +186,9 @@
   <data name="uDictionary" xml:space="preserve">
     <value>Словарь</value>
   </data>
+  <data name="uDoSetup" xml:space="preserve">
+    <value>Настроить</value>
+  </data>
   <data name="uEmptyList" xml:space="preserve">
     <value>Список пуст</value>
   </data>
@@ -233,6 +239,9 @@
   </data>
   <data name="uHandsThickness" xml:space="preserve">
     <value>Толщина линий на руках</value>
+  </data>
+  <data name="uHelloInCustomLearning" xml:space="preserve">
+    <value>Приветствую в CustomLearning</value>
   </data>
   <data name="uHtmlParsing" xml:space="preserve">
     <value>HTML-парсинг</value>
@@ -285,8 +294,14 @@
   <data name="uLessonPathList" xml:space="preserve">
     <value>Список путей к урокам</value>
   </data>
+  <data name="uLetsSetupTheApp" xml:space="preserve">
+    <value>Давайте настроим тренажёр под Вас</value>
+  </data>
   <data name="uLight" xml:space="preserve">
     <value>Светлая</value>
+  </data>
+  <data name="uLoading" xml:space="preserve">
+    <value>Загрузка</value>
   </data>
   <data name="uLoadNewLayouts" xml:space="preserve">
     <value>Загрузить новые раскладки</value>
@@ -596,6 +611,12 @@
   </data>
   <data name="uShuffledWords" xml:space="preserve">
     <value>Слова перемешаны</value>
+  </data>
+  <data name="uSkin" xml:space="preserve">
+    <value>Тема</value>
+  </data>
+  <data name="uSkip" xml:space="preserve">
+    <value>Пропустить</value>
   </data>
   <data name="uSpace" xml:space="preserve">
     <value>"Пробел"</value>

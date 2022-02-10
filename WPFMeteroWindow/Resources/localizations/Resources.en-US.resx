@@ -129,6 +129,9 @@
   <data name="uAppAppearance" xml:space="preserve">
     <value>App appearance</value>
   </data>
+  <data name="uApply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
   <data name="uAuthor" xml:space="preserve">
     <value>Author</value>
   </data>
@@ -183,6 +186,9 @@
   <data name="uDictionary" xml:space="preserve">
     <value>Dictionary</value>
   </data>
+  <data name="uDoSetup" xml:space="preserve">
+    <value>Setup</value>
+  </data>
   <data name="uEmptyList" xml:space="preserve">
     <value>Список пуст</value>
   </data>
@@ -233,6 +239,9 @@
   </data>
   <data name="uHandsThickness" xml:space="preserve">
     <value>Hands line thickness</value>
+  </data>
+  <data name="uHelloInCustomLearning" xml:space="preserve">
+    <value>Hello in CustomLearning</value>
   </data>
   <data name="uHtmlParsing" xml:space="preserve">
     <value>HTML parsing</value>
@@ -285,8 +294,14 @@
   <data name="uLessonPathList" xml:space="preserve">
     <value>The List of paths to lessons</value>
   </data>
+  <data name="uLetsSetupTheApp" xml:space="preserve">
+    <value>Let's setup the trainer for you</value>
+  </data>
   <data name="uLight" xml:space="preserve">
     <value>Light</value>
+  </data>
+  <data name="uLoading" xml:space="preserve">
+    <value>Loading</value>
   </data>
   <data name="uLoadNewLayouts" xml:space="preserve">
     <value>Load new keyboard layouts</value>
@@ -596,6 +611,12 @@
   </data>
   <data name="uShuffledWords" xml:space="preserve">
     <value>Words shuffled</value>
+  </data>
+  <data name="uSkin" xml:space="preserve">
+    <value>Skin</value>
+  </data>
+  <data name="uSkip" xml:space="preserve">
+    <value>Skip</value>
   </data>
   <data name="uSpace" xml:space="preserve">
     <value>"Space"</value>
