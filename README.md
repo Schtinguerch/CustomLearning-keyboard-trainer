@@ -9,6 +9,7 @@ CustomLearning allows change most application parameters such as
   * app's fonts
   * setup background image
   * image blur effect and parallax
+  * beautiful animations, parallax, bumps, splashes
 * Keyborad layouts
   * A lot of popular alternative layouts 
   * Create YOUR OWN layout
@@ -56,9 +57,12 @@ And 2 ways to usual app using:
 ## App skins - skin configurations
 User can often change app appearance. To simplify this process CustomLearning allows user to use special files with app appearance parameters - skin configuration files.
 
-![1st theme](https://sun9-81.userapi.com/impg/y2vdK3pfVKPMJJFvREBiVuwpWix2Z4OKI_JcUg/gxBZ2QfiWlY.jpg?size=1193x640&quality=95&sign=a21a524491fbf55fba7c6e361526c8c6&type=album)
-![2nd theme](https://sun9-77.userapi.com/impg/Puwp6zEXOzbK2xldz5eqAgl-Wt5nj5X4PNPvNw/GZKwG4rQAx0.jpg?size=1193x640&quality=95&sign=6012b79fb7e12e267567ff174fb51935&type=album)
-![3rd theme](https://sun9-71.userapi.com/impg/CVhvHznjUI5ekGsEe-CPl03fTkkDfkXOug7ugg/KlAkh5E4Lks.jpg?size=1193x640&quality=95&sign=cd7fe24eecd32680d124f04d7f0146ec&type=album)
+![1st theme](https://sun9-27.userapi.com/impg/FnDIXusEZFtcHkMlUFJ5ZYPbNt2Uyq-RWQI0zA/JZIq0UFRq_E.jpg?size=1120x640&quality=95&sign=6a21a61f41f1bb9e3945cfdd3edba99c&type=album)
+![2nd theme](https://sun9-24.userapi.com/impg/bwqTF27IlbLP749Trb4yK2KbDHeCZtqgNFM_zA/0Z8dts1N5hY.jpg?size=1120x640&quality=95&sign=7ce4e703a48b4fcc004677ff52134506&type=album)
+![3rd theme](https://sun9-52.userapi.com/impg/40i19vkVqh-MAFRsNFqCU0_Co66yi3Z1Bax81w/S0KN_ZpBy84.jpg?size=1120x640&quality=95&sign=9fb0ce45f76e63a0d239efc6ba624d37&type=album)
+![4th theme](https://sun9-63.userapi.com/impg/4Sa8ehvDYT8C97qggSSNbWu71d2toNPrj0DLqA/nLBzmth_I5Q.jpg?size=1120x640&quality=95&sign=c219014f802486c51067262c03a048f6&type=album)
+![5th theme](https://sun9-38.userapi.com/impg/n0XWGt4tYLDfcFbtWA9PlEV4kzJWyduPbbv9bg/zToyEbYyEoY.jpg?size=1120x640&quality=95&sign=d0a3acd9432c3e4531450dd5904982fc&type=album)
+![6th theme](https://sun9-40.userapi.com/impg/lVh96sik6xTCZNZTWN31FaGfqdaX5ZRoxcx66g/6f-w2eophg8.jpg?size=1120x640&quality=95&sign=e86fe96fc12573acdb8a5fd1f86f06d3&type=album)
 
 There is 2 ways to export skins:
  1. Via CLI command and file explorer `cfg exp` 
@@ -73,53 +77,65 @@ You can hold background images on the Internet, just insert image url into confi
 Every skin cointains the code such as:
 ```
 #config
+#config
+
 <<UserConfig:
     <<Fonts:
-        <AppGUIFontFamily Comic Sans MS>>
-        <AppGUIFontColor White>>
-        <LessonFontFamily Comic Sans MS>>
+        <AppGUIFontFamily Imprint MT Shadow, 8.25pt, style=Bold>>
+        <AppGUIFontColor #FFB0B0B0>>
+
+        <LessonFontFamily Imprint MT Shadow, 8.25pt>>
         <LessonFontSize 36>>
-        <LessonFontColor #FF65FF0D>>
-        <RaidedLessonFontColor #FF2D6B09>>
-        <KeyboardFontFamily Comic Sans MS>>
+        <LessonFontColor White>>
+        <RaidedLessonFontColor #FF87431B>>
+
+        <KeyboardFontFamily Segoe UI>>
         <KeyboardFontColor #FFDBDBDB>>
     :Fonts>>
 
-     <<Opacity:
-         <MenuOpacity 0.308695652173913>>
-         <KeyboardOpacity 1>>
-         <HandsOpacity 1>>
-     :Opacity>>
+    <<Opacity:
+        <MenuOpacity 1>>
+        <KeyboardOpacity 1>>
+        <HandsOpacity 1>>
+    :Opacity>>
 
-     <<Hands:
-         <ShowHands True>>
-         <HandsColor #FF02E051>>
-         <HandsThickness  6>>
+    <<Hands:
+        <ShowHands True>>
+        <HandsColor #FFFF9D75>>
+        <HandsThickness 6>>
     :Hands>>
 
     <<Keyboard:
-        <KeyColor #6603680E>>
-        <BorderColor #CA023B08>>
-        <HighlightColor #FF00FF1B>>
-        <MistakeColor #FFFF9300>>
+        <KeyColor #88492a15>>
+        <BorderColor #341f07>>
+        <HighlightColor #FFD65910>>
+        <MistakeColor #FFE8B817>>
     :Keyboard>>
-  
+
     <<AppColors:
-        <MainColor #FF4BA11A>>
-        <SecondaryColor #FF1D4505>>
-        <TextBoxColor #FF183805>>
-        <SecondaryMenuColor #FF378708>>
+        <MainColor #3f1d0b>>
+        <SecondaryColor #FF381309>>
+        <TextBoxColor #FF1B0D09>>
+        <SecondaryMenuColor #0c0402>>
         <Theme dark>>
-        <ControlsHighlightColor green>>
+        <ControlsHighlightColor brown>>
         <HasImageBackground True>>
         <InputTextBox SingleLineWithStaticCaret>>
     :AppColors>>
 
     <<Wallpaper:
-        <PathToImage D:\Storage\Photos\Wallpapers\5210941.jpg>>
-        <HasParallaxEffect True>>
-        <BlurRadius 100>>
+        <PathToImage https://images3.alphacoders.com/210/210895.jpg>>
+        <BlurRadius 31.3043478260869>>
     :Wallpaper>>
+
+    <<Animations:
+        <EnableParallaxEffect True>>
+        <EnabledSplash True>>
+        <ChosenKeyboardShape ClassicDonut>>
+        <ChosenMouseShape NiceLightingDonut>>
+        <EnableClickBump True>>
+        <EnableTypeBump False>>
+    :Animations>>
 :UserConfig>>
 ```
   
