@@ -165,9 +165,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AppLoadingWindow.xaml.cs">
-      <DependentUpon>AppLoadingWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Commands\ColorSetter.cs" />
     <Compile Include="Commands\ConfigSetter.cs" />
     <Compile Include="Commands\FileOpener.cs" />
@@ -484,10 +481,6 @@
     <Compile Include="Tools\SettingsSetters\Opener.cs" />
     <Compile Include="Tools\SettingsSetters\SetColor.cs" />
     <Compile Include="Tools\SettingsSetters\SetFont.cs" />
-    <Page Include="AppLoadingWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Controls\AllSplashShapes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -928,6 +921,8 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <SplashScreen Include="Resources\images\SplashScreen.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
