@@ -80,12 +80,13 @@ namespace WPFMeteroWindow
             SetColor.KeyboardBorder(reader.GetString("UserConfig>Keyboard>BorderColor"));
             SetColor.KeyboardHighlight(reader.GetString("UserConfig>Keyboard>HighlightColor"));
             SetColor.KeyboardErrorHighlight(reader.GetString("UserConfig>Keyboard>MistakeColor"));
+            Settings.Default.CurrentLayout = reader.GetInt("UserConfig>Keyboard>CurrentLayout");
 
             SetColor.SecondColor(reader.GetString("UserConfig>AppColors>SecondaryColor"));
             SetColor.CommandLineFirstColor(reader.GetString("UserConfig>AppColors>TextBoxColor"));
             SetColor.CommandLineSecondColor(reader.GetString("UserConfig>AppColors>SecondaryMenuColor"));
-            SetColor.WindowColor(reader.GetString("UserConfig>AppColors>Theme"));
-            SetColor.ColorScheme(reader.GetString("UserConfig>AppColors>ControlsHighlightColor"));
+            SetColor.ColorScheme(reader.GetString("UserConfig>AppColors>Theme"));
+            SetColor.WindowColor(reader.GetString("UserConfig>AppColors>ControlsHighlightColor"));
             Opener.NewTextInputWay(reader.GetString("UserConfig>AppColors>InputTextBox"));
 
             SetColor.Hands(reader.GetString("UserConfig>Hands>HandsColor"));
@@ -100,10 +101,21 @@ namespace WPFMeteroWindow
                 SetColor.WindowBackgroundImage(reader.GetString("UserConfig>Wallpaper>PathToImage"));
 
             SetColor.FirstColor(reader.GetString("UserConfig>AppColors>MainColor"));
-            Settings.Default.EnableParallax = reader.GetBool("UserConfig>Wallpaper>HasParallaxEffect");
             Settings.Default.BackgroundBlurRadius = reader.GetString("UserConfig>Wallpaper>BlurRadius");
 
-            Opener.NewKeyboardLayout(Settings.Default.KeyboardLayoutFile);
+            Settings.Default.EnableParallax = reader.GetBool("UserConfig>Animations>EnableParallaxEffect");
+            Settings.Default.EnableSplashAnimation = reader.GetBool("UserConfig>Animations>EnabledSplash");
+
+            Settings.Default.ChosenSplashShapeName = reader.GetString("UserConfig>Animations>ChosenKeyboardShape");
+            Settings.Default.ChosenClickSplashName = reader.GetString("UserConfig>Animations>ChosenMouseShape");
+            Settings.Default.ShakeBackgroundInClicking = reader.GetBool("UserConfig>Animations>EnableClickBump");
+            Settings.Default.ShakeBackgroundInTyping = reader.GetBool("UserConfig>Animations>EnableTypeBump");
+
+            if (Settings.Default.CurrentLayout == 1)
+                Opener.NewKeyboardLayout(Settings.Default.KeyboardLayoutFile);
+            else
+                Opener.NewKeyboardLayout(Settings.Default.SecondKeyboardLayoutFile);
+
             Settings.Default.Save();
         }
 
@@ -169,6 +181,7 @@ namespace WPFMeteroWindow
             data += $"        <BorderColor {Settings.Default.KeyboardBorderColor}>>\n";
             data += $"        <HighlightColor {Settings.Default.KeyboardHighlightColor}>>\n";
             data += $"        <MistakeColor {Settings.Default.KeyboardErrorHighlightColor}>>\n";
+            data += $"        <CurrentLayout {Settings.Default.CurrentLayout}>>\n";
             data += $"    :Keyboard>>\n\n";
 
             data += $"    <<AppColors:\n";
@@ -184,9 +197,17 @@ namespace WPFMeteroWindow
 
             data += $"    <<Wallpaper:\n";
             data += $"        <PathToImage {Settings.Default.BackgroundImagePath}>>\n";
-            data += $"        <HasParallaxEffect {Settings.Default.EnableParallax}>>\n";
             data += $"        <BlurRadius {Settings.Default.BackgroundBlurRadius}>>\n";
-            data += $"    :Wallpaper>>\n";
+            data += $"    :Wallpaper>>\n\n";
+
+            data += $"    <<Animations:\n";
+            data += $"        <EnableParallaxEffect {Settings.Default.EnableParallax}>>\n";
+            data += $"        <EnabledSplash {Settings.Default.EnableSplashAnimation}>>\n";
+            data += $"        <ChosenKeyboardShape {Settings.Default.ChosenSplashShapeName}>>\n";
+            data += $"        <ChosenMouseShape {Settings.Default.ChosenClickSplashName}>>\n";
+            data += $"        <EnableClickBump {Settings.Default.ShakeBackgroundInClicking}>>\n";
+            data += $"        <EnableTypeBump {Settings.Default.ShakeBackgroundInTyping}>>\n";
+            data += $"    :Animations>>\n";
             data += $":UserConfig>>";
 
             return data;
