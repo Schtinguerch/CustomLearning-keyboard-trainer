@@ -946,5 +946,17 @@ namespace WPFMeteroWindow.Properties {
                 this["ReplaceDictionaryPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Launched.txt")]
+        public string FirstLaunchFileIndicatorPath {
+            get {
+                return ((string)(this["FirstLaunchFileIndicatorPath"]));
+            }
+            set {
+                this["FirstLaunchFileIndicatorPath"] = value;
+            }
+        }
     }
 }

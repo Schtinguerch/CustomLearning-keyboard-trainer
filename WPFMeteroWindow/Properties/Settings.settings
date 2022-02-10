@@ -233,5 +233,8 @@
     <Setting Name="ReplaceDictionaryPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">ReplaceDictionary.json</Value>
     </Setting>
+    <Setting Name="FirstLaunchFileIndicatorPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Launched.txt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
