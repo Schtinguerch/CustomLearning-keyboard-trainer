@@ -1,0 +1,333 @@
+﻿<Page x:Class="WPFMeteroWindow.Resources.pages.WelcomePageSubPages.ThemeSetup"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages.WelcomePageSubPages"
+      xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
+      xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations" xmlns:controls="clr-namespace:WPFMeteroWindow.Controls"
+      mc:Ignorable="d" 
+      Title="ThemeSetup">
+
+    <Grid
+        Height="360"
+        Width="700">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock 
+            Grid.Row="0" 
+            Grid.Column="0"
+            
+            Style="{StaticResource SummaryTextStyle}"
+            FontSize="28"
+            Margin="0 0 20 0"
+            Text="{x:Static res:Resources.uSkin}"
+            HorizontalAlignment="Right">
+        </TextBlock>
+
+        <ComboBox
+            Grid.Row="0" 
+            Grid.Column="1"
+            Margin="0 0 100 0"
+                
+            x:Name="SkinComboBox"
+            FontSize="20"
+            Height="42"
+            Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+            FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+            BorderBrush="#121212"
+            
+            SelectionChanged="LessonComboBox_SelectionChanged">
+        </ComboBox>
+
+        <Grid
+            x:Name="PreviewGrid"
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Width="500"
+            
+            Background="{Binding MainBackground, Source={x:Static prop:Settings.Default}}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="1.3*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Image
+                Name="BackgroundImage"
+                Grid.ColumnSpan="3"
+                Grid.RowSpan="4">
+
+                <Image.Effect>
+                    <BlurEffect Radius="{Binding BackgroundBlurRadius, Source={x:Static prop:Settings.Default}}"/>
+                </Image.Effect>
+            </Image>
+
+            <Rectangle
+                Grid.Row="0"
+                Grid.ColumnSpan="3"
+                Margin="0 -1 0 0">
+
+                <Rectangle.Fill>
+                    <SolidColorBrush
+                        Color="{Binding SecondBackground, Source={x:Static prop:Settings.Default}}"
+                        Opacity="{Binding MenuOpacity, Source={x:Static prop:Settings.Default}}">
+                    </SolidColorBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <Rectangle
+                Grid.Row="2"
+                Grid.ColumnSpan="3">
+
+                <Rectangle.Fill>
+                    <SolidColorBrush
+                        Color="{Binding SecondBackground, Source={x:Static prop:Settings.Default}}"
+                        Opacity="{Binding MenuOpacity, Source={x:Static prop:Settings.Default}}">
+                    </SolidColorBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <Rectangle
+                Grid.Row="2"
+                Grid.Column="1"
+                HorizontalAlignment="Left"
+                
+                Width="40"
+                Height="12"
+                RadiusX="6"
+                RadiusY="6"
+                Margin="0 0 0 0"
+                Fill="{Binding Path=SummaryFontColor ,Source={x:Static prop:Settings.Default}}">
+            </Rectangle>
+
+            <Rectangle
+                Grid.Row="0"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                
+                Width="40"
+                Height="12"
+                RadiusX="6"
+                RadiusY="6"
+                Margin="0 0 0 0"
+                Fill="{Binding Path=SummaryFontColor ,Source={x:Static prop:Settings.Default}}">
+            </Rectangle>
+
+            <Rectangle
+                Grid.Row="2"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                
+                Width="40"
+                Height="12"
+                RadiusX="6"
+                RadiusY="6"
+                Margin="0 0 0 0"
+                Fill="{Binding Path=SummaryFontColor ,Source={x:Static prop:Settings.Default}}">
+            </Rectangle>
+
+            <StackPanel
+                Orientation="Horizontal"
+                Grid.Row="0"
+                Grid.Column="1">
+
+                <Rectangle
+                    Width="40"
+                    Height="12"
+                    RadiusX="6"
+                    RadiusY="6"
+                    Margin="0 0 10 0"
+                    Fill="{Binding Path=SummaryFontColor ,Source={x:Static prop:Settings.Default}}">
+                </Rectangle>
+
+                <Rectangle
+                    Width="40"
+                    Height="12"
+                    RadiusX="6"
+                    RadiusY="6"
+                    Margin="0 0 10 0"
+                    Fill="{Binding Path=SummaryFontColor ,Source={x:Static prop:Settings.Default}}">
+                </Rectangle>
+                
+                <Rectangle
+                    Width="40"
+                    Height="12"
+                    RadiusX="6"
+                    RadiusY="6"
+                    Margin="0 0 10 0"
+                    Fill="{Binding Path=SummaryFontColor ,Source={x:Static prop:Settings.Default}}">
+                </Rectangle>
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.ColumnSpan="3"
+                TextAlignment="Right"
+                
+                Style="{StaticResource MainTextStyle}">
+                
+                <Run
+                    Foreground="{Binding Path=RaidedFontColor ,Source={x:Static prop:Settings.Default}}"
+                    Text="Lorem">
+                    
+                </Run>
+                
+                <Run Text="ipsum dolor a"/>
+            </TextBlock>
+
+            <controls:MouseLightingDonut
+                x:Name="MouseLightingDonut"
+                Grid.Row="1"
+                Grid.Column="0">
+            </controls:MouseLightingDonut>
+
+            <StackPanel
+                Orientation="Horizontal"
+                Grid.Row="3"
+                Grid.Column="1"
+                Margin="10"
+                
+                Opacity="{Binding KeyboardOpacity, Source={x:Static prop:Settings.Default}}">
+
+                <Button 
+                    Width="50" 
+                    Height="50"
+                    
+                    Background="{Binding Path=KeyboardHighlightColor ,Source={x:Static prop:Settings.Default}}"
+                    BorderBrush="{Binding Path=KeyboardBorderColor ,Source={x:Static prop:Settings.Default}}"
+                    
+                    HorizontalContentAlignment="Left"
+                    VerticalContentAlignment="Top"
+                    Margin="0 0 8 0">
+
+                    <Button.Content>
+                        <TextBlock
+                            FontSize="22"
+                            FontFamily="{Binding Path=KeyboardFontFamily ,Source={x:Static prop:Settings.Default}}"
+                            Foreground="{Binding Path=KeyboardFontColor ,Source={x:Static prop:Settings.Default}}"
+                            Text="A"
+                            TextAlignment="Left"
+                            Margin="5 0 0 0">
+                        </TextBlock>
+                    </Button.Content>
+                </Button>
+
+                <Button 
+                    Width="50" 
+                    Height="50"
+                    
+                    Background="{Binding Path=KeyboardBackgroundColor ,Source={x:Static prop:Settings.Default}}"
+                    BorderBrush="{Binding Path=KeyboardBorderColor ,Source={x:Static prop:Settings.Default}}"
+                    
+                    HorizontalContentAlignment="Left"
+                    VerticalContentAlignment="Top"
+                    Margin="0 0 7 0">
+
+                    <Button.Content>
+                        <TextBlock
+                            FontSize="22"
+                            FontFamily="{Binding Path=KeyboardFontFamily ,Source={x:Static prop:Settings.Default}}"
+                            Foreground="{Binding Path=KeyboardFontColor ,Source={x:Static prop:Settings.Default}}"
+                            Text="B"
+                            TextAlignment="Left"
+                            Margin="5 0 0 0">
+                        </TextBlock>
+                    </Button.Content>
+                </Button>
+
+                <Button 
+                    Width="50" 
+                    Height="50"
+                    
+                    Background="{Binding Path=KeyboardBackgroundColor ,Source={x:Static prop:Settings.Default}}"
+                    BorderBrush="{Binding Path=KeyboardBorderColor ,Source={x:Static prop:Settings.Default}}"
+                    
+                    HorizontalContentAlignment="Left"
+                    VerticalContentAlignment="Top"
+                    Margin="0 0 7 0">
+
+                    <Button.Content>
+                        <TextBlock
+                            FontSize="22"
+                            FontFamily="{Binding Path=KeyboardFontFamily ,Source={x:Static prop:Settings.Default}}"
+                            Foreground="{Binding Path=KeyboardFontColor ,Source={x:Static prop:Settings.Default}}"
+                            Text="C"
+                            TextAlignment="Left"
+                            Margin="5 0 0 0">
+                        </TextBlock>
+                    </Button.Content>
+                </Button>
+
+                <Button 
+                    Width="50" 
+                    Height="50"
+                    
+                    Background="{Binding Path=KeyboardBackgroundColor ,Source={x:Static prop:Settings.Default}}"
+                    BorderBrush="{Binding Path=KeyboardBorderColor ,Source={x:Static prop:Settings.Default}}"
+                    
+                    HorizontalContentAlignment="Left"
+                    VerticalContentAlignment="Top"
+                    Margin="0 0 8 0">
+
+                    <Button.Content>
+                        <TextBlock
+                            FontSize="22"
+                            FontFamily="{Binding Path=KeyboardFontFamily ,Source={x:Static prop:Settings.Default}}"
+                            Foreground="{Binding Path=KeyboardFontColor ,Source={x:Static prop:Settings.Default}}"
+                            Text="D"
+                            TextAlignment="Left"
+                            Margin="5 0 0 0">
+                        </TextBlock>
+                    </Button.Content>
+                </Button>
+
+                <Button 
+                    Width="50" 
+                    Height="50"
+                    
+                    Background="{Binding Path=KeyboardErrorHighlightColor ,Source={x:Static prop:Settings.Default}}"
+                    BorderBrush="{Binding Path=KeyboardBorderColor ,Source={x:Static prop:Settings.Default}}"
+                    
+                    HorizontalContentAlignment="Left"
+                    VerticalContentAlignment="Top"
+                    Margin="0 0 8 0">
+
+                    <Button.Content>
+                        <TextBlock
+                            FontSize="22"
+                            FontFamily="{Binding Path=KeyboardFontFamily ,Source={x:Static prop:Settings.Default}}"
+                            Foreground="{Binding Path=KeyboardFontColor ,Source={x:Static prop:Settings.Default}}"
+                            Text="E"
+                            TextAlignment="Left"
+                            Margin="5 0 0 0">
+                        </TextBlock>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+            <controls:LightingDonut
+                x:Name="KeyboardLightingDonut"
+                Grid.Row="3"
+                Grid.Column="1">
+            </controls:LightingDonut>
+        </Grid>
+    </Grid>
+</Page>
