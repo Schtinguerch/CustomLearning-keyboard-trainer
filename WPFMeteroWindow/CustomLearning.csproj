@@ -437,6 +437,19 @@
     <Compile Include="Resources\pages\TypingTestParametersPage.xaml.cs">
       <DependentUpon>TypingTestParametersPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\pages\WelcomePage.xaml.cs">
+      <DependentUpon>WelcomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\pages\WelcomePageSubPages\CourseSetup.xaml.cs">
+      <DependentUpon>CourseSetup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\pages\WelcomePageSubPages\IRequstable.cs" />
+    <Compile Include="Resources\pages\WelcomePageSubPages\KeyboardLayoutSetup.xaml.cs">
+      <DependentUpon>KeyboardLayoutSetup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\pages\WelcomePageSubPages\ThemeSetup.xaml.cs">
+      <DependentUpon>ThemeSetup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\pages\WordPracticingEditorPage.xaml.cs">
       <DependentUpon>WordPracticingEditorPage.xaml</DependentUpon>
     </Compile>
@@ -821,6 +834,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\pages\WelcomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\pages\WelcomePageSubPages\CourseSetup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\pages\WelcomePageSubPages\KeyboardLayoutSetup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\pages\WelcomePageSubPages\ThemeSetup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\pages\WordPracticingEditorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -899,5 +928,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
