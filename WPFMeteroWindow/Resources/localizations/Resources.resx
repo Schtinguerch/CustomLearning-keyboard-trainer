@@ -408,6 +408,9 @@
   <data name="uNewStyle" xml:space="preserve">
     <value>Новый стиль</value>
   </data>
+  <data name="uNgenNotFound" xml:space="preserve">
+    <value>ngen.exe не найден</value>
+  </data>
   <data name="uNo" xml:space="preserve">
     <value>Нет</value>
   </data>

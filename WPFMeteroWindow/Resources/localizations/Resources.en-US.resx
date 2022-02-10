@@ -408,6 +408,9 @@
   <data name="uNewStyle" xml:space="preserve">
     <value>New style</value>
   </data>
+  <data name="uNgenNotFound" xml:space="preserve">
+    <value>ngen.exe not found</value>
+  </data>
   <data name="uNo" xml:space="preserve">
     <value>No</value>
   </data>

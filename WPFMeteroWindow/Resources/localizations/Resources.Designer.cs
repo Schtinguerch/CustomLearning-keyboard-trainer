@@ -934,6 +934,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на ngen.exe не найден.
+        /// </summary>
+        public static string uNgenNotFound {
+            get {
+                return ResourceManager.GetString("uNgenNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Нет.
         /// </summary>
         public static string uNo {
