@@ -157,8 +157,13 @@ namespace WPFMeteroWindow.Resources.pages
         private void TypingAnimationComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) =>
             KeyboardLightingDonut.Shape = Intermediary.KeyboardShapesDictionary[TypingAnimationComboBox.SelectedItem as string];
 
-        private void ClickAnimationComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) =>
-            MouseLightingDonut.Shape = Intermediary.MouseShapesDictionary[ClickAnimationComboBox.SelectedItem as string];
+        private void ClickAnimationComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var chosenShapeName = ClickAnimationComboBox.SelectedItem as string;
+
+            Intermediary.App.MouseSplashShape.Shape = Intermediary.MouseShapesDictionary[chosenShapeName];
+            MouseLightingDonut.Shape = Intermediary.MouseShapesDictionary[chosenShapeName];
+        }
 
         private void LessonRaidedSymbolsColorTextBox_OnTextChanged(object sender, TextChangedEventArgs e) =>
             SetFont.MainRaidedLetters_Color(LessonRaidedSymbolsColorTextBox.Text);

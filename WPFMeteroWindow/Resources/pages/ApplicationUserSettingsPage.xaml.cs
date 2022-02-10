@@ -233,6 +233,7 @@ namespace WPFMeteroWindow.Resources.pages
 
             Settings.Default.Save();
             LessonManager.Exceptions = GetReplacementDictionary();
+            Intermediary.App.MouseSplashShape.Shape = Intermediary.MouseShapesDictionary[Settings.Default.ChosenClickSplashName];
 
             PageManager.HidePages();
         }
@@ -255,6 +256,7 @@ namespace WPFMeteroWindow.Resources.pages
                 SetColor.FirstColor(_defaultBackgroundColor);
 
             Intermediary.App.ImageBlurEffect.Radius = Settings.Default.BackgroundBlurRadius.Parse();
+            Intermediary.App.MouseSplashShape.Shape = Intermediary.MouseShapesDictionary[Settings.Default.ChosenClickSplashName];
             PageManager.HidePages();
         }
 
