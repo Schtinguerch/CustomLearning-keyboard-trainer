@@ -891,15 +891,9 @@
                 x:Name="SettingFrame" 
                 NavigationUIVisibility="Hidden"
                 
-                 HorizontalContentAlignment="Center"
-                 VerticalContentAlignment="Center"
-                
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
-                   
-                 UseLayoutRounding="True"
-                 RenderOptions.BitmapScalingMode="NearestNeighbor"
-                 RenderOptions.ClearTypeHint="Enabled">
+                UseLayoutRounding="True"
+                RenderOptions.BitmapScalingMode="NearestNeighbor"
+                RenderOptions.ClearTypeHint="Enabled">
             </Frame>
 
             <Grid
