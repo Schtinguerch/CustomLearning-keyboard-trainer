@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using ScriptMaker;
+
+using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 using WPFMeteroWindow.Properties;
 
 namespace WPFMeteroWindow.Commands
@@ -98,6 +101,17 @@ namespace WPFMeteroWindow.Commands
 
             switch (arguments[0].ToLower())
             {
+                case "ngen":
+                    try
+                    {
+                        Process.Start(@"C:\Windows\Microsoft.NET\Framework\v4.0.30319\ngen.exe", $"install \"{AppDomain.CurrentDomain.BaseDirectory}\\CustomLearning.exe\"");
+                    }
+                    catch
+                    {
+                        Intermediary.App.ShowMessage($"{Localization.uError}: {Localization.uNgenNotFound}");
+                    }
+                    break;
+
                 case "l":
                     if (hasFileName)
                         Opener.NewLesson(fileName);
