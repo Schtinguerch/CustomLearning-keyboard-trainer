@@ -17,14 +17,15 @@
         
         <ScrollViewer 
             VerticalScrollBarVisibility="Visible"
-            HorizontalScrollBarVisibility="Hidden">
+            HorizontalScrollBarVisibility="Hidden"
+            
+            VirtualizingStackPanel.IsVirtualizing="True"
+            VirtualizingStackPanel.VirtualizationMode="Recycling">
 
             <StackPanel
                 Margin="0 10 0 10"
                 x:Name="LessonStackPanel"
-                Orientation="Vertical"
-                VirtualizingStackPanel.IsVirtualizing="True"
-                VirtualizingStackPanel.VirtualizationMode="Recycling">
+                Orientation="Vertical">
                 
             </StackPanel>
         </ScrollViewer>
