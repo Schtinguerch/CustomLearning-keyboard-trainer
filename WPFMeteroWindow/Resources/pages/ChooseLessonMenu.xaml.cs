@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using WPFMeteroWindow.Properties;
 
 namespace WPFMeteroWindow.Resources.pages
@@ -14,18 +15,15 @@ namespace WPFMeteroWindow.Resources.pages
     /// </summary>
     public partial class ChooseLessonMenu : UserControl
     {
+        private List<string> _lessons;
+
         public ChooseLessonMenu(List<string> lessons)
         {
             var style = XamlManager.FindResource<Style>("SummaryTextStyle");
+            _lessons = lessons;
 
             InitializeComponent();
-            LessonStackPanel.Children.Capacity = 5000;
-
-            if (lessons == null || lessons.Count == 0)
-                return;
-
-            foreach (var lesson in lessons)
-                AddLesson(lesson, style);
+            LoadLessonsAsync(style);
         }
 
         private SolidColorBrush _notPassedIndicatorBrush = XamlManager.FindResource<SolidColorBrush>("NotPassedIndicatorBrush");
@@ -135,6 +133,29 @@ namespace WPFMeteroWindow.Resources.pages
             }
 
             return 0;
+        }
+
+        private delegate void LessonLoadMethod(int index, Style style);
+        private void LoadLessonsAsync(Style style)
+        {
+            if (_lessons == null || _lessons.Count == 0)
+                return;
+
+            LessonStackPanel.Children.Capacity = _lessons.Count;
+            _count = _lessons.Count;
+
+            Dispatcher.BeginInvoke(DispatcherPriority.Background, new LessonLoadMethod(LoadLessonViaIndex), 0, style);
+        }
+
+        private int _count;
+        private void LoadLessonViaIndex(int index, Style style)
+        {
+            AddLesson(_lessons[index], style);
+
+            if (index == _count - 1) return;
+
+            index += 1;
+            Dispatcher.BeginInvoke(DispatcherPriority.Background, new LessonLoadMethod(LoadLessonViaIndex), index, style);
         }
     }
 }
