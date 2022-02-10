@@ -1,0 +1,61 @@
+#config
+
+<<UserConfig:
+    <<Fonts:
+        <AppGUIFontFamily Segoe Print, 8.25pt>>
+        <AppGUIFontColor #FFADBEFF>>
+
+        <LessonFontFamily Comic Sans MS, 8.25pt>>
+        <LessonFontSize 36>>
+        <LessonFontColor White>>
+        <RaidedLessonFontColor #FF001873>>
+
+        <KeyboardFontFamily MV Boli, 8.25pt, style=Bold>>
+        <KeyboardFontColor #FFDBDBDB>>
+    :Fonts>>
+
+    <<Opacity:
+        <MenuOpacity 1>>
+        <KeyboardOpacity 1>>
+        <HandsOpacity 0.8>>
+    :Opacity>>
+
+    <<Hands:
+        <ShowHands True>>
+        <HandsColor #FF7D7D7D>>
+        <HandsThickness 6>>
+    :Hands>>
+
+    <<Keyboard:
+        <KeyColor #66262626>>
+        <BorderColor #FF191919>>
+        <HighlightColor #FF1646FF>>
+        <MistakeColor Red>>
+        <CurrentLayout 1>>
+    :Keyboard>>
+
+    <<AppColors:
+        <MainColor #FF1E1E1E>>
+        <SecondaryColor #FF121212>>
+        <TextBoxColor #FF191919>>
+        <SecondaryMenuColor #FF121212>>
+        <Theme dark>>
+        <ControlsHighlightColor cobalt>>
+        <HasImageBackground True>>
+        <InputTextBox SingleLineWithStaticCaret>>
+    :AppColors>>
+
+    <<Wallpaper:
+        <PathToImage https://c.tenor.com/bujhK2SvNxwAAAAC/%D0%B2%D0%B7%D0%BB%D0%BE%D0%BC%D0%B6%D0%BE%D0%BF%D1%8B-%D0%B0%D0%BD%D0%BE%D0%BD%D0%B8%D0%BC%D1%83%D1%81.gif>>
+        <BlurRadius 39.5652173913044>>
+    :Wallpaper>>
+
+    <<Animations:
+        <EnableParallaxEffect True>>
+        <EnabledSplash True>>
+        <ChosenKeyboardShape JapaneseKeyboard>>
+        <ChosenMouseShape NiceLightingDonut>>
+        <EnableClickBump True>>
+        <EnableTypeBump False>>
+    :Animations>>
+:UserConfig>>

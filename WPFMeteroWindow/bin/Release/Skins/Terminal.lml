@@ -1,0 +1,61 @@
+#config
+
+<<UserConfig:
+    <<Fonts:
+        <AppGUIFontFamily Consolas, 8.25pt, style=Bold>>
+        <AppGUIFontColor #FF80C91A>>
+
+        <LessonFontFamily Courier New, 8.25pt, style=Bold>>
+        <LessonFontSize 36>>
+        <LessonFontColor White>>
+        <RaidedLessonFontColor #FF5A8D14>>
+
+        <KeyboardFontFamily Courier New, 8.25pt, style=Bold>>
+        <KeyboardFontColor #FF5A8D14>>
+    :Fonts>>
+
+    <<Opacity:
+        <MenuOpacity 1>>
+        <KeyboardOpacity 1>>
+        <HandsOpacity 1>>
+    :Opacity>>
+
+    <<Hands:
+        <ShowHands True>>
+        <HandsColor #FF828282>>
+        <HandsThickness 6>>
+    :Hands>>
+
+    <<Keyboard:
+        <KeyColor #FF1C1C1C>>
+        <BorderColor #FF0D0D0D>>
+        <HighlightColor #FF6FB50F>>
+        <MistakeColor Red>>
+        <CurrentLayout 2>>
+    :Keyboard>>
+
+    <<AppColors:
+        <MainColor #FF141414>>
+        <SecondaryColor #FF0A0A0A>>
+        <TextBoxColor #FF050505>>
+        <SecondaryMenuColor Black>>
+        <Theme dark>>
+        <ControlsHighlightColor green>>
+        <HasImageBackground False>>
+        <InputTextBox SingleLineWithStaticCaret>>
+    :AppColors>>
+
+    <<Wallpaper:
+        <PathToImage >>
+        <BlurRadius 31.3043478260869>>
+    :Wallpaper>>
+
+    <<Animations:
+        <EnableParallaxEffect False>>
+        <EnabledSplash True>>
+        <ChosenKeyboardShape JapaneseKeyboard>>
+        <ChosenMouseShape NiceLightingDonut>>
+        <EnableClickBump False>>
+        <EnableTypeBump False>>
+    :Animations>>
+:UserConfig>>

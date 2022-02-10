@@ -1,0 +1,61 @@
+#config
+
+<<UserConfig:
+    <<Fonts:
+        <AppGUIFontFamily Calibri, 8.25pt, style=Bold>>
+        <AppGUIFontColor #FF07476B>>
+
+        <LessonFontFamily Calibri, 8.25pt, style=Bold>>
+        <LessonFontSize 36>>
+        <LessonFontColor #FF007ABF>>
+        <RaidedLessonFontColor #FFA7BFCC>>
+
+        <KeyboardFontFamily Segoe UI, 8.25pt, style=Bold>>
+        <KeyboardFontColor #FF0B557F>>
+    :Fonts>>
+
+    <<Opacity:
+        <MenuOpacity 0.243478260869565>>
+        <KeyboardOpacity 1>>
+        <HandsOpacity 1>>
+    :Opacity>>
+
+    <<Hands:
+        <ShowHands True>>
+        <HandsColor #FF0C92DE>>
+        <HandsThickness 6>>
+    :Hands>>
+
+    <<Keyboard:
+        <KeyColor #FFD4E6F0>>
+        <BorderColor #FFAAD8F2>>
+        <HighlightColor #FF086EA8>>
+        <MistakeColor #FFDB4305>>
+        <CurrentLayout 2>>
+    :Keyboard>>
+
+    <<AppColors:
+        <MainColor White>>
+        <SecondaryColor #FF67BEF0>>
+        <TextBoxColor #FFE0F4FF>>
+        <SecondaryMenuColor #FF5FC2FA>>
+        <Theme light>>
+        <ControlsHighlightColor steel>>
+        <HasImageBackground False>>
+        <InputTextBox SingleLineWithStaticCaret>>
+    :AppColors>>
+
+    <<Wallpaper:
+        <PathToImage >>
+        <BlurRadius 0>>
+    :Wallpaper>>
+
+    <<Animations:
+        <EnableParallaxEffect False>>
+        <EnabledSplash True>>
+        <ChosenKeyboardShape RectangleBorder>>
+        <ChosenMouseShape NiceLightingDonut>>
+        <EnableClickBump False>>
+        <EnableTypeBump False>>
+    :Animations>>
+:UserConfig>>

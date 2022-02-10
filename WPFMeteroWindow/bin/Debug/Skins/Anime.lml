@@ -1,0 +1,61 @@
+#config
+
+<<UserConfig:
+    <<Fonts:
+        <AppGUIFontFamily Segoe UI Semibold>>
+        <AppGUIFontColor #FFFFE3F7>>
+
+        <LessonFontFamily Segoe UI>>
+        <LessonFontSize 36>>
+        <LessonFontColor White>>
+        <RaidedLessonFontColor #FFF74EC6>>
+
+        <KeyboardFontFamily Segoe UI>>
+        <KeyboardFontColor White>>
+    :Fonts>>
+
+    <<Opacity:
+        <MenuOpacity 0.334782608695652>>
+        <KeyboardOpacity 1>>
+        <HandsOpacity 1>>
+    :Opacity>>
+
+    <<Hands:
+        <ShowHands True>>
+        <HandsColor #FF7D7D7D>>
+        <HandsThickness 6>>
+    :Hands>>
+
+    <<Keyboard:
+        <KeyColor #66720072>>
+        <BorderColor #650065>>
+        <HighlightColor #e14189>>
+        <MistakeColor Red>>
+        <CurrentLayout 1>>
+    :Keyboard>>
+
+    <<AppColors:
+        <MainColor #300030>>
+        <SecondaryColor #2c1231>>
+        <TextBoxColor #2c1231>>
+        <SecondaryMenuColor #FF1E001E>>
+        <Theme dark>>
+        <ControlsHighlightColor magenta>>
+        <HasImageBackground True>>
+        <InputTextBox SingleLineWithStaticCaret>>
+    :AppColors>>
+
+    <<Wallpaper:
+        <PathToImage https://i.pinimg.com/originals/8a/0c/81/8a0c810b51ec477aa8666cd176681674.jpg>>
+        <BlurRadius 16.0869565217391>>
+    :Wallpaper>>
+
+    <<Animations:
+        <EnableParallaxEffect True>>
+        <EnabledSplash True>>
+        <ChosenKeyboardShape JapaneseKeyboard>>
+        <ChosenMouseShape NiceLightingDonut>>
+        <EnableClickBump True>>
+        <EnableTypeBump False>>
+    :Animations>>
+:UserConfig>>

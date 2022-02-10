@@ -1,0 +1,61 @@
+#config
+
+<<UserConfig:
+    <<Fonts:
+        <AppGUIFontFamily Imprint MT Shadow, 8.25pt, style=Bold>>
+        <AppGUIFontColor #FFB0B0B0>>
+
+        <LessonFontFamily Imprint MT Shadow, 8.25pt>>
+        <LessonFontSize 36>>
+        <LessonFontColor White>>
+        <RaidedLessonFontColor #FF87431B>>
+
+        <KeyboardFontFamily Segoe UI>>
+        <KeyboardFontColor #FFDBDBDB>>
+    :Fonts>>
+
+    <<Opacity:
+        <MenuOpacity 1>>
+        <KeyboardOpacity 1>>
+        <HandsOpacity 1>>
+    :Opacity>>
+
+    <<Hands:
+        <ShowHands True>>
+        <HandsColor #FFFF9D75>>
+        <HandsThickness 6>>
+    :Hands>>
+
+    <<Keyboard:
+        <KeyColor #88492a15>>
+        <BorderColor #341f07>>
+        <HighlightColor #FFD65910>>
+        <MistakeColor #FFE8B817>>
+        <CurrentLayout 1>>
+    :Keyboard>>
+
+    <<AppColors:
+        <MainColor #3f1d0b>>
+        <SecondaryColor #FF381309>>
+        <TextBoxColor #FF1B0D09>>
+        <SecondaryMenuColor #0c0402>>
+        <Theme dark>>
+        <ControlsHighlightColor brown>>
+        <HasImageBackground True>>
+        <InputTextBox SingleLineWithStaticCaret>>
+    :AppColors>>
+
+    <<Wallpaper:
+        <PathToImage https://images3.alphacoders.com/210/210895.jpg>>
+        <BlurRadius 31.3043478260869>>
+    :Wallpaper>>
+
+    <<Animations:
+        <EnableParallaxEffect True>>
+        <EnabledSplash True>>
+        <ChosenKeyboardShape ClassicDonut>>
+        <ChosenMouseShape NiceLightingDonut>>
+        <EnableClickBump True>>
+        <EnableTypeBump False>>
+    :Animations>>
+:UserConfig>>
