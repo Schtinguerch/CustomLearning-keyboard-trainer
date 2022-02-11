@@ -3,14 +3,14 @@
 It's the most customizable downloadable keyboard touch typing trainer.
 
 ## Customizable?
-CustomLearning allows change most application parameters such as
+CustomLearning allows to change most application parameters such as
 * Appearance
   * app's control colors
   * app's fonts
   * setup background image
   * image blur effect and parallax
   * beautiful animations, parallax, bumps, splashes
-* Keyborad layouts
+* Keyboard layouts
   * A lot of popular alternative layouts 
   * Create YOUR OWN layout
 * Lessons
@@ -23,16 +23,16 @@ CustomLearning allows change most application parameters such as
 ![CustomLearning recent opened layouts list](https://sun9-11.userapi.com/impg/VjMRgA550WxI7Q5F2hUu-fnxfoVcU9TUrLTluA/dGNmj9MVh9M.jpg?size=1171x640&quality=95&sign=b9dbdbed20da4be42ea8909e76bb782f&type=album)
 
   ## What's inside?
-  CustomLearning allows typers use these modes:
+  CustomLearning allows typers to use these modes:
    1. Passing classic courses (1 by 1)
    2. Passing dictionaries (courses, where lesson chosen via random);
    3. Training in single lessons;
    4. Passing typing tests;
  
- Every course, lessons, dictionary and words for typing test can be changed by user :)
+ Every course, lesson, dictionary and words for typing tests can be changed by the user :)
 
 ## App's UI interaction
-There's 3 ways to open lessons, courses, layouts and skins in CustomLearning
+There are 3 ways to open lessons, courses, layouts and skins in CustomLearning
  1. Writing commands via CLI  `Alt+C`
  2. Using dialogue windows
  3. Files drag-and-drop (preferenced)
@@ -47,7 +47,7 @@ And 2 ways to usual app using:
  2. `Alt+C` To open the Command Line
  3. `Alt+D` To start demonstration typing mode (autotyper)
  4. `Alt+U` To open app update manager
- 5. `Alt+W` To select 1 of 2 choosen layouts
+ 5. `Alt+W` To select 1 of 2 chosen layouts
  6. `Alt+R` To shuffle lesson's words via random
  7. `Alt+E` To open lesson editor
  8. `Alt+Shift+E` To open course editor
@@ -55,7 +55,7 @@ And 2 ways to usual app using:
  `Alt` is more comfortable key to use, because the key is pressed by left thumb instead of left or right pinky.
 
 ## App skins - skin configurations
-User can often change app appearance. To simplify this process CustomLearning allows user to use special files with app appearance parameters - skin configuration files.
+User can change app appearance. To simplify this process CustomLearning allows user to use special files with app appearance parameters - skin configuration files.
 
 ![1st theme](https://sun9-27.userapi.com/impg/FnDIXusEZFtcHkMlUFJ5ZYPbNt2Uyq-RWQI0zA/JZIq0UFRq_E.jpg?size=1120x640&quality=95&sign=6a21a61f41f1bb9e3945cfdd3edba99c&type=album)
 ![2nd theme](https://sun9-24.userapi.com/impg/bwqTF27IlbLP749Trb4yK2KbDHeCZtqgNFM_zA/0Z8dts1N5hY.jpg?size=1120x640&quality=95&sign=7ce4e703a48b4fcc004677ff52134506&type=album)
@@ -64,7 +64,7 @@ User can often change app appearance. To simplify this process CustomLearning al
 ![5th theme](https://sun9-38.userapi.com/impg/n0XWGt4tYLDfcFbtWA9PlEV4kzJWyduPbbv9bg/zToyEbYyEoY.jpg?size=1120x640&quality=95&sign=d0a3acd9432c3e4531450dd5904982fc&type=album)
 ![6th theme](https://sun9-40.userapi.com/impg/lVh96sik6xTCZNZTWN31FaGfqdaX5ZRoxcx66g/6f-w2eophg8.jpg?size=1120x640&quality=95&sign=e86fe96fc12573acdb8a5fd1f86f06d3&type=album)
 
-There is 2 ways to export skins:
+There are 2 ways to export skins:
  1. Via CLI command and file explorer `cfg exp` 
  2. Via CLI command to copy config code to clipboard `cfg c`
 
@@ -73,10 +73,9 @@ And 3 ways to import skins:
  2. Via CLI command from clipboard `cfg p`
  3. Via file drap-and-drop
 
-You can hold background images on the Internet, just insert image url into config file :)
-Every skin cointains the code such as:
+You can use background images from the Internet, just insert the image url into the config file :)
+Every skin contains the code such as:
 ```
-#config
 #config
 
 <<UserConfig:
