@@ -13,6 +13,9 @@ using TextBox = System.Windows.Controls.TextBox;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 using System.Windows.Media.Animation;
 using WPFMeteroWindow.Controls;
+using DataFormats = System.Windows.DataFormats;
+using System.Globalization;
+using System.Threading;
 
 namespace WPFMeteroWindow.Resources.pages
 {
@@ -60,6 +63,8 @@ namespace WPFMeteroWindow.Resources.pages
             "violet",
             "yellow"
         };
+
+        
 
         private void SetYesOrNo(string target, string text)
         {
@@ -135,6 +140,28 @@ namespace WPFMeteroWindow.Resources.pages
                 }
             }
         }
+
+        private void SetVolume(string target, double sliderValue)
+        {
+            var volume = sliderValue / 100d;
+            switch (target)
+            {
+                case "Click":
+                    SoundManager.ClickVolume = volume;
+                    ClickVolumeTextBox.Text = sliderValue.ToString("N");
+                    break;
+
+                case "Typing":
+                    SoundManager.TypingVolume = volume;
+                    TypingVolumeTextBox.Text = sliderValue.ToString("N");
+                    break;
+
+                case "Background":
+                    SoundManager.BackgroundSoundVolume = volume;
+                    BackgroundVolumeTextBox.Text = sliderValue.ToString("N");
+                    break;
+            }
+        }
         
         private void ShowColorPicker(UIElement targetControl)
         {
@@ -167,6 +194,7 @@ namespace WPFMeteroWindow.Resources.pages
             _defaultColorScheme = Settings.Default.ColorSchemeResourceDictionary.Split(new[] {'/'}).Last()
                 .Split(new[] {'.'})[0];
 
+            WindowColors.Text = _defaultColorScheme;
             _defaultBackgroundColor = BackGrid.Background.ToString();
 
             Intermediary.RichPresentManager.Update("Settings", "Configuring the trainer's setup", "");
@@ -192,10 +220,7 @@ namespace WPFMeteroWindow.Resources.pages
             EnableKeyboardBumpComboBox.Text = Settings.Default.EnableSplashAnimation ? Localization.uYes : Localization.uNo;
 
             RequireWPMtextBox.Text = Settings.Default.RequireWPM ? Localization.uYes : Localization.uNo;
-            WindowColorType.Text = Settings.Default.IsBackgroundImage ? Localization.uSettImage : Localization.uSettBrush;
-
             WindowTheme.Text = Settings.Default.ThemeResourceDictionary.ToLower().Contains("light") ? Localization.uLight : Localization.uDark;
-            _loadImage = true;
 
             foreach (var key in Intermediary.KeyboardShapesDictionary.Keys)
                 TypingAnimationComboBox.Items.Add(key);
@@ -215,8 +240,23 @@ namespace WPFMeteroWindow.Resources.pages
 
             KeyboardDonutGrid.Children.Insert(0, button);
 
+            foreach (var language in LanguageManager.Languages)
+                LanguageComboBox.Items.Add(language);
+
             foreach (var replacement in LessonManager.Exceptions)
                 AddReplacement(replacement.Key, replacement.Value);
+
+            foreach (var image in Intermediary.RecentImages)
+                WindowColorType.Items.Add(image.Split('\\').Last());
+
+            WindowColorType.Text = Settings.Default.IsBackgroundImage ? Settings.Default.BackgroundImagePath.Split('\\').Last() : Localization.uSettBrush;
+            LanguageComboBox.SelectedIndex = Settings.Default.ChosenLanguageIndex;
+            _loadImage = true;
+
+            ClickVolumeSlider.Value = SoundManager.ClickVolume * 100d;
+            TypingVolumeSlider.Value = SoundManager.TypingVolume * 100d;
+            BackgroundVolumeSlider.Value = SoundManager.BackgroundSoundVolume * 100d;
+            
         }
 
         private void SetupColorPicker_OnSelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
@@ -241,6 +281,7 @@ namespace WPFMeteroWindow.Resources.pages
         private void DiscardButton_Click(object sender, RoutedEventArgs e)
         {
             Settings.Default.Reload();
+            LanguageManager.SetLanguage(Settings.Default.ChosenLanguageIndex);
 
             if (Settings.Default.CurrentLayout == 1)
                 KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
@@ -303,7 +344,7 @@ namespace WPFMeteroWindow.Resources.pages
 
             var allControls = new List<object>();
             foreach (var control in ScrollListStackPanel.Children)
-                foreach (var subcontrol in (control as Grid).Children)
+                foreach (var subcontrol in (control as System.Windows.Controls.Panel).Children)
                     allControls.Add(subcontrol);
 
             _foundControls = (
@@ -422,6 +463,29 @@ namespace WPFMeteroWindow.Resources.pages
             }
 
             return dictionary;
+        }
+
+        private void WindowColorType_Drop(object sender, System.Windows.DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                return;
+            }
+
+            var images = e.Data.GetData(DataFormats.FileDrop) as string[];
+            foreach (var image in images)
+            {
+                WindowColorType.Items.Add(image.Split('\\').Last());
+                SetColor.WindowBackgroundImage(image);
+            }
+        }
+
+        private void LanguageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (_loadImage)
+            {
+                LanguageManager.SetLanguage(LanguageComboBox.SelectedIndex);
+            }
         }
     }
 }

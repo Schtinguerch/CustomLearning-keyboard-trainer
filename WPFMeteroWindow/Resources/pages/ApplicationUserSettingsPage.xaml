@@ -60,10 +60,11 @@
                     </LinearGradientBrush>
                 </Rectangle.OpacityMask>
             </Rectangle>
-            
+
             <ScrollViewer
                 VerticalScrollBarVisibility="Visible"
                 x:Name="wrapPanel">
+                
                 <StackPanel
                     x:Name="ScrollListStackPanel"
                     Orientation="Vertical"
@@ -71,7 +72,38 @@
                     Margin="13 0 0 0">
 
                     <Grid Style="{StaticResource SettingsItemStyle}"
-                          Margin="0 24 0 10"
+                    Margin="0 24 0 10" >
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uLanguage}"
+                            FontSize="18">
+                        </TextBlock>
+
+                        <StackPanel
+                            Height="32"
+                            Width="400"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+
+                            <ComboBox
+                                FontSize="18"
+                                Height="32"
+                                Width="350"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="LanguageComboBox"
+                                SelectionChanged="LanguageComboBox_SelectionChanged">
+                            </ComboBox>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                          Margin="0 12 0 10"
                           Height="30"
                           x:Name="TopPositionGrid">
                         
@@ -140,10 +172,13 @@
                                 FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
                                 BorderBrush="#121212"
                                 x:Name="WindowColorType"
-                                SelectionChanged="WindowColorType_OnSelectionChanged">
+                                SelectionChanged="WindowColorType_OnSelectionChanged"
+                                
+                                AllowDrop="True"
+                                Drop="WindowColorType_Drop">
 
                                 <TextBlock Text="{x:Static res:Resources.uSettBrush}"></TextBlock>
-                                <TextBlock Text="{x:Static res:Resources.uSettImage}"></TextBlock>
+                                <TextBlock Text="{x:Static res:Resources.uOpenNewImage}"></TextBlock>
                             </ComboBox>
                         </StackPanel>
                     </Grid>
@@ -862,9 +897,145 @@
                             <Rectangle Fill="Transparent"/>
                         </Grid>
                     </Grid>
+                    
+                    
 
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                          Margin="0 24 0 10"
+                          Height="30">
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uSettSoundSettings}"
+                            FontSize="24">
+                        </TextBlock>
+                    </Grid>
 
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                    >
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uSettClickVolume}"
+                            FontSize="18">
+                        </TextBlock>
 
+                        <StackPanel
+                            Height="32"
+                            Width="400"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+
+                            <TextBox
+                                FontSize="18"
+                                Height="32"
+                                Width="100"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                
+                                x:Name="ClickVolumeTextBox"
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                >
+                            </TextBox>
+
+                            <Slider
+                                x:Name="ClickVolumeSlider"
+                                Margin="10 0 50 0"
+                                Width="240"
+                                Minimum="0"
+                                Maximum="100" TickFrequency="1"
+                                ValueChanged="ClickVolumeSlider_ValueChanged"
+                                Thumb.DragCompleted="ClickVolumeSlider_DragCompleted">
+                            </Slider>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                    >
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uSettTypingVolume}"
+                            FontSize="18">
+                        </TextBlock>
+
+                        <StackPanel
+                            Height="32"
+                            Width="400"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+
+                            <TextBox
+                                FontSize="18"
+                                Height="32"
+                                Width="100"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                
+                                x:Name="TypingVolumeTextBox"
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                >
+                            </TextBox>
+
+                            <Slider
+                                x:Name="TypingVolumeSlider"
+                                Margin="10 0 50 0"
+                                Width="240"
+                                Minimum="0"
+                                Maximum="100" TickFrequency="1"
+                                ValueChanged="TypingVolumeSlider_ValueChanged"
+                                Thumb.DragCompleted="TypingVolumeSlider_DragCompleted">
+                            </Slider>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Style="{StaticResource SettingsItemStyle}"
+                    >
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            VerticalAlignment="Top"
+                            Text="{x:Static res:Resources.uSettBackgroundMusicSoundVolume}"
+                            FontSize="18">
+                        </TextBlock>
+
+                        <StackPanel
+                            Height="32"
+                            Width="400"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+
+                            <TextBox
+                                FontSize="18"
+                                Height="32"
+                                Width="100"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                
+                                x:Name="BackgroundVolumeTextBox"
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                >
+                            </TextBox>
+
+                            <Slider
+                                x:Name="BackgroundVolumeSlider"
+                                Margin="10 0 50 0"
+                                Width="240"
+                                Minimum="0"
+                                Maximum="100" TickFrequency="1"
+                                ValueChanged="BackgroundVolumeSlider_ValueChanged"
+                                Thumb.DragCompleted="BackgroundVolumeSlider_DragCompleted">
+                            </Slider>
+                        </StackPanel>
+                    </Grid>
 
 
                     <Grid Style="{StaticResource SettingsItemStyle}"

@@ -157,6 +157,23 @@ namespace WPFMeteroWindow.Resources.pages
         private void TypingAnimationComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) =>
             KeyboardLightingDonut.Shape = Intermediary.KeyboardShapesDictionary[TypingAnimationComboBox.SelectedItem as string];
 
+        private void ClickVolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) =>
+            SetVolume("Click", e.NewValue);
+
+        private void TypingVolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) =>
+            SetVolume("Typing", e.NewValue);
+
+        private void BackgroundVolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) =>
+            SetVolume("Background", e.NewValue);
+
+        private void TypingVolumeSlider_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e) =>
+            SoundManager.PlayType();
+
+        private void ClickVolumeSlider_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e) =>
+            SoundManager.PlayClick();
+
+        private void BackgroundVolumeSlider_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e) { }
+
         private void ClickAnimationComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var chosenShapeName = ClickAnimationComboBox.SelectedItem as string;
@@ -222,6 +239,11 @@ namespace WPFMeteroWindow.Resources.pages
 
                 case 1:
                     SetColor.WindowBackgroundImage(Opener.ImageViaExplorer());
+                    break;
+
+                default:
+                    int index = WindowColorType.SelectedIndex - 2;
+                    SetColor.WindowBackgroundImage(Intermediary.RecentImages[index]);
                     break;
             }
         }
