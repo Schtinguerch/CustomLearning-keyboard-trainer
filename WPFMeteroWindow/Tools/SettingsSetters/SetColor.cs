@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using WPFMeteroWindow.Properties;
 using System.IO;
@@ -18,7 +19,7 @@ namespace WPFMeteroWindow
 
     public static class SetColor
     {
-        
+
         public static void WindowBackgroundImage(string path)
         {
             if (!File.Exists(path) && (path.Substring(0, 4) != "http"))
@@ -45,6 +46,16 @@ namespace WPFMeteroWindow
 
             ImageBehavior.SetAnimatedSource(Intermediary.App.BackgroundImage, image);
             ImageBehavior.SetRepeatBehavior(Intermediary.App.BackgroundImage, RepeatBehavior.Forever);
+
+            if (Intermediary.RecentImages == null)
+            {
+                Intermediary.RecentImages = new List<string>();
+            }
+
+            if (!Intermediary.RecentImages.Contains(path))
+            {
+                Intermediary.RecentImages.Add(path);
+            }
         }
 
         public static void WindowStandardColor()
