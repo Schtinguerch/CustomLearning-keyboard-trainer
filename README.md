@@ -43,16 +43,22 @@ And 2 ways to usual app using:
 
 
 ## App's shortcuts
- 1. `Alt+M` To restart the lesson and to focus on input text box
- 2. `Alt+C` To open the Command Line
- 3. `Alt+D` To start demonstration typing mode (autotyper)
- 4. `Alt+U` To open app update manager
- 5. `Alt+W` To select 1 of 2 chosen layouts
- 6. `Alt+R` To shuffle lesson's words via random
- 7. `Alt+E` To open lesson editor
- 8. `Alt+Shift+E` To open course editor
+ 1. `Alt+J` To restart the lesson and to focus on input text box
+ 2. `Alt+H` To start the previous lesson of the course
+ 3. `Alt+M` To start the next lesson of the course
+ 4. `Alt+T` To start a typing test or leave the typing test
+ 5. `Alt+C` To open the Command Line
+ 6. `Alt+D` To start demonstration typing mode (autotyper)
+ 7. `Alt+U` To open app update manager
+ 8. `Alt+W` To select 1 of 2 chosen layouts
+ 9. `Alt+R` To shuffle lesson's words via random
+ 10. `Alt+E` To open lesson editor
+ 11. `Alt+Shift+E` To open course editor
 
- `Alt` is more comfortable key to use, because the key is pressed by left thumb instead of left or right pinky.
+To show the shortcut hint page just hold left `Alt` for 2 seconds.
+`Alt` is more comfortable key to use, because the key is pressed by left thumb instead of left or right pinky.
+
+ ![Shortcut hint page](https://sun9-10.userapi.com/impg/SRIGomC27EL-qPbzKaLCCMcnqMqHw1CNUX3Egw/D5SQLyFvAoA.jpg?size=1117x635&quality=95&sign=e001920ec24b72ea68a8a2fb550df682&type=album)
 
 ## App skins - skin configurations
 User can change app appearance. To simplify this process CustomLearning allows user to use special files with app appearance parameters - skin configuration files.
