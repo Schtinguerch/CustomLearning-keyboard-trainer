@@ -6,17 +6,13 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using WPFMeteroWindow.Properties;
 using System.Windows.Media;
-using Newtonsoft.Json.Linq;
 
 namespace WPFMeteroWindow
 {
     public static class SoundManager
     {
         private static string _backgroundSoundFile;
-
-        private static MediaPlayer _tapSoundPlayer = new MediaPlayer();
-        private static MediaPlayer _errorSoundPlayer = new MediaPlayer();
-        private static MediaPlayer _backgroundSoundPlayer = new MediaPlayer();
+        private static MediaPlayer _player = new MediaPlayer();
 
         public static string TapSoundFile
         {
@@ -28,7 +24,12 @@ namespace WPFMeteroWindow
         {
             get => Settings.Default.ErrorClickSoundFile;
             set => Settings.Default.ErrorClickSoundFile = value;
-            
+        }
+
+        public static string ClickSoundFile
+        {
+            get => Settings.Default.MouseClickSoundFile;
+            set => Settings.Default.MouseClickSoundFile = value;
         }
 
         public static string BackgroundSoundFile
@@ -37,23 +38,57 @@ namespace WPFMeteroWindow
             set => _backgroundSoundFile = value;
         }
 
+        public static double TypingVolume
+        {
+            get => Settings.Default.TypingVolume;
+            set => Settings.Default.TypingVolume = value;
+        }
+
+        public static double ClickVolume
+        {
+            get => Settings.Default.ClickVolume;
+            set => Settings.Default.ClickVolume = value;
+        }
+
+        public static double BackgroundSoundVolume
+        {
+            get => Settings.Default.BackgroundMusicVolume;
+            set => Settings.Default.BackgroundMusicVolume = value;
+        }
+
+        public static void Initialize()
+        {
+            TypingVolume = TypingVolume;
+            TapSoundFile = TapSoundFile;
+            ErrorSoundFile = ErrorSoundFile;
+        }
+
         public static void PlayType()
 {
-            _tapSoundPlayer.Open(new Uri(Settings.Default.TapClickSoundFile, UriKind.RelativeOrAbsolute));
-            _tapSoundPlayer.Play();
+            _player.Volume = TypingVolume;
+            _player.Open(new Uri(TapSoundFile, UriKind.RelativeOrAbsolute));
+            _player.Play();
         }
-            
-
+        
         public static void PlayTypingMistake()
         {
-            _errorSoundPlayer.Open(new Uri(Settings.Default.ErrorClickSoundFile, UriKind.RelativeOrAbsolute));
-            _errorSoundPlayer.Play();
+            _player.Volume = TypingVolume;
+            _player.Open(new Uri(ErrorSoundFile, UriKind.RelativeOrAbsolute));
+            _player.Play();
         }
             
         public static void PlayBackgroundMusic()
         {
-            _backgroundSoundPlayer.Open(new Uri(_backgroundSoundFile, UriKind.RelativeOrAbsolute));
-            _backgroundSoundPlayer.Play();
+            _player.Volume = BackgroundSoundVolume;
+            _player.Open(new Uri(BackgroundSoundFile, UriKind.RelativeOrAbsolute));
+            _player.Play();
+        }
+
+        public static void PlayClick()
+        {
+            _player.Volume = ClickVolume;
+            _player.Open(new Uri(ClickSoundFile, UriKind.RelativeOrAbsolute));
+            _player.Play();
         }
     }
 }
