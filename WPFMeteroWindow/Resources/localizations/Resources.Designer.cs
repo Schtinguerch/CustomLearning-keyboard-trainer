@@ -115,6 +115,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Режим демострации (автоматическая печать).
+        /// </summary>
+        public static string uAutotypingMode {
+            get {
+                return ResourceManager.GetString("uAutotypingMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на В среднем.
         /// </summary>
         public static string uAverage {
@@ -183,6 +192,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uChooseTheBeginLesson {
             get {
                 return ResourceManager.GetString("uChooseTheBeginLesson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Командная строка.
+        /// </summary>
+        public static string uCommandInterpreter {
+            get {
+                return ResourceManager.GetString("uCommandInterpreter", resourceCulture);
             }
         }
         
@@ -534,6 +552,24 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uKeyIsEmpty {
             get {
                 return ResourceManager.GetString("uKeyIsEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Язык.
+        /// </summary>
+        public static string uLanguage {
+            get {
+                return ResourceManager.GetString("uLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Язык системы.
+        /// </summary>
+        public static string uLanguageOfSystem {
+            get {
+                return ResourceManager.GetString("uLanguageOfSystem", resourceCulture);
             }
         }
         
@@ -1006,6 +1042,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Открыть новое изображение.
+        /// </summary>
+        public static string uOpenNewImage {
+            get {
+                return ResourceManager.GetString("uOpenNewImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Открыть игру.
         /// </summary>
         public static string uOpenNewMap {
@@ -1150,6 +1195,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Громкость фоновой музыки.
+        /// </summary>
+        public static string uSettBackgroundMusicSoundVolume {
+            get {
+                return ResourceManager.GetString("uSettBackgroundMusicSoundVolume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Основные цвета.
         /// </summary>
         public static string uSettBaseColors {
@@ -1173,6 +1227,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uSettBrush {
             get {
                 return ResourceManager.GetString("uSettBrush", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Громкость нажатий.
+        /// </summary>
+        public static string uSettClickVolume {
+            get {
+                return ResourceManager.GetString("uSettClickVolume", resourceCulture);
             }
         }
         
@@ -1465,11 +1528,29 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Звуки.
+        /// </summary>
+        public static string uSettSoundSettings {
+            get {
+                return ResourceManager.GetString("uSettSoundSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Цвет текстовых полей.
         /// </summary>
         public static string uSettTextBoxColor {
             get {
                 return ResourceManager.GetString("uSettTextBoxColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Громкость печати.
+        /// </summary>
+        public static string uSettTypingVolume {
+            get {
+                return ResourceManager.GetString("uSettTypingVolume", resourceCulture);
             }
         }
         
@@ -1492,7 +1573,7 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Тип фона окна.
+        ///   Ищет локализованную строку, похожую на Фон окна.
         /// </summary>
         public static string uSettWindowBackgroundType {
             get {
@@ -1551,6 +1632,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uShuffledWords {
             get {
                 return ResourceManager.GetString("uShuffledWords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Перемешать слова.
+        /// </summary>
+        public static string uShuffleUpWords {
+            get {
+                return ResourceManager.GetString("uShuffleUpWords", resourceCulture);
             }
         }
         
@@ -1623,6 +1713,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uSuccess {
             get {
                 return ResourceManager.GetString("uSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Переключить раскладку клавиатуры.
+        /// </summary>
+        public static string uSwitchKeyboardLayout {
+            get {
+                return ResourceManager.GetString("uSwitchKeyboardLayout", resourceCulture);
             }
         }
         
@@ -1767,6 +1866,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uUnloadWords {
             get {
                 return ResourceManager.GetString("uUnloadWords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Менеджер обновлений.
+        /// </summary>
+        public static string uUpdateManager {
+            get {
+                return ResourceManager.GetString("uUpdateManager", resourceCulture);
             }
         }
         

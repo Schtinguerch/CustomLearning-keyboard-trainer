@@ -135,6 +135,9 @@
   <data name="uAuthor" xml:space="preserve">
     <value>Автор</value>
   </data>
+  <data name="uAutotypingMode" xml:space="preserve">
+    <value>Режим демострации (автоматическая печать)</value>
+  </data>
   <data name="uAverage" xml:space="preserve">
     <value>В среднем</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="uChooseTheBeginLesson" xml:space="preserve">
     <value>Выберите урок, с которого желаете начать</value>
+  </data>
+  <data name="uCommandInterpreter" xml:space="preserve">
+    <value>Командная строка</value>
   </data>
   <data name="uCourse" xml:space="preserve">
     <value>Курс</value>
@@ -275,6 +281,12 @@
   </data>
   <data name="uKeyIsEmpty" xml:space="preserve">
     <value>Один из ключей в словаре замен пустой</value>
+  </data>
+  <data name="uLanguage" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="uLanguageOfSystem" xml:space="preserve">
+    <value>Язык системы</value>
   </data>
   <data name="uLeft" xml:space="preserve">
     <value>Левым </value>
@@ -432,6 +444,9 @@
   <data name="uOpenNew" xml:space="preserve">
     <value>Открыть новый</value>
   </data>
+  <data name="uOpenNewImage" xml:space="preserve">
+    <value>Открыть новое изображение</value>
+  </data>
   <data name="uOpenNewMap" xml:space="preserve">
     <value>Открыть игру</value>
   </data>
@@ -480,6 +495,9 @@
   <data name="uSettAnimations" xml:space="preserve">
     <value>Анимации</value>
   </data>
+  <data name="uSettBackgroundMusicSoundVolume" xml:space="preserve">
+    <value>Громкость фоновой музыки</value>
+  </data>
   <data name="uSettBaseColors" xml:space="preserve">
     <value>Основные цвета</value>
   </data>
@@ -488,6 +506,9 @@
   </data>
   <data name="uSettBrush" xml:space="preserve">
     <value>Сплошной цвет</value>
+  </data>
+  <data name="uSettClickVolume" xml:space="preserve">
+    <value>Громкость нажатий</value>
   </data>
   <data name="uSettCurrentKeyboardLayout" xml:space="preserve">
     <value>Текущая раскладка клавиатуры</value>
@@ -585,8 +606,14 @@
   <data name="uSettShowStatistics" xml:space="preserve">
     <value>Отображать статистику во время прохождения урока</value>
   </data>
+  <data name="uSettSoundSettings" xml:space="preserve">
+    <value>Звуки</value>
+  </data>
   <data name="uSettTextBoxColor" xml:space="preserve">
     <value>Цвет текстовых полей</value>
+  </data>
+  <data name="uSettTypingVolume" xml:space="preserve">
+    <value>Громкость печати</value>
   </data>
   <data name="uSettUItext" xml:space="preserve">
     <value>Шрифт текста интерфейса</value>
@@ -595,7 +622,7 @@
     <value>Цвет текста интерфейса</value>
   </data>
   <data name="uSettWindowBackgroundType" xml:space="preserve">
-    <value>Тип фона окна</value>
+    <value>Фон окна</value>
   </data>
   <data name="uSettWindowColor" xml:space="preserve">
     <value>Цвет окна</value>
@@ -614,6 +641,9 @@
   </data>
   <data name="uShuffledWords" xml:space="preserve">
     <value>Слова перемешаны</value>
+  </data>
+  <data name="uShuffleUpWords" xml:space="preserve">
+    <value>Перемешать слова</value>
   </data>
   <data name="uSkin" xml:space="preserve">
     <value>Тема</value>
@@ -638,6 +668,9 @@
   </data>
   <data name="uSuccess" xml:space="preserve">
     <value>Успех!</value>
+  </data>
+  <data name="uSwitchKeyboardLayout" xml:space="preserve">
+    <value>Переключить раскладку клавиатуры</value>
   </data>
   <data name="uSystemReplaceProblemFileIntoStandard" xml:space="preserve">
     <value>Система заменит проблемный файл на стандартный</value>
@@ -686,6 +719,9 @@
   </data>
   <data name="uUnloadWords" xml:space="preserve">
     <value>Выгрузить в курс</value>
+  </data>
+  <data name="uUpdateManager" xml:space="preserve">
+    <value>Менеджер обновлений</value>
   </data>
   <data name="uUserLessons" xml:space="preserve">
     <value>Пользовательские уроки</value>

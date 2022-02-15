@@ -135,6 +135,9 @@
   <data name="uAuthor" xml:space="preserve">
     <value>Author</value>
   </data>
+  <data name="uAutotypingMode" xml:space="preserve">
+    <value>Demonstration mode (automatic typing)</value>
+  </data>
   <data name="uAverage" xml:space="preserve">
     <value>Average</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="uChooseTheBeginLesson" xml:space="preserve">
     <value>Choose the beginning lesson</value>
+  </data>
+  <data name="uCommandInterpreter" xml:space="preserve">
+    <value>Command line</value>
   </data>
   <data name="uCourse" xml:space="preserve">
     <value>Course</value>
@@ -275,6 +281,12 @@
   </data>
   <data name="uKeyIsEmpty" xml:space="preserve">
     <value>One of replacement dictionary key is empty</value>
+  </data>
+  <data name="uLanguage" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="uLanguageOfSystem" xml:space="preserve">
+    <value>Language in the system</value>
   </data>
   <data name="uLeft" xml:space="preserve">
     <value>Left </value>
@@ -432,6 +444,9 @@
   <data name="uOpenNew" xml:space="preserve">
     <value>Open new</value>
   </data>
+  <data name="uOpenNewImage" xml:space="preserve">
+    <value>Open a new image</value>
+  </data>
   <data name="uOpenNewMap" xml:space="preserve">
     <value>Open a new map</value>
   </data>
@@ -480,6 +495,9 @@
   <data name="uSettAnimations" xml:space="preserve">
     <value>Animations</value>
   </data>
+  <data name="uSettBackgroundMusicSoundVolume" xml:space="preserve">
+    <value>Background music volume</value>
+  </data>
   <data name="uSettBaseColors" xml:space="preserve">
     <value>Main colors</value>
   </data>
@@ -488,6 +506,9 @@
   </data>
   <data name="uSettBrush" xml:space="preserve">
     <value>Color brush</value>
+  </data>
+  <data name="uSettClickVolume" xml:space="preserve">
+    <value>Click volume</value>
   </data>
   <data name="uSettCurrentKeyboardLayout" xml:space="preserve">
     <value>Current keyboard layout</value>
@@ -585,8 +606,14 @@
   <data name="uSettShowStatistics" xml:space="preserve">
     <value>Show statistics till do exersise</value>
   </data>
+  <data name="uSettSoundSettings" xml:space="preserve">
+    <value>Sound settings</value>
+  </data>
   <data name="uSettTextBoxColor" xml:space="preserve">
     <value>Text boxes backgroud</value>
+  </data>
+  <data name="uSettTypingVolume" xml:space="preserve">
+    <value>Typing volume</value>
   </data>
   <data name="uSettUItext" xml:space="preserve">
     <value>UI text font family</value>
@@ -595,7 +622,7 @@
     <value>UI text color</value>
   </data>
   <data name="uSettWindowBackgroundType" xml:space="preserve">
-    <value>Window background type</value>
+    <value>Window background</value>
   </data>
   <data name="uSettWindowColor" xml:space="preserve">
     <value>Window color</value>
@@ -614,6 +641,9 @@
   </data>
   <data name="uShuffledWords" xml:space="preserve">
     <value>Words shuffled</value>
+  </data>
+  <data name="uShuffleUpWords" xml:space="preserve">
+    <value>Shuffle words up</value>
   </data>
   <data name="uSkin" xml:space="preserve">
     <value>Skin</value>
@@ -638,6 +668,9 @@
   </data>
   <data name="uSuccess" xml:space="preserve">
     <value>Success!</value>
+  </data>
+  <data name="uSwitchKeyboardLayout" xml:space="preserve">
+    <value>Switch the keyboard layout</value>
   </data>
   <data name="uSystemReplaceProblemFileIntoStandard" xml:space="preserve">
     <value>System will replace the problem file by a standard file</value>
@@ -686,6 +719,9 @@
   </data>
   <data name="uUnloadWords" xml:space="preserve">
     <value>Unload to the course</value>
+  </data>
+  <data name="uUpdateManager" xml:space="preserve">
+    <value>Update manager</value>
   </data>
   <data name="uUserLessons" xml:space="preserve">
     <value>User lessons</value>
