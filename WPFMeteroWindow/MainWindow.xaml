@@ -16,6 +16,7 @@
     WindowStartupLocation="CenterScreen"
     PreviewMouseDown="MetroWindow_PreviewMouseDown"
     KeyDown="MainWindow_OnKeyDown"
+    KeyUp="MetroWindow_KeyUp"
     MouseMove="MetroWindow_MouseMove"
     SizeChanged="MetroWindow_SizeChanged"
     StateChanged="MetroWindow_StateChanged"
