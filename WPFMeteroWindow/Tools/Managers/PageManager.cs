@@ -23,13 +23,16 @@ namespace WPFMeteroWindow
         RecentConfigs,
         TypingTestParameters,
         WelcomePage,
+        ShortCutHint,
         EmptyPage,
     }
     
     public static class PageManager
     {
         private static string _baseFolder = "Resources/pages/";
+        private static TabPage _tabPage = TabPage.EmptyPage;
 
+        public static TabPage CurrentPage => _tabPage;
         public static Frame PageFrame { get; set; }
         public static Grid PageGrid { get; set; }
 
@@ -53,11 +56,13 @@ namespace WPFMeteroWindow
             _baseFolder + "ActiveUsingConfigs.xaml",
             _baseFolder + "TypingTestParametersPage.xaml",
             _baseFolder + "WelcomePage.xaml",
+            _baseFolder + "ShortcutHintPage.xaml",
             null,
         };
 
         public static void HidePages()
         {
+            _tabPage = TabPage.EmptyPage;
             if (ClosePageStoryboard == null)
             {
                 ClearPages();
@@ -82,6 +87,7 @@ namespace WPFMeteroWindow
 
         public static void OpenPage(TabPage page)
         {
+            _tabPage = page;
             int pageIndex = (int)page;
 
             if (pageIndex == Pages.Length - 1)
