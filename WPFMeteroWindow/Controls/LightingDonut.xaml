@@ -11,7 +11,7 @@
 
     <UserControl.Resources>
         <Storyboard 
-            x:Key="SplashStoryboard"
+            x:Key="ScaleStoryboard"
             Duration="00:00:01">
             <DoubleAnimation
                 Storyboard.TargetName="GridScaleTransform"
@@ -43,6 +43,76 @@
                 AccelerationRatio="1">
             </DoubleAnimation>
         </Storyboard>
+
+        <Storyboard
+            x:Key="MoveUpStoryboard"
+            Duration="00:00:01">
+
+            <DoubleAnimation
+                Storyboard.TargetName="GridTranslateTransform"
+                Storyboard.TargetProperty="Y"
+                
+                From="0"
+                To="-60"
+                Duration="00:00:00.400"
+                DecelerationRatio="1">
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="GridScaleTransform"
+                Storyboard.TargetProperty="ScaleX"
+                            
+                From="1"
+                To="1.25"
+                Duration="00:00:00.330"
+                DecelerationRatio="0.8">
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="GridScaleTransform"
+                Storyboard.TargetProperty="ScaleY"
+                            
+                From="1"
+                To="1.25"
+                Duration="00:00:00.330"
+                DecelerationRatio="0.8">
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="MainGrid"
+                Storyboard.TargetProperty="Opacity"
+                            
+                From="1"
+                To="0"
+                Duration="00:00:00.330"
+                AccelerationRatio="1">
+            </DoubleAnimation>
+        </Storyboard>
+
+        <Storyboard
+            x:Key="RotationStoryboard"
+            Duration="00:00:01">
+
+            <DoubleAnimation
+                Storyboard.TargetName="MainGrid"
+                Storyboard.TargetProperty="Opacity"
+                            
+                From="1"
+                To="0"
+                Duration="00:00:00.330"
+                AccelerationRatio="1">
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="RotationTransform"
+                Storyboard.TargetProperty="Angle"
+                            
+                From="0"
+                To="360"
+                Duration="00:00:00.400"
+                DecelerationRatio="1">
+            </DoubleAnimation>
+        </Storyboard>
     </UserControl.Resources>
 
     <Grid 
@@ -56,11 +126,26 @@
         Height="50">
 
         <Grid.RenderTransform>
-            <ScaleTransform
-                x:Name="GridScaleTransform"
-                ScaleX="1"
-                ScaleY="1">
-            </ScaleTransform>
+            <TransformGroup>
+                <ScaleTransform
+                    x:Name="GridScaleTransform"
+                    ScaleX="1"
+                    ScaleY="1">
+                </ScaleTransform>
+
+                <TranslateTransform
+                    x:Name="GridTranslateTransform"
+                    X="0" 
+                    Y="0">
+                </TranslateTransform>
+
+                <RotateTransform
+                    x:Name="RotationTransform"
+                    CenterX="0"
+                    CenterY="0"
+                    Angle="0">
+                </RotateTransform>
+            </TransformGroup>
         </Grid.RenderTransform>
 
         <Grid x:Name="ShapeGrid">

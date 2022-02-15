@@ -55,7 +55,7 @@ namespace WPFMeteroWindow.Controls
         public LightingDonut()
         {
             InitializeComponent();
-            _splashStoryboard = FindResource("SplashStoryboard") as Storyboard;
+            _splashStoryboard = FindResource(Settings.Default.ChosenSplashStoryboard) as Storyboard;
         }
     }
 }
