@@ -306,7 +306,7 @@ namespace WPFMeteroWindow
         {
             var selectedPage = TabPage.EmptyPage;
 
-            if ((e.Key != Key.LeftCtrl) && (e.Key != Key.RightCtrl) && (e.Key != Key.Apps) && (PageManager.PageFrame.Source == null))
+            if ((e.Key != Key.LeftCtrl) && (e.Key != Key.RightCtrl) && (e.Key != Key.Apps) && (PageManager.PageFrame.Source == null || PageManager.CurrentPage == TabPage.ShortCutHint))
             {
                 if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.F))
                 {
@@ -368,11 +368,28 @@ namespace WPFMeteroWindow
                     RandomizedTextBlock.Text = LessonManager.RandomizeText ? $"{Localization.uShuffledWords} •" : "";
                 }
 
-                else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.M))
+
+
+
+                else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.H))
+                {
+                    e.Handled = true;
+                    StartPreviouslesson();
+                }
+
+                else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.J))
                 {
                     e.Handled = true;
                     RestartLesson();
                 }
+
+                else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.M))
+                {
+                    e.Handled = true;
+                    StartNextLesson();
+                }
+
+
 
                 else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.D))
                 {
@@ -397,6 +414,43 @@ namespace WPFMeteroWindow
                 {
                     e.Handled = true;
                     System.Diagnostics.Process.Start("CustomLearningUpdater.exe");
+                }
+
+                else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.T))
+                {
+                    e.Handled = true;
+
+                    if (Settings.Default.ItTypingTest)
+                        CourseManager.CurrentLessonIndex = CourseManager.CurrentLessonIndex;
+                    else
+                        PageManager.OpenPage(TabPage.TypingTestParameters);
+                }
+
+                else if (AppManager.IsComboKeyDown(e, Key.LeftAlt) && PageManager.CurrentPage != TabPage.ShortCutHint && !_altPressed)
+                {
+                    e.Handled = true;
+
+                    var timer = new Timer();
+                    timer.Interval = 2000;
+
+                    timer.Tick += (s, ee) =>
+                    {
+                        timer.Stop();
+                        if (_altPressed)
+                        {
+                            _altPressed = false;
+                            PageManager.OpenPage(TabPage.ShortCutHint);
+                        }
+                    };
+
+                    _altPressed = true;
+                    timer.Start();
+                }
+
+                if (!AppManager.IsComboKeyDown(e, Key.LeftAlt) && PageManager.CurrentPage == TabPage.ShortCutHint)
+                {
+                    e.Handled = true;
+                    PageManager.HidePages();
                 }
             }
 
@@ -602,6 +656,10 @@ namespace WPFMeteroWindow
             lessonHeaderTextBlock.Text = _headerText;
         }
 
+        private bool _altPressed = false;
+        private void MetroWindow_KeyUp(object sender, KeyEventArgs e) =>
+            _altPressed = false;
+
         private void MetroWindow_ContentRendered(object sender, EventArgs e)
         {
             ContentRendered -= MetroWindow_ContentRendered;;
@@ -620,6 +678,8 @@ namespace WPFMeteroWindow
         private void MetroWindow_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             ShakeImage(Settings.Default.ShakeBackgroundInClicking);
+            SoundManager.PlayClick();
+
             MouseSplashShape.StartSplash();
 
             var mousePoint = e.GetPosition(MainGrid);
