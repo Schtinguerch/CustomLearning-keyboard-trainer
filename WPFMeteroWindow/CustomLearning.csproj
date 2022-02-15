@@ -431,6 +431,9 @@
     <Compile Include="Resources\pages\LessonLoaderPage.xaml.cs">
       <DependentUpon>LessonLoaderPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\pages\ShortcutHintPage.xaml.cs">
+      <DependentUpon>ShortcutHintPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\pages\TypingTestParametersPage.xaml.cs">
       <DependentUpon>TypingTestParametersPage.xaml</DependentUpon>
     </Compile>
@@ -464,6 +467,7 @@
     <Compile Include="Tools\Managers\CourseManager.cs" />
     <Compile Include="Tools\Managers\DiscordManager.cs" />
     <Compile Include="Tools\Managers\KeyboardManager.cs" />
+    <Compile Include="Tools\Managers\LanguageManager.cs" />
     <Compile Include="Tools\Managers\LessonManager.cs" />
     <Compile Include="Tools\Managers\LogManager.cs" />
     <Compile Include="Tools\Managers\PageManager.cs" />
@@ -820,6 +824,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\pages\LessonLoaderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\pages\ShortcutHintPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
