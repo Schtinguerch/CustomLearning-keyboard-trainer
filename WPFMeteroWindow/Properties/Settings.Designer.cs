@@ -637,13 +637,13 @@ namespace WPFMeteroWindow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0.1")]
-        public double MusicVolume {
+        [global::System.Configuration.DefaultSettingValueAttribute("0.5")]
+        public double TypingVolume {
             get {
-                return ((double)(this["MusicVolume"]));
+                return ((double)(this["TypingVolume"]));
             }
             set {
-                this["MusicVolume"] = value;
+                this["TypingVolume"] = value;
             }
         }
         
@@ -956,6 +956,78 @@ namespace WPFMeteroWindow.Properties {
             }
             set {
                 this["FirstLaunchFileIndicatorPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ScaleStoryboard")]
+        public string ChosenSplashStoryboard {
+            get {
+                return ((string)(this["ChosenSplashStoryboard"]));
+            }
+            set {
+                this["ChosenSplashStoryboard"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("RecentPhotos.json")]
+        public string RecentPhotosPath {
+            get {
+                return ((string)(this["RecentPhotosPath"]));
+            }
+            set {
+                this["RecentPhotosPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.5")]
+        public double ClickVolume {
+            get {
+                return ((double)(this["ClickVolume"]));
+            }
+            set {
+                this["ClickVolume"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.5")]
+        public double BackgroundMusicVolume {
+            get {
+                return ((double)(this["BackgroundMusicVolume"]));
+            }
+            set {
+                this["BackgroundMusicVolume"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("mouseClickSound.mp3")]
+        public string MouseClickSoundFile {
+            get {
+                return ((string)(this["MouseClickSoundFile"]));
+            }
+            set {
+                this["MouseClickSoundFile"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ChosenLanguageIndex {
+            get {
+                return ((int)(this["ChosenLanguageIndex"]));
+            }
+            set {
+                this["ChosenLanguageIndex"] = value;
             }
         }
     }

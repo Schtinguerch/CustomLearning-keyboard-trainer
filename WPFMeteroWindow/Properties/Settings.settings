@@ -155,8 +155,8 @@
     <Setting Name="LoadedMapFolder" Type="System.String" Scope="User">
       <Value Profile="(Default)">D:\Cases\Press game maps\Test map</Value>
     </Setting>
-    <Setting Name="MusicVolume" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">0.1</Value>
+    <Setting Name="TypingVolume" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0.5</Value>
     </Setting>
     <Setting Name="DiscordID" Type="System.String" Scope="User">
       <Value Profile="(Default)">824522754971402241</Value>
@@ -235,6 +235,24 @@
     </Setting>
     <Setting Name="FirstLaunchFileIndicatorPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">Launched.txt</Value>
+    </Setting>
+    <Setting Name="ChosenSplashStoryboard" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ScaleStoryboard</Value>
+    </Setting>
+    <Setting Name="RecentPhotosPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">RecentPhotos.json</Value>
+    </Setting>
+    <Setting Name="ClickVolume" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0.5</Value>
+    </Setting>
+    <Setting Name="BackgroundMusicVolume" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0.5</Value>
+    </Setting>
+    <Setting Name="MouseClickSoundFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">mouseClickSound.mp3</Value>
+    </Setting>
+    <Setting Name="ChosenLanguageIndex" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>
 </SettingsFile>
