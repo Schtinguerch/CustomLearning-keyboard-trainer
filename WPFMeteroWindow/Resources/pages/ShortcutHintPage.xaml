@@ -26,6 +26,58 @@
         </Grid.ColumnDefinitions>
 
         <Canvas
+            Grid.Row="1"
+            Grid.Column="1">
+
+            <StackPanel
+                Orientation="Horizontal"
+                Canvas.Top="5">
+
+                <Grid 
+                    Margin="0 0 0 0"
+                    Visibility="Hidden">
+                    <Polygon 
+                        Fill="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Points="10,0 13,-12 16,0">
+                    </Polygon>
+
+                    <Rectangle
+                        Fill="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        RadiusX="5"
+                        RadiusY="5">
+                    </Rectangle>
+
+                    <TextBlock 
+                        Style="{StaticResource SummaryTextStyle}"
+                        FontSize="16"
+                        Padding="6 3 6 3"
+                        Text="Alt+H">
+                    </TextBlock>
+                </Grid>
+
+                <Grid Margin="7 0 0 0">
+                    <Polygon 
+                        Fill="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        Points="10,0 13,-12 16,0">
+                    </Polygon>
+
+                    <Rectangle
+                        Fill="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        RadiusX="5"
+                        RadiusY="5">
+                    </Rectangle>
+
+                    <TextBlock 
+                        Style="{StaticResource SummaryTextStyle}"
+                        FontSize="16"
+                        Padding="6 3 6 3"
+                        Text="Alt+S">
+                    </TextBlock>
+                </Grid>
+            </StackPanel>
+        </Canvas>
+
+        <Canvas
             Grid.Row="2"
             Grid.Column="1">
 
@@ -49,11 +101,11 @@
                         Style="{StaticResource SummaryTextStyle}"
                         FontSize="16"
                         Padding="6 3 6 3"
-                        Text="Alt+D">
+                        Text="Alt+H">
                     </TextBlock>
                 </Grid>
 
-                <Grid Margin="5 0 0 0">
+                <Grid Margin="7 0 0 0">
                     <Polygon 
                         Fill="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
                         Points="10,0 13,-12 16,0">
@@ -69,11 +121,11 @@
                         Style="{StaticResource SummaryTextStyle}"
                         FontSize="16"
                         Padding="6 3 6 3"
-                        Text="Alt+H">
+                        Text="Alt+J">
                     </TextBlock>
                 </Grid>
 
-                <Grid Margin="5 0 0 0">
+                <Grid Margin="7 0 0 0">
                     <Polygon 
                         Fill="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
                         Points="10,0 13,-12 16,0">
@@ -461,7 +513,7 @@
                     Text="{x:Static res:Resources.uPassTypingSpeedTest}">
                 </TextBlock>
 
-                <Grid Margin="0 0 5 0">
+                <Grid Margin="0 0 7 0">
                     <Polygon 
                         Fill="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
                         Points="10,0 13,-12 16,0">
