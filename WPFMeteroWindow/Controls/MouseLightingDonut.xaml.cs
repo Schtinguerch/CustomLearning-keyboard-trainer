@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
 
@@ -12,6 +13,20 @@ namespace WPFMeteroWindow.Controls
     public partial class MouseLightingDonut : UserControl
     {
         private Storyboard _splashStoryboard;
+
+        public List<string> AllStoryboardNames
+        {
+            get
+            {
+                var keyList = new List<string>();
+
+                foreach (var key in Resources.Keys)
+                    keyList.Add(key.ToString());
+
+                return keyList;
+            }
+        }
+
         public void StartSplash()
         {
             if (!Settings.Default.EnableSplashAnimation)
@@ -25,8 +40,11 @@ namespace WPFMeteroWindow.Controls
             get => ShapeGrid;
             set
             {
+                _splashStoryboard?.Stop();
                 var newShape = value.Copy<Grid>();
+
                 Settings.Default.ChosenClickSplashName = newShape.Name;
+                _splashStoryboard = FindResource(Settings.Default.ChosenMouseSplashStoryboard) as Storyboard;
 
                 MainGrid.Children.Clear();
                 MainGrid.Children.Add(newShape);
@@ -55,7 +73,6 @@ namespace WPFMeteroWindow.Controls
         public MouseLightingDonut()
         {
             InitializeComponent();
-            _splashStoryboard = FindResource("SplashStoryboard") as Storyboard;
         }
     }
 }
