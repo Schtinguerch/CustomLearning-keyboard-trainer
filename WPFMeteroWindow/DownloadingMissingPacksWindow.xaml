@@ -1,0 +1,35 @@
+﻿<Window x:Class="WPFMeteroWindow.DownloadingMissingPacksWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFMeteroWindow"
+        mc:Ignorable="d"
+        Title="DownloadingMissingPacksWindow" 
+        Height="250" Width="500"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Background="#202020"
+        Loaded="Window_Loaded">
+    
+    <Grid>
+        <Image Stretch="UniformToFill" Source="Resources/images/Background.jpg"></Image>
+
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock 
+                Style="{StaticResource SummaryTextStyle}"
+                FontSize="28"
+                HorizontalAlignment="Center"
+                Text="Downloading missing packages">
+            </TextBlock>
+
+            <TextBlock 
+                Style="{StaticResource SummaryTextStyle}"
+                FontSize="20"
+                HorizontalAlignment="Center"
+                Text="Please wait">
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>
