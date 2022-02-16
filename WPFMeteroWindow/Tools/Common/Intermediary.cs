@@ -24,9 +24,11 @@ namespace WPFMeteroWindow
 
         public static AllSplashShapes AllSplashShapes { get; set; }
         public static Dictionary<string, Grid> KeyboardShapesDictionary { get; set; }
+        public static List<string> KeyboardStoryboards { get; set; }
 
         public static MouseSplashShapes MouseSplashShapes { get; set; }
         public static Dictionary<string, Grid> MouseShapesDictionary { get; set; }
+        public static List<string> MouseStoryboards { get; set; }
         
         public static (string[][] keys, Button[] buttons) KeyboardData { get; set; }
 
