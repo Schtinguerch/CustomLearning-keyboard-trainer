@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.IO.Compression;
+using System.Net;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -32,6 +34,24 @@ namespace WPFMeteroWindow
             SetGlobalTryCatch();
 
             LanguageManager.SetLanguage(Settings.Default.ChosenLanguageIndex);
+
+            if (!Directory.Exists("DefaultData"))
+            {
+                var downloadingWindow = new DownloadingMissingPacksWindow();
+                downloadingWindow.Show();
+
+                var client = new WebClient();
+                var zipArchiveFilename = "Packages.zip";
+
+                client.DownloadFile("https://github.com/Schtinguerch/schtinguerch.github.io/raw/master/MissingPackages/AppEssentials.zip", zipArchiveFilename);
+
+                ZipFile.ExtractToDirectory(zipArchiveFilename, System.AppDomain.CurrentDomain.BaseDirectory);
+                ZipFile.ExtractToDirectory(zipArchiveFilename, @"C:\Program Files (x86)\CustomLearning");
+
+                System.Threading.Thread.Sleep(500);
+                System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+                Application.Current.Shutdown();
+            }
         }
 
         private void SetGlobalTryCatch()
