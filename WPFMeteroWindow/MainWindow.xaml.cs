@@ -302,6 +302,7 @@ namespace WPFMeteroWindow
             }
         }
 
+        private Timer _timer;
         private void MainWindow_OnKeyDown(object sender, KeyEventArgs e)
         {
             var selectedPage = TabPage.EmptyPage;
@@ -390,6 +391,11 @@ namespace WPFMeteroWindow
                 }
 
 
+                else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.S))
+                {
+                    e.Handled = true;
+                    PageManager.OpenPage(TabPage.UserSettings);
+                }
 
                 else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.D))
                 {
@@ -430,12 +436,12 @@ namespace WPFMeteroWindow
                 {
                     e.Handled = true;
 
-                    var timer = new Timer();
-                    timer.Interval = 2000;
+                    _timer = new Timer();
+                    _timer.Interval = 2000;
 
-                    timer.Tick += (s, ee) =>
+                    _timer.Tick += (s, ee) =>
                     {
-                        timer.Stop();
+                        _timer.Stop();
                         if (_altPressed)
                         {
                             _altPressed = false;
@@ -444,7 +450,7 @@ namespace WPFMeteroWindow
                     };
 
                     _altPressed = true;
-                    timer.Start();
+                    _timer.Start();
                 }
 
                 if (!AppManager.IsComboKeyDown(e, Key.LeftAlt) && PageManager.CurrentPage == TabPage.ShortCutHint)
@@ -657,8 +663,14 @@ namespace WPFMeteroWindow
         }
 
         private bool _altPressed = false;
-        private void MetroWindow_KeyUp(object sender, KeyEventArgs e) =>
+        private void MetroWindow_KeyUp(object sender, KeyEventArgs e)
+        {
             _altPressed = false;
+            _timer?.Stop();
+
+            if (PageManager.CurrentPage == TabPage.ShortCutHint)
+                PageManager.HidePages();
+        }
 
         private void MetroWindow_ContentRendered(object sender, EventArgs e)
         {
