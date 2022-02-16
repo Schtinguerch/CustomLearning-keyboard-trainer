@@ -86,7 +86,7 @@ namespace WPFMeteroWindow.Commands
                     break;
 
                 case "sb":
-                    Settings.Default.ChosenSplashStoryboard = arguments[1];
+                    Settings.Default.ChosenKbSplashStoryboard = arguments[1];
                     CourseManager.CurrentLessonIndex = CourseManager.CurrentLessonIndex;
                     break;
             }
