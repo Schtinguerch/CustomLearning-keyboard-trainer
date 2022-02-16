@@ -15,6 +15,7 @@ using System.Linq;
 using System.Windows.Markup;
 using System.Xml;
 using Formatting = Newtonsoft.Json.Formatting;
+using WPFMeteroWindow.Controls;
 
 namespace WPFMeteroWindow
 {
@@ -39,8 +40,8 @@ namespace WPFMeteroWindow
             ParallaxEffectPresenter.Init();
 
             Intermediary.App.ImageBlurEffect.Radius = Settings.Default.BackgroundBlurRadius.Parse();
-            Intermediary.AllSplashShapes = new Controls.AllSplashShapes();
-            Intermediary.MouseSplashShapes = new Controls.MouseSplashShapes();
+            Intermediary.AllSplashShapes = new AllSplashShapes();
+            Intermediary.MouseSplashShapes = new MouseSplashShapes();
 
             Intermediary.KeyboardShapesDictionary = new Dictionary<string, Grid>();
             foreach (var shape in Intermediary.AllSplashShapes.ShapeWrapPanel.Children)
@@ -57,6 +58,9 @@ namespace WPFMeteroWindow
             }
 
             Intermediary.App.MouseSplashShape.Shape = Intermediary.MouseShapesDictionary[Settings.Default.ChosenClickSplashName];
+
+            Intermediary.MouseStoryboards = Intermediary.App.MouseSplashShape.AllStoryboardNames;
+            Intermediary.KeyboardStoryboards = new LightingDonut().AllStoryboardNames;
 
             if (!Settings.Default.ShowStatistics)
                 Opener.Statistics(false);
