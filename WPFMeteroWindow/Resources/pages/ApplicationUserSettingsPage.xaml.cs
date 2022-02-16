@@ -177,7 +177,7 @@ namespace WPFMeteroWindow.Resources.pages
         public ApplicationUserSettingsPage()
         {
             InitializeComponent();
-            WindowColors.Focus();
+            SearchPropertyTextBox.Focus();
 
             _loadImage = false;
             _showHighlightStoryboard = FindResource("HighlightSearchResultStoryboard") as Storyboard;
@@ -248,6 +248,15 @@ namespace WPFMeteroWindow.Resources.pages
 
             foreach (var image in Intermediary.RecentImages)
                 WindowColorType.Items.Add(image.Split('\\').Last());
+
+            foreach (var keyboardKey in Intermediary.KeyboardStoryboards)
+                TypingStoryboardComboBox.Items.Add(keyboardKey);
+
+            foreach (var mouseKey in Intermediary.MouseStoryboards)
+                ClickStoryboardComboBox.Items.Add(mouseKey);
+
+            TypingStoryboardComboBox.Text = Settings.Default.ChosenKbSplashStoryboard;
+            ClickStoryboardComboBox.Text = Settings.Default.ChosenMouseSplashStoryboard;
 
             WindowColorType.Text = Settings.Default.IsBackgroundImage ? Settings.Default.BackgroundImagePath.Split('\\').Last() : Localization.uSettBrush;
             LanguageComboBox.SelectedIndex = Settings.Default.ChosenLanguageIndex;
@@ -354,8 +363,6 @@ namespace WPFMeteroWindow.Resources.pages
             ).ToList();
 
             if (_foundControls.Count == 0) return;
-
-            wrapPanel.ScrollToVerticalOffset((_foundControls[0] as UIElement).TranslatePoint(new Point(0, 0), TopPositionGrid).Y - 20);
             HighlightControl(_foundControls[0]);
         }
 
@@ -367,7 +374,7 @@ namespace WPFMeteroWindow.Resources.pages
             SearchResultHighLightRectangle.Margin = new Thickness(0, 42, 0, 0);
 
             if (control.GetType().ToString() == "System.Windows.Controls.TextBlock")
-                if ((control as TextBlock).Text == Localization.uSettBaseColors)
+                if ((control as TextBlock).Text == Localization.uLanguage)
                     SearchResultHighLightRectangle.Margin = new Thickness(0, 20, 0, 0);
 
             _showHighlightStoryboard.Begin();
@@ -436,6 +443,12 @@ namespace WPFMeteroWindow.Resources.pages
                 e.Handled = true;
                 HighlightPrevious();
             }
+
+            else if (e.KeyboardDevice.IsKeyDown(Key.LeftAlt) && !e.KeyboardDevice.IsKeyDown(Key.RightAlt) && !e.KeyboardDevice.IsKeyDown(Key.LeftCtrl))
+            {
+                e.Handled = true;
+                SearchPropertyTextBox.Focus();
+            }
         }
 
         private void AddReplacementButton_Click(object sender, RoutedEventArgs e) => AddReplacement();
@@ -486,6 +499,24 @@ namespace WPFMeteroWindow.Resources.pages
             {
                 LanguageManager.SetLanguage(LanguageComboBox.SelectedIndex);
             }
+        }
+
+        private void TypingStoryboardComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Settings.Default.ChosenKbSplashStoryboard = Intermediary.KeyboardStoryboards[TypingStoryboardComboBox.SelectedIndex];
+
+            KeyboardLightingDonut.Shape = Intermediary.KeyboardShapesDictionary[TypingAnimationComboBox.Text];
+            KeyboardLightingDonut.RepeatForever = true;
+        }
+            
+
+        private void ClickStoryboardComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Settings.Default.ChosenMouseSplashStoryboard = Intermediary.MouseStoryboards[ClickStoryboardComboBox.SelectedIndex];
+
+            MouseLightingDonut.Shape = Intermediary.MouseShapesDictionary[ClickAnimationComboBox.Text];
+            MouseLightingDonut.RepeatForever = true;
+            Intermediary.App.MouseSplashShape.Shape = Intermediary.MouseShapesDictionary[ClickAnimationComboBox.Text];
         }
     }
 }

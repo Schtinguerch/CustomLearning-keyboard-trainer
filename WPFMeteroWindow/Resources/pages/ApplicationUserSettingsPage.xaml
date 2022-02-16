@@ -71,8 +71,11 @@
                     Width="400"
                     Margin="13 0 0 0">
 
-                    <Grid Style="{StaticResource SettingsItemStyle}"
-                    Margin="0 24 0 10" >
+                    <Grid 
+                        Style="{StaticResource SettingsItemStyle}"
+                        Margin="0 24 0 10" 
+                        x:Name="TopPositionGrid">
+                        
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
                             VerticalAlignment="Top"
@@ -104,8 +107,7 @@
 
                     <Grid Style="{StaticResource SettingsItemStyle}"
                           Margin="0 12 0 10"
-                          Height="30"
-                          x:Name="TopPositionGrid">
+                          Height="30">
                         
                         <TextBlock
                             Style="{StaticResource SummaryTextStyle}"
@@ -800,7 +802,7 @@
 
                     <Grid
                         Style="{StaticResource SettingsItemStyle}"
-                        Height="120">
+                        Height="140">
 
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -815,7 +817,7 @@
                             <TextBlock
                                 Style="{StaticResource SummaryTextStyle}"
                                 VerticalAlignment="Top"
-                                Text="KeyboardTypingAnimation"
+                                Text="{x:Static res:Resources.uAnimatedShape}"
                                 FontSize="18"
                                 Margin="0 0 0 4">
                             </TextBlock>
@@ -832,6 +834,28 @@
                                 x:Name="TypingAnimationComboBox"
                                 SelectionChanged="TypingAnimationComboBox_SelectionChanged">
                             </ComboBox>
+
+
+                            <TextBlock
+                                Style="{StaticResource SummaryTextStyle}"
+                                VerticalAlignment="Top"
+                                Text="{x:Static res:Resources.uTypingAnimation}"
+                                FontSize="18"
+                                Margin="0 12 0 4">
+                            </TextBlock>
+
+                            <ComboBox
+                                FontSize="18"
+                                Height="32"
+                                Width="260"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="TypingStoryboardComboBox"
+                                SelectionChanged="TypingStoryboardComboBox_SelectionChanged">
+                            </ComboBox>
                         </StackPanel>
 
                         <Grid
@@ -845,7 +869,7 @@
 
                     <Grid
                         Style="{StaticResource SettingsItemStyle}"
-                        Height="120">
+                        Height="140">
 
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -860,7 +884,7 @@
                             <TextBlock
                                 Style="{StaticResource SummaryTextStyle}"
                                 VerticalAlignment="Top"
-                                Text="MouseClickAnimation"
+                                Text="{x:Static res:Resources.uAnimatedShape}"
                                 FontSize="18"
                                 Margin="0 0 0 4">
                             </TextBlock>
@@ -876,6 +900,27 @@
                                 BorderBrush="#121212"
                                 x:Name="ClickAnimationComboBox"
                                 SelectionChanged="ClickAnimationComboBox_SelectionChanged">
+                            </ComboBox>
+
+                            <TextBlock
+                                Style="{StaticResource SummaryTextStyle}"
+                                VerticalAlignment="Top"
+                                Text="{x:Static res:Resources.uClickAnimation}"
+                                FontSize="18"
+                                Margin="0 12 0 4">
+                            </TextBlock>
+
+                            <ComboBox
+                                FontSize="18"
+                                Height="32"
+                                Width="260"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
+                                BorderBrush="#121212"
+                                x:Name="ClickStoryboardComboBox"
+                                SelectionChanged="ClickStoryboardComboBox_SelectionChanged">
                             </ComboBox>
                         </StackPanel>
 
