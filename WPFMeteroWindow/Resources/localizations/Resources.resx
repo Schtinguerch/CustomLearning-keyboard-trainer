@@ -126,6 +126,9 @@
   <data name="uAltGrPressed" xml:space="preserve">
     <value>С зажатым AltGr</value>
   </data>
+  <data name="uAnimatedShape" xml:space="preserve">
+    <value>Анимированная фигура</value>
+  </data>
   <data name="uAppAppearance" xml:space="preserve">
     <value>Внешний вид</value>
   </data>
@@ -161,6 +164,9 @@
   </data>
   <data name="uChooseTheBeginLesson" xml:space="preserve">
     <value>Выберите урок, с которого желаете начать</value>
+  </data>
+  <data name="uClickAnimation" xml:space="preserve">
+    <value>Анимация клика</value>
   </data>
   <data name="uCommandInterpreter" xml:space="preserve">
     <value>Командная строка</value>
@@ -707,6 +713,9 @@
   </data>
   <data name="uTop500Words" xml:space="preserve">
     <value>500 самых частотных слов</value>
+  </data>
+  <data name="uTypingAnimation" xml:space="preserve">
+    <value>Анимация печати</value>
   </data>
   <data name="uTypingTest" xml:space="preserve">
     <value>Тест на скорость печати</value>

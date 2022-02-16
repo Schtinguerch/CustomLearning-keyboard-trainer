@@ -126,6 +126,9 @@
   <data name="uAltGrPressed" xml:space="preserve">
     <value>AltGr pressed</value>
   </data>
+  <data name="uAnimatedShape" xml:space="preserve">
+    <value>Animation shape</value>
+  </data>
   <data name="uAppAppearance" xml:space="preserve">
     <value>App appearance</value>
   </data>
@@ -161,6 +164,9 @@
   </data>
   <data name="uChooseTheBeginLesson" xml:space="preserve">
     <value>Choose the beginning lesson</value>
+  </data>
+  <data name="uClickAnimation" xml:space="preserve">
+    <value>Click animation</value>
   </data>
   <data name="uCommandInterpreter" xml:space="preserve">
     <value>Command line</value>
@@ -707,6 +713,9 @@
   </data>
   <data name="uTop500Words" xml:space="preserve">
     <value>Top 500 most frequent words</value>
+  </data>
+  <data name="uTypingAnimation" xml:space="preserve">
+    <value>Typing animation</value>
   </data>
   <data name="uTypingTest" xml:space="preserve">
     <value>Typing speed test</value>

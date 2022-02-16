@@ -88,6 +88,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Анимированная фигура.
+        /// </summary>
+        public static string uAnimatedShape {
+            get {
+                return ResourceManager.GetString("uAnimatedShape", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Внешний вид.
         /// </summary>
         public static string uAppAppearance {
@@ -192,6 +201,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uChooseTheBeginLesson {
             get {
                 return ResourceManager.GetString("uChooseTheBeginLesson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Анимация клика.
+        /// </summary>
+        public static string uClickAnimation {
+            get {
+                return ResourceManager.GetString("uClickAnimation", resourceCulture);
             }
         }
         
@@ -1830,6 +1848,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uTop500Words {
             get {
                 return ResourceManager.GetString("uTop500Words", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Анимация печати.
+        /// </summary>
+        public static string uTypingAnimation {
+            get {
+                return ResourceManager.GetString("uTypingAnimation", resourceCulture);
             }
         }
         
