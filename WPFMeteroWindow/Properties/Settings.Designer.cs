@@ -962,12 +962,12 @@ namespace WPFMeteroWindow.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("ScaleStoryboard")]
-        public string ChosenSplashStoryboard {
+        public string ChosenKbSplashStoryboard {
             get {
-                return ((string)(this["ChosenSplashStoryboard"]));
+                return ((string)(this["ChosenKbSplashStoryboard"]));
             }
             set {
-                this["ChosenSplashStoryboard"] = value;
+                this["ChosenKbSplashStoryboard"] = value;
             }
         }
         
@@ -1028,6 +1028,18 @@ namespace WPFMeteroWindow.Properties {
             }
             set {
                 this["ChosenLanguageIndex"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ScaleStoryboard")]
+        public string ChosenMouseSplashStoryboard {
+            get {
+                return ((string)(this["ChosenMouseSplashStoryboard"]));
+            }
+            set {
+                this["ChosenMouseSplashStoryboard"] = value;
             }
         }
     }

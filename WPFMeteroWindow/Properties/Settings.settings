@@ -236,7 +236,7 @@
     <Setting Name="FirstLaunchFileIndicatorPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">Launched.txt</Value>
     </Setting>
-    <Setting Name="ChosenSplashStoryboard" Type="System.String" Scope="User">
+    <Setting Name="ChosenKbSplashStoryboard" Type="System.String" Scope="User">
       <Value Profile="(Default)">ScaleStoryboard</Value>
     </Setting>
     <Setting Name="RecentPhotosPath" Type="System.String" Scope="User">
@@ -253,6 +253,9 @@
     </Setting>
     <Setting Name="ChosenLanguageIndex" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ChosenMouseSplashStoryboard" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ScaleStoryboard</Value>
     </Setting>
   </Settings>
 </SettingsFile>
