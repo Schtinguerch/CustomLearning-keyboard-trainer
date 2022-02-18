@@ -26,11 +26,11 @@ namespace WPFMeteroWindow.Resources.pages.WelcomePageSubPages
             InitializeComponent();
             LoadSkins();
 
-            MouseLightingDonut.RepeatForever = true;
-            KeyboardLightingDonut.RepeatForever = true;
-
             MouseLightingDonut.Shape = Intermediary.MouseShapesDictionary[Settings.Default.ChosenClickSplashName];
             KeyboardLightingDonut.Shape = Intermediary.KeyboardShapesDictionary[Settings.Default.ChosenSplashShapeName];
+
+            MouseLightingDonut.RepeatForever = true;
+            KeyboardLightingDonut.RepeatForever = true;
 
             if (Settings.Default.IsBackgroundImage)
             {
