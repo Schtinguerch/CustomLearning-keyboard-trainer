@@ -56,7 +56,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>LogoLight.ico</ApplicationIcon>
+    <ApplicationIcon>logolight2.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -940,6 +940,9 @@
   </ItemGroup>
   <ItemGroup>
     <SplashScreen Include="Resources\images\SplashScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logolight2.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
