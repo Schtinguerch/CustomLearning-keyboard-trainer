@@ -30,8 +30,6 @@ namespace WPFMeteroWindow
         
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
-            Settings.Default.Reset();
-
             LoadUserResourceDictionaries();
             SetGlobalTryCatch();
 
