@@ -7,14 +7,14 @@
     <framework targetVersion="4.6.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="CustomLearning.exe.manifest" size="16336">
+    <dependentAssembly dependencyType="install" codebase="CustomLearning.exe.manifest" size="16337">
       <assemblyIdentity name="CustomLearning.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="en-US" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>X9SJzPtf6Q19U/4d4DBMsIpfuLjHv0pHPVC9lUPHfjs=</dsig:DigestValue>
+        <dsig:DigestValue>IazkImc9cShqkHLM9FhOHuuQhujWWcPPuG/+O6mk0bk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
