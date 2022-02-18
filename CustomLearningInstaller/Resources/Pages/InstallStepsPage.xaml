@@ -1,0 +1,57 @@
+﻿<Page x:Class="CustomLearningInstaller.Resources.Pages.InstallStepsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CustomLearningInstaller.Resources.Pages"
+      xmlns:res="clr-namespace:CustomLearningInstaller.Resources.Localizations"
+      mc:Ignorable="d" 
+      d:DesignHeight="350" d:DesignWidth="600"
+      Title="InstallStepsPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Frame
+            Grid.Row="0"
+            NavigationUIVisibility="Hidden"
+            Name="StepsFrame">
+            
+        </Frame>
+
+        <TextBlock
+            Name="BottomMessageTextBlock"
+            Grid.Row="1"
+            
+            Margin="10 0 0 0"
+            VerticalAlignment="Center"
+            
+            Foreground="White"
+            FontFamily="Bahnschrift"
+            FontSize="14"
+            FontWeight="Bold"
+            Text="">
+        </TextBlock>
+
+        <StackPanel 
+            Grid.Row="1"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+
+            <Button 
+                Name="GoNextButton"
+                Click="GoNextButton_Click"
+                
+                Height="34"
+                Width="80"
+                Margin="0 0 8 0"
+                
+                BorderBrush="#121212"
+                Content="{x:Static res:Resources.GoNext}">
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

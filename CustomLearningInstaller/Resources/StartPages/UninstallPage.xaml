@@ -1,0 +1,130 @@
+﻿<Page x:Class="CustomLearningInstaller.Resources.StartPages.UninstallPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CustomLearningInstaller.Resources.StartPages"
+      xmlns:res="clr-namespace:CustomLearningInstaller.Resources.Localizations"
+      mc:Ignorable="d" 
+      d:DesignHeight="350" d:DesignWidth="600"
+      Title="UninstallPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.618*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Image
+            Grid.ColumnSpan="2"
+            Stretch="UniformToFill"
+            Source="../Images/Background.jpg">
+        </Image>
+
+        <Image
+            Grid.Column="0"
+            Source="../Images/BigLogo.png">
+
+            <Image.RenderTransform>
+                <TranslateTransform
+                    Y="-8">
+                </TranslateTransform>
+            </Image.RenderTransform>
+        </Image>
+
+        <Rectangle
+            Grid.Column="1"
+            Fill="#1A1A1A"
+            HorizontalAlignment="Left"
+            Width="20">
+
+            <Rectangle.Effect>
+                <DropShadowEffect
+                    ShadowDepth="3" 
+                    Direction="180"
+                    BlurRadius="10">
+                </DropShadowEffect>
+            </Rectangle.Effect>
+        </Rectangle>
+
+        <Rectangle
+            Grid.Column="1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Width="20" Height="5"
+            Margin="0 -5 0 0"
+            Fill="#181818">
+
+        </Rectangle>
+
+        <Grid
+            Grid.Column="1"
+            Background="#1A1A1A">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                Grid.Row="0"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Center"
+                Margin="0 0 0 -8"
+                
+                Foreground="White"
+                FontFamily="Bahnschrift"
+                FontSize="36"
+                FontWeight="Bold"
+                Text="CustomLearning">
+
+                <TextBlock.Effect>
+                    <DropShadowEffect
+                        ShadowDepth="0"
+                        Color="White"
+                        BlurRadius="20"
+                        Opacity="0.5">
+                    </DropShadowEffect>
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <TextBlock
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center"
+                Margin="0 8 0 0"
+                
+                Foreground="Gray"
+                FontFamily="Bahnschrift"
+                FontSize="20"
+                FontWeight="Bold"
+                Text="Customizable trainer">
+            </TextBlock>
+
+            <Button
+                Name="UninstallAppButton"
+                Click="UninstallAppButton_Click"
+                
+                Grid.Row="2"
+                Width="200"
+                Height="50"
+                VerticalAlignment="Top"
+                Margin="0 90 0 0"
+                BorderThickness="0"
+                
+                Background="#202020">
+
+                <TextBlock
+                    Name="ButtonText"
+                    Grid.Row="1"
+                
+                    Foreground="White"
+                    FontFamily="Bahnschrift"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Text="{x:Static res:Resources.DeleteTrainer}">
+                </TextBlock>
+            </Button>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,22 @@
+﻿<controls:MetroWindow 
+    x:Class="CustomLearningInstaller.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:CustomLearningInstaller"
+    Background="#1A1A1A"
+    GlowBrush="#202020" 
+    WindowTitleBrush="#181818"
+    mc:Ignorable="d"
+    Title="CustomLearning Setup Manager" 
+    WindowStartupLocation="CenterScreen"
+    Height="350" MinHeight="350"
+    Width="600" MinWidth="600">
+
+    <Frame 
+        x:Name="MainFrame"
+        NavigationUIVisibility="Hidden">
+    </Frame>
+</controls:MetroWindow>
