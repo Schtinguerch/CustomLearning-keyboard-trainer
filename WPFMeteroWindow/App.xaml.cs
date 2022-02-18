@@ -30,28 +30,13 @@ namespace WPFMeteroWindow
         
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
+            Settings.Default.Reset();
+
             LoadUserResourceDictionaries();
             SetGlobalTryCatch();
 
             LanguageManager.SetLanguage(Settings.Default.ChosenLanguageIndex);
-
-            if (!Directory.Exists("DefaultData"))
-            {
-                var downloadingWindow = new DownloadingMissingPacksWindow();
-                downloadingWindow.Show();
-
-                var client = new WebClient();
-                var zipArchiveFilename = "Packages.zip";
-
-                client.DownloadFile("https://github.com/Schtinguerch/schtinguerch.github.io/raw/master/MissingPackages/AppEssentials.zip", zipArchiveFilename);
-
-                ZipFile.ExtractToDirectory(zipArchiveFilename, System.AppDomain.CurrentDomain.BaseDirectory);
-                ZipFile.ExtractToDirectory(zipArchiveFilename, @"C:\Program Files (x86)\CustomLearning");
-
-                System.Threading.Thread.Sleep(500);
-                System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
-                Application.Current.Shutdown();
-            }
+            CheckRelativePaths();
         }
 
         private void SetGlobalTryCatch()
@@ -73,6 +58,42 @@ namespace WPFMeteroWindow
             File.WriteAllText("logs.log", $"{message}\n\n{LogManager.LogText}");
 
             MessageBox.Show($"{message}", $"{Localization.uError}");
+        }
+
+        private void CheckRelativePaths()
+        {
+            if (Settings.Default.FirstLaunchFileIndicatorPath.Contains(":\\"))
+                return;
+
+            var appFolder = System.Reflection.Assembly.GetExecutingAssembly().Location.Replace("\\CustomLearning.exe", "");
+            MessageBox.Show(appFolder);
+
+            var fileProperties = new string[]
+            {
+                "LoadedLessonFile",
+                "KeyboardLayoutFile",
+                "BackgroundImagePath",
+                "TestWordListPath",
+                "TapClickSoundFile",
+                "ErrorClickSoundFile",
+                "SecondKeyboardLayoutFile",
+
+                "RecentCourcesPath",
+                "RecentLayoutsPath",
+                "RecentConfigs",
+                "AllTypingSpeedPath",
+                "CourcesStatisticsPath",
+                "RecentTestDictionariesPath",
+
+                "ReplaceDictionaryPath",
+                "FirstLaunchFileIndicatorPath",
+                "RecentPhotosPath",
+                "MouseClickSoundFile",
+            };
+
+            foreach (var property in fileProperties)
+                if (!(Settings.Default[property] as string).Contains(":\\"))
+                    Settings.Default[property] = Path.Combine(appFolder, Settings.Default[property] as string);
         }
     }
 }
