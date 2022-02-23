@@ -115,7 +115,7 @@ namespace WPFMeteroWindow
             lessonText = lessonText.Randomized();
             lessonText = lessonText.WithDeletedExceptions();
 
-            Intermediary.App.BackToLessonsButton.Width = 0d;
+            Intermediary.App.BackToLessonsButton.Visibility = Visibility.Collapsed;
             LoadLessonText(lessonText);
             Intermediary.App.lessonHeaderTextBlock.Text = lessonName;
             
@@ -135,7 +135,7 @@ namespace WPFMeteroWindow
         public static void LoadTest(string lessonText)
         {
             var text = lessonText.WithDeletedExceptions();
-            Intermediary.App.BackToLessonsButton.Width = 120d;
+            Intermediary.App.BackToLessonsButton.Visibility = Visibility.Visible;
             Intermediary.App.PassedIndicator.Visibility = Visibility.Collapsed;
 
             LoadLessonText(text);
