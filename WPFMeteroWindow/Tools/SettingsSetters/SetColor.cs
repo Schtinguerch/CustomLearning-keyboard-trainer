@@ -147,15 +147,14 @@ namespace WPFMeteroWindow
             
             try
             {
-                appDictionaries[appDictionaries.Count - 3] = new ResourceDictionary()
+                appDictionaries[appDictionaries.Count - 8] = new ResourceDictionary()
                 {
-                    Source = new Uri(
-                        baseFolder + color + ".xaml", UriKind.RelativeOrAbsolute)
+                    Source = new Uri(baseFolder + color + ".xaml", UriKind.RelativeOrAbsolute)
                 };
             }
             catch
             {
-                appDictionaries[appDictionaries.Count - 3] = new ResourceDictionary()
+                appDictionaries[appDictionaries.Count - 8] = new ResourceDictionary()
                 {
                     Source = new Uri(baseFolder + "steel.xaml", UriKind.RelativeOrAbsolute)
                 };
@@ -164,7 +163,7 @@ namespace WPFMeteroWindow
                 LogManager.Log("Set window title color -> failed, invalid theme name");
             }
             
-            Settings.Default.ColorSchemeResourceDictionary = baseFolder + color + ".xaml";
+            Settings.Default.ColorSchemeResourceDictionary = baseFolder + color + ".xaml"; 
         }
 
         public static void ColorScheme(string theme)
@@ -172,7 +171,7 @@ namespace WPFMeteroWindow
             if (theme.ToLower() == "light")
                 ColorScheme(Theme.Light);
             else 
-                ColorScheme(Theme.Dark);
+                ColorScheme(Theme.Dark); 
         }
 
         public static void ColorScheme(Theme theme)
@@ -195,7 +194,7 @@ namespace WPFMeteroWindow
             }
 
             var uri = "pack://application:,,,/MahApps.Metro;component/Styles/Accents/" + themeFile;
-            appDictionaries[appDictionaries.Count - 2] = new ResourceDictionary()
+            appDictionaries[appDictionaries.Count - 7] = new ResourceDictionary()
             {
                 Source = new Uri(uri, UriKind.RelativeOrAbsolute)
             };
