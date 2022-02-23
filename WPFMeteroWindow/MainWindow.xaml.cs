@@ -105,7 +105,10 @@ namespace WPFMeteroWindow
 
         public void StartPreviouslesson()
         {
-            CourseManager.CurrentLessonIndex--;
+            if (Settings.Default.ItTypingTest)
+                TestManager.RestartTest();
+            else
+                CourseManager.CurrentLessonIndex--;
 
             bufferTextBox.Focus();
             IsTyping = false;
@@ -113,7 +116,10 @@ namespace WPFMeteroWindow
 
         public void StartNextLesson()
         {
-            CourseManager.CurrentLessonIndex++;
+            if (Settings.Default.ItTypingTest)
+                TestManager.RestartTest();
+            else
+                CourseManager.CurrentLessonIndex++;
 
             bufferTextBox.Focus();
             IsTyping = false;
