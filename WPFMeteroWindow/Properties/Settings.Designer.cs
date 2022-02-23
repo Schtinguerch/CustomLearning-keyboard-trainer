@@ -1042,5 +1042,29 @@ namespace WPFMeteroWindow.Properties {
                 this["ChosenMouseSplashStoryboard"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DeepSkyBlue")]
+        public string HighlightColor {
+            get {
+                return ((string)(this["HighlightColor"]));
+            }
+            set {
+                this["HighlightColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#0B0B0B")]
+        public string BordersColor {
+            get {
+                return ((string)(this["BordersColor"]));
+            }
+            set {
+                this["BordersColor"] = value;
+            }
+        }
     }
 }

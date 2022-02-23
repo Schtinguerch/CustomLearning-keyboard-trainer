@@ -257,5 +257,11 @@
     <Setting Name="ChosenMouseSplashStoryboard" Type="System.String" Scope="User">
       <Value Profile="(Default)">ScaleStoryboard</Value>
     </Setting>
+    <Setting Name="HighlightColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DeepSkyBlue</Value>
+    </Setting>
+    <Setting Name="BordersColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#0B0B0B</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
