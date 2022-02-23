@@ -446,16 +446,16 @@
                     HorizontalAlignment="Right">
 
                     <Button 
-                        Width="100"
+                        MinWidth="100"
                         Margin="0 0 6 0"
                         VerticalAlignment="Center" 
-                        FontSize="9"
-                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                        Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+                        FontSize="10"
+                        Height="24"
+                        Style="{StaticResource HeaderButtonStyle}"
                     
                         x:Name="BackToLessonsButton"
                         Click="BackToLessonsButton_Click"
-                        Content="{x:Static res:Resources.uBackToLessons}" Height="5">
+                        Content="{x:Static res:Resources.uBackToLessons}" >
 
                         <Button.Background>
                             <SolidColorBrush
@@ -505,11 +505,10 @@
                 <StackPanel Orientation="Horizontal" Margin="0 6 0 6">
                     <Button 
                         Width="54" 
-                        BorderBrush="Transparent" 
+                        FontWeight="Bold"
                         Background="Transparent"
                         FontSize="20"
-                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                        Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+                        Style="{StaticResource CLUIButtonStyle}"
                         x:Name="PrevLessonButton"
                         Click="PrevLessonButton_OnClick">
                         ⮜
@@ -517,23 +516,21 @@
                     
                     <Button 
                         Width="54" 
+                        FontWeight="Bold"
                         x:Name="LoadCourseOrLessonButton"
-                        BorderBrush="Transparent" 
                         Background="Transparent"
                         FontSize="20"
-                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                        Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+                        Style="{StaticResource CLUIButtonStyle}"
                         Click="ReLesson_OnClick">
                         ⭯
                     </Button>
                     
                     <Button 
                         Width="54" 
-                        BorderBrush="Transparent" 
+                        FontWeight="Bold"
                         Background="Transparent"
                         FontSize="20"
-                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                        Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+                        Style="{StaticResource CLUIButtonStyle}"
                         x:Name="NextLessonButton"
                         Click="NextLessonButton_OnClick">
                         ⮞
@@ -885,7 +882,10 @@
             SnapsToDevicePixels="True">
 
             <Grid.Background>
-                <SolidColorBrush Color="Black" Opacity="0.5"></SolidColorBrush>
+                <SolidColorBrush 
+                    Color="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
+                    Opacity="0.5">
+                </SolidColorBrush>
             </Grid.Background>
 
             <Frame 
