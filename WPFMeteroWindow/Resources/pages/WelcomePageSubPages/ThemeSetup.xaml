@@ -42,9 +42,7 @@
             x:Name="SkinComboBox"
             FontSize="20"
             Height="42"
-            Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-            FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-            BorderBrush="#121212"
+            Style="{StaticResource StandardComboBoxStyle}"
             
             SelectionChanged="LessonComboBox_SelectionChanged">
         </ComboBox>

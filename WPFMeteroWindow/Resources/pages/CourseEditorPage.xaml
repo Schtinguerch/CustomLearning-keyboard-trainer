@@ -6,303 +6,282 @@
       xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
       xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
       xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
+      xmlns:controls="clr-namespace:WPFMeteroWindow.Controls"
       mc:Ignorable="d" 
-      d:DesignHeight="592" d:DesignWidth="800"
+      d:DesignHeight="620" d:DesignWidth="800"
       Title="CourseEditorPage">
     
     <Grid 
         x:Name="BackGrid"
         Width="800" 
-        Height="592"
+        Height="620"
         KeyDown="CourseEditoGrid_OnKeyDown">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="212"></RowDefinition>
+            <RowDefinition Height="242"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Grid
-            x:Name="CourseEditoGrid"
+        <controls:ClippingBorder
             Grid.Row="0"
-            Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
+            CornerRadius="8">
 
-            <Grid.Effect>
+            <controls:ClippingBorder.Effect>
                 <DropShadowEffect BlurRadius="30"></DropShadowEffect>
-            </Grid.Effect>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
+            </controls:ClippingBorder.Effect>
 
             <Grid
-                x:Name="ContentGrid"
-                Grid.Row="1">
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="360"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
+                Margin="0 20 0 0"
+                x:Name="CourseEditoGrid"
+                Grid.Row="0"
+                Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="36"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
 
-                <TextBlock
-                    x:Name="HeaderNameTextBlock"
-                    Grid.Row="0"
-                    Grid.Column="0"
-
-                    Style="{StaticResource SummaryTextStyle}"
-                    Margin="10 0 10 5"
-                    VerticalAlignment="Bottom"
-                    d:Text="{x:Static res:Resources.uName}"
-                    FontSize="18">
-                </TextBlock>
-
                 <Grid
-                    Grid.Row="1"
-                    Grid.Column="0">
+                    x:Name="ContentGrid"
+                    Grid.Row="1">
 
-                    <TextBox
-                        FontSize="18"
-                        Height="32"
-                        Margin="10 0 10 5"
-                        Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                        BorderBrush="#121212"
-                        x:Name="CourseNameTextBox"
-                        VerticalAlignment="Top">
-                    </TextBox>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="360"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
 
-                    <StackPanel
-                        Orientation="Vertical"
-                        VerticalAlignment="Bottom">
-                        
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="42"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="6"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        x:Name="HeaderNameTextBlock"
+                        Grid.Row="0"
+                        Grid.Column="0"
+
+                        Style="{StaticResource SummaryTextStyle}"
+                        Margin="16 0 10 5"
+                        VerticalAlignment="Bottom"
+                        d:Text="{x:Static res:Resources.uName}"
+                        FontSize="18">
+                    </TextBlock>
+
+                    <Grid
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="6 0 0 0">
+
                         <TextBox
-                            FontSize="18"
-                            Height="32"
-                            Margin="10 0 10 10"
-                            Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                            FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                            BorderBrush="#121212"
-                            x:Name="AuthorTextBox">
+                            Margin="10 0 10 5"
+                            Style="{StaticResource StandardTextBoxStyle}"
+                            x:Name="CourseNameTextBox"
+                            VerticalAlignment="Top">
                         </TextBox>
 
-                        <ComboBox
-                            FontSize="18"
-                            Height="32"
-                            Margin="10 0 10 10"
-                            Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                            FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                            BorderBrush="#121212"
-                            x:Name="TypeComboBox">
+                        <StackPanel
+                            Orientation="Vertical"
+                            VerticalAlignment="Bottom">
 
-                            <ComboBoxItem IsSelected="True" Content="{x:Static res:Resources.uStandardCourse}"></ComboBoxItem>
-                            <ComboBoxItem Content="{x:Static res:Resources.uDictionary}"></ComboBoxItem>
-                            <ComboBoxItem Content="{x:Static res:Resources.uWords}"></ComboBoxItem>
-                        </ComboBox>
-                    </StackPanel>
-                </Grid>
+                            <TextBox
+                                Margin="10 0 10 10"
+                                Style="{StaticResource StandardTextBoxStyle}"
+                                x:Name="AuthorTextBox">
+                            </TextBox>
 
-                <TextBlock
-                    Grid.Row="0"
-                    Grid.Column="1"
+                            <ComboBox
+                                Margin="10 0 10 10"
+                                Style="{StaticResource StandardComboBoxStyle}"
+                                x:Name="TypeComboBox">
 
-                    Style="{StaticResource SummaryTextStyle}"
-                    Margin="10 0 10 5"
-                    VerticalAlignment="Bottom"
-                    Text="{x:Static res:Resources.uLessonPathList}"
-                    FontSize="18">
-                </TextBlock>
+                                <ComboBoxItem IsSelected="True" Content="{x:Static res:Resources.uStandardCourse}"></ComboBoxItem>
+                                <ComboBoxItem Content="{x:Static res:Resources.uDictionary}"></ComboBoxItem>
+                                <ComboBoxItem Content="{x:Static res:Resources.uWords}"></ComboBoxItem>
+                            </ComboBox>
+                        </StackPanel>
+                    </Grid>
 
-                <TextBox
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    TextBlock.LineHeight="28" 
-                    TextBlock.LineStackingStrategy="BlockLineHeight"
-                    FontSize="18"
-                    Margin="10 0 10 10"
-                    Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                    FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                    BorderBrush="#121212"
-                    x:Name="LessonListTextBox"
-                    AcceptsReturn="True"
-                    TextWrapping="Wrap"
-                    VerticalScrollBarVisibility="Visible">
+                    <TextBlock
+                        Grid.Row="0"
+                        Grid.Column="1"
 
-                    <TextBox.ContextMenu>
-                        <ContextMenu
-                            TextBlock.LineHeight="18" 
-                            x:Name="LessonListContextMenu"
-                            FontFamily="{Binding Path=SummaryFont ,Source={x:Static prop:Settings.Default}}"
-                            Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}">
+                        Style="{StaticResource SummaryTextStyle}"
+                        Margin="10 0 10 5"
+                        VerticalAlignment="Bottom"
+                        Text="{x:Static res:Resources.uLessonPathList}"
+                        FontSize="18">
+                    </TextBlock>
 
-                            <MenuItem 
-                                x:Name="EditLessonMenuItem"
-                                Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
-                                Header="{x:Static res:Resources.uMenuEditLesson}"
-                                Click="EditLessonMenuItem_OnClick">
-                            </MenuItem>
+                    <TextBox
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        TextBlock.LineHeight="28" 
+                        TextBlock.LineStackingStrategy="BlockLineHeight"
+                        Margin="10 0 10 10"
+                        Style="{StaticResource MultilineTextBoxStyle}"
+                        x:Name="LessonListTextBox"
+                        AcceptsReturn="True"
+                        TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Visible">
 
-                            <MenuItem
-                                x:Name="NewLessonMenuItem"
-                                Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
-                                Header="{x:Static res:Resources.uMenuNewLesson}"
-                                Click="NewLessonMenuItem_OnClick">
-                            </MenuItem>
+                        <TextBox.ContextMenu>
+                            <ContextMenu
+                                TextBlock.LineHeight="18" 
+                                x:Name="LessonListContextMenu"
+                                FontFamily="{Binding Path=SummaryFont ,Source={x:Static prop:Settings.Default}}"
+                                Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}">
 
-                            <MenuItem
-                                Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
-                                Header="{x:Static res:Resources.uMenuShowInExplorer}"
-                                Click="MenuItem_OnClick">
-                            </MenuItem>
-
-                            <MenuItem 
-                                x:Name="CopyPathMenuItem"
-                                Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
-                                Header="{x:Static res:Resources.uMenuCopyPath}"
-                                Click="CopyPathMenuItem_OnClick">
-                            </MenuItem>
-                            
-                            <MenuItem 
-                                x:Name="DeleteFileMenuItem"
-                                Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
-                                Header="{x:Static res:Resources.uMenuDeleteFile}"
-                                Click="DeleteFileMenuItem_OnClick">
-                            </MenuItem>
-                        </ContextMenu>
-                    </TextBox.ContextMenu>
-                </TextBox>
-
-                <TextBlock
-                    Grid.Row="0"
-                    Grid.Column="2"
-
-                    Style="{StaticResource SummaryTextStyle}"
-                    Margin="10 0 10 5"
-                    VerticalAlignment="Bottom"
-                    Text="{x:Static res:Resources.uOtherReferences}"
-                    FontSize="18">
-                </TextBlock>
-
-                <TextBox
-                    Grid.Row="1"
-                    Grid.Column="2"
-
-                    TextBlock.LineHeight="28"
-                    FontSize="18"
-                    Margin="10 0 10 10"
-                    Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                    FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                    BorderBrush="#121212"
-                    x:Name="ReferencesListTextBox"
-                    AcceptsReturn="True"
-                    TextWrapping="Wrap">
-                </TextBox>
-            </Grid>
-
-            <Grid
-                x:Name="HeaderGrid"
-                Grid.Row="0"
-                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
-
-                <Grid.Effect>
-                    <DropShadowEffect BlurRadius="30" ></DropShadowEffect>
-                </Grid.Effect>
-
-                <TextBlock 
-                    Style="{StaticResource SummaryTextStyle}"
-                    FontSize="16"
-                    Margin="20 0 0 0"
-                    x:Name="EditorTitleTextBox"
-                    HorizontalAlignment="Left"
-                    Text="{x:Static res:Resources.uCourseEditor}">
-                </TextBlock>
-
-                <StackPanel 
-                    HorizontalAlignment="Right"
-                    Orientation="Horizontal"
-                    Margin="10">
-
-                    <Button 
-                        Width="90" 
-                        Margin="10 0 0 0"
-                        BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
-                        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
-                        FontSize="12"
-                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                        Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                        x:Name="NewLessonButton"
-                        Content="{x:Static res:Resources.uNew}"
-                        Click="NewLessonButton_OnClick">
-
-                        <Button.ContextMenu>
-                            <ContextMenu 
-                                x:Name="NewCourseTypeContextMenu"
-                                FontFamily="{Binding Path=SummaryFont ,Source={x:Static prop:Settings.Default}}">
-                                
                                 <MenuItem 
-                                    Header="{x:Static res:Resources.uWordPracticing}" 
-                                    Click="LoadWordsButton_OnClick">
+                                    x:Name="EditLessonMenuItem"
+                                    Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
+                                    Header="{x:Static res:Resources.uMenuEditLesson}"
+                                    Click="EditLessonMenuItem_OnClick">
                                 </MenuItem>
 
                                 <MenuItem
-                                    Header="{x:Static res:Resources.uHtmlParsing}"
-                                    Click="HtmlParsing_OnClick">
+                                    x:Name="NewLessonMenuItem"
+                                    Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
+                                    Header="{x:Static res:Resources.uMenuNewLesson}"
+                                    Click="NewLessonMenuItem_OnClick">
+                                </MenuItem>
+
+                                <MenuItem
+                                    Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
+                                    Header="{x:Static res:Resources.uMenuShowInExplorer}"
+                                    Click="MenuItem_OnClick">
+                                </MenuItem>
+
+                                <MenuItem 
+                                    x:Name="CopyPathMenuItem"
+                                    Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
+                                    Header="{x:Static res:Resources.uMenuCopyPath}"
+                                    Click="CopyPathMenuItem_OnClick">
+                                </MenuItem>
+
+                                <MenuItem 
+                                    x:Name="DeleteFileMenuItem"
+                                    Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
+                                    Header="{x:Static res:Resources.uMenuDeleteFile}"
+                                    Click="DeleteFileMenuItem_OnClick">
                                 </MenuItem>
                             </ContextMenu>
-                        </Button.ContextMenu>
-                    </Button>
+                        </TextBox.ContextMenu>
+                    </TextBox>
 
-                    <Button 
-                        Width="90" 
-                        Margin="10 0 0 0"
-                        BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
-                        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
-                        FontSize="12"
-                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                        Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                        x:Name="OpenLessonButton"
-                        Content="{x:Static res:Resources.uOpen}"
-                        Click="OpenLessonButton_OnClick">
-                    </Button>
+                    <TextBlock
+                        Grid.Row="0"
+                        Grid.Column="2"
 
-                    <Button 
-                        Width="90"
-                        Margin="10 0 0 0"
-                        BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
-                        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
-                        FontSize="12"
-                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                        Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                        x:Name="SaveLessonButton"
-                        Content="{x:Static res:Resources.uSave}"
-                        Click="SaveLessonButton_OnClick">
-                    </Button>
+                        Style="{StaticResource SummaryTextStyle}"
+                        Margin="10 0 10 5"
+                        VerticalAlignment="Bottom"
+                        Text="{x:Static res:Resources.uOtherReferences}"
+                        FontSize="18">
+                    </TextBlock>
 
-                    <Button 
-                        Width="40"
-                        Margin="10 0 0 0"
-                        BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
-                        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
-                        FontSize="12"
-                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                        Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                        x:Name="CancelLessonButton"
-                        Click="CancelLessonButton_OnClick"
-                        Content="✖">
-                    </Button>
-                </StackPanel>
+                    <TextBox
+                        Grid.Row="1"
+                        Grid.Column="2"
+
+                        TextBlock.LineHeight="28" 
+                        TextBlock.LineStackingStrategy="BlockLineHeight"
+                        FontSize="18"
+                        Margin="10 0 16 10"
+                        Style="{StaticResource MultilineTextBoxStyle}"
+                        x:Name="ReferencesListTextBox"
+                        AcceptsReturn="True"
+                        TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Visible">
+                    </TextBox>
+                </Grid>
+
+                <Grid
+                    x:Name="HeaderGrid"
+                    Grid.Row="0"
+                    Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
+
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="30" ></DropShadowEffect>
+                    </Grid.Effect>
+
+                    <TextBlock 
+                        Style="{StaticResource SummaryTextStyle}"
+                        FontSize="16"
+                        Margin="16 0 0 0"
+                        x:Name="EditorTitleTextBox"
+                        HorizontalAlignment="Left"
+                        Text="{x:Static res:Resources.uCourseEditor}">
+                    </TextBlock>
+
+                    <StackPanel 
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal"
+                        Margin="9 9 16 9">
+
+                        <Button 
+                            Width="90" 
+                            Margin="10 0 0 0"
+                            Style="{StaticResource HeaderButtonStyle}"
+                            x:Name="NewLessonButton"
+                        
+                            Content="{x:Static res:Resources.uNew}"
+                            Click="NewLessonButton_OnClick">
+
+                            <Button.ContextMenu>
+                                <ContextMenu 
+                                    x:Name="NewCourseTypeContextMenu"
+                                    FontFamily="{Binding Path=SummaryFont ,Source={x:Static prop:Settings.Default}}">
+
+                                    <MenuItem 
+                                        Header="{x:Static res:Resources.uWordPracticing}" 
+                                        Click="LoadWordsButton_OnClick">
+                                    </MenuItem>
+
+                                    <MenuItem
+                                        Header="{x:Static res:Resources.uHtmlParsing}"
+                                        Click="HtmlParsing_OnClick">
+                                    </MenuItem>
+                                </ContextMenu>
+                            </Button.ContextMenu>
+                        </Button>
+
+                        <Button 
+                            Width="90" 
+                            Margin="10 0 0 0"
+                            Style="{StaticResource HeaderButtonStyle}"
+                            x:Name="OpenLessonButton"
+                            Content="{x:Static res:Resources.uOpen}"
+                            Click="OpenLessonButton_OnClick">
+                        </Button>
+
+                        <Button 
+                            Width="90"
+                            Margin="10 0 0 0"
+                            Style="{StaticResource HeaderButtonStyle}"
+                            x:Name="SaveLessonButton"
+                            Content="{x:Static res:Resources.uSave}"
+                            Click="SaveLessonButton_OnClick">
+                        </Button>
+
+                        <Button 
+                            Width="40"
+                            Margin="10 0 0 0"
+                            Style="{StaticResource HeaderButtonStyle}"
+                            x:Name="CancelLessonButton"
+                            Click="CancelLessonButton_OnClick"
+                            Content="✖">
+                        </Button>
+                    </StackPanel>
+                </Grid>
             </Grid>
-        </Grid>
+        </controls:ClippingBorder>
 
         <Grid
             x:Name="LessonsEditorsGrid"
             Grid.Row="1"
-            Margin="0 30 0 0">
+            Margin="0 20 0 0">
             <Frame
                 x:Name="LessonEditorFrame"
                 VerticalAlignment="Top"

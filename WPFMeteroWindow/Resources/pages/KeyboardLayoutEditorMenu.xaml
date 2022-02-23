@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
+             xmlns:controls="clr-namespace:WPFMeteroWindow.Controls"
              xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
              xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
              mc:Ignorable="d" 
@@ -29,114 +30,102 @@
         </EventTrigger>
     </UserControl.Triggers>
 
-    <Grid
-        x:Name="BackGrid"
-        Height="165"
-        Width="360"
-        Margin="-30 -8 -30 -8"
-        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
+    <controls:ClippingBorder CornerRadius="8">
+        <Grid
+            x:Name="BackGrid"
+            Height="165"
+            Width="360"
+            Margin="-30 -8 -30 -8"
+            
+            Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="250"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="250"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-        <StackPanel 
-            Orientation="Vertical"
-            Grid.Column="1"
-            Margin="0 5 0 5">
-            <Grid 
-                Margin="10 5 10 0"
-                Height="32">
-                <TextBlock
-                    Grid.Column="0"
-                    TextAlignment="Left"
-                    Style="{StaticResource SummaryTextStyle}"
-                    Text="{x:Static res:Resources.uDefault}"
-                    FontSize="18">
-                </TextBlock>
-            </Grid>
+            <StackPanel 
+                Orientation="Vertical"
+                Grid.Column="1"
+                Margin="0 5 0 5">
+                <Grid 
+                    Margin="10 5 10 0"
+                    Height="32">
+                    <TextBlock
+                        Grid.Column="0"
+                        TextAlignment="Left"
+                        Style="{StaticResource SummaryTextStyle}"
+                        Text="{x:Static res:Resources.uDefault}"
+                        FontSize="18">
+                    </TextBlock>
+                </Grid>
 
-            <Grid 
-                Margin="10 5 10 0"
-                Height="32">
-                <TextBlock
-                    Grid.Column="0"
-                    TextAlignment="Left"
-                    Style="{StaticResource SummaryTextStyle}"
-                    Text="{x:Static res:Resources.uShiftPressed}"
-                    FontSize="18">
-                </TextBlock>
-            </Grid>
+                <Grid 
+                    Margin="10 5 10 0"
+                    Height="32">
+                    <TextBlock
+                        Grid.Column="0"
+                        TextAlignment="Left"
+                        Style="{StaticResource SummaryTextStyle}"
+                        Text="{x:Static res:Resources.uShiftPressed}"
+                        FontSize="18">
+                    </TextBlock>
+                </Grid>
 
-            <Grid 
-                Margin="10 5 10 0"
-                Height="32">
-                <TextBlock
-                    Grid.Column="0"
-                    TextAlignment="Left"
-                    Style="{StaticResource SummaryTextStyle}"
-                    Text="{x:Static res:Resources.uAltGrPressed}"
-                    FontSize="18">
-                </TextBlock>
-            </Grid>
+                <Grid 
+                    Margin="10 5 10 0"
+                    Height="32">
+                    <TextBlock
+                        Grid.Column="0"
+                        TextAlignment="Left"
+                        Style="{StaticResource SummaryTextStyle}"
+                        Text="{x:Static res:Resources.uAltGrPressed}"
+                        FontSize="18">
+                    </TextBlock>
+                </Grid>
 
-            <Grid 
-                Margin="10 5 10 0"
-                Height="32">
-                <TextBlock
-                    Grid.Column="0"
-                    TextAlignment="Left"
-                    Style="{StaticResource SummaryTextStyle}"
-                    Text="{x:Static res:Resources.uShiftAndAltGrPressed}"
-                    FontSize="18">
-                </TextBlock>
-            </Grid>
-        </StackPanel>
+                <Grid 
+                    Margin="10 5 10 0"
+                    Height="32">
+                    <TextBlock
+                        Grid.Column="0"
+                        TextAlignment="Left"
+                        Style="{StaticResource SummaryTextStyle}"
+                        Text="{x:Static res:Resources.uShiftAndAltGrPressed}"
+                        FontSize="18">
+                    </TextBlock>
+                </Grid>
+            </StackPanel>
 
-        <StackPanel
-            Orientation="Vertical"
-            Grid.Column="0"
-            Margin="0 5 0 5">
-            <TextBox
-                FontSize="18"
-                Height="32"
-                Margin="10 5 10 0"
-                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                BorderBrush="#121212"
-                x:Name="DefaultKeyTextBox">
-            </TextBox>
+            <StackPanel
+                Orientation="Vertical"
+                Grid.Column="0"
+                Margin="0 5 0 5"
+                Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
+                <TextBox
+                    Margin="10 5 10 0"
+                    Style="{StaticResource StandardTextBoxStyle}"
+                    x:Name="DefaultKeyTextBox">
+                </TextBox>
 
-            <TextBox
-                FontSize="18"
-                Height="32"
-                Margin="10 5 10 0"
-                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                BorderBrush="#121212"
-                x:Name="ShiftKeyTextBox">
-            </TextBox>
+                <TextBox
+                    Margin="10 5 10 0"
+                    Style="{StaticResource StandardTextBoxStyle}"
+                    x:Name="ShiftKeyTextBox">
+                </TextBox>
 
-            <TextBox
-                FontSize="18"
-                Height="32"
-                Margin="10 5 10 0"
-                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                BorderBrush="#121212"
-                x:Name="AltGrKeyTextBox">
-            </TextBox>
+                <TextBox
+                    Margin="10 5 10 0"
+                    Style="{StaticResource StandardTextBoxStyle}"
+                    x:Name="AltGrKeyTextBox">
+                </TextBox>
 
-            <TextBox
-                FontSize="18"
-                Height="32"
-                Margin="10 5 10 0"
-                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                BorderBrush="#121212"
-                x:Name="ShiftAndAltGrKeyTextBox">
-            </TextBox>
-        </StackPanel>
-    </Grid>
+                <TextBox
+                    Margin="10 5 10 0"
+                    Style="{StaticResource StandardTextBoxStyle}"
+                    x:Name="ShiftAndAltGrKeyTextBox">
+                </TextBox>
+            </StackPanel>
+        </Grid>
+    </controls:ClippingBorder>
 </UserControl>

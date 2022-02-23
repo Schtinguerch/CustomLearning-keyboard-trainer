@@ -6,186 +6,162 @@
       xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
       xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
       xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
+      xmlns:controls="clr-namespace:WPFMeteroWindow.Controls"
       mc:Ignorable="d" 
-      d:DesignHeight="350" d:DesignWidth="800"
       Title="WordPracticingEditorPage">
 
-    <Grid
-        x:Name="LessonEditorGrid"
-        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
-        Width="800"
-        Height="350">
+    <controls:ClippingBorder CornerRadius="8">
 
-        <Grid.Effect>
+        <controls:ClippingBorder.Effect>
             <DropShadowEffect BlurRadius="30"></DropShadowEffect>
-        </Grid.Effect>
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-
-        <Grid 
-            x:Name="ContentGrid"
-            Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="1.618*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-
-            <Grid
-                Grid.Column="0">
-                <StackPanel Orientation="Vertical">
-                    <TextBlock
-                        Style="{StaticResource SummaryTextStyle}"
-                        Margin="10 2 10 5"
-                        Text="{x:Static res:Resources.uCPM}"
-                        FontSize="18">
-                    </TextBlock>
-                    <TextBox
-                        FontSize="18"
-                        Height="32"
-                        Margin="10 0 10 5"
-                        Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                        BorderBrush="#121212"
-                        x:Name="PracticingCpmTextBox">
-                    </TextBox>
-
-                    <TextBlock
-                        Style="{StaticResource SummaryTextStyle}"
-                        Margin="10 8 10 5"
-                        Text="{x:Static res:Resources.uMaxMistakes}"
-                        FontSize="18">
-                    </TextBlock>
-                    <TextBox
-                        FontSize="18"
-                        Height="32"
-                        Margin="10 0 10 5"
-                        Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                        BorderBrush="#121212"
-                        x:Name="PracticingMaxMistakesTextBox">
-                    </TextBox>
-
-                    <TextBlock
-                        Style="{StaticResource SummaryTextStyle}"
-                        Margin="10 8 10 5"
-                        Text="{x:Static res:Resources.uWordCountInLesson}"
-                        FontSize="18">
-                    </TextBlock>
-                    <TextBox
-                        FontSize="18"
-                        Height="32"
-                        Margin="10 0 10 5"
-                        Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                        BorderBrush="#121212"
-                        x:Name="WordCountInLessonTextBox">
-                    </TextBox>
-
-                    <TextBlock
-                        Style="{StaticResource SummaryTextStyle}"
-                        Margin="10 8 10 5"
-                        Text="{x:Static res:Resources.uRepeatsCount}"
-                        FontSize="18">
-                    </TextBlock>
-                    <TextBox
-                        FontSize="18"
-                        Height="32"
-                        Margin="10 0 10 5"
-                        Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                        FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                        BorderBrush="#121212"
-                        x:Name="WordRepeatsInLessonTextBox">
-                    </TextBox>
-                </StackPanel>
-            </Grid>
-
-            <Grid
-                Grid.Column="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="341*"/>
-                    <ColumnDefinition Width="153*"/>
-                </Grid.ColumnDefinitions>
-                <TextBox
-                    FontSize="18"
-                    TextWrapping="Wrap"
-                    SelectionBrush="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                    Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                    FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
-                    BorderBrush="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                    AcceptsReturn="True"
-                    x:Name="WordDataTextBox"
-                    BorderThickness="0"
-                    Padding="10" Grid.ColumnSpan="2">
-                </TextBox>
-            </Grid>
-        </Grid>
+        </controls:ClippingBorder.Effect>
 
         <Grid
-            x:Name="TitleGrid"
-            Grid.Row="0"
-            Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-            >
+            x:Name="LessonEditorGrid"
+            Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
+            Width="800"
+            Height="374">
 
-            <Grid.Effect>
-                <DropShadowEffect BlurRadius="30"></DropShadowEffect>
-            </Grid.Effect>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
 
-            <TextBlock 
-                Style="{StaticResource SummaryTextStyle}"
-                FontSize="16"
-                Margin="20 0 0 0"
-                x:Name="EditorTitleTextBox"
-                Text="{x:Static res:Resources.uWordPracticeCourseEditor}"
-                HorizontalAlignment="Left">
-            </TextBlock>
+            <Grid 
+                x:Name="ContentGrid"
+                Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="1.618*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
 
-            <StackPanel 
-                HorizontalAlignment="Right"
-                Orientation="Horizontal"
-                Margin="10">
+                <Grid
+                    Grid.Column="0"
+                    Margin="6 0 6 0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            Margin="10 20 10 5"
+                            Text="{x:Static res:Resources.uCPM}"
+                            FontSize="18">
+                        </TextBlock>
+                        <TextBox
+                            Margin="10 0 10 5"
+                            Style="{StaticResource StandardTextBoxStyle}"
+                            x:Name="PracticingCpmTextBox">
+                        </TextBox>
 
-                <Button 
-                    Width="160" 
-                    Margin="10 0 0 0"
-                    BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
-                    Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
-                    FontSize="12"
-                    FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                    Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                    x:Name="LoadWordsLessonButton"
-                    Content="{x:Static res:Resources.uLoadWords}"
-                    Click="LoadWordsLessonButton_OnClick">
-                </Button>
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            Margin="10 8 10 5"
+                            Text="{x:Static res:Resources.uMaxMistakes}"
+                            FontSize="18">
+                        </TextBlock>
+                        <TextBox
+                            Margin="10 0 10 5"
+                            Style="{StaticResource StandardTextBoxStyle}"
+                            x:Name="PracticingMaxMistakesTextBox">
+                        </TextBox>
 
-                <Button 
-                    Width="160"
-                    Margin="10 0 0 0"
-                    BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
-                    Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
-                    FontSize="12"
-                    FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                    Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                    x:Name="SaveLessonButton"
-                    Content="{x:Static res:Resources.uUnloadWords}"
-                    Click="SaveLessonButton_OnClick">
-                </Button>
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            Margin="10 8 10 5"
+                            Text="{x:Static res:Resources.uWordCountInLesson}"
+                            FontSize="18">
+                        </TextBlock>
+                        <TextBox
+                            Margin="10 0 10 5"
+                            Style="{StaticResource StandardTextBoxStyle}"
+                            x:Name="WordCountInLessonTextBox">
+                        </TextBox>
 
-                <Button 
-                    Width="40"
-                    Margin="10 0 0 0"
-                    BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
-                    Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
-                    FontSize="12"
-                    FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                    Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                    x:Name="CancelLessonButton"
-                    Content="✖"
-                    Click="CancelLessonButton_Click">
-                </Button>
-            </StackPanel>
+                        <TextBlock
+                            Style="{StaticResource SummaryTextStyle}"
+                            Margin="10 8 10 5"
+                            Text="{x:Static res:Resources.uRepeatsCount}"
+                            FontSize="18">
+                        </TextBlock>
+                        <TextBox
+                            Margin="10 0 10 5"
+                            Style="{StaticResource StandardTextBoxStyle}"
+                            x:Name="WordRepeatsInLessonTextBox">
+                        </TextBox>
+                    </StackPanel>
+                </Grid>
+
+                <Grid
+                    Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="341*"/>
+                        <ColumnDefinition Width="153*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox
+                        FontSize="18"
+                        TextWrapping="Wrap"
+                        SelectionBrush="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+                        Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                        FontFamily="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"
+                        BorderBrush="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                        AcceptsReturn="True"
+                        x:Name="WordDataTextBox"
+                        BorderThickness="0"
+                        Padding="10" Grid.ColumnSpan="2">
+                    </TextBox>
+                </Grid>
+            </Grid>
+
+            <Grid
+                x:Name="TitleGrid"
+                Grid.Row="0"
+                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                >
+
+                <Grid.Effect>
+                    <DropShadowEffect BlurRadius="30"></DropShadowEffect>
+                </Grid.Effect>
+
+                <TextBlock 
+                    Style="{StaticResource SummaryTextStyle}"
+                    FontSize="16"
+                    Margin="16 0 0 0"
+                    x:Name="EditorTitleTextBox"
+                    Text="{x:Static res:Resources.uWordPracticeCourseEditor}"
+                    HorizontalAlignment="Left">
+                </TextBlock>
+
+                <StackPanel 
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal"
+                    Margin="10">
+
+                    <Button 
+                        MinWidth="160" 
+                        Margin="10 0 0 0"
+                        Style="{StaticResource HeaderButtonStyle}"
+                        x:Name="LoadWordsLessonButton"
+                        Content="{x:Static res:Resources.uLoadWords}"
+                        Click="LoadWordsLessonButton_OnClick">
+                    </Button>
+
+                    <Button 
+                        MinWidth="160"
+                        Margin="10 0 0 0"
+                        Style="{StaticResource HeaderButtonStyle}"
+                        x:Name="SaveLessonButton"
+                        Content="{x:Static res:Resources.uUnloadWords}"
+                        Click="SaveLessonButton_OnClick">
+                    </Button>
+
+                    <Button 
+                        Width="40"
+                        Margin="10 0 0 0"
+                        Style="{StaticResource HeaderButtonStyle}"
+                        x:Name="CancelLessonButton"
+                        Content="✖"
+                        Click="CancelLessonButton_Click">
+                    </Button>
+                </StackPanel>
+            </Grid>
         </Grid>
-    </Grid>
+    </controls:ClippingBorder>
 </Page>
