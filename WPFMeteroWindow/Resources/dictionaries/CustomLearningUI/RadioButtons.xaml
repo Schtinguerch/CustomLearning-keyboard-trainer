@@ -1,0 +1,61 @@
+﻿<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="{x:Type RadioButton}" TargetType="RadioButton">
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <BulletDecorator Background="Transparent">
+                        <BulletDecorator.Bullet>
+                            <Grid 
+                                VerticalAlignment="Center"
+                                Width="16"
+                                Height="16">
+
+                                <Rectangle 
+                                    x:Name="Border"
+                                    Fill="{DynamicResource BackgroundBrush}"
+                                    Stroke="{DynamicResource HighlightBrush}"
+                
+                                    RadiusX="6"
+                                    RadiusY="6"
+                
+                                    StrokeThickness="1">
+                                </Rectangle>
+
+                                <Rectangle 
+                                    x:Name="CheckMark"
+                                    Fill="{DynamicResource HighlightBrush}"
+                
+                                    Margin="3"
+                                    RadiusX="4"
+                                    RadiusY="4">
+                                </Rectangle>
+                            </Grid>
+                        </BulletDecorator.Bullet>
+
+                        <ContentPresenter 
+                            Margin="6 0 0 0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left"
+                            RecognizesAccessKey="True">
+                        </ContentPresenter>
+                    </BulletDecorator>
+                    
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="false">
+                            <Setter TargetName="CheckMark" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="Border" Property="Stroke" Value="{DynamicResource BordersBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="Border" Property="Stroke" Value="{DynamicResource HighlightBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
