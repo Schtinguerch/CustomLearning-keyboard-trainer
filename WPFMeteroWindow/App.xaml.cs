@@ -18,11 +18,11 @@ namespace WPFMeteroWindow
         public void LoadUserResourceDictionaries()
         {
             var appDictionary = Application.Current.Resources.MergedDictionaries;
-            appDictionary[appDictionary.Count - 2] = new ResourceDictionary()
+            appDictionary[appDictionary.Count - 7] = new ResourceDictionary()
             {
                 Source = new Uri(Settings.Default.ThemeResourceDictionary, UriKind.RelativeOrAbsolute)
             };
-            appDictionary[appDictionary.Count - 3] = new ResourceDictionary()
+            appDictionary[appDictionary.Count - 8] = new ResourceDictionary()
             {
                 Source = new Uri(Settings.Default.ColorSchemeResourceDictionary, UriKind.RelativeOrAbsolute)
             };
