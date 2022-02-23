@@ -8,11 +8,11 @@
     xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
     mc:Ignorable="d"  d:DesignWidth="300">
 
-    <Grid Height="50" Margin="0 5 0 5">
+    <Grid Height="42" Margin="5 5 0 5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="46"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Rectangle
@@ -22,7 +22,7 @@
             Grid.ColumnSpan="2"
         
             StrokeThickness="0"
-            Fill="{Binding Path=SecondBackground, Source={x:Static prop:Settings.Default}}">
+            Fill="{Binding Path=MainBackground, Source={x:Static prop:Settings.Default}}">
 
             <Rectangle.Effect>
                 <DropShadowEffect
@@ -33,55 +33,38 @@
             </Rectangle.Effect>
         </Rectangle>
 
-        <TextBox
-            FontSize="18"
-            Height="32"
-            
+        <TextBox 
             Grid.Column="0"
             VerticalAlignment="Center"
-            Margin="10 0 5 0"
+            Margin="4 0 4 0"
             
             VerticalScrollBarVisibility="Auto"
             
             x:Name="KeyTextBox"
             AcceptsReturn="True"
                                 
-            Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-            FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-            BorderBrush="#121212"
+            Style="{StaticResource StandardTextBoxStyle}"
             d:Text="colour">
         </TextBox>
 
         <TextBox
-            FontSize="18"
-            Height="32"
-            
             Grid.Column="1"
             VerticalAlignment="Center"
-            Margin="5 0 10 0"
+            Margin="4 0 4 0"
             
             VerticalScrollBarVisibility="Auto"
             
             x:Name="ReplacementTextBox"
             AcceptsReturn="True"
                                 
-            Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-            FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-            BorderBrush="#121212"
+            Style="{StaticResource StandardTextBoxStyle}"
             d:Text="color">
         </TextBox>
 
         <Button 
-            Width="38"
-            Height="32"
             Grid.Column="2"
-            Margin="10 0 0 0"
-            
-            BorderBrush="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}" 
-            Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-            FontSize="12"
-            FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-            Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+            Style="{StaticResource ColorPickButtonStyle}"
+            Margin="8 0 0 0"
             Click="Button_Click">
             ✖
         </Button>
