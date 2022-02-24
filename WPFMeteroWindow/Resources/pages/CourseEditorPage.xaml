@@ -268,10 +268,10 @@
                         <Button 
                             Width="40"
                             Margin="10 0 0 0"
-                            Style="{StaticResource HeaderButtonStyle}"
+                            Style="{StaticResource ActionButtonStyle}"
                             x:Name="CancelLessonButton"
                             Click="CancelLessonButton_OnClick"
-                            Content="✖">
+                            Content="&#xE8BB;">
                         </Button>
                     </StackPanel>
                 </Grid>
