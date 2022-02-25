@@ -131,6 +131,42 @@
                                             </VisualStateGroup>
                                         </VisualStateManager.VisualStateGroups>
                                     </Grid>
+
+                                    <ControlTemplate.Triggers>
+                                        <DataTrigger 
+                                            Binding="{Binding Path=GraphicsQuality ,Source={x:Static prop:Settings.Default}}" 
+                                            Value="Medium">
+
+                                            <Setter 
+                                                TargetName="HighlightRectangle" 
+                                                Property="Effect" 
+                                                Value="{x:Null}">
+                                            </Setter>
+
+                                            <Setter 
+                                                TargetName="Arrow" 
+                                                Property="Effect" 
+                                                Value="{x:Null}">
+                                            </Setter>
+                                        </DataTrigger>
+
+                                        <DataTrigger 
+                                            Binding="{Binding Path=GraphicsQuality ,Source={x:Static prop:Settings.Default}}" 
+                                            Value="Low">
+
+                                            <Setter 
+                                                TargetName="HighlightRectangle" 
+                                                Property="Effect" 
+                                                Value="{x:Null}">
+                                            </Setter>
+
+                                            <Setter 
+                                                TargetName="Arrow" 
+                                                Property="Effect" 
+                                                Value="{x:Null}">
+                                            </Setter>
+                                        </DataTrigger>
+                                    </ControlTemplate.Triggers>
                                 </ControlTemplate>
                             </ToggleButton.Template>
                         </ToggleButton>
