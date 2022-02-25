@@ -477,7 +477,6 @@
     <Compile Include="Tools\Managers\LessonManager.cs" />
     <Compile Include="Tools\Managers\LogManager.cs" />
     <Compile Include="Tools\Managers\PageManager.cs" />
-    <Compile Include="Tools\Managers\QualityManager.cs" />
     <Compile Include="Tools\Managers\SoundManager.cs" />
     <Compile Include="Tools\Managers\StatisticsManager.cs" />
     <Compile Include="Tools\Managers\XamlManager.cs" />
