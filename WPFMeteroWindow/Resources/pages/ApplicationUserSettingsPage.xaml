@@ -9,7 +9,7 @@
       xmlns:ext="http://schemas.xceed.com/wpf/xaml/toolkit" 
       xmlns:controls="clr-namespace:WPFMeteroWindow.Controls"
       mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="800"
       Title="ApplicationUserSettingsPage"
       MouseUp="Page_MouseUp"
       PreviewKeyDown="Page_PreviewKeyDown">
@@ -30,7 +30,9 @@
         </Storyboard>
     </Page.Resources>
 
-    <controls:ClippingBorder CornerRadius="8">
+    <controls:ClippingBorder 
+        Margin="0 50 0 50"
+        CornerRadius="8">
 
         <controls:ClippingBorder.Effect>
             <DropShadowEffect BlurRadius="30"></DropShadowEffect>
@@ -39,7 +41,8 @@
         <Grid
             x:Name="BackGrid"
             Width="800"
-            Height="500"
+            MinHeight="500"
+            MaxHeight="800"
             Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
 
             <Grid.RowDefinitions>
@@ -100,6 +103,34 @@
                                     Style="{StaticResource SettingComboBoxStyle}"
                                     x:Name="LanguageComboBox"
                                     SelectionChanged="LanguageComboBox_SelectionChanged">
+                                </ComboBox>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Style="{StaticResource SettingsItemStyle}"
+                        >
+                            <TextBlock
+                                Style="{StaticResource SummaryTextStyle}"
+                                VerticalAlignment="Top"
+                                Text="{x:Static res:Resources.uSettGraphicsQuality}"
+                                FontSize="18">
+                            </TextBlock>
+
+                            <StackPanel
+                                Height="32"
+                                Width="400"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                Orientation="Horizontal">
+
+                                <ComboBox 
+                                    Style="{StaticResource SettingComboBoxStyle}"
+                                    x:Name="GraphicsQualityComboBox"
+                                    SelectionChanged="GraphicsQualityComboBox_SelectionChanged">
+
+                                    <TextBlock Text="{x:Static res:Resources.uLow}"></TextBlock>
+                                    <TextBlock Text="{x:Static res:Resources.uMedium}"></TextBlock>
+                                    <TextBlock Text="{x:Static res:Resources.uHigh}"></TextBlock>
                                 </ComboBox>
                             </StackPanel>
                         </Grid>
@@ -1678,19 +1709,21 @@
                     Margin="10">
                     <Button 
                         Width="50" 
-                        Style="{StaticResource HeaderButtonStyle}"
+                        Style="{StaticResource ActionButtonStyle}"
+                        
                         x:Name="ApplyButton"
-                        Click="ApplyButton_OnClick">
-                        ✓
+                        Click="ApplyButton_OnClick"
+                        Content="&#xF78C;">
                     </Button>
                     <Button 
                         Width="50"
                         Margin="10 0 0 0"
-                        Style="{StaticResource HeaderButtonStyle}"
+                        Style="{StaticResource ActionButtonStyle}"
                     
                         x:Name="DiscardButton" 
-                        Click="DiscardButton_Click">
-                        ✖
+                        Click="DiscardButton_Click"
+                        Content="&#xF78A;">
+                        
                     </Button>
                 </StackPanel>
             </Grid>

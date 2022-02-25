@@ -4,135 +4,143 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
+      xmlns:controls="clr-namespace:WPFMeteroWindow.Controls"
       xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
       xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ActiveUsingLayoutsPage">
 
-    <Grid
-        x:Name="BackGrid"
-        Width="800"
-        Height="400"
-        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
+    <controls:ClippingBorder CornerRadius="8">
 
-        <Grid.Effect>
+        <controls:ClippingBorder.Effect>
             <DropShadowEffect BlurRadius="30"></DropShadowEffect>
-        </Grid.Effect>
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="54"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-
-        <Grid Grid.Row="1">
-            <Grid.Background>
-                <SolidColorBrush
-                    x:Name="DragAndDropBackground"
-                    Color="Black"
-                    Opacity="0.0">
-                </SolidColorBrush>
-            </Grid.Background>
-
-            <ScrollViewer
-                VerticalScrollBarVisibility="Visible"
-                x:Name="wrapPanel"
-                AllowDrop="True"
-                
-                DragEnter="wrapPanel_DragEnter"
-                DragLeave="wrapPanel_DragLeave"
-                Drop="wrapPanel_Drop">
-
-                <StackPanel
-                    x:Name="ScrollListStackPanel"
-                    Orientation="Vertical"
-                    Width="400"
-                    Margin="12 12 0 0">
-
-                </StackPanel>
-            </ScrollViewer>
-
-            <TextBlock
-                x:Name="EmptyListTextBox"
-                Padding="10"
-                Style="{StaticResource SummaryTextStyle}"
-                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
-                TextAlignment="Center"
-                FontSize="24"
-                Text="{x:Static res:Resources.uEmptyList}">
-
-            </TextBlock>
-        </Grid>
+        </controls:ClippingBorder.Effect>
 
         <Grid
-            Grid.Row="0"
-            Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
+            x:Name="BackGrid"
+            Width="800"
+            Height="400"
+            Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
 
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="30"></DropShadowEffect>
             </Grid.Effect>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition Width="400"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="54"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
 
-            <TextBlock 
-                Grid.ColumnSpan="2"
-                Style="{StaticResource SummaryTextStyle}"
-                FontSize="20"
-                Margin="20 0 0 0"
-                Text="{x:Static res:Resources.uRecentLayouts}"
-                HorizontalAlignment="Left">
-            </TextBlock>
+            <Grid Grid.Row="1">
+                <Grid.Background>
+                    <SolidColorBrush
+                        x:Name="DragAndDropBackground"
+                        Color="Black"
+                        Opacity="0.0">
+                    </SolidColorBrush>
+                </Grid.Background>
 
-            <StackPanel
-                Grid.Column="1"
-                Orientation="Horizontal"
-                HorizontalAlignment="Right">
+                <ScrollViewer
+                    VerticalScrollBarVisibility="Visible"
+                    x:Name="wrapPanel"
+                    AllowDrop="True"
+                
+                    DragEnter="wrapPanel_DragEnter"
+                    DragLeave="wrapPanel_DragLeave"
+                    Drop="wrapPanel_Drop">
+
+                    <StackPanel
+                        x:Name="ScrollListStackPanel"
+                        Orientation="Vertical"
+                        Width="400"
+                        Margin="12 12 0 0">
+
+                    </StackPanel>
+                </ScrollViewer>
+
+                <TextBlock
+                    x:Name="EmptyListTextBox"
+                    Padding="10"
+                    Style="{StaticResource SummaryTextStyle}"
+                    Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                    TextAlignment="Center"
+                    FontSize="24"
+                    Text="{x:Static res:Resources.uEmptyList}">
+
+                </TextBlock>
+            </Grid>
+
+            <Grid
+                Grid.Row="0"
+                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
+
+                <Grid.Effect>
+                    <DropShadowEffect BlurRadius="30"></DropShadowEffect>
+                </Grid.Effect>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="400"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock 
+                    Grid.ColumnSpan="2"
+                    Style="{StaticResource SummaryTextStyle}"
+                    FontSize="20"
+                    Margin="20 0 0 0"
+                    Text="{x:Static res:Resources.uRecentLayouts}"
+                    HorizontalAlignment="Left">
+                </TextBlock>
+
+                <StackPanel
+                    Grid.Column="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+
+                    <Button 
+                        x:Name="AddButton"
+                        Width="120"
+                        Margin="10 10 0 10"
+                        Style="{StaticResource HeaderButtonStyle}"
+                        Click="AddButton_Click">
+
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8E5;" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Margin="6 0 0 0" Text="{x:Static res:Resources.uNewLayout}"></TextBlock>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+
+                    <Button 
+                        x:Name="DeleteAllButton"
+                        Width="120"
+                        Margin="10 10 0 10"
+                        Style="{StaticResource HeaderButtonStyle}"
+                        Click="DeleteAllButton_Click">
+
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE75C;" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Margin="6 0 0 0" Text="{x:Static res:Resources.uDeleteAll}"></TextBlock>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
 
                 <Button 
-                    x:Name="AddButton"
-                    Width="140"
-                    Margin="10 10 0 10"
-                    BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
-                    Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
-                    FontSize="12"
-                    FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                    Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                    Content="{x:Static res:Resources.uNewLayout}"
-                    Click="AddButton_Click">
+                    Grid.Column="2"
+                    HorizontalAlignment="Right"
+                    x:Name="CloseButton"
+                    Width="40"
+                    Margin="10"
+                    Style="{StaticResource ActionButtonStyle}"
+                    Content="&#xE8BB;"
+                    Click="CloseButton_Click">
                 </Button>
-
-                <Button 
-                    x:Name="DeleteAllButton"
-                    Width="100"
-                    Margin="10 10 0 10"
-                    BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
-                    Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
-                    FontSize="12"
-                    FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                    Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                    Content="{x:Static res:Resources.uDeleteAll}"
-                    Click="DeleteAllButton_Click">
-                </Button>
-            </StackPanel>
-
-            <Button 
-                Grid.Column="2"
-                HorizontalAlignment="Right"
-                x:Name="CloseButton"
-                Width="50"
-                Margin="10"
-                BorderBrush="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}" 
-                Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
-                FontSize="16"
-                FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                Foreground="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
-                Click="CloseButton_Click">
-                ✖
-            </Button>
+            </Grid>
         </Grid>
-    </Grid>
+    </controls:ClippingBorder>
 </Page>

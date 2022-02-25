@@ -124,37 +124,55 @@
                     Orientation="Horizontal"
                     Margin="10">
                     <Button 
-                        Width="90" 
+                        MinWidth="90" 
                         Style="{StaticResource HeaderButtonStyle}"
                         x:Name="NewLessonButton"
-                        Content="{x:Static res:Resources.uNew}"
                         Click="NewLessonButton_OnClick">
+
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8F4;" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Margin="6 0 0 0" Text="{x:Static res:Resources.uNew}"></TextBlock>
+                            </StackPanel>
+                        </Button.Content>
                     </Button>
 
                     <Button 
-                        Width="90" 
+                        MinWidth="90" 
                         Margin="10 0 0 0"
                         Style="{StaticResource HeaderButtonStyle}"
                         x:Name="OpenLessonButton"
-                        Content="{x:Static res:Resources.uOpen}"
                         Click="OpenLessonButton_OnClick">
+
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8DA;" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Margin="6 0 0 0" Text="{x:Static res:Resources.uOpen}"></TextBlock>
+                            </StackPanel>
+                        </Button.Content>
                     </Button>
 
                     <Button 
-                        Width="90"
+                        MinWidth="90"
                         Margin="10 0 0 0"
                         Style="{StaticResource HeaderButtonStyle}"
                         x:Name="SaveLessonButton"
-                        Content="{x:Static res:Resources.uSave}"
                         Click="SaveLessonButton_OnClick">
+
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE74E;" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Margin="6 0 0 0" Text="{x:Static res:Resources.uSave}"></TextBlock>
+                            </StackPanel>
+                        </Button.Content>
                     </Button>
 
                     <Button 
                         Width="40"
                         Margin="10 0 0 0"
-                        Style="{StaticResource HeaderButtonStyle}"
+                        Style="{StaticResource ActionButtonStyle}"
                         x:Name="CancelLessonButton"
-                        Content="✖"
+                        Content="&#xE8BB;"
                         Click="CancelLessonButton_OnClick">
                     </Button>
                 </StackPanel>

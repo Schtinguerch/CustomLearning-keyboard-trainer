@@ -218,6 +218,7 @@ namespace WPFMeteroWindow.Resources.pages
             HideImageLessonStartComboBox.Text = Settings.Default.HideImageWhenLessonStart ? Localization.uYes : Localization.uNo;
             BlurImageLessonStartComboBox.Text = Settings.Default.BlurUpImageWhenLessonStart ? Localization.uYes : Localization.uNo;
             EnableKeyboardBumpComboBox.Text = Settings.Default.EnableSplashAnimation ? Localization.uYes : Localization.uNo;
+            GraphicsQualityComboBox.Text = Settings.Default.GraphicsQuality;
 
             RequireWPMtextBox.Text = Settings.Default.RequireWPM ? Localization.uYes : Localization.uNo;
             WindowTheme.Text = Settings.Default.ThemeResourceDictionary.ToLower().Contains("light") ? Localization.uLight : Localization.uDark;

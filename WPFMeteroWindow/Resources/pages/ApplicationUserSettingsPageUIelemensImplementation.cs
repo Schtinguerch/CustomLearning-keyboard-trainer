@@ -166,6 +166,15 @@ namespace WPFMeteroWindow.Resources.pages
         private void BackgroundVolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) =>
             SetVolume("Background", e.NewValue);
 
+        private void GraphicsQualityComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedQuality = (GraphicsQualityComboBox.SelectedValue as TextBlock).Text;
+            if (QualityManager.Quality != selectedQuality)
+            {
+                QualityManager.Quality = selectedQuality;
+            }
+        }
+
         private void TypingVolumeSlider_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e) =>
             SoundManager.PlayType();
 

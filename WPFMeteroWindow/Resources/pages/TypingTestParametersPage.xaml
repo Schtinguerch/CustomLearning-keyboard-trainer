@@ -273,9 +273,9 @@
                     <Button 
                         Width="46"
                         Margin="10 0 8 0"
-                        Style="{StaticResource HeaderButtonStyle}"
+                        Style="{StaticResource ActionButtonStyle}"
                         x:Name="CancelLessonButton"
-                        Content="✖"
+                        Content="&#xE8BB;"
                         Click="CancelLessonButton_Click">
                     </Button>
                 </StackPanel>

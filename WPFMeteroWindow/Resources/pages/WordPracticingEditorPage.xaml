@@ -139,25 +139,37 @@
                         Margin="10 0 0 0"
                         Style="{StaticResource HeaderButtonStyle}"
                         x:Name="LoadWordsLessonButton"
-                        Content="{x:Static res:Resources.uLoadWords}"
                         Click="LoadWordsLessonButton_OnClick">
+
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE896;" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Margin="6 0 0 0" Text="{x:Static res:Resources.uLoadWords}"></TextBlock>
+                            </StackPanel>
+                        </Button.Content>
                     </Button>
 
                     <Button 
-                        MinWidth="160"
+                        MinWidth="180"
                         Margin="10 0 0 0"
                         Style="{StaticResource HeaderButtonStyle}"
                         x:Name="SaveLessonButton"
-                        Content="{x:Static res:Resources.uUnloadWords}"
                         Click="SaveLessonButton_OnClick">
+
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE898;" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Margin="6 0 0 0" Text="{x:Static res:Resources.uUnloadWords}"></TextBlock>
+                            </StackPanel>
+                        </Button.Content>
                     </Button>
 
                     <Button 
                         Width="40"
                         Margin="10 0 0 0"
-                        Style="{StaticResource HeaderButtonStyle}"
+                        Style="{StaticResource ActionButtonStyle}"
                         x:Name="CancelLessonButton"
-                        Content="✖"
+                        Content="&#xE8BB;"
                         Click="CancelLessonButton_Click">
                     </Button>
                 </StackPanel>

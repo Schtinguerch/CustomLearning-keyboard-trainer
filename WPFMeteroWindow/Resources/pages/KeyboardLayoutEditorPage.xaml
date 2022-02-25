@@ -157,37 +157,55 @@
                     Orientation="Horizontal"
                     Margin="10">
                     <Button 
-                        Width="90" 
+                        MinWidth="90" 
                         Style="{StaticResource HeaderButtonStyle}"
                         x:Name="NewLayoutButton"
-                        Content="{x:Static res:Resources.uNew}"
                         Click="NewLayoutButton_OnClick">
+
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8F4;" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Margin="6 0 0 0" Text="{x:Static res:Resources.uNew}"></TextBlock>
+                            </StackPanel>
+                        </Button.Content>
                     </Button>
 
                     <Button 
-                        Width="90" 
+                        MinWidth="90" 
                         Margin="10 0 0 0"
                         Style="{StaticResource HeaderButtonStyle}"
                         x:Name="OpenLayoutButton"
-                        Content="{x:Static res:Resources.uOpen}"
                         Click="OpenLayoutButton_OnClick">
+
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8DA;" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Margin="6 0 0 0" Text="{x:Static res:Resources.uOpen}"></TextBlock>
+                            </StackPanel>
+                        </Button.Content>
                     </Button>
 
                     <Button 
-                        Width="90"
+                        MinWidth="90"
                         Margin="10 0 0 0"
                         Style="{StaticResource HeaderButtonStyle}"
                         x:Name="SaveLayoutButton"
-                        Content="{x:Static res:Resources.uSave}"
                         Click="SaveLayoutButton_OnClick">
+
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE74E;" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Margin="6 0 0 0" Text="{x:Static res:Resources.uSave}"></TextBlock>
+                            </StackPanel>
+                        </Button.Content>
                     </Button>
 
                     <Button 
                         Width="40"
                         Margin="10 0 0 0"
-                        Style="{StaticResource HeaderButtonStyle}"
+                        Style="{StaticResource ActionButtonStyle}"
                         x:Name="CancelLayoutButton"
-                        Content="✖"
+                        Content="&#xE8BB;"
                         Click="CancelLayoutButton_OnClick">
                     </Button>
                 </StackPanel>
