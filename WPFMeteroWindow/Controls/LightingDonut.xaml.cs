@@ -43,6 +43,9 @@ namespace WPFMeteroWindow.Controls
                 _splashStoryboard?.Stop();
                 var newShape = value.Copy<Grid>();
 
+                if (Settings.Default.GraphicsQuality != "High")
+                    newShape.Effect = null;
+
                 Settings.Default.ChosenSplashShapeName = newShape.Name;
                 _splashStoryboard = FindResource(Settings.Default.ChosenKbSplashStoryboard) as Storyboard;
 
