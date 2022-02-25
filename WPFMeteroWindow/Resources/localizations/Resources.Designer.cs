@@ -475,6 +475,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Высокое.
+        /// </summary>
+        public static string uHigh {
+            get {
+                return ResourceManager.GetString("uHigh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на HTML-парсинг.
         /// </summary>
         public static string uHtmlParsing {
@@ -718,11 +727,29 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Низкое.
+        /// </summary>
+        public static string uLow {
+            get {
+                return ResourceManager.GetString("uLow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Максимум ошибок.
         /// </summary>
         public static string uMaxMistakes {
             get {
                 return ResourceManager.GetString("uMaxMistakes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Среднее.
+        /// </summary>
+        public static string uMedium {
+            get {
+                return ResourceManager.GetString("uMedium", resourceCulture);
             }
         }
         
@@ -1308,6 +1335,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uSettFonts {
             get {
                 return ResourceManager.GetString("uSettFonts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Качество графики.
+        /// </summary>
+        public static string uSettGraphicsQuality {
+            get {
+                return ResourceManager.GetString("uSettGraphicsQuality", resourceCulture);
             }
         }
         

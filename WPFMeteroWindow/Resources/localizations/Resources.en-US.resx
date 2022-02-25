@@ -202,7 +202,7 @@
     <value>Setup</value>
   </data>
   <data name="uEmptyList" xml:space="preserve">
-    <value>Список пуст</value>
+    <value>Empty list</value>
   </data>
   <data name="uEnterCourseFolder" xml:space="preserve">
     <value>Enter the path of the course folder</value>
@@ -254,6 +254,9 @@
   </data>
   <data name="uHelloInCustomLearning" xml:space="preserve">
     <value>Hello in CustomLearning</value>
+  </data>
+  <data name="uHigh" xml:space="preserve">
+    <value>High</value>
   </data>
   <data name="uHtmlParsing" xml:space="preserve">
     <value>HTML parsing</value>
@@ -336,8 +339,14 @@
   <data name="uLogDataCopiedSuccessfully" xml:space="preserve">
     <value>Log-data copied successfully</value>
   </data>
+  <data name="uLow" xml:space="preserve">
+    <value>Low</value>
+  </data>
   <data name="uMaxMistakes" xml:space="preserve">
     <value>Max mistakes count</value>
+  </data>
+  <data name="uMedium" xml:space="preserve">
+    <value>Medium</value>
   </data>
   <data name="uMenuCopyPath" xml:space="preserve">
     <value>Copy path</value>
@@ -533,6 +542,9 @@
   </data>
   <data name="uSettFonts" xml:space="preserve">
     <value>Fonts</value>
+  </data>
+  <data name="uSettGraphicsQuality" xml:space="preserve">
+    <value>Graphics quality</value>
   </data>
   <data name="uSettHeader" xml:space="preserve">
     <value>Settings</value>

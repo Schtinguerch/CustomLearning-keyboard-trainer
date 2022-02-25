@@ -255,6 +255,9 @@
   <data name="uHelloInCustomLearning" xml:space="preserve">
     <value>Приветствую в CustomLearning</value>
   </data>
+  <data name="uHigh" xml:space="preserve">
+    <value>Высокое</value>
+  </data>
   <data name="uHtmlParsing" xml:space="preserve">
     <value>HTML-парсинг</value>
   </data>
@@ -336,8 +339,14 @@
   <data name="uLogDataCopiedSuccessfully" xml:space="preserve">
     <value>Log-данные успешно скопированы</value>
   </data>
+  <data name="uLow" xml:space="preserve">
+    <value>Низкое</value>
+  </data>
   <data name="uMaxMistakes" xml:space="preserve">
     <value>Максимум ошибок</value>
+  </data>
+  <data name="uMedium" xml:space="preserve">
+    <value>Среднее</value>
   </data>
   <data name="uMenuCopyPath" xml:space="preserve">
     <value>Копировать путь к файлу</value>
@@ -533,6 +542,9 @@
   </data>
   <data name="uSettFonts" xml:space="preserve">
     <value>Шрифты</value>
+  </data>
+  <data name="uSettGraphicsQuality" xml:space="preserve">
+    <value>Качество графики</value>
   </data>
   <data name="uSettHeader" xml:space="preserve">
     <value>Настройки</value>
