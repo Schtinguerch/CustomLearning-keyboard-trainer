@@ -1,50 +1,26 @@
-﻿<Window x:Class="WPFMeteroWindow.TestWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:c="clr-namespace:WPFMeteroWindow.Controls"
-        xmlns:local="clr-namespace:WPFMeteroWindow"
-        mc:Ignorable="d"
-        Title="TestWindow" Height="450" Width="800">
-    <Grid Background="#202020">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
+﻿<controls:MetroWindow 
+    x:Class="WPFMeteroWindow.TestWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:WPFMeteroWindow"
+    xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:ctrls="clr-namespace:WPFMeteroWindow.Controls"
+    mc:Ignorable="d"
+    Title="TestWindow" Height="450" Width="800"
+    AllowsTransparency="True"
+    
+    WindowTitleBrush="Transparent"
+    OverlayBrush="Transparent"
+    GlowBrush="Transparent"
+    Background="Transparent" 
+    BorderBrush="Transparent">
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="80"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-
-        <TextBox
-            x:Name="PointsTextBox"
-            Margin="5">
-        </TextBox>
-
-        <TextBox
-            x:Name="ArgsTextBox"
-            Grid.Row="1"
-            Margin="5">
-        </TextBox>
-
-        <Button 
-            Grid.Column="1"
-            Grid.RowSpan="2"
-            Content="Draw"
-            Margin="5"
-            
-            Click="Button_Click">
-        </Button>
-
-        <Grid
-            x:Name="CanvasGrid"
-            Grid.ColumnSpan="2"
-            Grid.Row="2"
-            Margin="10">
-            
-        </Grid>
-    </Grid>
-</Window>
+    <ctrls:ClippingBorder
+        Margin="0 -32 0 0"
+        Background="#363636"
+        BorderBrush="#202020"
+        CornerRadius="8">
+    </ctrls:ClippingBorder>
+</controls:MetroWindow>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using MahApps.Metro.Controls;
 using WPFMeteroWindow.Controls;
 
 namespace WPFMeteroWindow
@@ -19,41 +20,11 @@ namespace WPFMeteroWindow
     /// <summary>
     /// Логика взаимодействия для TestWindow.xaml
     /// </summary>
-    public partial class TestWindow : Window
+    public partial class TestWindow : MetroWindow
     {
         public TestWindow()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            CanvasGrid.Children?.Clear();
-            CanvasGrid.Children.Add(new StatsVisualizer(
-                ValuesFromText(), null,
-                null, null, null, -1, -1));
-        }
-
-        private List<List<double>> ValuesFromText()
-        {
-            var plots = PointsTextBox.Text.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
-            var values = new List<List<double>>();
-
-            foreach (var plot in plots)
-                values.Add(ParseNumbers(plot));
-
-            return values;
-        }
-
-        private List<double> ParseNumbers(string text)
-        {
-            var numbersString = text.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-            var numbers = new List<double>();
-
-            foreach (var number in numbersString)
-                numbers.Add(double.Parse(number));
-
-            return numbers;
         }
     }
 }
