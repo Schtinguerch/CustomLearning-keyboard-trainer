@@ -57,8 +57,7 @@ namespace WPFMeteroWindow
                 Intermediary.MouseShapesDictionary.Add(shapeGrid.Name, shapeGrid);
             }
 
-            Intermediary.App.MouseSplashShape.Shape = Intermediary.MouseShapesDictionary[Settings.Default.ChosenClickSplashName];
-
+            QualityManager.Quality = Settings.Default.GraphicsQuality;
             Intermediary.MouseStoryboards = Intermediary.App.MouseSplashShape.AllStoryboardNames;
             Intermediary.KeyboardStoryboards = new LightingDonut().AllStoryboardNames;
 
