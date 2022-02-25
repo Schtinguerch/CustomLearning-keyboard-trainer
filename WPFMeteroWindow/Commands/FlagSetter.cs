@@ -69,18 +69,15 @@ namespace WPFMeteroWindow.Commands
                     switch (arguments[1].ToLower())
                     {
                         case "low":
-                            RenderOptions.SetBitmapScalingMode(Intermediary.App, BitmapScalingMode.LowQuality);
-                            RenderOptions.SetEdgeMode(Intermediary.App, EdgeMode.Aliased);
+                            QualityManager.Quality = "Low";
                             break;
 
                         case "mid":
-                            RenderOptions.SetBitmapScalingMode(Intermediary.App, BitmapScalingMode.Unspecified);
-                            RenderOptions.SetEdgeMode(Intermediary.App, EdgeMode.Unspecified);
+                            QualityManager.Quality = "Medium";
                             break;
 
                         case "hiq":
-                            RenderOptions.SetBitmapScalingMode(Intermediary.App, BitmapScalingMode.HighQuality);
-                            RenderOptions.SetEdgeMode(Intermediary.App, EdgeMode.Unspecified);
+                            QualityManager.Quality = "High";
                             break;
                     }
                     break;
