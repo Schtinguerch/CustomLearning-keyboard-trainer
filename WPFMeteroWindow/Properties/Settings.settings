@@ -263,5 +263,8 @@
     <Setting Name="BordersColor" Type="System.String" Scope="User">
       <Value Profile="(Default)">#0B0B0B</Value>
     </Setting>
+    <Setting Name="GraphicsQuality" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Medium</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

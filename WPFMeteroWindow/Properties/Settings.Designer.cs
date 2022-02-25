@@ -1066,5 +1066,17 @@ namespace WPFMeteroWindow.Properties {
                 this["BordersColor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Medium")]
+        public string GraphicsQuality {
+            get {
+                return ((string)(this["GraphicsQuality"]));
+            }
+            set {
+                this["GraphicsQuality"] = value;
+            }
+        }
     }
 }
