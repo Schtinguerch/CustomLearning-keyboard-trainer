@@ -1,7 +1,9 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:WPFMeteroWindow"
-                    xmlns:prop="clr-namespace:WPFMeteroWindow.Properties">
+﻿<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:WPFMeteroWindow"
+    xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
+    xmlns:controls="clr-namespace:WPFMeteroWindow.Controls">
 
     <SolidColorBrush 
         x:Key="PassedIndicatorBrush"
@@ -143,6 +145,24 @@
                         </ScrollBar>
                     </Grid>
                 </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style 
+        x:Key="SubWindowBorderStyle"
+        TargetType="controls:ClippingBorder">
+
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="BorderBrush" Value="{StaticResource BordersBrush}"></Setter>
+        <Setter Property="CornerRadius" Value="8"></Setter>
+
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect 
+                    ShadowDepth="0"
+                    BlurRadius="30">
+                </DropShadowEffect>
             </Setter.Value>
         </Setter>
     </Style>
