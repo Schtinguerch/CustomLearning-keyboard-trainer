@@ -30,7 +30,7 @@
         </EventTrigger>
     </UserControl.Triggers>
 
-    <controls:ClippingBorder CornerRadius="8">
+    <controls:ClippingBorder Style="{StaticResource SubWindowBorderStyle}">
         <Grid
             x:Name="BackGrid"
             Height="165"

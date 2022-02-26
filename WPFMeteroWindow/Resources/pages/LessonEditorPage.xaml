@@ -11,17 +11,14 @@
       Title="LessonEditorPage"
       KeyDown="LessonEditorPage_OnKeyDown">
 
-    <controls:ClippingBorder CornerRadius="8">
-        
-        <controls:ClippingBorder.Effect>
-            <DropShadowEffect BlurRadius="30"></DropShadowEffect>
-        </controls:ClippingBorder.Effect>
+    <controls:ClippingBorder 
+        Style="{StaticResource SubWindowBorderStyle}"
+        Width="800"
+        Height="330">
 
         <Grid
             x:Name="LessonEditorGrid"
-            Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
-            Width="800"
-            Height="330">
+            Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"></RowDefinition>

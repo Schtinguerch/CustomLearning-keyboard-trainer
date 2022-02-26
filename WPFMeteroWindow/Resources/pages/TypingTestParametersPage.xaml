@@ -11,16 +11,15 @@
       d:DesignHeight="428" d:DesignWidth="800"
       Title="TypingTestParametersPage">
 
-    <controls:ClippingBorder CornerRadius="8">
-        <controls:ClippingBorder.Effect>
-            <DropShadowEffect BlurRadius="30"></DropShadowEffect>
-        </controls:ClippingBorder.Effect>
+    <controls:ClippingBorder
+        Style="{StaticResource SubWindowBorderStyle}"
+        Width="800"
+        Height="428">
 
         <Grid
             x:Name="ParameterEditorGrid"
             Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
-            Width="800"
-            Height="428">
+            >
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"></RowDefinition>

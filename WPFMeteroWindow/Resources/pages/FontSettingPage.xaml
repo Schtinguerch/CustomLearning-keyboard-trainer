@@ -6,7 +6,7 @@
       xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
       xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
       xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
-      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:controls="clr-namespace:WPFMeteroWindow.Controls"
       mc:Ignorable="d" 
       d:DesignHeight="80" d:DesignWidth="500"
       Title="FontSettingPage"
@@ -16,42 +16,40 @@
       IsVisibleChanged="FontSettingPage_OnIsVisibleChanged"
       KeyDown="FontSettingPage_OnKeyDown">
 
-    <Grid
-        x:Name="BackGrid"
+    <controls:ClippingBorder
         Width="500" 
-        Height="80">
+        Height="80"
+        Style="{StaticResource SubWindowBorderStyle}">
+        <Grid x:Name="BackGrid">
 
-        <Grid.Effect>
-            <DropShadowEffect BlurRadius="30" ></DropShadowEffect>
-        </Grid.Effect>
-        
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
 
-        <TextBox 
-            Grid.Row="1"
-            Style="{StaticResource MainEditorStyle}"
-            Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-            Foreground="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}"
-            TextAlignment="Center"
-            FontSize="28"
-            x:Name="FontTextBox">
-        </TextBox>
+            <TextBox 
+                Grid.Row="1"
+                Style="{StaticResource MainEditorStyle}"
+                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                Foreground="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}"
+                TextAlignment="Center"
+                FontSize="28"
+                x:Name="FontTextBox">
+            </TextBox>
         
-        <Grid Grid.Row="0"
-              Background="{Binding ThirdSecBackground, Source={x:Static prop:Settings.Default}}">
-            <Grid.Effect>
-                <DropShadowEffect BlurRadius="10" Opacity="0.2"></DropShadowEffect>
-            </Grid.Effect>
+            <Grid Grid.Row="0"
+                  Background="{Binding ThirdSecBackground, Source={x:Static prop:Settings.Default}}">
+                <Grid.Effect>
+                    <DropShadowEffect BlurRadius="10" Opacity="0.2"></DropShadowEffect>
+                </Grid.Effect>
             
-            <TextBlock 
-                Grid.Row="0"
-                Style="{StaticResource SummaryTextStyle}"
-                Text="{x:Static res:Resources.uEnterFontFamily}"
-                Margin="10 0 0 0">
-            </TextBlock>
+                <TextBlock 
+                    Grid.Row="0"
+                    Style="{StaticResource SummaryTextStyle}"
+                    Text="{x:Static res:Resources.uEnterFontFamily}"
+                    Margin="10 0 0 0">
+                </TextBlock>
+            </Grid>
         </Grid>
-    </Grid>
+    </controls:ClippingBorder>
 </Page>

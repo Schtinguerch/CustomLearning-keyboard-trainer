@@ -32,17 +32,13 @@
 
     <controls:ClippingBorder 
         Margin="0 50 0 50"
-        CornerRadius="8">
-
-        <controls:ClippingBorder.Effect>
-            <DropShadowEffect BlurRadius="30"></DropShadowEffect>
-        </controls:ClippingBorder.Effect>
+        Width="800"
+        MinHeight="500"
+        MaxHeight="800"
+        Style="{StaticResource SubWindowBorderStyle}">
 
         <Grid
             x:Name="BackGrid"
-            Width="800"
-            MinHeight="500"
-            MaxHeight="800"
             Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
 
             <Grid.RowDefinitions>

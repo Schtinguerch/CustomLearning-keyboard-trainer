@@ -6,48 +6,48 @@
       xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
       xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
       xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
+      xmlns:controls="clr-namespace:WPFMeteroWindow.Controls"
       mc:Ignorable="d" 
       d:DesignHeight="80" d:DesignWidth="700"
       Title="CommandLinePage"
       KeyDown="CommandLinePage_OnKeyDown">
 
-    <Grid 
+    <controls:ClippingBorder
         Width="700" 
-        Height="80" 
-        Background="{Binding ThirdSecBackground, Source={x:Static prop:Settings.Default}}"
-        Name="hh">
-        
-        <Grid.Effect>
-            <DropShadowEffect BlurRadius="30" ></DropShadowEffect>
-        </Grid.Effect>
+        Height="80"
+        Style="{StaticResource SubWindowBorderStyle}">
+        <Grid 
+            Background="{Binding ThirdSecBackground, Source={x:Static prop:Settings.Default}}"
+            Name="hh">
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
 
-        <TextBox 
-            Grid.Row="1"
-            Style="{StaticResource MainEditorStyle}"
-            Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-            Foreground="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}"
-            TextAlignment="Center"
-            x:Name="CommandTextBox"
-            FontSize="28">
-        </TextBox>
+            <TextBox 
+                Grid.Row="1"
+                Style="{StaticResource MainEditorStyle}"
+                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                Foreground="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}"
+                TextAlignment="Center"
+                x:Name="CommandTextBox"
+                FontSize="28">
+            </TextBox>
 
-        <Grid Grid.Row="0"
-              Background="{Binding ThirdSecBackground, Source={x:Static prop:Settings.Default}}">
-            <Grid.Effect>
-                <DropShadowEffect BlurRadius="10" Opacity="0.2"></DropShadowEffect>
-            </Grid.Effect>
+            <Grid Grid.Row="0"
+                  Background="{Binding ThirdSecBackground, Source={x:Static prop:Settings.Default}}">
+                <Grid.Effect>
+                    <DropShadowEffect BlurRadius="10" Opacity="0.2"></DropShadowEffect>
+                </Grid.Effect>
 
-            <TextBlock 
-                Grid.Row="0"
-                Style="{StaticResource SummaryTextStyle}"
-                Text="{x:Static res:Resources.uEnterTheCommand}"
-                Margin="10 0 0 0">
-            </TextBlock>
+                <TextBlock 
+                    Grid.Row="0"
+                    Style="{StaticResource SummaryTextStyle}"
+                    Text="{x:Static res:Resources.uEnterTheCommand}"
+                    Margin="10 0 0 0">
+                </TextBlock>
+            </Grid>
         </Grid>
-    </Grid>
+    </controls:ClippingBorder>
 </Page>

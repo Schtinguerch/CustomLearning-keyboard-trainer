@@ -8,24 +8,16 @@
       xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
       xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
       Title="ActiveUsingLayoutsPage">
 
-    <controls:ClippingBorder CornerRadius="8">
-
-        <controls:ClippingBorder.Effect>
-            <DropShadowEffect BlurRadius="30"></DropShadowEffect>
-        </controls:ClippingBorder.Effect>
+    <controls:ClippingBorder
+        Width="800"
+        Height="400"
+        Style="{StaticResource SubWindowBorderStyle}">
 
         <Grid
             x:Name="BackGrid"
-            Width="800"
-            Height="400"
             Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
-
-            <Grid.Effect>
-                <DropShadowEffect BlurRadius="30"></DropShadowEffect>
-            </Grid.Effect>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="54"></RowDefinition>

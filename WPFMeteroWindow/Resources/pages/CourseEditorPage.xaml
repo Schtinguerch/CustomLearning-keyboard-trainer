@@ -8,7 +8,6 @@
       xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
       xmlns:controls="clr-namespace:WPFMeteroWindow.Controls"
       mc:Ignorable="d" 
-      d:DesignHeight="620" d:DesignWidth="800"
       Title="CourseEditorPage">
     
     <Grid 
@@ -24,14 +23,11 @@
 
         <controls:ClippingBorder
             Grid.Row="0"
-            CornerRadius="8">
-
-            <controls:ClippingBorder.Effect>
-                <DropShadowEffect BlurRadius="30"></DropShadowEffect>
-            </controls:ClippingBorder.Effect>
+            Margin="0 20 0 0"
+            Style="{StaticResource SubWindowBorderStyle}">
 
             <Grid
-                Margin="0 20 0 0"
+                
                 x:Name="CourseEditoGrid"
                 Grid.Row="0"
                 Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
@@ -92,7 +88,7 @@
                             </TextBox>
 
                             <ComboBox
-                                Margin="10 0 10 10"
+                                Margin="10 -2 10 10"
                                 Style="{StaticResource StandardComboBoxStyle}"
                                 x:Name="TypeComboBox">
 

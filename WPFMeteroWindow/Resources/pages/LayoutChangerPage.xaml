@@ -6,60 +6,60 @@
       xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
       xmlns:local="clr-namespace:WPFMeteroWindow.Resources.pages"
       xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
+      xmlns:controls="clr-namespace:WPFMeteroWindow.Controls"
       mc:Ignorable="d" 
-      d:DesignHeight="80" d:DesignWidth="700"
       Title="LayoutChangerPage"
       KeyDown="LayoutChangerPage_OnKeyDown">
 
-    <Grid 
-        x:Name="BackGrid"
+    <controls:ClippingBorder
         Width="700"
         Height="80" 
-        Background="{Binding ThirdSecBackground, Source={x:Static prop:Settings.Default}}">
-        
-        <Grid.Effect>
-            <DropShadowEffect BlurRadius="30" ></DropShadowEffect>
-        </Grid.Effect>
-        
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
+        Style="{StaticResource SubWindowBorderStyle}">
 
-        <TextBox 
-            Grid.Row="1"
-            Style="{StaticResource MainEditorStyle}"
-            Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-            Foreground="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}"
-            TextAlignment="Center"
-            x:Name="LayoutTextBox"
-            FontSize="20">
-        </TextBox>
+        <Grid 
+            x:Name="BackGrid"
+            Background="{Binding ThirdSecBackground, Source={x:Static prop:Settings.Default}}">
 
-        <Grid Grid.Row="0"
-              Background="{Binding ThirdSecBackground, Source={x:Static prop:Settings.Default}}">
-            <Grid.Effect>
-                <DropShadowEffect BlurRadius="10" Opacity="0.2"></DropShadowEffect>
-            </Grid.Effect>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
 
-            <TextBlock 
-                Grid.Row="0"
-                Style="{StaticResource SummaryTextStyle}"
-                Text="{x:Static res:Resources.uEnterThePathToKeyboardLayout}"
-                Margin="10 0 0 0">
-            </TextBlock>
+            <TextBox 
+                Grid.Row="1"
+                Style="{StaticResource MainEditorStyle}"
+                Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
+                Foreground="{Binding MainFontColor, Source={x:Static prop:Settings.Default}}"
+                TextAlignment="Center"
+                x:Name="LayoutTextBox"
+                FontSize="20">
+            </TextBox>
 
-            <Button 
-                Grid.Row="0" 
-                Width="100"
-                Height="20" 
-                Margin="0 0 2.5 0" 
-                HorizontalAlignment="Right" 
-                Content="{x:Static res:Resources.uFileExplorer}" 
-                BorderBrush="{Binding MainBackground, Source={x:Static prop:Settings.Default}}"
-                Click="ButtonBase_OnClick">
-            </Button>
+            <Grid Grid.Row="0"
+                  Background="{Binding ThirdSecBackground, Source={x:Static prop:Settings.Default}}">
+                <Grid.Effect>
+                    <DropShadowEffect BlurRadius="10" Opacity="0.2"></DropShadowEffect>
+                </Grid.Effect>
 
+                <TextBlock 
+                    Grid.Row="0"
+                    Style="{StaticResource SummaryTextStyle}"
+                    Text="{x:Static res:Resources.uEnterThePathToKeyboardLayout}"
+                    Margin="10 0 0 0">
+                </TextBlock>
+
+                <Button 
+                    Grid.Row="0" 
+                    Width="100"
+                    Height="20" 
+                    Margin="0 0 2.5 0" 
+                    HorizontalAlignment="Right" 
+                    Content="{x:Static res:Resources.uFileExplorer}" 
+                    BorderBrush="{Binding MainBackground, Source={x:Static prop:Settings.Default}}"
+                    Click="ButtonBase_OnClick">
+                </Button>
+
+            </Grid>
         </Grid>
-    </Grid>
+    </controls:ClippingBorder>
 </Page>

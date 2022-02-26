@@ -11,14 +11,12 @@
       d:DesignHeight="350" d:DesignWidth="800"
       Title="KeyboardLayoutEditorPage">
 
-    <controls:ClippingBorder CornerRadius="8">
-        <controls:ClippingBorder.Effect>
-            <DropShadowEffect BlurRadius="30"></DropShadowEffect>
-        </controls:ClippingBorder.Effect>
+    <controls:ClippingBorder 
+        Height="350"
+        Width="800"
+        Style="{StaticResource SubWindowBorderStyle}">
 
         <Grid
-            Height="350"
-            Width="800"
             x:Name="LayoutEditorGrid"
             Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
 
