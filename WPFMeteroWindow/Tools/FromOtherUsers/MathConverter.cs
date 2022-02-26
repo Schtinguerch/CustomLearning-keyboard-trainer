@@ -22,6 +22,12 @@ namespace WPFMeteroWindow
             mathEquation = mathEquation.Replace(" ", "");
             mathEquation = mathEquation.Replace("@VALUE", value.ToString());
 
+            var isNegative = mathEquation.StartsWith("-");
+            if (isNegative)
+            {
+                mathEquation = mathEquation.Substring(1);
+            }
+
             // Validate values and get list of numbers in equation
             var numbers = new List<double>();
             double tmp;
@@ -46,7 +52,7 @@ namespace WPFMeteroWindow
             EvaluateMathString(ref mathEquation, ref numbers, 0);
 
             // After parsing the numbers list should only have one value - the total
-            return numbers[0];
+            return isNegative? -numbers[0] : numbers[0];
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
