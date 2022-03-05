@@ -41,7 +41,7 @@ namespace WPFMeteroWindow
         public int FirstWordIndex { get; set; }
         public int LastWordIndex { get; set; }
     }
-    
+
     public static class TestManager
     {
         public static TestData Data { get; set; } = AppManager.JsonReadData<TestData>(Settings.Default.RecentTestDictionariesPath);
@@ -52,6 +52,10 @@ namespace WPFMeteroWindow
 
         private static List<string> _words = new List<string>();
         private static TestAdditional _testAdditional;
+
+        public static string HeaderName() =>
+            Localization.uTypingTest + 
+            $": {Localization.uWords} [{_firstWordIndex - 1}; {_lastWordIndex - 1}]";
 
         private static string ToTitle(string word)
         {
@@ -154,6 +158,7 @@ namespace WPFMeteroWindow
             }
         }
 
+        private static int _firstWordIndex, _lastWordIndex;
         private static void FormUpTheLesson(int firstWordIndex, int lastWordIndex, TestAdditional additional)
         {
             var lesson = "";
@@ -176,7 +181,9 @@ namespace WPFMeteroWindow
 
                 lesson += generatorFunctions[function](index);
             }
-            
+
+            _firstWordIndex = firstWordIndex + 1;
+            _lastWordIndex = lastWordIndex + 1;
             LessonManager.LoadTest(Regex.Replace(lesson, "\n", " ", RegexOptions.Multiline));
         }
 
