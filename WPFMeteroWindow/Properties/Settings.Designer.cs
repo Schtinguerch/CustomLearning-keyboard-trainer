@@ -1078,5 +1078,29 @@ namespace WPFMeteroWindow.Properties {
                 this["GraphicsQuality"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DefaultData\\Background.jpg")]
+        public string EndLessonBackgroundImagePath {
+            get {
+                return ((string)(this["EndLessonBackgroundImagePath"]));
+            }
+            set {
+                this["EndLessonBackgroundImagePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsEndLessonBackgroundImage {
+            get {
+                return ((bool)(this["IsEndLessonBackgroundImage"]));
+            }
+            set {
+                this["IsEndLessonBackgroundImage"] = value;
+            }
+        }
     }
 }

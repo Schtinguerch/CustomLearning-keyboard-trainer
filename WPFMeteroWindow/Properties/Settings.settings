@@ -266,5 +266,11 @@
     <Setting Name="GraphicsQuality" Type="System.String" Scope="User">
       <Value Profile="(Default)">Medium</Value>
     </Setting>
+    <Setting Name="EndLessonBackgroundImagePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DefaultData\Background.jpg</Value>
+    </Setting>
+    <Setting Name="IsEndLessonBackgroundImage" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
