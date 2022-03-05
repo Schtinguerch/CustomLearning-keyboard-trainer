@@ -170,7 +170,7 @@ namespace WPFMeteroWindow
         public static void EndLesson()
         {            
             StatisticsManager.ReloadTimer();
-            PageManager.OpenPage(TabPage.EndedLesson);
+            PageManager.OpenPage(TabPage.LessonCompleted);
         }
 
         private static string Randomized(this string s)
