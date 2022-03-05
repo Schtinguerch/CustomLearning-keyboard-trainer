@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="WPFMeteroWindow.Resources.TypingSpeedRanks.RankGrids.Platinum"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFMeteroWindow.Resources.TypingSpeedRanks.RankGrids"
+             xmlns:ranks="clr-namespace:WPFMeteroWindow.Resources.TypingSpeedRanks"
+             mc:Ignorable="d" 
+             d:DesignWidth="160">
+
+    <StackPanel x:Name="RankStackPanel">
+        <Grid                                   
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center"
+            Width="100"
+            Height="100">
+
+            <Rectangle
+                Fill="Transparent"
+                StrokeThickness="4"
+                RadiusX="12"
+                RadiusY="12">
+
+                <Rectangle.Stroke>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0.2" Color="#f6f6f6"></GradientStop>
+                        <GradientStop Offset="0.8" Color="#7d7d7d"></GradientStop>
+                    </LinearGradientBrush>
+                </Rectangle.Stroke>
+            </Rectangle>
+
+            <TextBlock
+                Text="P"
+                FontWeight="Bold"
+                Padding="16 4 0 0"
+                FontSize="52">
+
+                <TextBlock.Foreground>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0.2" Color="#f6f6f6"></GradientStop>
+                        <GradientStop Offset="0.8" Color="#7d7d7d"></GradientStop>
+                    </LinearGradientBrush>
+                </TextBlock.Foreground>
+            </TextBlock>
+        </Grid>
+
+        <TextBlock
+            Style="{StaticResource RankTextBlockStyle}"
+            Text="Platinum">
+
+            <TextBlock.Foreground>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0.2" Color="#f6f6f6"></GradientStop>
+                    <GradientStop Offset="0.8" Color="#7d7d7d"></GradientStop>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
+    </StackPanel>
+</UserControl>
