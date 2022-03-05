@@ -1,0 +1,298 @@
+﻿<UserControl x:Class="WPFMeteroWindow.Resources.TypingSpeedRanks.RankGrids.Overwhelmed"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFMeteroWindow.Resources.TypingSpeedRanks.RankGrids"
+             xmlns:ranks="clr-namespace:WPFMeteroWindow.Resources.TypingSpeedRanks"
+             mc:Ignorable="d" 
+             d:DesignWidth="160">
+
+    <StackPanel x:Name="RankStackPanel">
+        <Grid                                   
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center"
+            Width="100"
+            Height="100">
+
+            <Grid.Effect>
+                <DropShadowEffect
+                    ShadowDepth="0"
+                    BlurRadius="30"
+                    Color="#2a70fa">
+                </DropShadowEffect>
+            </Grid.Effect>
+
+            <Rectangle
+                Fill="Transparent"
+                Stroke="#2a70fa"
+                StrokeThickness="6"
+                RadiusX="15"
+                RadiusY="15"
+                RenderTransformOrigin="0.5 0.5">
+
+                <Rectangle.RenderTransform>
+                    <ScaleTransform 
+                        x:Name="RectOwhScaleTransform"
+                        ScaleX="1"
+                        ScaleY="1">
+                    </ScaleTransform>
+                </Rectangle.RenderTransform>
+
+                <Rectangle.Triggers>
+                    <EventTrigger RoutedEvent="Rectangle.Loaded">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard 
+                                    RepeatBehavior="Forever" 
+                                    Duration="00:00:02.5">
+
+                                    <DoubleAnimation
+                                        Storyboard.TargetName="RectOwhScaleTransform"
+                                        Storyboard.TargetProperty="ScaleX"
+                                                    
+                                        From="1"
+                                        To="0"
+                                        Duration="00:00:0.5"
+                                        AccelerationRatio="1">
+                                    </DoubleAnimation>
+
+                                    <DoubleAnimation
+                                        Storyboard.TargetName="RectOwhScaleTransform"
+                                        Storyboard.TargetProperty="ScaleX"
+                                                    
+                                        From="0"
+                                        To="-1"
+                                        BeginTime="00:00:0.5"
+                                        Duration="00:00:0.5"
+                                        DecelerationRatio="1">
+                                    </DoubleAnimation>
+
+                                    <DoubleAnimation
+                                        Storyboard.TargetName="RectOwhScaleTransform"
+                                        Storyboard.TargetProperty="ScaleY"
+                                                    
+                                        From="1"
+                                        To="0"
+                                        BeginTime="00:00:1.2"
+                                        Duration="00:00:0.5"
+                                        AccelerationRatio="1">
+                                    </DoubleAnimation>
+
+                                    <DoubleAnimation
+                                        Storyboard.TargetName="RectOwhScaleTransform"
+                                        Storyboard.TargetProperty="ScaleY"
+                                                    
+                                        From="0"
+                                        To="-1"
+                                        BeginTime="00:00:1.7"
+                                        Duration="00:00:0.5"
+                                        DecelerationRatio="1">
+                                    </DoubleAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </Rectangle.Triggers>
+            </Rectangle>
+
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock
+                    Margin="0 -6 0 0"
+                    Text="300"
+                    HorizontalAlignment="Center"
+                    FontWeight="Bold"
+                    FontSize="24"
+                    Foreground="White">
+
+                    <TextBlock.RenderTransform>
+                        <TranslateTransform
+                            x:Name="ThreeHundredTranslateTransform"
+                            X="0">
+                        </TranslateTransform>
+                    </TextBlock.RenderTransform>
+
+                    <TextBlock.Triggers>
+                        <EventTrigger RoutedEvent="TextBlock.Loaded">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard RepeatBehavior="Forever" AutoReverse="True">
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="ThreeHundredTranslateTransform"
+                                            Storyboard.TargetProperty="X"
+                                                        
+                                            From="-3"
+                                            To="3"
+                                            Duration="00:00:00.05">
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </TextBlock.Triggers>
+                </TextBlock>
+
+                <TextBlock
+                    Margin="0 -6 0 0"
+                    Text="trillion"
+                    HorizontalAlignment="Center"
+                    FontWeight="Bold"
+                    FontSize="20"
+                    Foreground="White">
+
+                    <TextBlock.RenderTransform>
+                        <TranslateTransform
+                            x:Name="TrillionTranslateTransform"
+                            X="0">
+                        </TranslateTransform>
+                    </TextBlock.RenderTransform>
+
+                    <TextBlock.Triggers>
+                        <EventTrigger RoutedEvent="TextBlock.Loaded">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard RepeatBehavior="Forever" AutoReverse="True">
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="TrillionTranslateTransform"
+                                            Storyboard.TargetProperty="X"
+                                                        
+                                            From="3"
+                                            To="-3"
+                                            Duration="00:00:00.1">
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </TextBlock.Triggers>
+                </TextBlock>
+
+                <TextBlock
+                    Margin="0 -6 0 0"
+                    Text="years"
+                    HorizontalAlignment="Center"
+                    FontWeight="Bold"
+                    FontSize="20"
+                    Foreground="White">
+
+                    <TextBlock.RenderTransform>
+                        <TranslateTransform
+                            x:Name="YearsTranslateTransform"
+                            X="0">
+                        </TranslateTransform>
+                    </TextBlock.RenderTransform>
+
+                    <TextBlock.Triggers>
+                        <EventTrigger RoutedEvent="TextBlock.Loaded">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard RepeatBehavior="Forever" AutoReverse="True">
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="YearsTranslateTransform"
+                                            Storyboard.TargetProperty="X"
+                                                        
+                                            From="-3"
+                                            To="3"
+                                            Duration="00:00:00.15">
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </TextBlock.Triggers>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+
+        <TextBlock
+            Style="{StaticResource RankTextBlockStyle}"
+            FontSize="20"
+            Text="Overwhelmed!"
+            FontWeight="Black"
+                
+            x:Name="OwhTextBlock"
+            RenderTransformOrigin="0.5 1">
+
+            <TextBlock.Effect>
+                <DropShadowEffect
+                    ShadowDepth="0"
+                    BlurRadius="30"
+                    Color="#2a70fa">
+                </DropShadowEffect>
+            </TextBlock.Effect>
+
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <SkewTransform 
+                        x:Name="OwhSkewTransform"
+                        AngleX="0" 
+                        AngleY="0">
+                    </SkewTransform>
+
+                    <ScaleTransform
+                        x:Name="OwhScaleTransform"
+                        ScaleX="1"
+                        ScaleY="1">
+                    </ScaleTransform>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+
+            <TextBlock.Triggers>
+                <EventTrigger RoutedEvent="TextBlock.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard RepeatBehavior="Forever" AutoReverse="True">
+                                <StringAnimationUsingKeyFrames 
+                                    BeginTime="00:00:0.25"
+                                    Storyboard.TargetName="OwhTextBlock" 
+                                    Storyboard.TargetProperty="Text">
+
+                                    <DiscreteStringKeyFrame KeyTime="00:00:0.00" Value="OVErwhelmed"></DiscreteStringKeyFrame>
+                                    <DiscreteStringKeyFrame KeyTime="00:00:0.50" Value="OVERWhelmed"></DiscreteStringKeyFrame>
+                                    <DiscreteStringKeyFrame KeyTime="00:00:1.00" Value="OVERWHELMed"></DiscreteStringKeyFrame>
+                                    <DiscreteStringKeyFrame KeyTime="00:00:1.50" Value="OVERWHELMED!"></DiscreteStringKeyFrame>
+                                </StringAnimationUsingKeyFrames>
+
+                                <DoubleAnimation
+                                    RepeatBehavior="4x"
+                                    AutoReverse="True"
+                                    Storyboard.TargetName="OwhScaleTransform"
+                                    Storyboard.TargetProperty="ScaleY"
+                                        
+                                    From="1"
+                                    To="1.5"
+                                        
+                                    Duration="00:00:0.25"
+                                    AccelerationRatio="1">
+                                </DoubleAnimation>
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="OwhSkewTransform"
+                                    Storyboard.TargetProperty="AngleX"
+                                        
+                                    From="-20"
+                                    To="0"
+                                        
+                                    Duration="00:00:01"
+                                    AccelerationRatio="1">
+                                </DoubleAnimation>
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="OwhSkewTransform"
+                                    Storyboard.TargetProperty="AngleX"
+                                        
+                                    From="0"
+                                    To="20"
+                                        
+                                    BeginTime="00:00:01"
+                                    Duration="00:00:01"
+                                    DecelerationRatio="1">
+                                </DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </TextBlock.Triggers>
+        </TextBlock>
+    </StackPanel>
+</UserControl>
