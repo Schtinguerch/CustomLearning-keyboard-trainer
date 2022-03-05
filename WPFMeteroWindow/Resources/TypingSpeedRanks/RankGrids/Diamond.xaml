@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="WPFMeteroWindow.Resources.TypingSpeedRanks.RankGrids.Diamond"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFMeteroWindow.Resources.TypingSpeedRanks.RankGrids"
+             xmlns:ranks="clr-namespace:WPFMeteroWindow.Resources.TypingSpeedRanks"
+             mc:Ignorable="d" 
+             d:DesignWidth="160">
+
+    <StackPanel x:Name="RankStackPanel">
+        <Grid                                   
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center"
+            Width="100"
+            Height="100">
+
+            <Rectangle
+                Fill="Transparent"
+                StrokeThickness="4"
+                RadiusX="12"
+                RadiusY="12">
+
+                <Rectangle.Stroke>
+                    <ImageBrush 
+                        ImageSource="D:\Storage\Photos\Wallpapers\2a7e4299032e57b88d7b887581a35719.jpg"
+                        Stretch="UniformToFill">
+                    </ImageBrush>
+                </Rectangle.Stroke>
+            </Rectangle>
+
+            <Polyline
+                Margin="10 20 0 0"
+                Points="13,3 4,13 29,41 53,13 44,3">
+
+                <Polyline.Fill>
+                    <ImageBrush 
+                        ImageSource="D:\Storage\Photos\Wallpapers\2a7e4299032e57b88d7b887581a35719.jpg"
+                        Stretch="UniformToFill">
+                    </ImageBrush>
+                </Polyline.Fill>
+
+                <Polyline.Effect>
+                    <DropShadowEffect
+                        x:Name="DiamondLightEffect"
+                        ShadowDepth="0"
+                        BlurRadius="16"
+                        Color="DeepSkyBlue">
+                    </DropShadowEffect>
+                </Polyline.Effect>
+
+                <Polyline.Triggers>
+                    <EventTrigger RoutedEvent="Polyline.Loaded">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard RepeatBehavior="Forever">
+                                    <DoubleAnimation
+                                        AutoReverse="True"
+                                        Storyboard.TargetName="DiamondLightEffect"
+                                        Storyboard.TargetProperty="BlurRadius"
+                                            
+                                        From="12"
+                                        To="36"
+                                        Duration="00:00:01"
+                                        DecelerationRatio="1">
+                                    </DoubleAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </Polyline.Triggers>
+            </Polyline>
+        </Grid>
+
+        <TextBlock
+            Style="{StaticResource RankTextBlockStyle}"
+            Text="Diamond">
+
+            <TextBlock.Foreground>
+                <ImageBrush 
+                    ImageSource="D:\Storage\Photos\Wallpapers\2a7e4299032e57b88d7b887581a35719.jpg"
+                    Stretch="UniformToFill">
+                </ImageBrush>
+            </TextBlock.Foreground>
+
+            <TextBlock.Effect>
+                <DropShadowEffect
+                    x:Name="BlueLightEffect"
+                    ShadowDepth="0"
+                    Color="DeepSkyBlue">
+                </DropShadowEffect>
+            </TextBlock.Effect>
+
+            <TextBlock.Triggers>
+                <EventTrigger RoutedEvent="TextBlock.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard 
+                                AutoReverse="True" 
+                                RepeatBehavior="Forever">
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="BlueLightEffect"
+                                    Storyboard.TargetProperty="BlurRadius"
+                                        
+                                    From="10"
+                                    To="30"
+                                    Duration="00:00:01"
+                                    DecelerationRatio="1">
+                                </DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </TextBlock.Triggers>
+        </TextBlock>
+    </StackPanel>
+</UserControl>
