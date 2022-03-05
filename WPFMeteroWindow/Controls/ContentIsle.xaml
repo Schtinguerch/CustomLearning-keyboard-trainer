@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="WPFMeteroWindow.Controls.ContentIsle"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFMeteroWindow.Controls"
+             xmlns:controls="clr-namespace:WPFMeteroWindow.Controls"
+             mc:Ignorable="d" d:DesignWidth="700">
+
+    <UserControl.Resources>
+        <Storyboard x:Key="SlipContentStoryboard">
+            <DoubleAnimation
+                Storyboard.TargetName="ContentGrid"
+                Storyboard.TargetProperty="Height"
+                
+                From="300"
+                To="0"
+                Duration="00:00:0.2">
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="ChevronTransform"
+                Storyboard.TargetProperty="ScaleY"
+                
+                From="1"
+                To="-1"
+                Duration="00:00:0.2">
+            </DoubleAnimation>
+        </Storyboard>
+
+        <Storyboard x:Key="ExpandContentStoryboard">
+            <DoubleAnimation
+                Storyboard.TargetName="ContentGrid"
+                Storyboard.TargetProperty="Height"
+                
+                From="0"
+                To="300"
+                Duration="00:00:0.2">
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="ChevronTransform"
+                Storyboard.TargetProperty="ScaleY"
+                
+                From="-1"
+                To="1"
+                Duration="00:00:0.2">
+            </DoubleAnimation>
+        </Storyboard>
+    </UserControl.Resources>
+
+    <controls:ClippingBorder Style="{StaticResource EndLessonIsleStyle}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid
+                Grid.Row="0"
+                Background="{StaticResource IsleHeaderBrush}">
+
+                <TextBlock 
+                    x:Name="HeaderTextBlock"
+                    Style="{StaticResource SummaryTextStyle}"
+                    FontSize="18"
+                    Margin="20 0 0 0"
+                    d:Text="Isle header"
+                    HorizontalAlignment="Left">
+                </TextBlock>
+
+                <Button 
+                    Width="30"
+                    Height="30"
+                    HorizontalAlignment="Right"
+                    Margin="0 0 5 0"
+                    Style="{StaticResource ActionButtonStyle}"
+                    x:Name="SlipButton"
+                    Click="SlipButton_Click">
+
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard 
+                                    x:Name="ButtonBeginStoryboard"
+                                    Storyboard="{StaticResource SlipContentStoryboard}">
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </Button.Triggers>
+
+                    <Button.Content>
+                        <TextBlock 
+                            FontFamily="Segoe MDL2 Assets" 
+                            Text="&#xE70E;"
+                            RenderTransformOrigin="0.5 0.5">
+                            
+                            <TextBlock.RenderTransform>
+                                <ScaleTransform
+                                    x:Name="ChevronTransform"
+                                    ScaleY="1">
+                                </ScaleTransform>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </Button.Content>
+                </Button>
+
+                <Rectangle VerticalAlignment="Bottom" Height="1" Fill="{StaticResource IsleBorderBrush}"></Rectangle>
+            </Grid>
+
+            <Grid
+                Grid.Row="1"
+                Margin="20 0 20 0"
+                x:Name="ContentGrid">
+            </Grid>
+        </Grid>
+    </controls:ClippingBorder>
+</UserControl>
