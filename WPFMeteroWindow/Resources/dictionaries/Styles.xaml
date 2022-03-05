@@ -166,4 +166,71 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <SolidColorBrush
+        x:Key="IsleHeaderBrush"
+        Color="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+        Opacity="0.5">
+    </SolidColorBrush>
+
+    <SolidColorBrush
+        x:Key="ErrorIsleBrush"
+        Color="{Binding Path=KeyboardErrorHighlightColor ,Source={x:Static prop:Settings.Default}}"
+        Opacity="0.8">
+    </SolidColorBrush>
+
+    <SolidColorBrush
+        x:Key="IsleBorderBrush"
+        Color="{Binding Source={StaticResource BordersBrush}, Path=Color}"
+        Opacity="0.8">
+    </SolidColorBrush>
+
+    <Style
+        x:Key="EndLessonIsleStyle"
+        TargetType="controls:ClippingBorder">
+
+        <Setter Property="Margin" Value="60 20 60 0"></Setter>
+        <Setter Property="CornerRadius" Value="12"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+
+        <Setter Property="Background" Value="{StaticResource IsleHeaderBrush}"></Setter>
+        <Setter Property="BorderBrush" Value="{StaticResource IsleBorderBrush}"></Setter>
+    </Style>
+
+    <Style
+        x:Key="CryteryIsleStyle"
+        TargetType="Rectangle">
+
+        <Setter Property="RadiusX" Value="12"></Setter>
+        <Setter Property="RadiusY" Value="12"></Setter>
+        <Setter Property="StrokeThickness" Value="1"></Setter>
+
+        <Setter Property="Fill" Value="{StaticResource IsleHeaderBrush}"></Setter>
+        <Setter Property="Stroke" Value="{StaticResource IsleBorderBrush}"></Setter>
+    </Style>
+
+    <Style
+        x:Key="IsleButtonStyle"
+        TargetType="Button"
+        BasedOn="{StaticResource HeaderButtonStyle}">
+
+        <Setter Property="Background" Value="{StaticResource IsleHeaderBrush}"></Setter>
+        <Setter Property="BorderBrush" Value="{StaticResource IsleBorderBrush}"></Setter>
+        <Setter Property="Height" Value="40"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="FontSize" Value="18"></Setter>
+        <Setter Property="Margin" Value="8 0 0 0"></Setter>
+    </Style>
+
+    <Style 
+        x:Key="RankTextBlockStyle"
+        TargetType="TextBlock"
+        BasedOn="{StaticResource SummaryTextStyle}">
+
+        <Setter Property="Margin" Value="0 4 0 0"></Setter>
+        <Setter Property="FontSize" Value="22"></Setter>
+        <Setter Property="FontWeight" Value="Regular"></Setter>
+        <Setter Property="VerticalAlignment" Value="Top"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+    </Style>
 </ResourceDictionary>
