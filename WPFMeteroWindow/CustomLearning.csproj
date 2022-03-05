@@ -179,6 +179,9 @@
     <Compile Include="Controls\ConfigItem.xaml.cs">
       <DependentUpon>ConfigItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ContentIsle.xaml.cs">
+      <DependentUpon>ContentIsle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CourseItem.xaml.cs">
       <DependentUpon>CourseItem.xaml</DependentUpon>
     </Compile>
@@ -428,6 +431,9 @@
     <Compile Include="Resources\pages\LayoutChangerPage.xaml.cs">
       <DependentUpon>LayoutChangerPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\pages\LessonCompletedPage.xaml.cs">
+      <DependentUpon>LessonCompletedPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\pages\LessonEditorPage.xaml.cs">
       <DependentUpon>LessonEditorPage.xaml</DependentUpon>
     </Compile>
@@ -458,6 +464,45 @@
     </Compile>
     <Compile Include="Resources\pages\WordPracticingEditorPage.xaml.cs">
       <DependentUpon>WordPracticingEditorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\TypingSpeedRanks\BotRank.xaml.cs">
+      <DependentUpon>BotRank.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\TypingSpeedRanks\RankGrids\Beginner.xaml.cs">
+      <DependentUpon>Beginner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\TypingSpeedRanks\RankGrids\Bronze.xaml.cs">
+      <DependentUpon>Bronze.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\TypingSpeedRanks\RankGrids\Diamond.xaml.cs">
+      <DependentUpon>Diamond.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\TypingSpeedRanks\RankGrids\Gold.xaml.cs">
+      <DependentUpon>Gold.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\TypingSpeedRanks\RankGrids\Grandmaster.xaml.cs">
+      <DependentUpon>Grandmaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\TypingSpeedRanks\RankGrids\Hacker.xaml.cs">
+      <DependentUpon>Hacker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\TypingSpeedRanks\RankGrids\Master.xaml.cs">
+      <DependentUpon>Master.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\TypingSpeedRanks\RankGrids\Overwhelmed.xaml.cs">
+      <DependentUpon>Overwhelmed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\TypingSpeedRanks\RankGrids\Platinum.xaml.cs">
+      <DependentUpon>Platinum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\TypingSpeedRanks\RankGrids\Silver.xaml.cs">
+      <DependentUpon>Silver.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\TypingSpeedRanks\RankGrids\Student.xaml.cs">
+      <DependentUpon>Student.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\TypingSpeedRanks\RankGrids\TheTypingGod.xaml.cs">
+      <DependentUpon>TheTypingGod.xaml</DependentUpon>
     </Compile>
     <Compile Include="TestWindow.xaml.cs">
       <DependentUpon>TestWindow.xaml</DependentUpon>
@@ -497,6 +542,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ConfigItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ContentIsle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -846,6 +895,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\pages\LessonCompletedPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\pages\LessonEditorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -883,6 +936,58 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\pages\WordPracticingEditorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\TypingSpeedRanks\BotRank.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\TypingSpeedRanks\RankGrids\Beginner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\TypingSpeedRanks\RankGrids\Bronze.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\TypingSpeedRanks\RankGrids\Diamond.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\TypingSpeedRanks\RankGrids\Gold.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\TypingSpeedRanks\RankGrids\Grandmaster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\TypingSpeedRanks\RankGrids\Hacker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\TypingSpeedRanks\RankGrids\Master.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\TypingSpeedRanks\RankGrids\Overwhelmed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\TypingSpeedRanks\RankGrids\Platinum.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\TypingSpeedRanks\RankGrids\Silver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\TypingSpeedRanks\RankGrids\Student.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\TypingSpeedRanks\RankGrids\TheTypingGod.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -966,5 +1071,6 @@
   <ItemGroup>
     <Resource Include="logolight2.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
