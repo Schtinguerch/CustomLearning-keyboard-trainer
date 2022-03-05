@@ -23,7 +23,7 @@
 
                 <Rectangle.Stroke>
                     <ImageBrush 
-                        ImageSource="D:\Storage\Photos\Wallpapers\2a7e4299032e57b88d7b887581a35719.jpg"
+                        ImageSource="../../images/Diamond.jpg"
                         Stretch="UniformToFill">
                     </ImageBrush>
                 </Rectangle.Stroke>
@@ -35,7 +35,7 @@
 
                 <Polyline.Fill>
                     <ImageBrush 
-                        ImageSource="D:\Storage\Photos\Wallpapers\2a7e4299032e57b88d7b887581a35719.jpg"
+                        ImageSource="../../images/Diamond.jpg"
                         Stretch="UniformToFill">
                     </ImageBrush>
                 </Polyline.Fill>
@@ -78,7 +78,7 @@
 
             <TextBlock.Foreground>
                 <ImageBrush 
-                    ImageSource="D:\Storage\Photos\Wallpapers\2a7e4299032e57b88d7b887581a35719.jpg"
+                    ImageSource="../../images/Diamond.jpg"
                     Stretch="UniformToFill">
                 </ImageBrush>
             </TextBlock.Foreground>
