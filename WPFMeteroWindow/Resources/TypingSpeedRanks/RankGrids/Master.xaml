@@ -1,0 +1,291 @@
+﻿<UserControl x:Class="WPFMeteroWindow.Resources.TypingSpeedRanks.RankGrids.Master"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFMeteroWindow.Resources.TypingSpeedRanks.RankGrids"
+             xmlns:ranks="clr-namespace:WPFMeteroWindow.Resources.TypingSpeedRanks"
+             mc:Ignorable="d" 
+             d:DesignWidth="160">
+    
+    <StackPanel x:Name="RankStackPanel">
+        <Grid                                   
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center"
+            Width="100"
+            Height="100">
+
+            <Rectangle
+                Fill="Transparent"
+                StrokeThickness="4"
+                RadiusX="12"
+                RadiusY="12">
+
+                <Rectangle.Stroke>
+                    <VisualBrush>
+                        <VisualBrush.Visual>
+                            <Grid Width="100" Height="20">
+                                <Rectangle Width="300">
+                                    <Rectangle.Fill>
+                                        <LinearGradientBrush>
+                                            <GradientStop Offset="0.0" Color="#8c0244"></GradientStop>
+                                            <GradientStop Offset="0.1" Color="#ff2838"></GradientStop>
+                                            <GradientStop Offset="0.2" Color="#a22345"></GradientStop>
+
+                                            <GradientStop Offset="0.24" Color="#ff8f7c"></GradientStop>
+                                            <GradientStop Offset="0.027" Color="#f74291"></GradientStop>
+
+                                            <GradientStop Offset="0.3" Color="#760438"></GradientStop>
+
+                                            <GradientStop Offset="0.35" Color="#7a0237"></GradientStop>
+                                            <GradientStop Offset="0.36" Color="#be652e"></GradientStop>
+
+                                            <GradientStop Offset="0.4" Color="#d1813b"></GradientStop>
+                                            <GradientStop Offset="0.45" Color="#9e4914"></GradientStop>
+
+                                            <GradientStop Offset="0.5" Color="#df9058"></GradientStop>
+                                            <GradientStop Offset="0.6" Color="#f2a95d"></GradientStop>
+
+                                            <GradientStop Offset="0.69" Color="#fc9744"></GradientStop>
+                                            <GradientStop Offset="0.7" Color="#f1f3af"></GradientStop>
+                                            <GradientStop Offset="0.8" Color="#cd955f"></GradientStop>
+                                            <GradientStop Offset="0.9" Color="#faefa0"></GradientStop>
+                                            <GradientStop Offset="1.0" Color="#f9da91"></GradientStop>
+
+                                            <LinearGradientBrush.Transform>
+                                                <TranslateTransform 
+                                                    x:Name="ColorMasterKeyTransform"
+                                                    X="-200">
+                                                </TranslateTransform>
+                                            </LinearGradientBrush.Transform>
+                                        </LinearGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                            </Grid>
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </Rectangle.Stroke>
+
+                <Rectangle.Triggers>
+                    <EventTrigger RoutedEvent="TextBlock.Loaded">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard RepeatBehavior="Forever">
+                                    <DoubleAnimation
+                                        AutoReverse="True"
+                                        Storyboard.TargetName="ColorMasterKeyTransform"
+                                        Storyboard.TargetProperty="X"
+                                            
+                                        From="-400"
+                                        To="200"
+                                        Duration="00:00:04">
+                                    </DoubleAnimation>
+
+                                    <DoubleAnimation
+                                        AutoReverse="True"
+                                        Storyboard.TargetName="ColorMasterSquareTransform"
+                                        Storyboard.TargetProperty="X"
+                                            
+                                        From="-400"
+                                        To="200"
+                                        Duration="00:00:04">
+                                    </DoubleAnimation>
+
+                                    <ColorAnimation
+                                        AutoReverse="True"
+                                        Storyboard.TargetName="MasterKeyShadowEffect"
+                                        Storyboard.TargetProperty="Color"
+                                            
+                                        From="Gold"
+                                        To="#b12e6a"
+                                        Duration="00:00:04">
+                                    </ColorAnimation>
+
+                                    <ColorAnimation
+                                        AutoReverse="True"
+                                        Storyboard.TargetName="MasterSquareShadowEffect"
+                                        Storyboard.TargetProperty="Color"
+                                            
+                                        From="Gold"
+                                        To="#b12e6a"
+                                        Duration="00:00:04">
+                                    </ColorAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </Rectangle.Triggers>
+
+                <Rectangle.Effect>
+                    <DropShadowEffect
+                        x:Name="MasterKeyShadowEffect"
+                        ShadowDepth="0"
+                        BlurRadius="20"
+                        Color="Gold">
+                    </DropShadowEffect>
+                </Rectangle.Effect>
+            </Rectangle>
+
+            <Grid>
+                <Rectangle
+                    Width="50"
+                    Height="50"
+                                
+                    Fill="Transparent"
+                                
+                    StrokeThickness="15"
+                    RenderTransformOrigin="0.5 0.5">
+
+                    <Rectangle.RenderTransform>
+                        <RotateTransform Angle="45"></RotateTransform>
+                    </Rectangle.RenderTransform>
+
+                    <Rectangle.Stroke>
+                        <VisualBrush>
+                            <VisualBrush.Visual>
+                                <Grid Width="100" Height="20">
+                                    <Rectangle Width="300">
+                                        <Rectangle.Fill>
+                                            <LinearGradientBrush>
+                                                <GradientStop Offset="0.0" Color="#8c0244"></GradientStop>
+                                                <GradientStop Offset="0.1" Color="#ff2838"></GradientStop>
+                                                <GradientStop Offset="0.2" Color="#a22345"></GradientStop>
+
+                                                <GradientStop Offset="0.24" Color="#ff8f7c"></GradientStop>
+                                                <GradientStop Offset="0.027" Color="#f74291"></GradientStop>
+
+                                                <GradientStop Offset="0.3" Color="#760438"></GradientStop>
+
+                                                <GradientStop Offset="0.35" Color="#7a0237"></GradientStop>
+                                                <GradientStop Offset="0.36" Color="#be652e"></GradientStop>
+
+                                                <GradientStop Offset="0.4" Color="#d1813b"></GradientStop>
+                                                <GradientStop Offset="0.45" Color="#9e4914"></GradientStop>
+
+                                                <GradientStop Offset="0.5" Color="#df9058"></GradientStop>
+                                                <GradientStop Offset="0.6" Color="#f2a95d"></GradientStop>
+
+                                                <GradientStop Offset="0.69" Color="#fc9744"></GradientStop>
+                                                <GradientStop Offset="0.7" Color="#f1f3af"></GradientStop>
+                                                <GradientStop Offset="0.8" Color="#cd955f"></GradientStop>
+                                                <GradientStop Offset="0.9" Color="#faefa0"></GradientStop>
+                                                <GradientStop Offset="1.0" Color="#f9da91"></GradientStop>
+
+                                                <LinearGradientBrush.Transform>
+                                                    <TranslateTransform 
+                                                        x:Name="ColorMasterSquareTransform"
+                                                        X="-200">
+                                                    </TranslateTransform>
+                                                </LinearGradientBrush.Transform>
+                                            </LinearGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                </Grid>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Rectangle.Stroke>
+
+                    <Rectangle.Effect>
+                        <DropShadowEffect
+                            x:Name="MasterSquareShadowEffect"
+                            ShadowDepth="0"
+                            Opacity="0.3"
+                            BlurRadius="10"
+                            Color="Gold">
+                        </DropShadowEffect>
+                    </Rectangle.Effect>
+                </Rectangle>
+            </Grid>
+        </Grid>
+
+        <TextBlock
+            Style="{StaticResource RankTextBlockStyle}"
+            Text="Master"
+            FontWeight="Bold">
+
+            <TextBlock.Effect>
+                <DropShadowEffect
+                    x:Name="MasterShadowEffect"
+                    ShadowDepth="0"
+                    BlurRadius="20"
+                    Color="Gold">
+                </DropShadowEffect>
+            </TextBlock.Effect>
+
+            <TextBlock.Foreground>
+                <VisualBrush>
+                    <VisualBrush.Visual>
+                        <Grid Width="100" Height="20">
+                            <Rectangle Width="300">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush>
+                                        <GradientStop Offset="0.0" Color="#8c0244"></GradientStop>
+                                        <GradientStop Offset="0.1" Color="#ff2838"></GradientStop>
+                                        <GradientStop Offset="0.2" Color="#a22345"></GradientStop>
+
+                                        <GradientStop Offset="0.24" Color="#ff8f7c"></GradientStop>
+                                        <GradientStop Offset="0.027" Color="#f74291"></GradientStop>
+
+                                        <GradientStop Offset="0.3" Color="#760438"></GradientStop>
+
+                                        <GradientStop Offset="0.35" Color="#7a0237"></GradientStop>
+                                        <GradientStop Offset="0.36" Color="#be652e"></GradientStop>
+
+                                        <GradientStop Offset="0.4" Color="#d1813b"></GradientStop>
+                                        <GradientStop Offset="0.45" Color="#9e4914"></GradientStop>
+
+                                        <GradientStop Offset="0.5" Color="#df9058"></GradientStop>
+                                        <GradientStop Offset="0.6" Color="#f2a95d"></GradientStop>
+
+                                        <GradientStop Offset="0.69" Color="#fc9744"></GradientStop>
+                                        <GradientStop Offset="0.7" Color="#f1f3af"></GradientStop>
+                                        <GradientStop Offset="0.8" Color="#cd955f"></GradientStop>
+                                        <GradientStop Offset="0.9" Color="#faefa0"></GradientStop>
+                                        <GradientStop Offset="1.0" Color="#f9da91"></GradientStop>
+
+                                        <LinearGradientBrush.Transform>
+                                            <TranslateTransform 
+                                                x:Name="ColorTransform"
+                                                X="-200">
+                                            </TranslateTransform>
+                                        </LinearGradientBrush.Transform>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </Grid>
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </TextBlock.Foreground>
+
+            <TextBlock.Triggers>
+                <EventTrigger RoutedEvent="TextBlock.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard RepeatBehavior="Forever">
+                                <DoubleAnimation
+                                    AutoReverse="True"
+                                    Storyboard.TargetName="ColorTransform"
+                                    Storyboard.TargetProperty="X"
+                                        
+                                    From="-400"
+                                    To="200"
+                                    Duration="00:00:04">
+                                </DoubleAnimation>
+
+                                <ColorAnimation
+                                    AutoReverse="True"
+                                    Storyboard.TargetName="MasterShadowEffect"
+                                    Storyboard.TargetProperty="Color"
+                                        
+                                    From="Gold"
+                                    To="#b12e6a"
+                                    Duration="00:00:04">
+                                </ColorAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </TextBlock.Triggers>
+        </TextBlock>
+    </StackPanel>
+</UserControl>
