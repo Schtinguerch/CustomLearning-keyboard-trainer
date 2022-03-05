@@ -1,0 +1,761 @@
+﻿<Page x:Class="WPFMeteroWindow.Resources.pages.LessonCompletedPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFMeteroWindow"
+      xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
+      xmlns:controls="clr-namespace:WPFMeteroWindow.Controls"
+      xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
+      xmlns:ranks="clr-namespace:WPFMeteroWindow.Resources.TypingSpeedRanks"
+      mc:Ignorable="d" 
+      d:DesignHeight="640" d:DesignWidth="1120"
+      Title="LessonCompletedPage"
+      x:Name="Page">
+
+    <Page.Resources>
+        <local:MathConverter x:Key="MathConverter"></local:MathConverter>
+
+        <Storyboard 
+            x:Key="ShowEndStoryboard" 
+            Duration="00:00:05">
+
+            <DoubleAnimation
+                Storyboard.TargetName="TextBlockTranslateTransform"
+                Storyboard.TargetProperty="X"
+                
+                To="{Binding 
+                    Source={x:Static local:Intermediary.App},
+                    Path=ActualWidth,
+                    Converter={StaticResource MathConverter},
+                    ConverterParameter=-@VALUE +2000}"
+                
+                Duration="00:00:00">
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="BorderTranslateTransform"
+                Storyboard.TargetProperty="Y"
+                
+                To="{Binding 
+                    Source={x:Static local:Intermediary.App},
+                    Path=ActualHeight,
+                    Converter={StaticResource MathConverter},
+                    ConverterParameter=@VALUE + 100}"
+                
+                Duration="00:00:00">
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="TranslateTransform"
+                Storyboard.TargetProperty="X"
+                            
+                From="{Binding 
+                    Source={x:Static local:Intermediary.App},
+                    Path=ActualWidth,
+                    Converter={StaticResource MathConverter},
+                    ConverterParameter=-@VALUE + 200}"
+                            
+                To="0"
+                Duration="00:00:00.5">
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="TextBlockTranslateTransform"
+                Storyboard.TargetProperty="X"
+                
+                From="{Binding 
+                    Source={x:Static local:Intermediary.App},
+                    Path=ActualWidth,
+                    Converter={StaticResource MathConverter},
+                    ConverterParameter=-@VALUE -300}"
+                
+                To="-50"
+                BeginTime="00:00:00.5"
+                Duration="00:00:00.5">
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="TextBlockTranslateTransform"
+                Storyboard.TargetProperty="X"
+                
+                From="-50"
+                To="50"
+                BeginTime="00:00:01"
+                Duration="00:00:01">
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="TextShadowEffect"
+                Storyboard.TargetProperty="ShadowDepth"
+                
+                From="20"
+                To="0"
+                BeginTime="00:00:01"
+                Duration="00:00:0.5">
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="TextShadowEffect"
+                Storyboard.TargetProperty="Direction"
+                
+                From="180"
+                To="0"
+                BeginTime="00:00:01.5"
+                Duration="00:00:00">
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="TextShadowEffect"
+                Storyboard.TargetProperty="ShadowDepth"
+                
+                From="0"
+                To="20"
+                BeginTime="00:00:01.5"
+                Duration="00:00:0.5">
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="TextBlockTranslateTransform"
+                Storyboard.TargetProperty="X"
+       
+                From="50"
+                To="{Binding 
+                    Source={x:Static local:Intermediary.App},
+                    Path=ActualWidth,
+                    Converter={StaticResource MathConverter},
+                    ConverterParameter=@VALUE}"
+                
+                BeginTime="00:00:02"
+                Duration="00:00:00.5">
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="TranslateTransform"
+                Storyboard.TargetProperty="X"
+                      
+                From="0"
+                To="{Binding 
+                    Source={x:Static local:Intermediary.App},
+                    Path=ActualWidth,
+                    Converter={StaticResource MathConverter},
+                    ConverterParameter=@VALUE + 200}"       
+                
+                BeginTime="00:00:02.7"
+                Duration="00:00:00.3">
+            </DoubleAnimation>
+
+
+
+            <DoubleAnimation
+                Storyboard.TargetName="BorderTranslateTransform"
+                Storyboard.TargetProperty="Y"
+                
+                From="{Binding 
+                    Source={x:Static local:Intermediary.App},
+                    Path=ActualHeight,
+                    Converter={StaticResource MathConverter},
+                    ConverterParameter=@VALUE + 100}"
+                
+                To="0"
+                BeginTime="00:00:03.2"
+                Duration="00:00:00.5">
+
+                <DoubleAnimation.EasingFunction>
+                    <CircleEase EasingMode="EaseInOut"></CircleEase>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+
+        <Storyboard
+            x:Key="ShowSettingsPanelStoryborad">
+            <DoubleAnimation
+                Storyboard.TargetName="SettingsGrid"
+                Storyboard.TargetProperty="Height"
+                
+                From="0"
+                To="190"
+                
+                Duration="00:00:0.3"
+                AccelerationRatio="1">
+            </DoubleAnimation>
+        </Storyboard>
+
+        <Storyboard
+            x:Key="HideSettingsPanelStoryborad">
+
+            <DoubleAnimation
+                Storyboard.TargetName="SettingsGrid"
+                Storyboard.TargetProperty="Height"
+                
+                From="190"
+                To="0"
+                
+                Duration="00:00:0.3"
+                AccelerationRatio="1">
+            </DoubleAnimation>
+        </Storyboard>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid 
+            d:Visibility="Hidden"
+            Visibility="Visible"
+            VerticalAlignment="Center" Grid.Row="1">
+
+            <Grid.RenderTransform>
+                <TranslateTransform 
+                    x:Name="TranslateTransform"
+                    X="0"
+                    Y="0">
+                </TranslateTransform>
+            </Grid.RenderTransform>
+
+            <Rectangle
+                Fill="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                Opacity="0.8"
+                Height="100">
+            </Rectangle>
+
+            <Polygon
+                HorizontalAlignment="Right"
+                Opacity="0.8"
+                Fill="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                Points="0,0 100,50 0,100">
+
+                <Polygon.RenderTransform>
+                    <TranslateTransform X="100"></TranslateTransform>
+                </Polygon.RenderTransform>
+            </Polygon>
+
+            <Polygon
+                HorizontalAlignment="Left"
+                Opacity="0.8"
+                Fill="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                Points="0,0 100,50 0,100 100,100 100,0">
+
+                <Polygon.RenderTransform>
+                    <TranslateTransform X="-100"></TranslateTransform>
+                </Polygon.RenderTransform>
+            </Polygon>
+
+            <TextBlock
+                Style="{StaticResource MainTextStyle}"
+                HorizontalAlignment="Center"
+                Text="The lesson is finished">
+
+                <TextBlock.Effect>
+                    <DropShadowEffect
+                        x:Name="TextShadowEffect"
+                        Direction="180"
+                        BlurRadius="10"
+                        ShadowDepth="20"
+                        Color="{Binding Path=MainFontColor ,Source={x:Static prop:Settings.Default}}">
+                    </DropShadowEffect>
+                </TextBlock.Effect>
+
+                <TextBlock.RenderTransform>
+                    <TranslateTransform
+                        x:Name="TextBlockTranslateTransform"
+                        X="0"
+                        Y="0">
+                    </TranslateTransform>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+        </Grid>
+
+        <controls:ClippingBorder
+            x:Name="WindowBorber"
+            Margin="0 50 0 50"
+            Width="800"
+            MinHeight="500"
+            MaxHeight="800"
+            Style="{StaticResource SubWindowBorderStyle}"
+            Grid.Row="1">
+
+            <controls:ClippingBorder.RenderTransform>
+                <TranslateTransform
+                    x:Name="BorderTranslateTransform"
+                    X="0"
+                    Y="0">
+                </TranslateTransform>
+            </controls:ClippingBorder.RenderTransform>
+
+            <Grid Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid
+                    x:Name="ContentGrid"
+                    Grid.Row="1">
+
+                    <Image
+                        x:Name="BackgroundImage"
+                        Stretch="UniformToFill"
+                        Source="{Binding Path=EndLessonBackgroundImagePath ,Source={x:Static prop:Settings.Default}}">
+                    </Image>
+
+                    <ScrollViewer
+                        HorizontalScrollBarVisibility="Disabled"
+                        VerticalScrollBarVisibility="Visible">
+
+                        <StackPanel x:Name="ItemsStackPanel">
+                            <Grid 
+                                x:Name="SettingsGrid"
+                                d:Height="190"
+                                Height="0">
+
+                                <Grid.Background>
+                                    <SolidColorBrush
+                                         Color="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                                         Opacity="0.75">
+                                    </SolidColorBrush>
+                                </Grid.Background>
+
+                                <StackPanel Margin="200 20 200 20">
+                                    <TextBlock
+                                        Style="{StaticResource SummaryTextStyle}"
+                                        Text="{x:Static res:Resources.uSettWindowBackgroundType}"
+                                        FontSize="18"
+                                        Margin="0 0 0 4">
+                                    </TextBlock>
+
+                                    <ComboBox
+                                        Style="{StaticResource SettingComboBoxStyle}"
+                                        AllowDrop="True"
+                                        
+                                        x:Name="WindowColorType"
+                                        SelectionChanged="WindowColorType_OnSelectionChanged">
+
+                                        <TextBlock Text="{x:Static res:Resources.uSettBrush}"></TextBlock>
+                                        <TextBlock Text="{x:Static res:Resources.uOpenNewImage}"></TextBlock>
+                                    </ComboBox>
+
+                                    <TextBlock
+                                        Style="{StaticResource SummaryTextStyle}"
+                                        Text="{x:Static res:Resources.uSettRequireWPM}"
+                                        FontSize="16"
+                                        Margin="0 10 0 4">
+                                    </TextBlock>
+
+                                    <ComboBox
+                                        Style="{StaticResource SettingComboBoxStyle}"
+                                        x:Name="RequireWPMtextBox"
+                                        SelectionChanged="RequireWPMtextBox_OnSelectionChanged">
+
+                                        <TextBlock Text="{x:Static res:Resources.uYes}"></TextBlock>
+                                        <TextBlock Text="{x:Static res:Resources.uNo}"></TextBlock>
+                                    </ComboBox>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid>
+                                <Grid.Background>
+                                    <SolidColorBrush
+                                         Color="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                                         Opacity="0.5">
+                                    </SolidColorBrush>
+                                </Grid.Background>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="20"></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Grid 
+                                    Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"></ColumnDefinition>
+                                        <ColumnDefinition Width="160"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="60"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid
+                                        x:Name="RankGrid"
+                                        Grid.Column="1"
+                                        Grid.Row="0"
+                                        Grid.RowSpan="3"
+                                        VerticalAlignment="Center">
+
+                                        <StackPanel x:Name="RankStackPanel">
+                                            <Grid                                   
+                                                VerticalAlignment="Top"
+                                                HorizontalAlignment="Center"
+                                                Width="100"
+                                                Height="100">
+
+                                                <ranks:BotRank></ranks:BotRank>
+                                            </Grid>
+
+                                            <TextBlock
+                                                VerticalAlignment="Top"
+                                                HorizontalAlignment="Center"
+                                                FontSize="22"
+                                                Margin="0 4 0 0"
+                                                FontWeight="Bold"
+                                                Style="{StaticResource SummaryTextStyle}"
+                                        
+                                                x:Name="NoRankTextBlock"
+                                                Text="No rank">
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <StackPanel 
+                                        Grid.Row="0"
+                                        Grid.Column="2" 
+                                        Margin="12 0 0 6"
+                                        Orientation="Horizontal">
+
+                                        <TextBlock
+                                            VerticalAlignment="Top"
+                                            FontSize="46"
+                                            FontWeight="Bold"
+                                            Style="{StaticResource SummaryTextStyle}"
+                                        
+                                            x:Name="TypingSpeedTextBlock"
+                                            Text="638.21 CPM">
+                                        </TextBlock>
+
+                                        <Grid 
+                                            x:Name="VerifiedResultGrid"
+                                            Margin="12 0 0 0"
+                                            
+                                            Visibility="Hidden"
+                                            d:Visibility="Visible">
+                                            <Path
+                                                Width="50"
+                                                Height="50"
+                                                Margin="5 5 0 0"
+                                                
+                                            
+                                                StrokeThickness="0.01"
+                                                Data="M0.501,0.769 L0.367,1 l0,-0.268,-0.232,0.134 L0.268,0.635 l-0.268,0 L0.232,0.501,0.001,0.367 l0.268,0,-0.134,-0.232 L0.367,0.268 l0,-0.268 L0.501,0.232,0.635,0.001 l0,0.268,0.232,-0.134 L0.733,0.367 l0.268,0 L0.769,0.501 l0.232,0.134,-0.268,0,0.134,0.232 L0.635,0.733 l0,0.268">
+                                                <Path.Fill>
+                                                    <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+                                                        <GradientStop Color="DeepSkyBlue" Offset="0"/>
+                                                        <GradientStop Color="#263588" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Path.Fill>
+
+                                                <Path.RenderTransform>
+                                                    <ScaleTransform ScaleX="45" ScaleY="45"></ScaleTransform>
+                                                </Path.RenderTransform>
+                                            </Path>
+
+                                            <TextBlock
+                                                Style="{StaticResource SummaryTextStyle}"
+                                                FontSize="18"
+                                                HorizontalAlignment="Center"
+                                                FontFamily="Segoe MDL2 Assets"
+                                                Text="&#xE73E;">
+                                            </TextBlock>
+                                        </Grid>
+                                    </StackPanel>
+
+                                    <Grid
+                                        x:Name="BestResultGrid"
+                                        Margin="0 0 -10 0"
+                                        Grid.Row="0"
+                                        Grid.Column="2"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"
+                                        
+                                        Visibility="Hidden"
+                                        d:Visibility="Visible">
+
+                                        <Rectangle
+                                            Fill="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                                            
+                                            Width="50"
+                                            Height="50"
+                                            
+                                            RadiusX="12"
+                                            RadiusY="12">
+                                        </Rectangle>
+
+                                        <Grid RenderTransformOrigin="0.5 0.5">
+                                            <Grid.RenderTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform 
+                                                        ScaleX="0.5"
+                                                        ScaleY="0.5">
+                                                    </ScaleTransform>
+
+                                                    <TranslateTransform X="-0.5"></TranslateTransform>
+                                                </TransformGroup>
+                                            </Grid.RenderTransform>
+
+                                            <Polygon
+                                                Width="70"
+                                                Height="60"
+                                                Fill="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+                                                Points="4,16 3,17 2,23 8,25 16,47 57,47 65,25 71,23 70,17 69,16 63,17 62,23 53,29 50,29 39,11 41,6 37,1 36,1 32,6 34,11 23,29 20,29 11,23 10,17">
+                                            </Polygon>
+
+                                            <Polygon
+                                                Width="70"
+                                                Height="60"
+                                                Fill="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"
+                                                Points="15,51 13,57 60,57 58,51">
+                                            </Polygon>
+                                        </Grid>
+
+
+                                    </Grid>
+
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Grid.Column="2"
+                                        
+                                        Margin="12 4 0 0"
+                                        VerticalAlignment="Top"
+                                        FontSize="28"
+                                        FontWeight="Bold"
+                                        Style="{StaticResource SummaryTextStyle}"
+                                        
+                                        x:Name="MistakePercentageTextBlock"
+                                        Text="1.24%">
+                                    </TextBlock>
+
+                                    <TextBlock
+                                        Grid.Row="2"
+                                        Grid.Column="2"
+                                        
+                                        Margin="12 0 0 0"
+                                        VerticalAlignment="Top"
+                                        FontSize="28"
+                                        FontWeight="Bold"
+                                        Style="{StaticResource SummaryTextStyle}"
+                                        
+                                        x:Name="TypingTimeTextBlock"
+                                        Text="00:00:24.86">
+                                    </TextBlock>
+
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Grid.Column="2"
+                                        
+                                        Margin="12 4 0 0"
+                                        VerticalAlignment="Top"
+                                        HorizontalAlignment="Right"
+                                        FontSize="28"
+                                        FontWeight="Bold"
+                                        Style="{StaticResource SummaryTextStyle}"
+                                        
+                                        x:Name="MistakeCountTextBlock"
+                                        Text="6 mistakes">
+                                    </TextBlock>
+
+                                    <TextBlock
+                                        Grid.Row="2"
+                                        Grid.Column="2"
+                                        
+                                        Margin="12 0 0 0"
+                                        VerticalAlignment="Top"
+                                        HorizontalAlignment="Right"
+                                        FontSize="28"
+                                        FontWeight="Bold"
+                                        Style="{StaticResource SummaryTextStyle}"
+                                        
+                                        x:Name="TextLengthTextBlock"
+                                        Text="586 characters">
+                                    </TextBlock>
+                                </Grid>
+                            </Grid>
+
+                            <Grid Margin="60 20 60 0">
+                                <StackPanel
+                                    Name="IndicatorsStackPanel"
+                                    HorizontalAlignment="Left"
+                                    Orientation="Horizontal">
+
+                                    <Grid 
+                                        x:Name="TypingMistakesIndicatorGrid"
+                                        Margin="0 0 12 0" 
+                                        Height="40">
+
+                                        <Rectangle 
+                                            x:Name="TypingMistakesIndicatorRectangle"
+                                            Style="{StaticResource CryteryIsleStyle}">
+                                        </Rectangle>
+
+                                        <StackPanel Orientation="Horizontal">
+
+                                            <TextBlock
+                                                Padding="12 0 0 0"
+                                                Style="{StaticResource SummaryTextStyle}"
+                                                FontSize="18"
+                                                FontFamily="Segoe MDL2 Assets"
+                                            
+                                                x:Name="TypingMistakesIndicatorTextBlock"
+                                                Text="&#xE73E;">
+                                            </TextBlock>
+
+                                            <TextBlock
+                                                Padding="6 0 18 0"
+                                                Style="{StaticResource SummaryTextStyle}"
+                                                FontSize="18"
+                                            
+                                                x:Name="MistakesCheckTextBox"
+                                                d:Text="6 / 10 mistakes">
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid 
+                                        x:Name="TypingSpeedIndicatorGrid"
+                                        Margin="0 0 12 0" 
+                                        Height="40">
+
+                                        <Rectangle 
+                                            x:Name="TypingSpeedIndicatorRectangle"
+                                            Style="{StaticResource CryteryIsleStyle}">
+                                        </Rectangle>
+
+                                        <StackPanel Orientation="Horizontal">
+
+                                            <TextBlock
+                                                Padding="12 0 0 0"
+                                                Style="{StaticResource SummaryTextStyle}"
+                                                FontSize="18"
+                                                FontFamily="Segoe MDL2 Assets"
+                                            
+                                                x:Name="TypingSpeedIndicatorTextBlock"
+                                                Text="&#xE73E;">
+                                            </TextBlock>
+
+                                            <TextBlock
+                                                Padding="6 0 18 0"
+                                                Style="{StaticResource SummaryTextStyle}"
+                                                FontSize="18"
+                                            
+                                                x:Name="TypingSpeedCheckTextBox"
+                                                d:Text="638.21 / 500 CPM">
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </Grid>
+                                </StackPanel>
+
+                                <StackPanel
+                                    HorizontalAlignment="Right"
+                                    Orientation="Horizontal">
+
+                                    <Button
+                                        x:Name="LoadPreviousLessonButton"
+                                        Click="LoadPreviousLessonButton_Click"
+                                        
+                                        Style="{StaticResource IsleButtonStyle}"
+                                        Content="⮜">
+                                    </Button>
+
+                                    <Button
+                                        x:Name="ReloadLessonButton"
+                                        Click="ReloadLessonButton_Click"
+                                        
+                                        Style="{StaticResource IsleButtonStyle}"
+                                        Content="⭯">
+                                    </Button>
+
+                                    <Button
+                                        x:Name="LoadNextLessonButton"
+                                        Click="LoadNextLessonButton_Click"
+                                        
+                                        Style="{StaticResource IsleButtonStyle}"
+                                        Content="⮞">
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
+
+                            <controls:ContentIsle x:Name="LessonTypingSpeedIsle"></controls:ContentIsle>
+                            <controls:ContentIsle x:Name="TypingPassionIsle"></controls:ContentIsle>
+                            <controls:ContentIsle x:Name="MistakenDataIsle"></controls:ContentIsle>
+                            <controls:ContentIsle x:Name="StreakStatisticsIsle"></controls:ContentIsle>
+                            <controls:ContentIsle x:Name="GlobalStatisticsIsle" Margin="0 0 0 100"></controls:ContentIsle>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+
+                <Grid
+                    x:Name="TitleGrid"
+                    Grid.Row="0"
+                    Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
+
+                    <Grid.Effect>
+                        <DropShadowEffect 
+                            ShadowDepth="0"
+                            BlurRadius="30">
+                        </DropShadowEffect>
+                    </Grid.Effect>
+
+                    <TextBlock 
+                        Style="{StaticResource SummaryTextStyle}"
+                        FontSize="20"
+                        Margin="20 0 0 0"
+                        Text="Top 5K words, English: 97-120"
+                        x:Name="TitleTextBlock"
+                        HorizontalAlignment="Left">
+                    </TextBlock>
+
+                    <StackPanel 
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal"
+                        Margin="10">
+
+                        <Button 
+                            Width="40"
+                            Margin="10 0 0 0"
+                            Style="{StaticResource ActionButtonStyle}"
+                            x:Name="SettingsButton"
+                            Click="SettingsButton_Click"
+                            Content="&#xE713;">
+
+                            <Button.Triggers>
+                                <EventTrigger RoutedEvent="Button.Click">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard 
+                                            x:Name="ButtonBeginStoryboard"
+                                            Storyboard="{StaticResource ShowSettingsPanelStoryborad}">
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                            </Button.Triggers>
+                        </Button>
+
+                        <Button 
+                            Width="40"
+                            Margin="10 0 0 0"
+                            Style="{StaticResource ActionButtonStyle}"
+                            x:Name="GetScreenshotButton"
+                            Click="GetScreenshotButton_Click"
+                            Content="&#xE722;">
+                        </Button>
+
+                        <Button 
+                            Width="40"
+                            Margin="10 0 0 0"
+                            Style="{StaticResource ActionButtonStyle}"
+                            x:Name="ClosePageButton"
+                            Click="ClosePageButton_Click"
+                            Content="&#xE8BB;">
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </controls:ClippingBorder>
+    </Grid>
+</Page>
