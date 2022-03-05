@@ -24,6 +24,7 @@ namespace WPFMeteroWindow
         TypingTestParameters,
         WelcomePage,
         ShortCutHint,
+        LessonCompleted,
         EmptyPage,
     }
     
@@ -38,7 +39,7 @@ namespace WPFMeteroWindow
 
         public static Storyboard OpenPageStoryboard { get; set; }
         public static Storyboard ClosePageStoryboard { get; set; }
-        
+
         public static string[] Pages =
         {
             _baseFolder + "ApplicationUserSettingsPage.xaml",
@@ -57,6 +58,7 @@ namespace WPFMeteroWindow
             _baseFolder + "TypingTestParametersPage.xaml",
             _baseFolder + "WelcomePage.xaml",
             _baseFolder + "ShortcutHintPage.xaml",
+            _baseFolder + "LessonCompletedPage.xaml",
             null,
         };
 
