@@ -159,6 +159,9 @@
   <data name="uCapitalize" xml:space="preserve">
     <value>Слова с заглавной буквы</value>
   </data>
+  <data name="uCharacters" xml:space="preserve">
+    <value>символов</value>
+  </data>
   <data name="uCharactersCount" xml:space="preserve">
     <value>Кол-во симв</value>
   </data>
@@ -413,6 +416,9 @@
   </data>
   <data name="uMistakenWords" xml:space="preserve">
     <value>Слова, введённые с ошибками</value>
+  </data>
+  <data name="uMistakenWordsAndChars" xml:space="preserve">
+    <value>Слова и символы, в которые были введены с ошибками</value>
   </data>
   <data name="uMistakes" xml:space="preserve">
     <value>ошибок</value>
@@ -693,6 +699,9 @@
   <data name="uSystemReplaceProblemFileIntoStandard" xml:space="preserve">
     <value>Система заменит проблемный файл на стандартный</value>
   </data>
+  <data name="uTestPassingStatistics" xml:space="preserve">
+    <value>Статистика прохождения тестов</value>
+  </data>
   <data name="uTestSource" xml:space="preserve">
     <value>Файл со словами для теста</value>
   </data>
@@ -728,6 +737,12 @@
   </data>
   <data name="uTypingAnimation" xml:space="preserve">
     <value>Анимация печати</value>
+  </data>
+  <data name="uTypingMistakes" xml:space="preserve">
+    <value>Ошибки, совершённые во время печати</value>
+  </data>
+  <data name="uTypingSpeedPlot" xml:space="preserve">
+    <value>График скорости печати</value>
   </data>
   <data name="uTypingTest" xml:space="preserve">
     <value>Тест на скорость печати</value>

@@ -187,6 +187,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на символов.
+        /// </summary>
+        public static string uCharacters {
+            get {
+                return ResourceManager.GetString("uCharacters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Кол-во симв.
         /// </summary>
         public static string uCharactersCount {
@@ -948,6 +957,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uMistakenWords {
             get {
                 return ResourceManager.GetString("uMistakenWords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Слова и символы, в которые были введены с ошибками.
+        /// </summary>
+        public static string uMistakenWordsAndChars {
+            get {
+                return ResourceManager.GetString("uMistakenWordsAndChars", resourceCulture);
             }
         }
         
@@ -1789,6 +1807,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Статистика прохождения тестов.
+        /// </summary>
+        public static string uTestPassingStatistics {
+            get {
+                return ResourceManager.GetString("uTestPassingStatistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Файл со словами для теста.
         /// </summary>
         public static string uTestSource {
@@ -1893,6 +1920,24 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uTypingAnimation {
             get {
                 return ResourceManager.GetString("uTypingAnimation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ошибки, совершённые во время печати.
+        /// </summary>
+        public static string uTypingMistakes {
+            get {
+                return ResourceManager.GetString("uTypingMistakes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на График скорости печати.
+        /// </summary>
+        public static string uTypingSpeedPlot {
+            get {
+                return ResourceManager.GetString("uTypingSpeedPlot", resourceCulture);
             }
         }
         

@@ -159,6 +159,9 @@
   <data name="uCapitalize" xml:space="preserve">
     <value>Capitalized words</value>
   </data>
+  <data name="uCharacters" xml:space="preserve">
+    <value>characters</value>
+  </data>
   <data name="uCharactersCount" xml:space="preserve">
     <value>Char count</value>
   </data>
@@ -414,6 +417,9 @@
   <data name="uMistakenWords" xml:space="preserve">
     <value>Mistaken words</value>
   </data>
+  <data name="uMistakenWordsAndChars" xml:space="preserve">
+    <value>Mistaken words and characters</value>
+  </data>
   <data name="uMistakes" xml:space="preserve">
     <value>mistakes</value>
   </data>
@@ -610,7 +616,7 @@
     <value>Replacement dictionary</value>
   </data>
   <data name="uSettRequireWPM" xml:space="preserve">
-    <value>Require do exersises at the necessary WPM</value>
+    <value>Require do exersises at the necessary typing speed</value>
   </data>
   <data name="uSettSecondColor" xml:space="preserve">
     <value>Second color (menu)</value>
@@ -693,6 +699,9 @@
   <data name="uSystemReplaceProblemFileIntoStandard" xml:space="preserve">
     <value>System will replace the problem file by a standard file</value>
   </data>
+  <data name="uTestPassingStatistics" xml:space="preserve">
+    <value>Typing test passing statistics</value>
+  </data>
   <data name="uTestSource" xml:space="preserve">
     <value>Test's words filename</value>
   </data>
@@ -728,6 +737,12 @@
   </data>
   <data name="uTypingAnimation" xml:space="preserve">
     <value>Typing animation</value>
+  </data>
+  <data name="uTypingMistakes" xml:space="preserve">
+    <value>Typing passion mistakes</value>
+  </data>
+  <data name="uTypingSpeedPlot" xml:space="preserve">
+    <value>Typing speed plot</value>
   </data>
   <data name="uTypingTest" xml:space="preserve">
     <value>Typing speed test</value>
