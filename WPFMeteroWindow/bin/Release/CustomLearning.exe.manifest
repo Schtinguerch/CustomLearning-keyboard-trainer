@@ -4,7 +4,7 @@
   <description asmv2:iconFile="logolight2.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="CustomLearning" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="CustomLearning" version="1.5.0.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="CustomLearning.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -55,26 +55,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CustomLearning.exe" size="3475408">
-      <assemblyIdentity name="CustomLearning" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CustomLearning.exe" size="3563472">
+      <assemblyIdentity name="CustomLearning" version="1.5.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ShwXXJi0DQb7oi5Le98343uPKMqYy5lCaAKm27To3lc=</dsig:DigestValue>
+        <dsig:DigestValue>qSDlybd5Ofh15CcNVtXRpj/fqgDWmmho2uj3OLmI+BA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="en-US\CustomLearning.resources.dll" size="16896">
-      <assemblyIdentity name="CustomLearning.resources" version="1.0.0.0" language="en-US" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="en-US\CustomLearning.resources.dll" size="17920">
+      <assemblyIdentity name="CustomLearning.resources" version="1.5.0.0" language="en-US" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>pRi5XmTQJ3/YFIvUVjGau0kI5hFlejT8UnxwieWdBO0=</dsig:DigestValue>
+        <dsig:DigestValue>nvGHIi+uq/45q/spUYFxKBJ6k/NTQA0EH7BR1YCWXRY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -246,13 +246,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="CustomLearning.exe.config" size="12419">
+  <file name="CustomLearning.exe.config" size="13113">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>kJq7XfWLQXF4OSMDEJiaJxnaRhrSiWq9+sZ/3e67UeI=</dsig:DigestValue>
+      <dsig:DigestValue>aArysWwTlaivYAuiqfB0qs40y3ae20VoDevthvfxQ/Q=</dsig:DigestValue>
     </hash>
   </file>
   <file name="logolight2.ico" size="11236">
