@@ -21,7 +21,7 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
+    <Grid Background="Transparent">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="80"></ColumnDefinition>
