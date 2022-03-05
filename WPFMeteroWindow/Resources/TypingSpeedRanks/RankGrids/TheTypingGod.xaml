@@ -1,0 +1,807 @@
+﻿<UserControl x:Class="WPFMeteroWindow.Resources.TypingSpeedRanks.RankGrids.TheTypingGod"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFMeteroWindow.Resources.TypingSpeedRanks.RankGrids"
+             xmlns:ranks="clr-namespace:WPFMeteroWindow.Resources.TypingSpeedRanks"
+             mc:Ignorable="d" 
+             d:DesignWidth="160">
+    
+    <StackPanel x:Name="RankStackPanel">
+        <Grid                                   
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center"
+            Width="100"
+            Height="100"
+            
+            RenderTransformOrigin="0.5 0.5">
+
+            <Grid.Effect>
+                <DropShadowEffect
+                    x:Name="GodKeyShadow"
+                    ShadowDepth="0"
+                    BlurRadius="20"
+                    Color="Gold">
+                </DropShadowEffect>
+            </Grid.Effect>
+
+            <Grid.RenderTransform>
+                <ScaleTransform
+                    x:Name="GodGridScaleTransform"
+                    ScaleX="1"
+                    ScaleY="1">
+                </ScaleTransform>
+            </Grid.RenderTransform>
+
+            <Rectangle
+                Fill="Transparent"
+                StrokeThickness="6"
+                RadiusX="15"
+                RadiusY="15"
+                            
+                RenderTransformOrigin="0.5 0.5">
+
+                <Rectangle.Stroke>
+                    <VisualBrush>
+                        <VisualBrush.Visual>
+                            <Grid Width="20" Height="50">
+                                <Rectangle Height="200">
+                                    <Rectangle.Fill>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientStop x:Name="Stop41" Offset="0" Color="Gold"></GradientStop>
+                                            <GradientStop Offset="0.4" Color="White"></GradientStop>
+                                            <GradientStop x:Name="Stop51" Offset="0.5" Color="Gold"></GradientStop>
+                                            <GradientStop Offset="0.8" Color="White"></GradientStop>
+                                            <GradientStop x:Name="Stop61" Offset="0.9" Color="Gold"></GradientStop>
+
+                                            <LinearGradientBrush.Transform>
+                                                <TranslateTransform
+                                                    x:Name="TopTranslateTransform"
+                                                    Y="0">
+                                                </TranslateTransform>
+                                            </LinearGradientBrush.Transform>
+                                        </LinearGradientBrush>
+                                    </Rectangle.Fill>
+
+                                    <Rectangle.Triggers>
+                                        <EventTrigger RoutedEvent="Rectangle.Loaded">
+                                            <EventTrigger.Actions>
+                                                <BeginStoryboard>
+                                                    <Storyboard RepeatBehavior="Forever">
+                                                        <DoubleAnimation
+                                                            Storyboard.TargetName="TopTranslateTransform"
+                                                            Storyboard.TargetProperty="Y"
+                                                                
+                                                            From="-200"
+                                                            To="200"
+                                                            Duration="00:00:01">
+                                                        </DoubleAnimation>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger.Actions>
+                                        </EventTrigger>
+                                    </Rectangle.Triggers>
+                                </Rectangle>
+                            </Grid>
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </Rectangle.Stroke>
+
+                <Rectangle.Triggers>
+                    <EventTrigger RoutedEvent="Rectangle.Loaded">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard RepeatBehavior="Forever">
+                                    <ColorAnimation
+                                        Storyboard.TargetName="GodKeyShadow"
+                                        Storyboard.TargetProperty="Color"
+                                        BeginTime="00:00:00"
+                                        Duration="00:00:01"
+                                        From="Gold"
+                                        To="#7c11b9">
+                                    </ColorAnimation>
+
+                                    <ColorAnimation
+                                        Storyboard.TargetName="Stop41"
+                                        Storyboard.TargetProperty="Color"
+                                        BeginTime="00:00:00"
+                                        Duration="00:00:01"
+                                        From="Gold"
+                                        To="#7c11b9">
+                                    </ColorAnimation>
+
+                                    <ColorAnimation
+                                        Storyboard.TargetName="Stop51"
+                                        Storyboard.TargetProperty="Color"
+                                        BeginTime="00:00:00"
+                                        Duration="00:00:01"
+                                        From="Gold"
+                                        To="#7c11b9">
+                                    </ColorAnimation>
+
+                                    <ColorAnimation
+                                        Storyboard.TargetName="Stop61"
+                                        Storyboard.TargetProperty="Color"
+                                        BeginTime="00:00:00"
+                                        Duration="00:00:01"
+                                        From="Gold"
+                                        To="#7c11b9">
+                                    </ColorAnimation>
+
+                                    <ColorAnimation
+                                        Storyboard.TargetName="Stop42"
+                                        Storyboard.TargetProperty="Color"
+                                        BeginTime="00:00:00"
+                                        Duration="00:00:01"
+                                        From="Gold"
+                                        To="#7c11b9">
+                                    </ColorAnimation>
+
+                                    <ColorAnimation
+                                        Storyboard.TargetName="Stop52"
+                                        Storyboard.TargetProperty="Color"
+                                        BeginTime="00:00:00"
+                                        Duration="00:00:01"
+                                        From="Gold"
+                                        To="#7c11b9">
+                                    </ColorAnimation>
+
+                                    <ColorAnimation
+                                        Storyboard.TargetName="Stop62"
+                                        Storyboard.TargetProperty="Color"
+                                        BeginTime="00:00:00"
+                                        Duration="00:00:01"
+                                        From="Gold"
+                                        To="#7c11b9">
+                                    </ColorAnimation>
+
+
+                                    <ColorAnimation
+                                        Storyboard.TargetName="GodKeyShadow"
+                                        Storyboard.TargetProperty="Color"
+                                        BeginTime="00:00:01"
+                                        Duration="00:00:01"
+                                        From="#7c11b9"
+                                        To="#3db8ff">
+                                    </ColorAnimation>
+
+                                    <ColorAnimation
+                                        Storyboard.TargetName="Stop41"
+                                        Storyboard.TargetProperty="Color"
+                                        Duration="00:00:01"
+                                        BeginTime="00:00:01"
+                                        From="#7c11b9"
+                                        To="#3db8ff">
+                                    </ColorAnimation>
+
+                                    <ColorAnimation
+                                        Storyboard.TargetName="Stop51"
+                                        Storyboard.TargetProperty="Color"
+                                        Duration="00:00:01"
+                                        BeginTime="00:00:01"
+                                        From="#7c11b9"
+                                        To="#3db8ff">
+                                    </ColorAnimation>
+
+                                    <ColorAnimation
+                                        Storyboard.TargetName="Stop61"
+                                        Storyboard.TargetProperty="Color"
+                                        Duration="00:00:01"
+                                        BeginTime="00:00:01"
+                                        From="#7c11b9"
+                                        To="#3db8ff">
+                                    </ColorAnimation>
+
+                                    <ColorAnimation
+                                        Storyboard.TargetName="Stop42"
+                                        Storyboard.TargetProperty="Color"
+                                        Duration="00:00:01"
+                                        BeginTime="00:00:01"
+                                        From="#7c11b9"
+                                        To="#3db8ff">
+                                    </ColorAnimation>
+
+                                    <ColorAnimation
+                                        Storyboard.TargetName="Stop52"
+                                        Storyboard.TargetProperty="Color"
+                                        Duration="00:00:01"
+                                        BeginTime="00:00:01"
+                                        From="#7c11b9"
+                                        To="#3db8ff">
+                                    </ColorAnimation>
+
+                                    <ColorAnimation
+                                        Storyboard.TargetName="Stop62"
+                                        Storyboard.TargetProperty="Color"
+                                        Duration="00:00:01"
+                                        BeginTime="00:00:01"
+                                        From="#7c11b9"
+                                        To="#3db8ff">
+                                    </ColorAnimation>
+
+
+
+                                    <ColorAnimation
+                                        Storyboard.TargetName="GodKeyShadow"
+                                        Storyboard.TargetProperty="Color"
+                                        BeginTime="00:00:02"
+                                        Duration="00:00:01"
+                                        From="#3db8ff"
+                                        To="Gold">
+                                    </ColorAnimation>
+
+                                    <ColorAnimation
+                                        Storyboard.TargetName="Stop41"
+                                        Storyboard.TargetProperty="Color"
+                                        Duration="00:00:01"
+                                        BeginTime="00:00:02"
+                                        From="#3db8ff"
+                                        To="Gold">
+                                    </ColorAnimation>
+
+                                    <ColorAnimation
+                                        Storyboard.TargetName="Stop51"
+                                        Storyboard.TargetProperty="Color"
+                                        Duration="00:00:01"
+                                        BeginTime="00:00:02"
+                                        From="#3db8ff"
+                                        To="Gold">
+                                    </ColorAnimation>
+
+                                    <ColorAnimation
+                                        Storyboard.TargetName="Stop61"
+                                        Storyboard.TargetProperty="Color"
+                                        Duration="00:00:01"
+                                        BeginTime="00:00:02"
+                                        From="#3db8ff"
+                                        To="Gold">
+                                    </ColorAnimation>
+
+                                    <ColorAnimation
+                                        Storyboard.TargetName="Stop42"
+                                        Storyboard.TargetProperty="Color"
+                                        Duration="00:00:01"
+                                        BeginTime="00:00:02"
+                                        From="#3db8ff"
+                                        To="Gold">
+                                    </ColorAnimation>
+
+                                    <ColorAnimation
+                                        Storyboard.TargetName="Stop52"
+                                        Storyboard.TargetProperty="Color"
+                                        Duration="00:00:01"
+                                        BeginTime="00:00:02"
+                                        From="#3db8ff"
+                                        To="Gold">
+                                    </ColorAnimation>
+
+                                    <ColorAnimation
+                                        Storyboard.TargetName="Stop62"
+                                        Storyboard.TargetProperty="Color"
+                                        Duration="00:00:01"
+                                        BeginTime="00:00:02"
+                                        From="#3db8ff"
+                                        To="Gold">
+                                    </ColorAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </Rectangle.Triggers>
+            </Rectangle>
+
+            <TextBlock
+                Text="&#x795E;"
+                FontWeight="Black"
+                FontSize="56"
+                            
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+                <TextBlock.Foreground>
+                    <VisualBrush>
+                        <VisualBrush.Visual>
+                            <Grid Width="20" Height="50">
+                                <Rectangle Height="200">
+                                    <Rectangle.Fill>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientStop x:Name="Stop42" Offset="1" Color="Gold"></GradientStop>
+                                            <GradientStop Offset="0.6" Color="White"></GradientStop>
+                                            <GradientStop x:Name="Stop52" Offset="0.5" Color="Gold"></GradientStop>
+                                            <GradientStop Offset="0.2" Color="White"></GradientStop>
+                                            <GradientStop x:Name="Stop62" Offset="0.1" Color="Gold"></GradientStop>
+
+                                            <LinearGradientBrush.Transform>
+                                                <TranslateTransform
+                                                    x:Name="DownTranslateTransform"
+                                                    Y="0">
+                                                </TranslateTransform>
+                                            </LinearGradientBrush.Transform>
+                                        </LinearGradientBrush>
+                                    </Rectangle.Fill>
+
+                                    <Rectangle.Triggers>
+                                        <EventTrigger RoutedEvent="Rectangle.Loaded">
+                                            <EventTrigger.Actions>
+                                                <BeginStoryboard>
+                                                    <Storyboard RepeatBehavior="Forever">
+                                                        <DoubleAnimation
+                                                            Storyboard.TargetName="DownTranslateTransform"
+                                                            Storyboard.TargetProperty="Y"
+                                                                
+                                                            From="200"
+                                                            To="-200"
+                                                            Duration="00:00:01">
+                                                        </DoubleAnimation>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger.Actions>
+                                        </EventTrigger>
+                                    </Rectangle.Triggers>
+                                </Rectangle>
+                            </Grid>
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </TextBlock.Foreground>
+            </TextBlock>
+
+            <Grid.Triggers>
+                <EventTrigger RoutedEvent="Grid.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard RepeatBehavior="Forever" BeginTime="00:00:0.5">
+                                <DoubleAnimation
+                                    Storyboard.TargetName="GodGridScaleTransform"
+                                    Storyboard.TargetProperty="ScaleX"
+                                        
+                                    From="1"
+                                    To="1.1"
+                                    DecelerationRatio="1"
+                                    Duration="00:00:01">
+                                </DoubleAnimation>
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="GodGridScaleTransform"
+                                    Storyboard.TargetProperty="ScaleY"
+                                        
+                                    From="1"
+                                    To="1.1"
+                                    DecelerationRatio="1"
+                                    Duration="00:00:01">
+                                </DoubleAnimation>
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="GodGridScaleTransform"
+                                    Storyboard.TargetProperty="ScaleX"
+                                        
+                                    From="1.1"
+                                    To="1"
+                                    DecelerationRatio="1"
+                                    BeginTime="00:00:01"
+                                    Duration="00:00:01">
+                                </DoubleAnimation>
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="GodGridScaleTransform"
+                                    Storyboard.TargetProperty="ScaleY"
+                                        
+                                    From="1.1"
+                                    To="1"
+                                    DecelerationRatio="1"
+                                    BeginTime="00:00:01"
+                                    Duration="00:00:01">
+                                </DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Grid.Triggers>
+        </Grid>
+
+        <TextBlock
+            x:Name="GodTextBlock"
+            Style="{StaticResource RankTextBlockStyle}"
+            FontWeight="Bold"
+            RenderTransformOrigin="0.5 0.5">
+
+            <TextBlock.Effect>
+                <DropShadowEffect
+                    x:Name="GodShadow"
+                    ShadowDepth="0"
+                    BlurRadius="20"
+                    Color="Gold">
+                </DropShadowEffect>
+            </TextBlock.Effect>
+
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform
+                        x:Name="GodScaleTransform"
+                        ScaleX="1"
+                        ScaleY="1">
+                    </ScaleTransform>
+
+                    <TranslateTransform
+                        x:Name="GodTranslateTransform"
+                        X="0"
+                        Y="0">
+                    </TranslateTransform>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+                
+            <Run
+                x:Name="TheFirstWord"
+                Text="The">
+                    
+                <Run.Foreground>
+                    <VisualBrush>
+                        <VisualBrush.Visual>
+                            <Grid Width="50" Height="20">
+                                <Rectangle Width="200">
+                                    <Rectangle.Fill>
+                                        <LinearGradientBrush>
+                                            <GradientStop x:Name="Stop4" Offset="0" Color="Gold"></GradientStop>
+                                            <GradientStop Offset="0.4" Color="White"></GradientStop>
+                                            <GradientStop x:Name="Stop5" Offset="0.5" Color="Gold"></GradientStop>
+                                            <GradientStop Offset="0.8" Color="White"></GradientStop>
+                                            <GradientStop x:Name="Stop6" Offset="0.9" Color="Gold"></GradientStop>
+                                                
+                                            <LinearGradientBrush.Transform>
+                                                <TranslateTransform
+                                                    x:Name="TheTranslateTransform"
+                                                    X="0">
+                                                </TranslateTransform>
+                                            </LinearGradientBrush.Transform>
+                                        </LinearGradientBrush>
+                                    </Rectangle.Fill>
+                                        
+                                    <Rectangle.Triggers>
+                                        <EventTrigger RoutedEvent="Rectangle.Loaded">
+                                            <EventTrigger.Actions>
+                                                <BeginStoryboard>
+                                                    <Storyboard RepeatBehavior="Forever">
+                                                        <DoubleAnimation
+                                                            Storyboard.TargetName="TheTranslateTransform"
+                                                            Storyboard.TargetProperty="X"
+                                                                
+                                                            From="-200"
+                                                            To="200"
+                                                            Duration="00:00:01">
+                                                        </DoubleAnimation>
+                                                            
+                                                            
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger.Actions>
+                                        </EventTrigger>
+                                    </Rectangle.Triggers>
+                                </Rectangle>
+                            </Grid>
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </Run.Foreground>
+            </Run>
+                
+            <Run
+                x:Name="TheSecondWord"
+                Text="Typing"
+                FontWeight="Regular">
+            </Run>
+                
+            <Run
+                x:Name="TheThirdWord"
+                Text="God">
+                    
+                <Run.Foreground>
+                    <VisualBrush>
+                        <VisualBrush.Visual>
+                            <Grid Width="50" Height="20">
+                                <Rectangle Width="200">
+                                    <Rectangle.Fill>
+                                        <LinearGradientBrush>
+                                            <GradientStop x:Name="Stop1" Offset="1" Color="Gold"></GradientStop>
+                                            <GradientStop Offset="0.6" Color="White"></GradientStop>
+                                            <GradientStop x:Name="Stop2" Offset="0.5" Color="Gold"></GradientStop>
+                                            <GradientStop Offset="0.2" Color="White"></GradientStop>
+                                            <GradientStop x:Name="Stop3" Offset="0.1" Color="Gold"></GradientStop>
+                                                
+                                            <LinearGradientBrush.Transform>
+                                                <TranslateTransform
+                                                    x:Name="GoddTranslateTransform"
+                                                    X="0">
+                                                </TranslateTransform>
+                                            </LinearGradientBrush.Transform>
+                                        </LinearGradientBrush>
+                                    </Rectangle.Fill>
+                                        
+                                    <Rectangle.Triggers>
+                                        <EventTrigger RoutedEvent="Rectangle.Loaded">
+                                            <EventTrigger.Actions>
+                                                <BeginStoryboard>
+                                                    <Storyboard RepeatBehavior="Forever">
+                                                        <DoubleAnimation
+                                                            RepeatBehavior="3x"
+                                                            Storyboard.TargetName="GoddTranslateTransform"
+                                                            Storyboard.TargetProperty="X"
+                                                                
+                                                            From="0"
+                                                            To="-300"
+                                                            Duration="00:00:01">
+                                                        </DoubleAnimation>
+                                                            
+                                                            
+                                                            <ColorAnimation
+                                                            Storyboard.TargetName="GodShadow"
+                                                            Storyboard.TargetProperty="Color"
+                                                            BeginTime="00:00:00"
+                                                            Duration="00:00:01"
+                                                            From="Gold"
+                                                            To="#7c11b9">
+                                                        </ColorAnimation>
+                                                            
+                                                        <ColorAnimation
+                                                            Storyboard.TargetName="Stop1"
+                                                            Storyboard.TargetProperty="Color"
+                                                            BeginTime="00:00:00"
+                                                            Duration="00:00:01"
+                                                            From="Gold"
+                                                            To="#7c11b9">
+                                                        </ColorAnimation>
+                                                            
+                                                        <ColorAnimation
+                                                            Storyboard.TargetName="Stop2"
+                                                            Storyboard.TargetProperty="Color"
+                                                            BeginTime="00:00:00"
+                                                            Duration="00:00:01"
+                                                            From="Gold"
+                                                            To="#7c11b9">
+                                                        </ColorAnimation>
+                                                            
+                                                        <ColorAnimation
+                                                            Storyboard.TargetName="Stop3"
+                                                            Storyboard.TargetProperty="Color"
+                                                            BeginTime="00:00:00"
+                                                            Duration="00:00:01"
+                                                            From="Gold"
+                                                            To="#7c11b9">
+                                                        </ColorAnimation>
+                                                            
+                                                        <ColorAnimation
+                                                            Storyboard.TargetName="Stop4"
+                                                            Storyboard.TargetProperty="Color"
+                                                            BeginTime="00:00:00"
+                                                            Duration="00:00:01"
+                                                            From="Gold"
+                                                            To="#7c11b9">
+                                                        </ColorAnimation>
+                                                            
+                                                        <ColorAnimation
+                                                            Storyboard.TargetName="Stop5"
+                                                            Storyboard.TargetProperty="Color"
+                                                            BeginTime="00:00:00"
+                                                            Duration="00:00:01"
+                                                            From="Gold"
+                                                            To="#7c11b9">
+                                                        </ColorAnimation>
+                                                            
+                                                        <ColorAnimation
+                                                            Storyboard.TargetName="Stop6"
+                                                            Storyboard.TargetProperty="Color"
+                                                            BeginTime="00:00:00"
+                                                            Duration="00:00:01"
+                                                            From="Gold"
+                                                            To="#7c11b9">
+                                                        </ColorAnimation>
+                                                            
+                                                            
+                                                        <ColorAnimation
+                                                            Storyboard.TargetName="GodShadow"
+                                                            Storyboard.TargetProperty="Color"
+                                                            BeginTime="00:00:01"
+                                                            Duration="00:00:01"
+                                                            From="#7c11b9"
+                                                            To="#3db8ff">
+                                                        </ColorAnimation>
+                                                            
+                                                        <ColorAnimation
+                                                            Storyboard.TargetName="Stop1"
+                                                            Storyboard.TargetProperty="Color"
+                                                            Duration="00:00:01"
+                                                            BeginTime="00:00:01"
+                                                            From="#7c11b9"
+                                                            To="#3db8ff">
+                                                        </ColorAnimation>
+                                                            
+                                                        <ColorAnimation
+                                                            Storyboard.TargetName="Stop2"
+                                                            Storyboard.TargetProperty="Color"
+                                                            Duration="00:00:01"
+                                                            BeginTime="00:00:01"
+                                                            From="#7c11b9"
+                                                            To="#3db8ff">
+                                                        </ColorAnimation>
+                                                            
+                                                        <ColorAnimation
+                                                            Storyboard.TargetName="Stop3"
+                                                            Storyboard.TargetProperty="Color"
+                                                            Duration="00:00:01"
+                                                            BeginTime="00:00:01"
+                                                            From="#7c11b9"
+                                                            To="#3db8ff">
+                                                        </ColorAnimation>
+                                                            
+                                                        <ColorAnimation
+                                                            Storyboard.TargetName="Stop4"
+                                                            Storyboard.TargetProperty="Color"
+                                                            Duration="00:00:01"
+                                                            BeginTime="00:00:01"
+                                                            From="#7c11b9"
+                                                            To="#3db8ff">
+                                                        </ColorAnimation>
+                                                            
+                                                        <ColorAnimation
+                                                            Storyboard.TargetName="Stop5"
+                                                            Storyboard.TargetProperty="Color"
+                                                            Duration="00:00:01"
+                                                            BeginTime="00:00:01"
+                                                            From="#7c11b9"
+                                                            To="#3db8ff">
+                                                        </ColorAnimation>
+                                                            
+                                                        <ColorAnimation
+                                                            Storyboard.TargetName="Stop6"
+                                                            Storyboard.TargetProperty="Color"
+                                                            Duration="00:00:01"
+                                                            BeginTime="00:00:01"
+                                                            From="#7c11b9"
+                                                            To="#3db8ff">
+                                                        </ColorAnimation>
+                                                            
+                                                            
+                                                            
+                                                        <ColorAnimation
+                                                            Storyboard.TargetName="GodShadow"
+                                                            Storyboard.TargetProperty="Color"
+                                                            BeginTime="00:00:02"
+                                                            Duration="00:00:01"
+                                                            From="#3db8ff"
+                                                            To="Gold">
+                                                        </ColorAnimation>
+                                                            
+                                                        <ColorAnimation
+                                                            Storyboard.TargetName="Stop1"
+                                                            Storyboard.TargetProperty="Color"
+                                                            Duration="00:00:01"
+                                                            BeginTime="00:00:02"
+                                                            From="#3db8ff"
+                                                            To="Gold">
+                                                        </ColorAnimation>
+                                                            
+                                                        <ColorAnimation
+                                                            Storyboard.TargetName="Stop2"
+                                                            Storyboard.TargetProperty="Color"
+                                                            Duration="00:00:01"
+                                                            BeginTime="00:00:02"
+                                                            From="#3db8ff"
+                                                            To="Gold">
+                                                        </ColorAnimation>
+                                                            
+                                                        <ColorAnimation
+                                                            Storyboard.TargetName="Stop3"
+                                                            Storyboard.TargetProperty="Color"
+                                                            Duration="00:00:01"
+                                                            BeginTime="00:00:02"
+                                                            From="#3db8ff"
+                                                            To="Gold">
+                                                        </ColorAnimation>
+                                                            
+                                                        <ColorAnimation
+                                                            Storyboard.TargetName="Stop4"
+                                                            Storyboard.TargetProperty="Color"
+                                                            Duration="00:00:01"
+                                                            BeginTime="00:00:02"
+                                                            From="#3db8ff"
+                                                            To="Gold">
+                                                        </ColorAnimation>
+                                                            
+                                                        <ColorAnimation
+                                                            Storyboard.TargetName="Stop5"
+                                                            Storyboard.TargetProperty="Color"
+                                                            Duration="00:00:01"
+                                                            BeginTime="00:00:02"
+                                                            From="#3db8ff"
+                                                            To="Gold">
+                                                        </ColorAnimation>
+                                                            
+                                                        <ColorAnimation
+                                                            Storyboard.TargetName="Stop6"
+                                                            Storyboard.TargetProperty="Color"
+                                                            Duration="00:00:01"
+                                                            BeginTime="00:00:02"
+                                                            From="#3db8ff"
+                                                            To="Gold">
+                                                        </ColorAnimation>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger.Actions>
+                                        </EventTrigger>
+                                    </Rectangle.Triggers>
+                                </Rectangle>
+                            </Grid>
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </Run.Foreground>
+            </Run>
+
+            <TextBlock.Triggers>
+                <EventTrigger RoutedEvent="TextBlock.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard RepeatBehavior="Forever">
+                                <StringAnimationUsingKeyFrames
+                                    Storyboard.TargetName="TheSecondWord"
+                                    Storyboard.TargetProperty="Text"
+                                    Duration="00:00:04">
+
+                                    <DiscreteStringKeyFrame KeyTime="00:00:00" Value="Typing"></DiscreteStringKeyFrame>
+                                    <DiscreteStringKeyFrame KeyTime="00:00:02" Value="Speed"></DiscreteStringKeyFrame>
+                                </StringAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+
+                        <BeginStoryboard>
+                            <Storyboard RepeatBehavior="Forever">
+                                <DoubleAnimation
+                                    Storyboard.TargetName="GodTranslateTransform"
+                                    Storyboard.TargetProperty="Y" 
+                                        
+                                    From="0"
+                                    To="-10"
+                                    Duration="00:00:0.5"
+                                    DecelerationRatio="1">
+                                </DoubleAnimation>
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="GodTranslateTransform"
+                                    Storyboard.TargetProperty="Y"
+                                        
+                                    From="-10"
+                                    To="0"
+                                        
+                                    BeginTime="00:00:0.5"
+                                    Duration="00:00:0.5"
+                                    AccelerationRatio="1">
+                                </DoubleAnimation>
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="GodTranslateTransform"
+                                    Storyboard.TargetProperty="Y"
+                                        
+                                    From="0"
+                                    To="10"
+                                        
+                                    BeginTime="00:00:1"
+                                    Duration="00:00:0.5"
+                                    DecelerationRatio="1">
+                                </DoubleAnimation>
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="GodTranslateTransform"
+                                    Storyboard.TargetProperty="Y"
+                                        
+                                    From="10"
+                                    To="0"
+                                        
+                                    BeginTime="00:00:1.5"
+                                    Duration="00:00:0.5"
+                                    AccelerationRatio="1">
+                                </DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </TextBlock.Triggers>
+        </TextBlock>
+    </StackPanel>
+</UserControl>
