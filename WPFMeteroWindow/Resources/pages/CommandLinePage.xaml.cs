@@ -66,10 +66,6 @@ namespace WPFMeteroWindow.Resources.pages
             KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
             SetFont.MainLetters(Settings.Default.LessonLettersFont);
 
-            SetColor.WindowColor(Settings.Default.ColorSchemeResourceDictionary.Split(new[] { '/' }).Last()
-                .Split(new[] { '.' })[0]);
-            SetColor.ColorScheme(Settings.Default.ThemeResourceDictionary.Contains("BaseLight") ? Theme.Light : Theme.Dark);
-
             if (!Settings.Default.IsBackgroundImage)
                 SetColor.WindowStandardColor();
             else
