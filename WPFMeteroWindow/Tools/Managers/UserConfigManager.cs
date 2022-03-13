@@ -187,8 +187,6 @@ namespace WPFMeteroWindow
             data += $"        <SecondaryColor {Settings.Default.SecondBackground}>>\n";
             data += $"        <TextBoxColor {Settings.Default.ThirdBackground}>>\n";
             data += $"        <SecondaryMenuColor {Settings.Default.ThirdSecBackground}>>\n";
-            data += $"        <Theme {theme}>>\n";
-            data += $"        <ControlsHighlightColor {colorScheme}>>\n";
             data += $"        <HasImageBackground {Settings.Default.IsBackgroundImage}>>\n";
             data += $"        <InputTextBox {Settings.Default.TextInputType}>>\n";
             data += $"    :AppColors>>\n\n";
