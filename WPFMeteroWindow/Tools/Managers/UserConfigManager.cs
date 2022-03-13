@@ -84,8 +84,6 @@ namespace WPFMeteroWindow
             SetColor.SecondColor(reader.GetString("UserConfig>AppColors>SecondaryColor"));
             SetColor.CommandLineFirstColor(reader.GetString("UserConfig>AppColors>TextBoxColor"));
             SetColor.CommandLineSecondColor(reader.GetString("UserConfig>AppColors>SecondaryMenuColor"));
-            SetColor.ColorScheme(reader.GetString("UserConfig>AppColors>Theme"));
-            SetColor.WindowColor(reader.GetString("UserConfig>AppColors>ControlsHighlightColor"));
             Opener.NewTextInputWay(reader.GetString("UserConfig>AppColors>InputTextBox"));
 
             SetColor.Hands(reader.GetString("UserConfig>Hands>HandsColor"));
