@@ -176,6 +176,9 @@
       <DependentUpon>AllSplashShapes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ClippingBorder.cs" />
+    <Compile Include="Controls\CMessageBox.xaml.cs">
+      <DependentUpon>CMessageBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ConfigItem.xaml.cs">
       <DependentUpon>ConfigItem.xaml</DependentUpon>
     </Compile>
@@ -437,9 +440,6 @@
     <Compile Include="Resources\pages\LessonEditorPage.xaml.cs">
       <DependentUpon>LessonEditorPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Resources\pages\LessonIsEndPage.xaml.cs">
-      <DependentUpon>LessonIsEndPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Resources\pages\LessonLoaderPage.xaml.cs">
       <DependentUpon>LessonLoaderPage.xaml</DependentUpon>
     </Compile>
@@ -541,6 +541,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\CMessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\ConfigItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -621,7 +625,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\dictionaries\CustomLearningUI\Menus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\dictionaries\CustomLearningUI\RadioButtons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\dictionaries\CustomLearningUI\ScrollBars.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -903,10 +915,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\pages\LessonIsEndPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Resources\pages\LessonLoaderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1071,6 +1079,11 @@
   <ItemGroup>
     <Resource Include="logolight2.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\images\Diamond.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images\Hacker.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
