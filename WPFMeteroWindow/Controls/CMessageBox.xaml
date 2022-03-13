@@ -1,0 +1,153 @@
+﻿<Window 
+    x:Class="WPFMeteroWindow.Controls.CMessageBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:WPFMeteroWindow.Controls"
+    xmlns:local="clr-namespace:WPFMeteroWindow.Controls"
+    xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
+    xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
+    mc:Ignorable="d"
+    Title="CMessageBox"  
+    Width="400" Height="600"
+    WindowStyle="None" 
+    AllowsTransparency="True" 
+    WindowStartupLocation="CenterScreen" 
+    Background="Transparent"
+    Loaded="Window_Loaded">
+
+    <controls:ClippingBorder
+        CornerRadius="12"
+        x:Name="Border"
+        VerticalAlignment="Center"
+        Style="{StaticResource MessageBoxBorderStyle}">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid
+                Grid.Row="0"
+                Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
+
+                <Rectangle 
+                    VerticalAlignment="Bottom" 
+                    Height="1" 
+                    Fill="{StaticResource IsleBorderBrush}">
+                </Rectangle>
+                
+                <TextBlock 
+                    x:Name="HeaderTextBlock"
+                    Style="{StaticResource SummaryTextStyle}"
+                    FontSize="18"
+                    Margin="10 0 0 0"
+                    d:Text="Warning"
+                    HorizontalAlignment="Left">
+                </TextBlock>
+
+                <Button 
+                    Width="30"
+                    Height="30"
+                    HorizontalAlignment="Right"
+                    Margin="0 0 10 0"
+                    Style="{StaticResource ActionButtonStyle}"
+                    x:Name="CloseButton"
+                    Content="&#xE8BB;"
+                    Click="CloseButton_Click">
+                </Button>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Rectangle
+                    Fill="{StaticResource IsleHeaderBrush}">
+                    
+                </Rectangle>
+                
+                <StackPanel 
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+
+                    <Button 
+                        MinWidth="80"
+                        Margin="0 0 10 0"
+                        Style="{StaticResource StandardButtonStyle}"
+                        Content="{x:Static res:Resources.uYes}"
+                        
+                        x:Name="YesButton"
+                        Click="YesButton_Click">
+                    </Button>
+
+                    <Button 
+                        MinWidth="80"
+                        Margin="0 0 10 0"
+                        Style="{StaticResource StandardButtonStyle}"
+                        Content="{x:Static res:Resources.uNo}"
+                        
+                        x:Name="NoButton"
+                        Click="NoButton_Click">
+                    </Button>
+
+                    <Button 
+                        MinWidth="80"
+                        Margin="0 0 10 0"
+                        Style="{StaticResource StandardButtonStyle}"
+                        Content="OK"
+                        
+                        x:Name="OkButton"
+                        Click="OkButton_Click">
+                    </Button>
+
+                    <Button 
+                        MinWidth="80"
+                        Margin="0 0 10 0"
+                        Style="{StaticResource StandardButtonStyle}"
+                        Content="{x:Static res:Resources.uCancel}"
+                        
+                        x:Name="CancelButton"
+                        Click="CancelButton_Click">
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid
+                    Grid.Column="0"
+                    Width="60"
+                    Height="60">
+
+                    <Path
+                        x:Name="FigurePath"
+                        Fill="DeepSkyBlue"
+                        Margin="5 5 0 0"
+                        Data="M 0 16 A 1 1 0 0 0 32 16 A 1 1 0 0 0 0 16 M 18 26 L 14 26 L 14 13 L 18 13 L 18 17 M 14 7 L 18 7 L 18 11 L 14 11">
+
+                        <Path.RenderTransform>
+                            <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
+                        </Path.RenderTransform>
+                    </Path>
+                </Grid>
+                
+
+                <TextBlock
+                    Grid.Column="1"
+                    Style="{StaticResource SummaryTextStyle}"
+                    FontSize="16"
+                    Padding="10 0 0 0"
+                    VerticalAlignment="Center"
+                    d:Text="Some warning message!!!"
+                    x:Name="MessageTextBlock"
+                    TextWrapping="Wrap">
+                </TextBlock>
+            </Grid>
+        </Grid>
+    </controls:ClippingBorder>
+</Window>
