@@ -14,7 +14,6 @@ namespace WPFMeteroWindow
         LessonLoaderShell,
         LayoutLoaderShell,
         FontSetterShell,
-        EndedLesson,
         LessonEditor,
         CourseEditor,
         KeyboardLayoutEditor,
@@ -48,7 +47,6 @@ namespace WPFMeteroWindow
             _baseFolder + "LessonLoaderPage.xaml",
             _baseFolder + "LayoutChangerPage.xaml",
             _baseFolder + "FontSettingPage.xaml",
-            _baseFolder + "LessonIsEndPage.xaml",
             _baseFolder + "LessonEditorPage.xaml",
             _baseFolder + "CourseEditorPage.xaml",
             _baseFolder + "KeyboardLayoutEditorPage.xaml",
@@ -87,7 +85,7 @@ namespace WPFMeteroWindow
             GC.Collect();
         }
 
-        public static void OpenPage(TabPage page)
+        public static void OpenPage(TabPage page, bool usingAnimation = true)
         {
             _tabPage = page;
             int pageIndex = (int)page;
@@ -100,13 +98,14 @@ namespace WPFMeteroWindow
             else if (pageIndex >= 0)
             {
                 PageGrid.Visibility = Visibility.Visible;
-                OpenPageStoryboard?.Begin();
-
                 PageFrame.Source = new Uri(Pages[pageIndex], UriKind.Relative);
+
+                if (usingAnimation)
+                    OpenPageStoryboard?.Begin();
             }
         }
 
-        public static void MakeTrasparency()  => PageGrid.Opacity = 0.2d;
+        public static void MakeTrasparency()  => PageGrid.Opacity = 0.1d;
         public static void CancelTransparency() => PageGrid.Opacity = 1d;
 
         private static void StoryboardCompleted(object sender, EventArgs e)
