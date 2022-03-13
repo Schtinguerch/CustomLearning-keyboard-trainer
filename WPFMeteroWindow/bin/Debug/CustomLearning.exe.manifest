@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CustomLearning.exe" size="3711440">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CustomLearning.exe" size="3780560">
       <assemblyIdentity name="CustomLearning" version="1.5.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>qq6FjY13BdsgRyW86H7uBR3iXvO/yzkKO+SVo2qdkpo=</dsig:DigestValue>
+        <dsig:DigestValue>vA1rejwxJZ99NoRrNt4+IAEesiKZqmv5TH7hJ7cRnFk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ZFyHFFDdrBGDP6MjMtOKqJd74EsByGKDCWVg4DVL92U=</dsig:DigestValue>
+        <dsig:DigestValue>r4Yy4BRuRiLN8xdsvR5rDlpI/Fj3e9r9iGX7f70VEQk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
