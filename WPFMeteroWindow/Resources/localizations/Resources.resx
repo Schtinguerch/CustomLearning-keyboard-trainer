@@ -135,6 +135,9 @@
   <data name="uApply" xml:space="preserve">
     <value>Применить</value>
   </data>
+  <data name="uAttention" xml:space="preserve">
+    <value>Внимание</value>
+  </data>
   <data name="uAuthor" xml:space="preserve">
     <value>Автор</value>
   </data>
@@ -149,6 +152,9 @@
   </data>
   <data name="uBlurRadius" xml:space="preserve">
     <value>Радиус размытия</value>
+  </data>
+  <data name="uCancel" xml:space="preserve">
+    <value>Отмена</value>
   </data>
   <data name="uCannotAddLessonToEmptyCourse" xml:space="preserve">
     <value>невозможно добавить урок в пустой курс, нажмите "Сохранить"!!!</value>
@@ -269,6 +275,9 @@
   </data>
   <data name="uIndex" xml:space="preserve">
     <value>указательным на </value>
+  </data>
+  <data name="uInfo" xml:space="preserve">
+    <value>Сообщение</value>
   </data>
   <data name="uInsertCourseOrLesson" xml:space="preserve">
     <value>Загрузить курс или урок</value>
@@ -764,6 +773,9 @@
   </data>
   <data name="uUserSettings" xml:space="preserve">
     <value>Пользовательские параметры</value>
+  </data>
+  <data name="uWarning" xml:space="preserve">
+    <value>Внимание</value>
   </data>
   <data name="uWordCount" xml:space="preserve">
     <value>Количество слов</value>

@@ -115,6 +115,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Внимание.
+        /// </summary>
+        public static string uAttention {
+            get {
+                return ResourceManager.GetString("uAttention", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Автор.
         /// </summary>
         public static string uAuthor {
@@ -156,6 +165,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uBlurRadius {
             get {
                 return ResourceManager.GetString("uBlurRadius", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Отмена.
+        /// </summary>
+        public static string uCancel {
+            get {
+                return ResourceManager.GetString("uCancel", resourceCulture);
             }
         }
         
@@ -516,6 +534,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uIndex {
             get {
                 return ResourceManager.GetString("uIndex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Сообщение.
+        /// </summary>
+        public static string uInfo {
+            get {
+                return ResourceManager.GetString("uInfo", resourceCulture);
             }
         }
         
@@ -2001,6 +2028,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uUserSettings {
             get {
                 return ResourceManager.GetString("uUserSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Внимание.
+        /// </summary>
+        public static string uWarning {
+            get {
+                return ResourceManager.GetString("uWarning", resourceCulture);
             }
         }
         
