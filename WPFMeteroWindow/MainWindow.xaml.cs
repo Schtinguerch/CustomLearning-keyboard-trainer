@@ -11,6 +11,7 @@ using Application = System.Windows.Application;
 using Key = System.Windows.Input.Key;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using Localization = WPFMeteroWindow.Resources.localizations.Resources;
+using WPFMeteroWindow.Controls;
 using Visibility = System.Windows.Visibility;
 using System.IO;
 using System.Linq;
@@ -396,6 +397,19 @@ namespace WPFMeteroWindow
                     StartNextLesson();
                 }
 
+
+
+                else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.P))
+                {
+                    e.Handled = true;
+                    if (AppManager.IsComboKeyDown(e, Key.LeftShift) || AppManager.IsComboKeyDown(e, Key.RightShift))
+                        PageManager.OpenPage(TabPage.RecentConfigs);
+                    else 
+                    if (AppManager.IsComboKeyDown(e, Key.LeftCtrl) || AppManager.IsComboKeyDown(e, Key.RightCtrl))
+                        PageManager.OpenPage(TabPage.RecentLayouts);
+                    else
+                        PageManager.OpenPage(TabPage.RecentCources);
+                }
 
                 else if (AppManager.IsComboKeyDown(e, Key.LeftAlt, Key.S))
                 {
