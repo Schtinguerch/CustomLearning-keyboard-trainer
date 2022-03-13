@@ -54,24 +54,6 @@ namespace WPFMeteroWindow.Commands
                     KeyboardManager.LoadKeyboardData(Settings.Default.KeyboardLayoutFile);
                     break;
 
-                case "t":
-                    switch (UnitedStringArgument)
-                    {
-                        case "lt":
-                            SetColor.ColorScheme(Theme.Light);
-                            break;
-
-                        case "dt":
-                            SetColor.ColorScheme(Theme.Dark);
-                            break;
-
-                        default:
-                            var color = UnitedStringArgument;
-                            SetColor.WindowColor(color);
-                            break;
-                    }
-                    break;
-
                 default:
                     areSettingChanged = false;
                     break;
