@@ -96,6 +96,9 @@ namespace WPFMeteroWindow.Resources.pages
         {
             foreach (var index in StatisticsManager.CourseMarks.FullyPassedLessons)
             {
+                if (index >= LessonStackPanel.Children.Count)
+                    continue;
+
                 var stackPanel = LessonStackPanel.Children[index] as StackPanel;
                 var ellipse = stackPanel.Children[0] as Ellipse;
 
@@ -104,6 +107,9 @@ namespace WPFMeteroWindow.Resources.pages
 
             foreach (var index in StatisticsManager.CourseMarks.PartucularlyPassedLessons)
             {
+                if (index >= LessonStackPanel.Children.Count)
+                    continue;
+
                 var stackPanel = LessonStackPanel.Children[index] as StackPanel;
                 var ellipse = stackPanel.Children[0] as Ellipse;
 
