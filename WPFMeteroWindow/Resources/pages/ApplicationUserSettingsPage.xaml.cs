@@ -298,9 +298,6 @@ namespace WPFMeteroWindow.Resources.pages
             else 
                 KeyboardManager.LoadKeyboardData(Settings.Default.SecondKeyboardLayoutFile);
 
-            SetColor.ColorScheme(_defaultTheme);
-            SetColor.WindowColor(_defaultColorScheme);
-
             SetFont.MainLetters(Settings.Default.LessonLettersFont);
 
             if (!Settings.Default.IsBackgroundImage)
