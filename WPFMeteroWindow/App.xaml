@@ -14,14 +14,15 @@
 
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/steel.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Resources/dictionaries/Styles.xaml"></ResourceDictionary>
 
                 <ResourceDictionary Source="Resources/dictionaries/CustomLearningUI/TextBoxes.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Resources/dictionaries/CustomLearningUI/Buttons.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Resources/dictionaries/CustomLearningUI/ComboBoxes.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Resources/dictionaries/CustomLearningUI/Sliders.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Resources/dictionaries/CustomLearningUI/RadioButtons.xaml"></ResourceDictionary>
-                
-                <ResourceDictionary Source="Resources/dictionaries/Styles.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Resources/dictionaries/CustomLearningUI/Menus.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Resources/dictionaries/CustomLearningUI/ScrollBars.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
