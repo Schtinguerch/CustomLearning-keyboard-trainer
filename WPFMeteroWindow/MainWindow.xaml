@@ -1,4 +1,5 @@
 ﻿<controls:MetroWindow 
+    x:Name="AppWindow"
     x:Class="WPFMeteroWindow.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -7,6 +8,7 @@
     xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
     xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
     xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+    xmlns:local="clr-namespace:WPFMeteroWindow"
     xmlns:globalization="clr-namespace:System.Globalization;assembly=mscorlib" xmlns:controls1="clr-namespace:WPFMeteroWindow.Controls"
     Title="CustomLearning" 
     Width="1120" 
@@ -25,6 +27,8 @@
     Closing="MetroWindow_Closing">
 
     <controls:MetroWindow.Resources>
+        <local:MathConverter x:Key="MathConverter"></local:MathConverter>
+        
         <Storyboard
             x:Key="ShowMessageStoryboard"
             TargetName="MessageTextBlock"
@@ -51,31 +55,35 @@
             </DoubleAnimation>
         </Storyboard>
 
-        <Storyboard
-            x:Key="ShowPageFrameStoryboard">
-
+        <Storyboard x:Key="ShowPageFrameStoryboard">
             <DoubleAnimation
-                Storyboard.TargetName="SettingFrame"
-                Storyboard.TargetProperty="Opacity"
+                Storyboard.TargetName="FrameTranslateTransform"
+                Storyboard.TargetProperty="Y"
                 
-                From="0"
-                To="1"
-                Duration="00:00:0.5"
-                AccelerationRatio="1">
+                From="{Binding ElementName=AppWindow, Path=ActualHeight}"
+                
+                To="0"
+                Duration="00:00:00.5">
+
+                <DoubleAnimation.EasingFunction>
+                    <CircleEase EasingMode="EaseInOut"></CircleEase>
+                </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
         </Storyboard>
 
-        <Storyboard
-            x:Key="HidePageFrameStoryboard">
-
+        <Storyboard x:Key="HidePageFrameStoryboard">
             <DoubleAnimation
-                Storyboard.TargetName="SettingFrame"
-                Storyboard.TargetProperty="Opacity"
+                Storyboard.TargetName="FrameTranslateTransform"
+                Storyboard.TargetProperty="Y"
                 
-                From="1"
-                To="0"
-                Duration="00:00:0.5"
-                DecelerationRatio="1">
+                To="{Binding ElementName=AppWindow, Path=ActualHeight}"
+                
+                From="0"
+                Duration="00:00:00.5">
+
+                <DoubleAnimation.EasingFunction>
+                    <CircleEase EasingMode="EaseInOut"></CircleEase>
+                </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
         </Storyboard>
 
@@ -198,7 +206,8 @@
             Grid.Row="0"
             Grid.Column="0"
             
-            HorizontalAlignment="Center" VerticalAlignment="Center"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center"
             
             Stretch="UniformToFill"
             Opacity="1"
@@ -321,9 +330,7 @@
             </Grid.ColumnDefinitions>
 
             <Menu 
-                Margin="0 2 0 0"
-                Foreground="{Binding Path=SummaryFontColor ,Source={x:Static prop:Settings.Default}}"
-                FontFamily="{Binding Path=SummaryFont ,Source={x:Static prop:Settings.Default}}"
+                Style="{StaticResource CLUIMenuStyle}"
                 Background="{DynamicResource SecondBackgroundOpacityBrush}">
                 <MenuItem 
                     Background="Transparent"
@@ -331,44 +338,86 @@
 
                     <MenuItem 
                         x:Name="OpenNewLessonMenuItem"
-                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uMenuOpenNewLesson}"
+                        InputGestureText="Alt+N"
                         Click="OpenNewLessonMenuItem_OnClick">
+
+                        <MenuItem.Icon>
+                            <TextBlock
+                                Style="{StaticResource IconTextBlockStyle}"
+                                Text="&#xE838;">
+                            </TextBlock>
+                        </MenuItem.Icon>
                     </MenuItem>
 
                     <MenuItem 
                         x:Name="OpenNewCourseMenuItem"
-                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uMenuOpenNewCourse}"
+                        InputGestureText="Alt+Shift+N"
                         Click="OpenNewCourseMenuItem_OnClick">
+
+                        <MenuItem.Icon>
+                            <TextBlock
+                                Style="{StaticResource IconTextBlockStyle}"
+                                Text="&#xE8DA;">
+                            </TextBlock>
+                        </MenuItem.Icon>
                     </MenuItem>
 
                     <MenuItem 
                         x:Name="PassTypingTestItem"
-                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uPassTypingSpeedTest}"
+                        InputGestureText="Alt+T"
                         Click="PassTypingTestItem_Click">
+
+                        <MenuItem.Icon>
+                            <TextBlock
+                                Style="{StaticResource IconTextBlockStyle}"
+                                Text="&#xE734;">
+                            </TextBlock>
+                        </MenuItem.Icon>
                     </MenuItem>
 
                     <MenuItem
                         x:Name="OpenPreviousLessonMenuItem"
-                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uMenuPrevLesson}"
+                        InputGestureText="Alt+H"
                         Click="OpenPreviousLessonMenuItem_OnClick">
+
+                        <MenuItem.Icon>
+                            <TextBlock
+                                Style="{StaticResource IconTextBlockStyle}"
+                                Text="&#xF0B0;">
+                            </TextBlock>
+                        </MenuItem.Icon>
                     </MenuItem>
 
                     <MenuItem 
                         x:Name="OpenNextLessonMenuItem"
-                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uMenuNextLesson}"
+                        InputGestureText="Alt+M"
                         Click="OpenNextLessonMenuItem_OnClick">
+
+                        <MenuItem.Icon>
+                            <TextBlock
+                                Style="{StaticResource IconTextBlockStyle}"
+                                Text="&#xF0AF;">
+                            </TextBlock>
+                        </MenuItem.Icon>
                     </MenuItem>
 
                     <MenuItem 
                         x:Name="QuitAppMenuItem"
-                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uMenuQuit}"
+                        InputGestureText="Alt+F4"
                         Click="QuitAppMenuItem_OnClick">
+
+                        <MenuItem.Icon>
+                            <TextBlock
+                                Style="{StaticResource IconTextBlockStyle}"
+                                Text="&#xEF2C;">
+                            </TextBlock>
+                        </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
 
@@ -385,23 +434,44 @@
 
                     <MenuItem 
                         x:Name="OpenLessonEditorMenuItem"
-                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uMenuEditCurrentLesson}"
-                        Click="OpenLessonEditorMenuItem_OnClick">
+                        Click="OpenLessonEditorMenuItem_OnClick"
+                        InputGestureText="Alt+E">
+
+                        <MenuItem.Icon>
+                            <TextBlock
+                                Style="{StaticResource IconTextBlockStyle}"
+                                Text="&#xE8A5;">
+                            </TextBlock>
+                        </MenuItem.Icon>
                     </MenuItem>
 
                     <MenuItem 
                         x:Name="OpenCourseEditorMenuItem"
-                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uMenuEditCurrentCourse}"
-                        Click="OpenCourseEditorMenuItem_OnClick">
+                        Click="OpenCourseEditorMenuItem_OnClick"
+                        InputGestureText="Alt+Shift+E">
+
+                        <MenuItem.Icon>
+                            <TextBlock
+                                Style="{StaticResource IconTextBlockStyle}"
+                                Text="&#xF168;">
+                            </TextBlock>
+                        </MenuItem.Icon>
                     </MenuItem>
 
                     <MenuItem
                         x:Name="OpenLayoutEditorMenuItem"
-                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uMenuEditCurrentKbLayout}"
-                        Click="OpenLayoutEditorMenuItem_OnClick">
+                        Click="OpenLayoutEditorMenuItem_OnClick"
+                        InputGestureText="Alt+K">
+
+                        <MenuItem.Icon>
+                            <TextBlock
+                                Style="{StaticResource IconTextBlockStyle}"
+                                Text="&#xE765;">
+                            </TextBlock>
+                        </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
 
@@ -411,23 +481,44 @@
 
                     <MenuItem 
                         x:Name="OpenRecentCourseMenuItem"
-                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uRecentCourses}"
-                        Click="OpenRecentCourseMenuItem_Click">
+                        Click="OpenRecentCourseMenuItem_Click"
+                        InputGestureText="Alt+P">
+
+                        <MenuItem.Icon>
+                            <TextBlock
+                                Style="{StaticResource IconTextBlockStyle}"
+                                Text="&#xE9D5;">
+                            </TextBlock>
+                        </MenuItem.Icon>
                     </MenuItem>
 
                     <MenuItem
                         x:Name="OpenRecentLayoutsMenuItem"
-                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uRecentLayouts}"
-                        Click="OpenRecentLayoutsMenuItem_Click">
+                        Click="OpenRecentLayoutsMenuItem_Click"
+                        InputGestureText="Alt+Ctrl+P">
+
+                        <MenuItem.Icon>
+                            <TextBlock
+                                Style="{StaticResource IconTextBlockStyle}"
+                                Text="&#xEDA7;">
+                            </TextBlock>
+                        </MenuItem.Icon>
                     </MenuItem>
 
                     <MenuItem
                         x:Name="OpenRecentConfigsMenuItem"
-                        Background="{Binding Path=ThirdBackground ,Source={x:Static prop:Settings.Default}}"
                         Header="{x:Static res:Resources.uRecentConfigs}"
-                        Click="OpenRecentConfigsMenuItem_Click">
+                        Click="OpenRecentConfigsMenuItem_Click"
+                        InputGestureText="Alt+Shift+P">
+
+                        <MenuItem.Icon>
+                            <TextBlock
+                                Style="{StaticResource IconTextBlockStyle}"
+                                Text="&#xE728;">
+                            </TextBlock>
+                        </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
             </Menu>
@@ -892,6 +983,14 @@
                 UseLayoutRounding="True"
                 RenderOptions.BitmapScalingMode="NearestNeighbor"
                 RenderOptions.ClearTypeHint="Enabled">
+
+                <Frame.RenderTransform>
+                    <TranslateTransform
+                        x:Name="FrameTranslateTransform"
+                        X="0"
+                        Y="0">
+                    </TranslateTransform>
+                </Frame.RenderTransform>
             </Frame>
 
             <Grid
