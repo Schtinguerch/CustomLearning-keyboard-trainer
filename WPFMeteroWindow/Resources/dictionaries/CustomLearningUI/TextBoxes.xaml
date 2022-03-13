@@ -3,11 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:prop="clr-namespace:WPFMeteroWindow.Properties">
 
-    <SolidColorBrush x:Key="BackgroundBrush" Color="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
-    <SolidColorBrush x:Key="ForegroundBrush" Color="{Binding Path=SummaryFontColor ,Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
-    <SolidColorBrush x:Key="HighlightBrush" Color="{Binding Path=HighlightColor ,Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
-    <SolidColorBrush x:Key="BordersBrush" Color="{Binding Path=BordersColor ,Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
-
     <Style
         x:Key="CLUITextBoxStyle"
         TargetType="TextBox">
