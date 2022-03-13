@@ -5,6 +5,11 @@
     xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
     xmlns:controls="clr-namespace:WPFMeteroWindow.Controls">
 
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
+    <SolidColorBrush x:Key="ForegroundBrush" Color="{Binding Path=SummaryFontColor ,Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
+    <SolidColorBrush x:Key="HighlightBrush" Color="{Binding Path=HighlightColor ,Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
+    <SolidColorBrush x:Key="BordersBrush" Color="{Binding Path=BordersColor ,Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
+
     <SolidColorBrush 
         x:Key="PassedIndicatorBrush"
         Color="{Binding KeyboardHighlightColor, Source={x:Static prop:Settings.Default}}">
@@ -154,7 +159,7 @@
         TargetType="controls:ClippingBorder">
 
         <Setter Property="BorderThickness" Value="1"></Setter>
-        <Setter Property="BorderBrush" Value="{StaticResource BordersBrush}"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource BordersBrush}"></Setter>
         <Setter Property="CornerRadius" Value="8"></Setter>
 
         <Setter Property="Effect">
@@ -198,6 +203,19 @@
     </Style>
 
     <Style
+        x:Key="MessageBoxBorderStyle"
+        TargetType="controls:ClippingBorder"
+        BasedOn="{StaticResource EndLessonIsleStyle}">
+
+        <Setter Property="Margin" Value="0"></Setter>
+        <Setter Property="CornerRadius" Value="12"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+
+        <Setter Property="Background" Value="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"></Setter>
+        <Setter Property="BorderBrush" Value="{StaticResource BordersBrush}"></Setter>
+    </Style>
+
+    <Style
         x:Key="CryteryIsleStyle"
         TargetType="Rectangle">
 
@@ -207,19 +225,6 @@
 
         <Setter Property="Fill" Value="{StaticResource IsleHeaderBrush}"></Setter>
         <Setter Property="Stroke" Value="{StaticResource IsleBorderBrush}"></Setter>
-    </Style>
-
-    <Style
-        x:Key="IsleButtonStyle"
-        TargetType="Button"
-        BasedOn="{StaticResource HeaderButtonStyle}">
-
-        <Setter Property="Background" Value="{StaticResource IsleHeaderBrush}"></Setter>
-        <Setter Property="BorderBrush" Value="{StaticResource IsleBorderBrush}"></Setter>
-        <Setter Property="Height" Value="40"></Setter>
-        <Setter Property="BorderThickness" Value="1"></Setter>
-        <Setter Property="FontSize" Value="18"></Setter>
-        <Setter Property="Margin" Value="8 0 0 0"></Setter>
     </Style>
 
     <Style 
@@ -232,5 +237,15 @@
         <Setter Property="FontWeight" Value="Regular"></Setter>
         <Setter Property="VerticalAlignment" Value="Top"></Setter>
         <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+    </Style>
+
+    <Style
+        x:Key="IconTextBlockStyle"
+        TargetType="TextBlock"
+        BasedOn="{StaticResource SummaryTextStyle}">
+
+        <Setter Property="Padding" Value="0 2 0 0"></Setter>
+        <Setter Property="FontFamily" Value="Segoe MDL2 Assets"></Setter>
+        <Setter Property="FontSize" Value="16"></Setter>
     </Style>
 </ResourceDictionary>

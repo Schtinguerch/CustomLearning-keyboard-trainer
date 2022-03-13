@@ -214,4 +214,18 @@
         <Setter Property="FontSize" Value="12"></Setter>
         <Setter Property="Margin" Value="10 0 0 0"></Setter>
     </Style>
+
+    <Style
+        x:Key="IsleButtonStyle"
+        TargetType="Button"
+        BasedOn="{StaticResource HeaderButtonStyle}">
+
+        <Setter Property="Background" Value="{StaticResource IsleHeaderBrush}"></Setter>
+        <Setter Property="BorderBrush" Value="{StaticResource IsleBorderBrush}"></Setter>
+        <Setter Property="Height" Value="40"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="FontSize" Value="18"></Setter>
+        <Setter Property="Margin" Value="8 0 0 0"></Setter>
+    </Style>
+
 </ResourceDictionary>
