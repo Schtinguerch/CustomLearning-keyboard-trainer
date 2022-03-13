@@ -25,35 +25,5 @@ namespace WPFMeteroWindow
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            CanvasGrid.Children?.Clear();
-            CanvasGrid.Children.Add(new StatsVisualizer(
-                ValuesFromText(), null,
-                null, null, null, -1, -1));
-        }
-
-        private List<List<double>> ValuesFromText()
-        {
-            var plots = PointsTextBox.Text.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
-            var values = new List<List<double>>();
-
-            foreach (var plot in plots)
-                values.Add(ParseNumbers(plot));
-
-            return values;
-        }
-
-        private List<double> ParseNumbers(string text)
-        {
-            var numbersString = text.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-            var numbers = new List<double>();
-
-            foreach (var number in numbersString)
-                numbers.Add(double.Parse(number));
-
-            return numbers;
-        }
     }
 }

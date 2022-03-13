@@ -8,43 +8,8 @@
         mc:Ignorable="d"
         Title="TestWindow" Height="450" Width="800">
     <Grid Background="#202020">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="80"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-
-        <TextBox
-            x:Name="PointsTextBox"
-            Margin="5">
-        </TextBox>
-
-        <TextBox
-            x:Name="ArgsTextBox"
-            Grid.Row="1"
-            Margin="5">
-        </TextBox>
-
-        <Button 
-            Grid.Column="1"
-            Grid.RowSpan="2"
-            Content="Draw"
-            Margin="5"
-            
-            Click="Button_Click">
-        </Button>
-
-        <Grid
-            x:Name="CanvasGrid"
-            Grid.ColumnSpan="2"
-            Grid.Row="2"
-            Margin="10">
-            
-        </Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+            <Grid Width="2000"></Grid>
+        </ScrollViewer>
     </Grid>
 </Window>
