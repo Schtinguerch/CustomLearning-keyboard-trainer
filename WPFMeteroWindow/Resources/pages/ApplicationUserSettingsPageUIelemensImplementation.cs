@@ -86,8 +86,7 @@ namespace WPFMeteroWindow.Resources.pages
 
         #region Color picker (color choosen)
 
-        private void WindowColors_OnSelectionChanged(object sender, SelectionChangedEventArgs e) =>
-            SetColor.WindowColor(WindowColors.SelectedItem.ToString());
+        private void WindowColors_OnSelectionChanged(object sender, SelectionChangedEventArgs e) { }
         
         private void MainColorTextBox_OnTextChanged(object sender, TextChangedEventArgs e) =>
             SetColor.FirstColor(MainColorTextBox.Text);
@@ -225,16 +224,7 @@ namespace WPFMeteroWindow.Resources.pages
 
         private void WindowTheme_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            switch (WindowTheme.SelectedIndex)
-            {
-                case 0:
-                    SetColor.ColorScheme(Theme.Light);
-                    break;
-
-                case 1:
-                    SetColor.ColorScheme(Theme.Dark);
-                    break;
-            }
+            
         }
 
         private void WindowColorType_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
