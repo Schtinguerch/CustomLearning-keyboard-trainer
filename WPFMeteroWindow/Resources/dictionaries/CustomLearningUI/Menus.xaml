@@ -1,0 +1,324 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
+    xmlns:controls="clr-namespace:WPFMeteroWindow.Controls">
+
+    <Style
+        x:Key="CLUIMenuStyle"
+        TargetType="Menu">
+
+        <Setter Property="Background" Value="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"></Setter>
+        <Setter Property="Foreground" Value="{Binding Path=SummaryFontColor ,Source={x:Static prop:Settings.Default}}"></Setter>
+        <Setter Property="FontFamily" Value="{Binding Path=SummaryFont ,Source={x:Static prop:Settings.Default}}"></Setter>
+        <Setter Property="FontSize" Value="14"></Setter>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Menu">
+                    <Border
+                        VerticalAlignment="Center"
+                        Background="{TemplateBinding Background}"
+                        BorderThickness="0">
+
+                        <StackPanel
+                            ClipToBounds="True"
+                            Orientation="Horizontal"
+                            IsItemsHost="True">
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="ContextMenu">
+        <Setter Property="HasDropShadow" Value="True"></Setter>
+        <Setter Property="Grid.IsSharedSizeScope" Value="True"></Setter>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContextMenu">
+                    <controls:ClippingBorder
+                        x:Name="ContextMenuBorder"
+                        CornerRadius="6"
+                        
+                        Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"
+                        BorderBrush="{DynamicResource BordersBrush}"
+                        BorderThickness="1">
+
+                        <StackPanel 
+                            IsItemsHost="True"
+                            KeyboardNavigation.DirectionalNavigation="Cycle">
+                        </StackPanel>
+                    </controls:ClippingBorder>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ControlTemplate
+        x:Key="{x:Static MenuItem.TopLevelHeaderTemplateKey}"
+        TargetType="MenuItem">
+
+        <Border x:Name="MenuBorder">
+            <Grid>
+                <Rectangle
+                    x:Name="HighlightRectangle"
+                    Fill="{DynamicResource HighlightBrush}"
+                    StrokeThickness="0"
+                    Opacity="0">
+                </Rectangle>
+                
+                <ContentPresenter
+                    Margin="6"
+                    ContentSource="Header"
+                    RecognizesAccessKey="True">
+                </ContentPresenter>
+
+                <Popup
+                    x:Name="MenuPopup"
+                    Placement="Bottom"
+                    IsOpen="{TemplateBinding IsSubmenuOpen}"
+                    AllowsTransparency="True"
+                    Focusable="False"
+                    PopupAnimation="Slide">
+
+                    <controls:ClippingBorder
+                        x:Name="SubmenuBorder"
+                        Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"
+                        BorderBrush="{DynamicResource BordersBrush}"
+                        BorderThickness="1"
+                        CornerRadius="6">
+
+                        <StackPanel
+                            IsItemsHost="True"
+                            KeyboardNavigation.DirectionalNavigation="Cycle">
+                        </StackPanel>
+                    </controls:ClippingBorder>
+                </Popup>
+            </Grid>
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsSuspendingPopupAnimation" Value="True">
+                <Setter TargetName="MenuPopup" Property="PopupAnimation" Value="None"></Setter>
+            </Trigger>
+
+            <Trigger Property="IsHighlighted" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation 
+                                Storyboard.TargetName="HighlightRectangle"
+                                Storyboard.TargetProperty="Opacity"
+                                                  
+                                To="1"
+                                DecelerationRatio="1"
+                                Duration="00:00:0.2">
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation 
+                                Storyboard.TargetName="HighlightRectangle"
+                                Storyboard.TargetProperty="Opacity"
+                                                  
+                                To="0"
+                                DecelerationRatio="1"
+                                Duration="00:00:0.2">
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate 
+        x:Key="{x:Static MenuItem.TopLevelItemTemplateKey}" 
+        TargetType="{x:Type MenuItem}">
+        
+        <Border 
+            Background="Transparent"
+            Name="Border">
+
+            <Grid>
+                <Rectangle
+                    x:Name="HighlightRectangle"
+                    Fill="{DynamicResource HighlightBrush}"
+                    StrokeThickness="0"
+                    Opacity="0">
+                </Rectangle>
+
+                <ContentPresenter 
+                    Margin="6 4 6 4" 
+                    VerticalAlignment="Center"
+                    ContentSource="Header"
+                    RecognizesAccessKey="True">
+                </ContentPresenter>
+            </Grid>
+        </Border>
+        
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsHighlighted" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation 
+                                Storyboard.TargetName="HighlightRectangle"
+                                Storyboard.TargetProperty="Opacity"
+                                                  
+                                To="1"
+                                DecelerationRatio="1"
+                                Duration="00:00:0.2">
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation 
+                                Storyboard.TargetName="HighlightRectangle"
+                                Storyboard.TargetProperty="Opacity"
+                                                  
+                                To="0"
+                                DecelerationRatio="1"
+                                Duration="00:00:0.2">
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate 
+        x:Key="{x:Static MenuItem.SubmenuItemTemplateKey}" 
+        TargetType="{x:Type MenuItem}">
+        <Border Name="Border">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="Icon"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="Shortcut"></ColumnDefinition>
+                    <ColumnDefinition Width="13"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Rectangle
+                    x:Name="HighlightRectangle"
+                    Grid.ColumnSpan="4"
+                    Fill="{DynamicResource HighlightBrush}"
+                    StrokeThickness="0"
+                    Opacity="0">
+                </Rectangle>
+
+                <ContentPresenter 
+                    Name="Icon"
+                    Margin="10 6 4 6"
+                    VerticalAlignment="Center"
+                    ContentSource="Icon">
+                </ContentPresenter>
+                
+                <Border
+                    Name="Check"  
+                    Width="13" Height="13" 
+                    Visibility="Collapsed"
+                    Margin="10 6 10 6" 
+                    Background="Transparent"
+                    BorderThickness="1"
+                    BorderBrush="{DynamicResource BordersBrush}">
+                    
+                    <Path 
+                        Name="CheckMark"
+                        Width="7" 
+                        Height="7" 
+                        Visibility="Hidden" 
+                        Stroke="{DynamicResource HighlightBrush}"
+                        StrokeThickness="2"
+                        Data="M 0 0 L 7 7 M 0 7 L 7 0">
+                    </Path>
+                </Border>
+
+                <Border 
+                    Grid.Column="1"
+                    Padding="10 6 10 6"
+                    Background="Transparent">
+
+                    <ContentPresenter 
+                        Name="HeaderHost"
+                        Grid.Column="1"
+                        VerticalAlignment="Center"
+                        ContentSource="Header"
+                        RecognizesAccessKey="True">
+                    </ContentPresenter>
+                </Border>
+
+                <TextBlock 
+                    x:Name="InputGestureText"
+                    Opacity="0.6"
+                    Grid.Column="2"
+                    Text="{TemplateBinding InputGestureText}"
+                    Padding="40 6 0 6"
+                    TextAlignment="Left">
+                </TextBlock>
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="Icon" Value="{x:Null}">
+                <Setter TargetName="Icon" Property="Visibility" Value="Collapsed"/>
+            </Trigger>
+
+            <Trigger SourceName="InputGestureText" Property="Text" Value="">
+                <Setter TargetName="InputGestureText" Property="Padding" Value="0"></Setter>
+            </Trigger>
+            
+            <Trigger Property="IsChecked" Value="true">
+                <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
+            </Trigger>
+            
+            <Trigger Property="IsCheckable" Value="true">
+                <Setter TargetName="Check" Property="Visibility" Value="Visible"/>
+                <Setter TargetName="Icon" Property="Visibility" Value="Hidden"/>
+            </Trigger>
+            
+            <Trigger Property="IsHighlighted" Value="true">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation 
+                                Storyboard.TargetName="HighlightRectangle"
+                                Storyboard.TargetProperty="Opacity"
+                                                  
+                                To="1"
+                                DecelerationRatio="1"
+                                Duration="00:00:0.2">
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation 
+                                Storyboard.TargetName="HighlightRectangle"
+                                Storyboard.TargetProperty="Opacity"
+                                                  
+                                To="0"
+                                DecelerationRatio="1"
+                                Duration="00:00:0.2">
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+</ResourceDictionary>
