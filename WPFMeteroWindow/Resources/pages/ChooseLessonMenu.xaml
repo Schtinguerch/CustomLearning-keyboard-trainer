@@ -11,8 +11,7 @@
     <Grid 
         Width="300"
         Height="500"
-        
-        Margin="-30 -8 -30 -8"
+        Margin="-10 -6 -24 -6"
         Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
         
         <ScrollViewer 
