@@ -100,8 +100,14 @@ namespace WPFMeteroWindow
                 PageGrid.Visibility = Visibility.Visible;
                 PageFrame.Source = new Uri(Pages[pageIndex], UriKind.Relative);
 
+                if (OpenPageStoryboard == null) return;
+
                 if (usingAnimation)
-                    OpenPageStoryboard?.Begin();
+                    OpenPageStoryboard.Children[0].Duration = new TimeSpan(0, 0, 0, 0, 500);
+                else
+                    OpenPageStoryboard.Children[0].Duration = new TimeSpan(0);
+
+                OpenPageStoryboard.Begin();
             }
         }
 
