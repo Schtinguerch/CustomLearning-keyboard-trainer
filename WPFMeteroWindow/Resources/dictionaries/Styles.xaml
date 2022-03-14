@@ -10,20 +10,14 @@
     <SolidColorBrush x:Key="HighlightBrush" Color="{Binding Path=HighlightColor ,Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
     <SolidColorBrush x:Key="BordersBrush" Color="{Binding Path=BordersColor ,Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
 
-    <SolidColorBrush 
-        x:Key="PassedIndicatorBrush"
-        Color="{Binding KeyboardHighlightColor, Source={x:Static prop:Settings.Default}}">
-    </SolidColorBrush>
+    <SolidColorBrush x:Key="MainFontColor" Color="{Binding Path=MainFontColor, Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
+    <SolidColorBrush x:Key="RaidedFontColor" Color="{Binding Path=RaidedFontColor, Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
+    <SolidColorBrush x:Key="KeyboardHighlightColor" Color="{Binding Path=KeyboardHighlightColor, Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
+    <SolidColorBrush x:Key="KeyboardErrorHighlightColor" Color="{Binding Path=KeyboardErrorHighlightColor, Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
 
-    <SolidColorBrush 
-        x:Key="NotPassedIndicatorBrush"
-        Color="{Binding KeyboardErrorHighlightColor, Source={x:Static prop:Settings.Default}}">
-    </SolidColorBrush>
-
-    <SolidColorBrush 
-        x:Key="FailedIndicatorBrush"
-        Color="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}">
-    </SolidColorBrush>
+    <SolidColorBrush x:Key="PassedIndicatorBrush" Color="{Binding KeyboardHighlightColor, Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
+    <SolidColorBrush x:Key="NotPassedIndicatorBrush" Color="{Binding KeyboardErrorHighlightColor, Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
+    <SolidColorBrush x:Key="FailedIndicatorBrush" Color="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
 
 
     <Style TargetType="TextBox" x:Key="MainEditorStyle">
@@ -58,12 +52,16 @@
             <mw:MathConverter x:Key="MathConverter"></mw:MathConverter>
         </Style.Resources>
 
-        <Setter Property="Margin" Value="0 6 0 6"></Setter>
+        <Setter Property="Margin" Value="0 4 0 4"></Setter>
         <Setter Property="FontSize" Value="{Binding Path=LessonLettersFontSize, Source={x:Static prop:Settings.Default}, ConverterParameter=@VALUE*0.75, Converter={StaticResource MathConverter}}"></Setter>
     </Style>
 
     <Style TargetType="TextBlock" x:Key="HighlightedCompititiveTextStyle" BasedOn="{StaticResource CompetitiveTextStyle}">
         <Setter Property="Foreground" Value="{Binding Path=KeyboardHighlightColor ,Source={x:Static prop:Settings.Default}}"></Setter>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="RaidedCompetitiveTextStyle" BasedOn="{StaticResource CompetitiveTextStyle}">
+        <Setter Property="Foreground" Value="{Binding Path=RaidedFontColor ,Source={x:Static prop:Settings.Default}}"></Setter>
     </Style>
 
     <Style TargetType="TextBlock" x:Key="SummaryTextStyle">
