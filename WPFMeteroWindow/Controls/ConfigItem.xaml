@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:WPFMeteroWindow.Controls"
              xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
              xmlns:res="clr-namespace:WPFMeteroWindow.Resources.localizations"
+             xmlns:controls="clr-namespace:WPFMeteroWindow.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="80" 
              d:DesignWidth="400"
@@ -23,13 +24,13 @@
         </Style>
     </UserControl.Resources>
 
-    <Border
+    <controls:ClippingBorder
         x:Name="ItemBorder"
         Height="80"
         Background="{Binding ElementName=SkinItem, Path=MainBackgroundColor}"
         CornerRadius="10" BorderBrush="{Binding Path=SecondBackgroundColor ,Source={x:Static prop:Settings.Default}}"
         BorderThickness="1" 
-        Padding="12 4 12 4"
+        
         
         MouseEnter="ItemBorder_MouseEnter"
         MouseLeave="ItemBorder_MouseLeave"
@@ -46,70 +47,56 @@
         </Border.Effect>
 
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="0.7*"></RowDefinition>
-            </Grid.RowDefinitions>
+            <Image
+                x:Name="_backgroundImage"
+                Stretch="UniformToFill">
 
-            
-
-            <Rectangle
-                Grid.RowSpan="2"
-                RadiusX="10" RadiusY="10"
-                Margin="-12 -4 -12 -4">
-
-                <Rectangle.Effect>
-                    <BlurEffect 
+                <Image.Effect>
+                    <BlurEffect
                         x:Name="_imageBlurEffect"
                         Radius="0">
                     </BlurEffect>
-                </Rectangle.Effect>
+                </Image.Effect>
+            </Image>
 
-                <Rectangle.OpacityMask>
-                    <RadialGradientBrush>
-                        <GradientStop Color="#00000000" Offset="0"/>
-                        <GradientStop Color="Black" Offset="1"/>
-                    </RadialGradientBrush>
-                </Rectangle.OpacityMask>
+            <Grid Margin="12 4 12 4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="0.7*"></RowDefinition>
+                </Grid.RowDefinitions>
 
-                <Rectangle.Fill>
-                    <ImageBrush
-                        x:Name="_backgroundImage"
-                        Stretch="UniformToFill">
-                    </ImageBrush>
-                </Rectangle.Fill>
-            </Rectangle>
-
-            <TextBlock
-                x:Name="_configNameTextBlock"
-                Grid.Row="0"
+                <TextBlock
+                    x:Name="_configNameTextBlock"
+                    Grid.Row="0"
             
-                Style="{StaticResource TextBlockSkinStyle}"
-                FontSize="24"
-                d:Text="NiceStyle.lml">
-            </TextBlock>
+                    Style="{StaticResource TextBlockSkinStyle}"
+                    FontSize="24"
+                    d:Text="NiceStyle.lml">
+                </TextBlock>
 
-            <TextBlock
-                Grid.Row="0"
-                TextAlignment="Right"
+                <TextBlock
+                    Grid.Row="0"
+                    TextAlignment="Right"
             
-                Style="{StaticResource TextBlockSkinStyle}"
-                FontSize="24"
-                d:Text="App appearance"
-                Text="{x:Static res:Resources.uAppAppearance}">
-            </TextBlock>
+                    Style="{StaticResource TextBlockSkinStyle}"
+                    FontSize="24"
+                    d:Text="App appearance"
+                    Text="{x:Static res:Resources.uAppAppearance}">
+                </TextBlock>
 
-            <TextBlock
-                x:Name="_configPathTextBlock"
+                <TextBlock
+                    x:Name="_configPathTextBlock"
                 
-                Grid.Row="1"
-                TextAlignment="Right"
+                    Grid.Row="1"
+                    TextAlignment="Right"
+                    HorizontalAlignment="Right"
             
-                Style="{StaticResource TextBlockSkinStyle}"
-                VerticalAlignment="Top"
-                FontSize="16"
-                d:Text="...\assets\styles\nisestyle.lml">
-            </TextBlock>
+                    Style="{StaticResource TextBlockSkinStyle}"
+                    VerticalAlignment="Top"
+                    FontSize="16"
+                    d:Text="...\assets\styles\nisestyle.lml">
+                </TextBlock>
+            </Grid>
         </Grid>
-    </Border>
+    </controls:ClippingBorder>
 </UserControl>

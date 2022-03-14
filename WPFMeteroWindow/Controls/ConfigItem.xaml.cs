@@ -79,7 +79,7 @@ namespace WPFMeteroWindow.Controls
                     ImagePath = $"{AppDomain.CurrentDomain.BaseDirectory}\\{ImagePath}";
                 }
 
-                _backgroundImage.ImageSource  = new BitmapImage(new Uri(ImagePath));
+                _backgroundImage.Source  = new BitmapImage(new Uri(ImagePath));
                 _imageBlurEffect.Radius = BlurRadius;
             }
         }
