@@ -15,6 +15,7 @@
         Width="770">
 
         <WrapPanel
+            VerticalAlignment="Bottom"
             x:Name="TextInputWrapPanel"
             Height="180">
         </WrapPanel>
@@ -26,10 +27,13 @@
             Foreground="{Binding KeyboardErrorHighlightColor, Source={x:Static prop:Settings.Default}}"
             
             Visibility="Hidden"
+            d:Visibility="Visible"
+            d:Text="There's mistakes"
+            Margin="0 -30 0 0"
             x:Name="ErrorInputTextBlock"
             
             VerticalAlignment="Top"
-            HorizontalAlignment="Left"
+            HorizontalAlignment="Center"
             Padding="6 3 6 3">
         </TextBlock>
     </Grid>

@@ -22,10 +22,11 @@ namespace WPFMeteroWindow.Controls.TextInputControls.Competitive
         private List<Run> _chacacterRuns = new List<Run>(capacity: 1000);
         private List<TextBlock> _textBlocks = new List<TextBlock>(capacity: 200);
 
-        private Brush _highlightBrush, _baseBrush;
+        private SolidColorBrush _highlightBrush, _baseBrush;
 
         private Style _textBlockStyle = new Style(typeof(TextBlock));
         private Style _highlightedTextBlockStyle = new Style(typeof(TextBlock));
+        private Style _raidedTextBlockStyle = new Style(typeof(TextBlock));
 
         private int HighlightingRunIndex
         {
@@ -81,9 +82,14 @@ namespace WPFMeteroWindow.Controls.TextInputControls.Competitive
 
                 if (HighlightingRunIndex > 0)
                 {
-                    var point = RunPosition(_chacacterRuns[HighlightingRunIndex], _textBlocks[HighlightingTextBlockIndex], TextInputWrapPanel);
-                    Canvas.SetLeft(ErrorInputTextBlock, point.X);
-                    Canvas.SetTop(ErrorInputTextBlock, point.Y);
+                    try
+                    {
+                        var point = RunPosition(_chacacterRuns[HighlightingRunIndex], _textBlocks[HighlightingTextBlockIndex], TextInputWrapPanel);
+                        Canvas.SetLeft(ErrorInputTextBlock, point.X);
+                        Canvas.SetTop(ErrorInputTextBlock, point.Y);
+                    }
+                    
+                    catch { }
                 }
             }
         }
@@ -95,23 +101,15 @@ namespace WPFMeteroWindow.Controls.TextInputControls.Competitive
         }
 
         public string AllText { get; set; }
-        public string ErrorText
-        {
-            get => ErrorInputTextBlock.Text;
-            set
-            {
-                ErrorInputTextBlock.Text = value;
-                ErrorInputTextBlock.Visibility = string.IsNullOrEmpty(value) ? Visibility.Hidden : Visibility.Visible;
-            }
-        }
+        public string ErrorText { get; set; }
 
         public Competitive()
         {
             InitializeComponent();
 
-            var dictionary = (ResourceDictionary)Application.LoadComponent(new Uri("\\Resources\\dictionaries\\Styles.xaml", UriKind.Relative));
-            _textBlockStyle = (Style)dictionary["CompetitiveTextStyle"];
-            _highlightedTextBlockStyle = (Style)dictionary["HighlightedCompititiveTextStyle"];
+            _textBlockStyle = XamlManager.FindResource<Style>("CompetitiveTextStyle");
+            _highlightedTextBlockStyle = XamlManager.FindResource<Style>("HighlightedCompititiveTextStyle");
+            _raidedTextBlockStyle = XamlManager.FindResource<Style>("RaidedCompetitiveTextStyle");
 
             LessonManager.TextInputPresenter.TextInputWay = this;
             if (Settings.Default.IsFirstTextInputOpen)
@@ -231,6 +229,7 @@ namespace WPFMeteroWindow.Controls.TextInputControls.Competitive
                 return;
 
             _chacacterRuns[index].TextDecorations = TextDecorations.Underline;
+
             if (index == 0) return;
 
             _chacacterRuns[index - 1].TextDecorations = null;
@@ -244,7 +243,7 @@ namespace WPFMeteroWindow.Controls.TextInputControls.Competitive
             _textBlocks[index].Style = _highlightedTextBlockStyle;
             if (index == 0) return;
 
-            _textBlocks[index - 1].Style = _textBlockStyle;
+            _textBlocks[index - 1].Style = _raidedTextBlockStyle;
         }
 
         private Point RelativePoint(UIElement element, UIElement relativeTo) =>
