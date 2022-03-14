@@ -35,7 +35,7 @@
             x:Name="BackGrid"
             Height="165"
             Width="360"
-            Margin="-30 -8 -30 -8"
+            Margin="-12 -8 -26 -8"
             
             Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
 
