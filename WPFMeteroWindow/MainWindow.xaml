@@ -740,7 +740,7 @@
 
             <Rectangle
                 x:Name="TypingProgressIndicator"
-                Fill="{Binding Path=KeyboardHighlightColor ,Source={x:Static prop:Settings.Default}}"
+                Fill="{DynamicResource HighlightBrush}"
             
                 Height="3"
                 Width="0"
