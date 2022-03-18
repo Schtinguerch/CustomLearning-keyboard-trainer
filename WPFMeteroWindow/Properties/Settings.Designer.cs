@@ -1102,5 +1102,29 @@ namespace WPFMeteroWindow.Properties {
                 this["IsEndLessonBackgroundImage"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        public double KeyboardCornerRadius {
+            get {
+                return ((double)(this["KeyboardCornerRadius"]));
+            }
+            set {
+                this["KeyboardCornerRadius"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public double KeyboardBorderThickness {
+            get {
+                return ((double)(this["KeyboardBorderThickness"]));
+            }
+            set {
+                this["KeyboardBorderThickness"] = value;
+            }
+        }
     }
 }
