@@ -76,10 +76,16 @@ namespace WPFMeteroWindow
             Settings.Default.HandsOpacity = reader.GetString("UserConfig>Opacity>HandsOpacity");
             Settings.Default.KeyboardOpacity = reader.GetString("UserConfig>Opacity>KeyboardOpacity");
 
+            Settings.Default.KeyboardCornerRadius = reader.GetString("UserConfig>Keyboard>KeyCornerRadius").Parse();
+            Settings.Default.KeyboardBorderThickness = reader.GetString("UserConfig>Keyboard>BorderThickness").Parse();
+
             SetColor.KeyboardBackground(reader.GetString("UserConfig>Keyboard>KeyColor"));
             SetColor.KeyboardBorder(reader.GetString("UserConfig>Keyboard>BorderColor"));
             SetColor.KeyboardHighlight(reader.GetString("UserConfig>Keyboard>HighlightColor"));
             SetColor.KeyboardErrorHighlight(reader.GetString("UserConfig>Keyboard>MistakeColor"));
+
+            SetColor.AccentColor(reader.GetString("UserConfig>AppColors>AccentColor"));
+            SetColor.BordersColor(reader.GetString("UserConfig>AppColors>BorderColor"));
 
             SetColor.SecondColor(reader.GetString("UserConfig>AppColors>SecondaryColor"));
             SetColor.CommandLineFirstColor(reader.GetString("UserConfig>AppColors>TextBoxColor"));
@@ -176,14 +182,18 @@ namespace WPFMeteroWindow
             data += $"    :Hands>>\n\n";
 
             data += $"    <<Keyboard:\n";
+            data += $"        <KeyCornerRadius {Settings.Default.KeyboardCornerRadius}>>\n";
             data += $"        <KeyColor {Settings.Default.KeyboardBackgroundColor}>>\n";
             data += $"        <BorderColor {Settings.Default.KeyboardBorderColor}>>\n";
+            data += $"        <BorderThickness {Settings.Default.KeyboardBorderThickness}>>\n";
             data += $"        <HighlightColor {Settings.Default.KeyboardHighlightColor}>>\n";
             data += $"        <MistakeColor {Settings.Default.KeyboardErrorHighlightColor}>>\n";
             data += $"    :Keyboard>>\n\n";
 
             data += $"    <<AppColors:\n";
             data += $"        <MainColor {Settings.Default.MainBackground}>>\n";
+            data += $"        <AccentColor {Settings.Default.HighlightColor}>>\n";
+            data += $"        <BorderColor {Settings.Default.BordersColor}>>\n";
             data += $"        <SecondaryColor {Settings.Default.SecondBackground}>>\n";
             data += $"        <TextBoxColor {Settings.Default.ThirdBackground}>>\n";
             data += $"        <SecondaryMenuColor {Settings.Default.ThirdSecBackground}>>\n";
