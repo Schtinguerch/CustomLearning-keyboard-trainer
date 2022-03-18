@@ -14,11 +14,50 @@
     <SolidColorBrush x:Key="RaidedFontColor" Color="{Binding Path=RaidedFontColor, Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
     <SolidColorBrush x:Key="KeyboardHighlightColor" Color="{Binding Path=KeyboardHighlightColor, Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
     <SolidColorBrush x:Key="KeyboardErrorHighlightColor" Color="{Binding Path=KeyboardErrorHighlightColor, Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
+    <SolidColorBrush x:Key="KeyboardBackgroundColor" Color="{Binding Path=KeyboardBackgroundColor, Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
+    <SolidColorBrush x:Key="KeyboardBorderColor" Color="{Binding Path=KeyboardBorderColor, Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
+    <SolidColorBrush x:Key="KeyboardFontColor" Color="{Binding Path=KeyboardFontColor, Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
 
     <SolidColorBrush x:Key="PassedIndicatorBrush" Color="{Binding KeyboardHighlightColor, Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
     <SolidColorBrush x:Key="NotPassedIndicatorBrush" Color="{Binding KeyboardErrorHighlightColor, Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
     <SolidColorBrush x:Key="FailedIndicatorBrush" Color="{Binding SummaryFontColor, Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
 
+    <Style TargetType="TextBlock" x:Key="KeyboardTextBlockStyle">
+        <Setter Property="Foreground" Value="{DynamicResource KeyboardFontColor}"></Setter>
+        <Setter Property="FontFamily" Value="{Binding Path=KeyboardFont, Source={x:Static prop:Settings.Default}}"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="FontSize" Value="22"></Setter>
+
+        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="SmallKeyboardTextBlockStyle" BasedOn="{StaticResource KeyboardTextBlockStyle}">
+        <Setter Property="FontSize" Value="12"></Setter>
+    </Style>
+
+    <Style TargetType="Button" x:Key="KeyboardButtonStyle">
+        <Setter Property="Background" Value="{DynamicResource KeyboardBackgroundColor}"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource KeyboardBorderColor}"></Setter>
+        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border 
+                        CornerRadius="{Binding KeyboardCornerRadius, Source={x:Static prop:Settings.Default}}"
+                        BorderThickness="{Binding KeyboardBorderThickness, Source={x:Static prop:Settings.Default}}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}">
+
+                        <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center">
+                        </ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
     <Style TargetType="TextBox" x:Key="MainEditorStyle">
         <Setter Property="FontFamily" Value="{Binding LessonLettersFont, Source={x:Static prop:Settings.Default}}"></Setter>
