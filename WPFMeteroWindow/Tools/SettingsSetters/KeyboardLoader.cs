@@ -98,37 +98,52 @@ namespace WPFMeteroWindow
 
             targetButton.Content = grid;
 
-            var textBlockStyle = new Style(typeof(TextBlock))
-            {
-                Setters =
-                {
-                    new Setter(TextBlock.ForegroundProperty, new BrushConverter().ConvertFromString(Settings.Default.KeyboardFontColor) as SolidColorBrush),
-                    new Setter(TextBlock.FontFamilyProperty, new FontFamily(Settings.Default.KeyboardFont)),
-                    new Setter(TextBlock.FontSizeProperty, (double) 22),
-                    new Setter(TextBlock.VerticalAlignmentProperty, VerticalAlignment.Center),
-                    new Setter(TextBlock.HorizontalAlignmentProperty, HorizontalAlignment.Center),
-                }
-            };
-
-            var smallTextBlockStyle = textBlockStyle;
-            smallTextBlockStyle.Setters[2] = new Setter(TextBlock.FontSizeProperty, (double)12);
+            var textBlockStyle = XamlManager.FindResource<Style>("KeyboardTextBlockStyle");
+            var smallTextBlockStyle = XamlManager.FindResource<Style>("SmallKeyboardTextBlockStyle");
 
             TextBlock defaultTextBlock;
             if (isModifierKey)
             {
                 defaultTextBlock = new TextBlock()
-                { Text = defaultKey, Style = textBlockStyle };
+                { Text = defaultKey, Style = smallTextBlockStyle };
             }
             else
             {
                 defaultTextBlock = new TextBlock()
-                { Text = (defaultKey.Length != 2) ? (defaultKey.ToUpper() == shiftKey? defaultKey.ToUpper() : defaultKey) : defaultKey[1].ToString(), Style = textBlockStyle, FontSize = 22d };
+                { 
+                    Text = (defaultKey.Length != 2) ? 
+                        (defaultKey.ToUpper() == shiftKey? defaultKey.ToUpper() : defaultKey) 
+                        : defaultKey[1].ToString(), 
+
+                    Style = textBlockStyle
+                };
             }
 
             TextBlock
-                shiftTextBlock = new TextBlock() { Text = (defaultKey.Length != 2) ? (defaultKey.ToUpper() != shiftKey) ? shiftKey : "" : defaultKey[1].ToString(), Style = smallTextBlockStyle },
-                altGrTextBlock = new TextBlock() { Text = (altGrKey.Length != 2) ? altGrKey : altGrKey[1].ToString(), Style = smallTextBlockStyle },
-                shiftAltGrTextBlock = new TextBlock() { Text = (shiftAltGrKey.Length != 2) ? shiftAltGrKey : shiftAltGrKey[1].ToString(), Style = smallTextBlockStyle };
+                shiftTextBlock = new TextBlock() 
+                { 
+                    Text = (defaultKey.Length != 2) ? 
+                        (defaultKey.ToUpper() != shiftKey) ? shiftKey : "" 
+                        : defaultKey[1].ToString(), 
+
+                    Style = smallTextBlockStyle 
+                },
+
+                altGrTextBlock = new TextBlock() 
+                { 
+                    Text = (altGrKey.Length != 2) ? 
+                        altGrKey : altGrKey[1].ToString(), 
+
+                    Style = smallTextBlockStyle 
+                },
+
+                shiftAltGrTextBlock = new TextBlock() 
+                { 
+                    Text = (shiftAltGrKey.Length != 2) ? shiftAltGrKey 
+                        : shiftAltGrKey[1].ToString(), 
+                    
+                    Style = smallTextBlockStyle 
+                };
 
             Grid.SetColumn(defaultTextBlock, 0);
             Grid.SetRow(defaultTextBlock, 0);
@@ -150,19 +165,14 @@ namespace WPFMeteroWindow
 
         public static void SetContent(Button targetButton, string[] keys) =>
             SetContent(targetButton, keys[0], keys[1], keys[2], keys[3]);
-    
 
         private static Button NewKeyboardButton(string defaultKey, string shiftKey, string altGrKey, string shiftAltGrKey)
         {
             var padding = 1d;
-
             var button = new Button()
             {
                 Margin = new Thickness(padding),
-                Background =
-                    new BrushConverter().ConvertFromString(Settings.Default.KeyboardBackgroundColor) as SolidColorBrush,
-                BorderBrush =
-                    new BrushConverter().ConvertFromString(Settings.Default.KeyboardBorderColor) as SolidColorBrush,
+                Style = XamlManager.FindResource<Style>("KeyboardButtonStyle"),
             };
 
             SetContent(button, defaultKey, shiftKey, altGrKey, shiftAltGrKey);
