@@ -83,6 +83,18 @@ namespace WPFMeteroWindow
                 Settings.Default.SecondBackground = color;
         }
 
+        public static void AccentColor(string color)
+        {
+            if (color.IsValidColor())
+                Settings.Default.HighlightColor = color;
+        }
+
+        public static void BordersColor(string color)
+        {
+            if (color.IsValidColor())
+                Settings.Default.BordersColor = color;
+        }
+
         public static void CommandLineFirstColor(string color)
         {
             if (color.IsValidColor())
