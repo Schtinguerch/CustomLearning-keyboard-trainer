@@ -19,8 +19,9 @@
                 <Ellipse.Fill>
                     <RadialGradientBrush>
                         <GradientStop Color="Transparent" Offset="0"/>
-                        <GradientStop Color="{Binding Path=KeyboardHighlightColor ,Source={x:Static prop:Settings.Default}}" Offset="0.4"/>
-                        <GradientStop Color="{Binding Path=KeyboardHighlightColor ,Source={x:Static prop:Settings.Default}}" Offset="0.547"/>
+                        <GradientStop Color="Transparent" Offset="0.3"/>
+                        <GradientStop Color="{Binding Path=HighlightColor ,Source={x:Static prop:Settings.Default}}" Offset="0.65"/>
+                        <GradientStop Color="{Binding Path=HighlightColor ,Source={x:Static prop:Settings.Default}}" Offset="0.65"/>
                         <GradientStop Color="Transparent" Offset="1"/>
                     </RadialGradientBrush>
                 </Ellipse.Fill>
@@ -32,11 +33,11 @@
                 <DropShadowEffect 
                     ShadowDepth="0"
                     BlurRadius="20"
-                    Color="{Binding Path=KeyboardHighlightColor ,Source={x:Static prop:Settings.Default}}">
+                    Color="{Binding Path=HighlightColor ,Source={x:Static prop:Settings.Default}}">
                 </DropShadowEffect>
             </Grid.Effect>
-            
-            <Path Fill="{Binding Path=KeyboardHighlightColor ,Source={x:Static prop:Settings.Default}}">
+
+            <Path Fill="{DynamicResource HighlightBrush}">
                 <Path.Data>
                     <CombinedGeometry GeometryCombineMode="Exclude">
                         <CombinedGeometry.Geometry1>
@@ -56,6 +57,97 @@
                         </CombinedGeometry.Geometry2>
                     </CombinedGeometry>
                 </Path.Data>
+            </Path>
+        </Grid>
+
+        <Grid x:Name="CrossDonut">
+            <Line
+                Stroke="{DynamicResource HighlightBrush}"
+                StrokeThickness="2"
+                X1="3"
+                Y1="3"
+                X2="8"
+                Y2="8">
+            </Line>
+
+            <Line
+                Stroke="{DynamicResource HighlightBrush}"
+                StrokeThickness="2"
+                X1="17"
+                Y1="3"
+                X2="12"
+                Y2="8">
+            </Line>
+
+            <Line
+                Stroke="{DynamicResource HighlightBrush}"
+                StrokeThickness="2"
+                X1="3"
+                Y1="17"
+                X2="8"
+                Y2="12">
+            </Line>
+
+            <Line
+                Stroke="{DynamicResource HighlightBrush}"
+                StrokeThickness="2"
+                X1="12"
+                Y1="12"
+                X2="17"
+                Y2="17">
+            </Line>
+        </Grid>
+
+        <Grid x:Name="CursorDonut">
+            <Path
+                Fill="{DynamicResource HighlightBrush}"
+                Data="M 0 0 L 0 16 L 5 11 L 12 11 L 0 0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            </Path>
+        </Grid>
+
+        <Grid x:Name="DotsDonut">
+            <Ellipse
+                Fill="{DynamicResource HighlightBrush}"
+                Width="5"
+                Height="5"
+                HorizontalAlignment="Left">
+            </Ellipse>
+
+            <Ellipse
+                Fill="{DynamicResource HighlightBrush}"
+                Width="5"
+                Height="5"
+                HorizontalAlignment="Right">
+            </Ellipse>
+
+            <Ellipse
+                Fill="{DynamicResource HighlightBrush}"
+                Width="5"
+                Height="5"
+                VerticalAlignment="Top">
+            </Ellipse>
+
+            <Ellipse
+                Fill="{DynamicResource HighlightBrush}"
+                Width="5"
+                Height="5"
+                VerticalAlignment="Bottom">
+            </Ellipse>
+        </Grid>
+
+        <Grid x:Name="RhombusDonut">
+            <Path
+                Fill="{DynamicResource HighlightBrush}"
+                Data="M 0 7.5 L 7.5 0 L 15 7.5 L 12.5 7.5 L 7.5 2.5 L 2.5 7.5 L 0 7.5 M 0 7.5 L 7.5 15 L 15 7.5 L 12.5 7.5 L 7.5 12.5 L 2.5 7.5"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                RenderTransformOrigin="0.5 0.5">
+
+                <Path.RenderTransform>
+                    <ScaleTransform ScaleX="1.2" ScaleY="1.2"></ScaleTransform>
+                </Path.RenderTransform>
             </Path>
         </Grid>
     </WrapPanel>
