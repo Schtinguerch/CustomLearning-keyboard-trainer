@@ -497,7 +497,13 @@ namespace WPFMeteroWindow
             return new List<T>(list);
         }
 
-        public static double Parse(this string line) =>
-            double.Parse(line.Replace(",", "."), CultureInfo.InvariantCulture);
+        public static double Parse(this string line)
+        {
+            if (string.IsNullOrWhiteSpace(line)) 
+                return 0d;
+
+            return double.Parse(line.Replace(",", "."), CultureInfo.InvariantCulture);
+        }
+            
     }
 }
