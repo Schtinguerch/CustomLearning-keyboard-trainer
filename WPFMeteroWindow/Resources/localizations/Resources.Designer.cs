@@ -1276,6 +1276,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Цвет подсветки.
+        /// </summary>
+        public static string uSettAccentColor {
+            get {
+                return ResourceManager.GetString("uSettAccentColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Анимации.
         /// </summary>
         public static string uSettAnimations {
@@ -1308,6 +1317,15 @@ namespace WPFMeteroWindow.Resources.localizations {
         public static string uSettBlurImageLessonStart {
             get {
                 return ResourceManager.GetString("uSettBlurImageLessonStart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Цвет границ элементов управления.
+        /// </summary>
+        public static string uSettBordersColor {
+            get {
+                return ResourceManager.GetString("uSettBordersColor", resourceCulture);
             }
         }
         
@@ -1429,11 +1447,29 @@ namespace WPFMeteroWindow.Resources.localizations {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Толщина границы клавиш.
+        /// </summary>
+        public static string uSettKbBorderThickness {
+            get {
+                return ResourceManager.GetString("uSettKbBorderThickness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Цвет клавиш.
         /// </summary>
         public static string uSettKbButtonsColor {
             get {
                 return ResourceManager.GetString("uSettKbButtonsColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Радиус закругления углов.
+        /// </summary>
+        public static string uSettKbCornerRadius {
+            get {
+                return ResourceManager.GetString("uSettKbCornerRadius", resourceCulture);
             }
         }
         

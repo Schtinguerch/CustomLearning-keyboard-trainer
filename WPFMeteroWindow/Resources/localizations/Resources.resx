@@ -522,6 +522,9 @@
   <data name="uSave" xml:space="preserve">
     <value>Сохранить</value>
   </data>
+  <data name="uSettAccentColor" xml:space="preserve">
+    <value>Цвет подсветки</value>
+  </data>
   <data name="uSettAnimations" xml:space="preserve">
     <value>Анимации</value>
   </data>
@@ -533,6 +536,9 @@
   </data>
   <data name="uSettBlurImageLessonStart" xml:space="preserve">
     <value>Размытие изображения в начале урока</value>
+  </data>
+  <data name="uSettBordersColor" xml:space="preserve">
+    <value>Цвет границ элементов управления</value>
   </data>
   <data name="uSettBrush" xml:space="preserve">
     <value>Сплошной цвет</value>
@@ -573,8 +579,14 @@
   <data name="uSettKbBorderColor" xml:space="preserve">
     <value>Цвет границы клавиш</value>
   </data>
+  <data name="uSettKbBorderThickness" xml:space="preserve">
+    <value>Толщина границы клавиш</value>
+  </data>
   <data name="uSettKbButtonsColor" xml:space="preserve">
     <value>Цвет клавиш</value>
+  </data>
+  <data name="uSettKbCornerRadius" xml:space="preserve">
+    <value>Радиус закругления углов</value>
   </data>
   <data name="uSettKbErrorHighlightColor" xml:space="preserve">
     <value>Цвет ошибочно нажатых клавиш</value>

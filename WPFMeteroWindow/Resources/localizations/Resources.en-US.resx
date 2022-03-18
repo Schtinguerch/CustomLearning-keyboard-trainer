@@ -522,6 +522,9 @@
   <data name="uSave" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="uSettAccentColor" xml:space="preserve">
+    <value>Accent color</value>
+  </data>
   <data name="uSettAnimations" xml:space="preserve">
     <value>Animations</value>
   </data>
@@ -533,6 +536,9 @@
   </data>
   <data name="uSettBlurImageLessonStart" xml:space="preserve">
     <value>Blur up image when lesson starts</value>
+  </data>
+  <data name="uSettBordersColor" xml:space="preserve">
+    <value>Control border color</value>
   </data>
   <data name="uSettBrush" xml:space="preserve">
     <value>Color brush</value>
@@ -573,8 +579,14 @@
   <data name="uSettKbBorderColor" xml:space="preserve">
     <value>Key border color</value>
   </data>
+  <data name="uSettKbBorderThickness" xml:space="preserve">
+    <value>Key border thickness</value>
+  </data>
   <data name="uSettKbButtonsColor" xml:space="preserve">
     <value>Key background</value>
+  </data>
+  <data name="uSettKbCornerRadius" xml:space="preserve">
+    <value>Key corner radius</value>
   </data>
   <data name="uSettKbErrorHighlightColor" xml:space="preserve">
     <value>Mistaken key highlight color</value>
