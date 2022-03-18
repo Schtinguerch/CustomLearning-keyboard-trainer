@@ -7,12 +7,22 @@
       xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
       xmlns:mw="clr-namespace:WPFMeteroWindow"
       mc:Ignorable="d" 
-      d:DesignHeight="180" d:DesignWidth="800"
+      d:DesignWidth="800"
       VerticalAlignment="Bottom"
       Title="Competitive">
 
     <Grid 
-        Width="770">
+        Width="770"
+        Height="180"
+        Background="Transparent">
+
+        <Grid.OpacityMask>
+            <LinearGradientBrush StartPoint="0 0" EndPoint="0 1">
+                <GradientStop Color="Black" Offset="0"></GradientStop>
+                <GradientStop Color="Black" Offset="0.5"></GradientStop>
+                <GradientStop Color="Transparent" Offset="0.92"></GradientStop>
+            </LinearGradientBrush>
+        </Grid.OpacityMask>
 
         <WrapPanel
             VerticalAlignment="Bottom"
