@@ -14,6 +14,10 @@ namespace WPFMeteroWindow
         //56 - spacebar button
         private int _previousButtonIndex = 56;
 
+        private SolidColorBrush _basicBrush = XamlManager.FindResource<SolidColorBrush>("KeyboardBackgroundColor");
+        private SolidColorBrush _highlightBrush = XamlManager.FindResource<SolidColorBrush>("KeyboardHighlightColor");
+        private SolidColorBrush _errorHighlightBrush = XamlManager.FindResource<SolidColorBrush>("KeyboardErrorHighlightColor");
+
         public LightingDonut[] Donuts { get; set; }
 
         public void ShowTheNecessaryHints(char character)
@@ -28,10 +32,7 @@ namespace WPFMeteroWindow
                     {
                         if ((Intermediary.KeyboardData.keys[i][j] != "") && (Intermediary.KeyboardData.keys[i][j] != null))
                         {
-                            Intermediary.KeyboardData.buttons[i].Background =
-                                new BrushConverter().ConvertFromString(Settings.Default.KeyboardBackgroundColor)
-                                    as SolidColorBrush;
-
+                            Intermediary.KeyboardData.buttons[i].Background = _basicBrush;
                             var keyCode = Intermediary.KeyboardData.keys[i][j];
                             
                             if (keyCode[0] == character && keyCode.Length < 2 || (keyCode.Length == 2 && keyCode[1] == character))
@@ -44,9 +45,7 @@ namespace WPFMeteroWindow
                 }
                 
                 ShowTextHint(keyIndex, statusIndex);
-
-                Intermediary.KeyboardData.buttons[keyIndex].Background =
-                    new BrushConverter().ConvertFromString(Settings.Default.KeyboardHighlightColor) as SolidColorBrush;
+                Intermediary.KeyboardData.buttons[keyIndex].Background = _highlightBrush;
 
                 PressButtonAnimation(Intermediary.KeyboardData.buttons[_previousButtonIndex]);
                 SplashAnimation(_previousButtonIndex);
@@ -157,9 +156,8 @@ namespace WPFMeteroWindow
                         if ((Intermediary.KeyboardData.keys[i][j] != "") && (Intermediary.KeyboardData.keys[i][j] != null))
                             if (Intermediary.KeyboardData.keys[i][j][0] == errorCharacter && Intermediary.KeyboardData.keys[i][j].Length < 2)
                                 keyIndex = i;
-                
-                Intermediary.KeyboardData.buttons[keyIndex].Background 
-                    = new BrushConverter().ConvertFromString(Settings.Default.KeyboardErrorHighlightColor) as SolidColorBrush;
+
+                Intermediary.KeyboardData.buttons[keyIndex].Background = _errorHighlightBrush;
             }
             
             catch { }
@@ -195,33 +193,23 @@ namespace WPFMeteroWindow
                 
                 else if (statusIndex == 1)
                 {
-                    Intermediary.KeyboardData.buttons[52].Background =
-                        new BrushConverter().ConvertFromString(Settings.Default.KeyboardHighlightColor)
-                            as SolidColorBrush;
-                    
+                    Intermediary.KeyboardData.buttons[52].Background = _highlightBrush;
                     Intermediary.App.rightHandTextBlock.Text = $"+ {Localization.uRight}{Localization.uPinky}Shift";
                 }
                 
                 else if (statusIndex == 2)
                 {
-                    Intermediary.KeyboardData.buttons[57].Background =
-                        new BrushConverter().ConvertFromString(Settings.Default.KeyboardHighlightColor)
-                            as SolidColorBrush;
-                    
+                    Intermediary.KeyboardData.buttons[57].Background = _highlightBrush;
                     Intermediary.App.rightHandTextBlock.Text = $"+ {Localization.uRight}{Localization.uThumb}AltGr";
                 }
                 
                 else if (statusIndex == 3)
                 {
-                    Intermediary.KeyboardData.buttons[52].Background =
-                        new BrushConverter().ConvertFromString(Settings.Default.KeyboardHighlightColor)
-                            as SolidColorBrush;
-                    
-                    Intermediary.KeyboardData.buttons[57].Background =
-                        new BrushConverter().ConvertFromString(Settings.Default.KeyboardHighlightColor)
-                            as SolidColorBrush;
-                    
-                    Intermediary.App.rightHandTextBlock.Text = $"+ {Localization.uRight}{Localization.uPinky}Shift + {Localization.uRight}{Localization.uThumb}AltGr";
+                    Intermediary.KeyboardData.buttons[52].Background = _highlightBrush;
+                    Intermediary.KeyboardData.buttons[57].Background = _highlightBrush;
+
+                    Intermediary.App.rightHandTextBlock.Text = 
+                        $"+ {Localization.uRight}{Localization.uPinky}Shift + {Localization.uRight}{Localization.uThumb}AltGr";
                 }
             }
             
@@ -248,33 +236,23 @@ namespace WPFMeteroWindow
                 
                 else if (statusIndex == 1)
                 {
-                    Intermediary.KeyboardData.buttons[41].Background =
-                        new BrushConverter().ConvertFromString(Settings.Default.KeyboardHighlightColor)
-                            as SolidColorBrush;
-                    
+                    Intermediary.KeyboardData.buttons[41].Background = _highlightBrush;
                     Intermediary.App.leftHandTextBlock.Text += $" + {Localization.uLeft}{Localization.uPinky}Shift";
                 }
                 
                 else if (statusIndex == 2)
                 {
-                    Intermediary.KeyboardData.buttons[57].Background =
-                        new BrushConverter().ConvertFromString(Settings.Default.KeyboardHighlightColor)
-                            as SolidColorBrush;
-                    
+                    Intermediary.KeyboardData.buttons[57].Background = _highlightBrush;
                     Intermediary.App.leftHandTextBlock.Text += $" + {Localization.uRight}{Localization.uThumb}AltGr";
                 }
                 
                 else if (statusIndex == 3)
                 {
-                    Intermediary.KeyboardData.buttons[41].Background =
-                        new BrushConverter().ConvertFromString(Settings.Default.KeyboardHighlightColor)
-                            as SolidColorBrush;
-                    
-                    Intermediary.KeyboardData.buttons[57].Background =
-                        new BrushConverter().ConvertFromString(Settings.Default.KeyboardHighlightColor)
-                            as SolidColorBrush;
-                    
-                    Intermediary.App.leftHandTextBlock.Text += $" + {Localization.uLeft}{Localization.uPinky}Shift + {Localization.uRight}{Localization.uThumb}AltGr";
+                    Intermediary.KeyboardData.buttons[41].Background = _highlightBrush;
+                    Intermediary.KeyboardData.buttons[57].Background = _highlightBrush;
+
+                    Intermediary.App.leftHandTextBlock.Text += 
+                        $" + {Localization.uLeft}{Localization.uPinky}Shift + {Localization.uRight}{Localization.uThumb}AltGr";
                 }
             }
         }
