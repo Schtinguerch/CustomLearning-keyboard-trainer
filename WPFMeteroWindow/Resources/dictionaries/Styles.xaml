@@ -5,6 +5,9 @@
     xmlns:prop="clr-namespace:WPFMeteroWindow.Properties"
     xmlns:controls="clr-namespace:WPFMeteroWindow.Controls">
 
+    <SolidColorBrush x:Key="FirstColor" Color="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
+    <SolidColorBrush x:Key="SecondColor" Color="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
+    
     <SolidColorBrush x:Key="BackgroundBrush" Color="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
     <SolidColorBrush x:Key="ForegroundBrush" Color="{Binding Path=SummaryFontColor ,Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
     <SolidColorBrush x:Key="HighlightBrush" Color="{Binding Path=HighlightColor ,Source={x:Static prop:Settings.Default}}"></SolidColorBrush>
