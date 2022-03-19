@@ -15,7 +15,6 @@ using WPFMeteroWindow.Controls;
 using Visibility = System.Windows.Visibility;
 using System.IO;
 using System.Linq;
-using Thread = System.Threading.Thread;
 using System.Windows.Documents;
 using System.Windows.Media;
 
