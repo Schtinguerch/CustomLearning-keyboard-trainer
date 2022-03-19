@@ -9,13 +9,12 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml"></ResourceDictionary>
-
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml"></ResourceDictionary> 
+                
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/steel.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml"></ResourceDictionary>
+                
                 <ResourceDictionary Source="Resources/dictionaries/Styles.xaml"></ResourceDictionary>
-
                 <ResourceDictionary Source="Resources/dictionaries/CustomLearningUI/TextBoxes.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Resources/dictionaries/CustomLearningUI/Buttons.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Resources/dictionaries/CustomLearningUI/ComboBoxes.xaml"></ResourceDictionary>
