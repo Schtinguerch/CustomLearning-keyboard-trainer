@@ -14,8 +14,6 @@ using Localization = WPFMeteroWindow.Resources.localizations.Resources;
 using System.Windows.Media.Animation;
 using WPFMeteroWindow.Controls;
 using DataFormats = System.Windows.DataFormats;
-using System.Globalization;
-using System.Threading;
 
 namespace WPFMeteroWindow.Resources.pages
 {
@@ -31,40 +29,7 @@ namespace WPFMeteroWindow.Resources.pages
         private int _chosenItemIndex = 0;
 
         private Storyboard _showHighlightStoryboard;
-
-        private string _defaultColorScheme;
-
         private string _defaultBackgroundColor;
-        private Theme _defaultTheme;
-
-        private readonly List<string> _windowColors = new List<string>()
-        {
-            "amber",
-            "blue",
-            "brown",
-            "cobalt",
-            "crimson",
-            "cyan",
-            "emerald",
-            "green",
-            "indigo",
-            "lime",
-            "magenta",
-            "mauve",
-            "olive",
-            "orange",
-            "pink",
-            "purple",
-            "red",
-            "sienna",
-            "steel",
-            "taupe",
-            "teal",
-            "violet",
-            "yellow"
-        };
-
-        
 
         private void SetYesOrNo(string target, string text)
         {
@@ -181,28 +146,12 @@ namespace WPFMeteroWindow.Resources.pages
 
             _loadImage = false;
             _showHighlightStoryboard = FindResource("HighlightSearchResultStoryboard") as Storyboard;
-
-            WindowColors.Items.Clear();
-            foreach (var color in _windowColors)
-                WindowColors.Items.Add(color);
-
-            if (Settings.Default.ThemeResourceDictionary.Contains("BaseLight"))
-                _defaultTheme = Theme.Light;
-            else
-                _defaultTheme = Theme.Dark;
-
-            _defaultColorScheme = Settings.Default.ColorSchemeResourceDictionary.Split(new[] {'/'}).Last()
-                .Split(new[] {'.'})[0];
-
-            WindowColors.Text = _defaultColorScheme;
-            _defaultBackgroundColor = BackGrid.Background.ToString();
-
             Intermediary.RichPresentManager.Update("Settings", "Configuring the trainer's setup", "");
 
             this.KeyDown += (s, e) =>
             {
                 if (e.Key == Key.Escape)
-                    PageManager.HidePages();
+                    DiscardButton_Click(null, null);
             };
 
             if (Settings.Default.CurrentLayout == 1)
@@ -221,7 +170,6 @@ namespace WPFMeteroWindow.Resources.pages
             GraphicsQualityComboBox.Text = Settings.Default.GraphicsQuality;
 
             RequireWPMtextBox.Text = Settings.Default.RequireWPM ? Localization.uYes : Localization.uNo;
-            WindowTheme.Text = Settings.Default.ThemeResourceDictionary.ToLower().Contains("light") ? Localization.uLight : Localization.uDark;
 
             foreach (var key in Intermediary.KeyboardShapesDictionary.Keys)
                 TypingAnimationComboBox.Items.Add(key);
@@ -301,7 +249,9 @@ namespace WPFMeteroWindow.Resources.pages
             SetFont.MainLetters(Settings.Default.LessonLettersFont);
 
             if (!Settings.Default.IsBackgroundImage)
-                SetColor.FirstColor(_defaultBackgroundColor);
+                SetColor.WindowStandardColor();
+            else
+                SetColor.WindowBackgroundImage(Settings.Default.BackgroundImagePath);
 
             Intermediary.App.ImageBlurEffect.Radius = Settings.Default.BackgroundBlurRadius.Parse();
             Intermediary.App.MouseSplashShape.Shape = Intermediary.MouseShapesDictionary[Settings.Default.ChosenClickSplashName];
@@ -329,6 +279,24 @@ namespace WPFMeteroWindow.Resources.pages
 
             Settings.Default.BackgroundBlurRadius = value.ToString();
             Intermediary.App.ImageBlurEffect.Radius = value;
+
+            if (Mouse.LeftButton == MouseButtonState.Pressed)
+                PageManager.MakeTrasparency();
+        }
+
+        private void KeyCornerRadiusSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            double value = KeysCornerRadiusSlider.Value;
+            Settings.Default.KeyboardCornerRadius = value;
+
+            if (Mouse.LeftButton == MouseButtonState.Pressed)
+                PageManager.MakeTrasparency();
+        }
+
+        private void KeyBorderThicknessSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            double value = KeyBorderThicknessSlider.Value;
+            Settings.Default.KeyboardBorderThickness = value;
 
             if (Mouse.LeftButton == MouseButtonState.Pressed)
                 PageManager.MakeTrasparency();

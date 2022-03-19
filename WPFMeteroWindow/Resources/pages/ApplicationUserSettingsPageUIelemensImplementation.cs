@@ -15,7 +15,13 @@ namespace WPFMeteroWindow.Resources.pages
         
         private void SecondColorButton_OnClick(object sender, RoutedEventArgs e) =>
             ShowColorPicker(SecondColorTextBox);
-        
+
+        private void AccentColorButton_OnClick(object sender, RoutedEventArgs e) =>
+            ShowColorPicker(AccentColorTextBox);
+
+        private void BordersColorButton_OnClick(object sender, RoutedEventArgs e) =>
+            ShowColorPicker(BordersColorTextBox);
+
         private void TextBoxColorButton_OnClick(object sender, RoutedEventArgs e) =>
             ShowColorPicker(TextBoxColorTextBox);
         
@@ -93,7 +99,13 @@ namespace WPFMeteroWindow.Resources.pages
 
         private void SecondColorTextBox_OnTextChanged(object sender, TextChangedEventArgs e) =>
             SetColor.SecondColor(SecondColorTextBox.Text);
-        
+
+        private void AccentColorTextBox_OnTextChanged(object sender, TextChangedEventArgs e) =>
+            SetColor.AccentColor(AccentColorTextBox.Text);
+
+        private void BordersColorTextBox_OnTextChanged(object sender, TextChangedEventArgs e) =>
+            SetColor.BordersColor(BordersColorTextBox.Text);
+
         private void TextBoxColorTextBox_OnTextChanged(object sender, TextChangedEventArgs e) =>
             SetColor.CommandLineFirstColor(TextBoxColorTextBox.Text);
         
