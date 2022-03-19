@@ -260,14 +260,7 @@
         <Grid
             Grid.Row="0"
             Grid.Column="2"
-           Background="{DynamicResource SecondBackgroundOpacityBrush}">
-
-            <!--  <Grid.OpacityMask>
-                <LinearGradientBrush StartPoint="1,0" EndPoint="0,0" Opacity="{Binding MenuOpacity, Source={x:Static prop:Settings.Default}}">
-                    <GradientStop Offset="0" Color="Transparent"></GradientStop>
-                    <GradientStop Offset="1" Color="Black"></GradientStop>
-                </LinearGradientBrush>
-            </Grid.OpacityMask> -->
+            Background="{DynamicResource SecondBackgroundOpacityBrush}">
         </Grid>
 
         <Grid
@@ -276,7 +269,7 @@
             Background="{DynamicResource SecondBackgroundOpacityBrush}">
 
             <Grid.OpacityMask>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0" Opacity="{Binding MenuOpacity, Source={x:Static prop:Settings.Default}}">
+                <LinearGradientBrush StartPoint="0 0" EndPoint="1 0">
                     <GradientStop Offset="0" Color="Transparent"></GradientStop>
                     <GradientStop Offset="1" Color="Black"></GradientStop>
                 </LinearGradientBrush>
@@ -289,7 +282,7 @@
             Background="{DynamicResource SecondBackgroundOpacityBrush}">
 
             <Grid.OpacityMask>
-                <LinearGradientBrush StartPoint="1,0" EndPoint="0,0" Opacity="{Binding MenuOpacity, Source={x:Static prop:Settings.Default}}">
+                <LinearGradientBrush StartPoint="1 0" EndPoint="0 0">
                     <GradientStop Offset="0" Color="Transparent"></GradientStop>
                     <GradientStop Offset="1" Color="Black"></GradientStop>
                 </LinearGradientBrush>
