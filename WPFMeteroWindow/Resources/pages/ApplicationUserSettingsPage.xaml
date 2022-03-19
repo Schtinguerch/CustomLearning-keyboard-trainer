@@ -37,21 +37,25 @@
         MaxHeight="800"
         Style="{StaticResource SubWindowBorderStyle}">
 
-        <Grid
-            x:Name="BackGrid"
-            Background="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}">
+        <Grid x:Name="BackGrid">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="54"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
 
+            <Rectangle
+                Fill="{DynamicResource FirstColor}"
+                RadiusX="8" RadiusY="8"
+                Grid.RowSpan="2">
+            </Rectangle>
+
             <Grid Grid.Row="1">
                 <Rectangle 
                     x:Name="SearchResultHighLightRectangle"
                     Opacity="0"
                     VerticalAlignment="Top"  Margin="0 42 0 0"
-                    Fill="{Binding Path=KeyboardHighlightColor ,Source={x:Static prop:Settings.Default}}">
+                    Fill="{DynamicResource HighlightBrush}">
 
                     <Rectangle.OpacityMask>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
@@ -148,30 +152,6 @@
                             <TextBlock
                                 Style="{StaticResource SummaryTextStyle}"
                                 VerticalAlignment="Top"
-                                Text="{x:Static res:Resources.uSettWindowColor}"
-                                FontSize="18">
-                            </TextBlock>
-
-                            <StackPanel
-                                Height="32"
-                                Width="400"
-                                VerticalAlignment="Bottom"
-                                HorizontalAlignment="Left"
-                                Orientation="Horizontal">
-
-                                <ComboBox
-                                    Style="{StaticResource SettingComboBoxStyle}"
-                                    x:Name="WindowColors"
-                                    SelectionChanged="WindowColors_OnSelectionChanged">
-                                </ComboBox>
-                            </StackPanel>
-                        </Grid>
-
-                        <Grid Style="{StaticResource SettingsItemStyle}"
-                        >
-                            <TextBlock
-                                Style="{StaticResource SummaryTextStyle}"
-                                VerticalAlignment="Top"
                                 Text="{x:Static res:Resources.uSettWindowBackgroundType}"
                                 FontSize="18">
                             </TextBlock>
@@ -197,8 +177,7 @@
                             </StackPanel>
                         </Grid>
 
-                        <Grid Style="{StaticResource SettingsItemStyle}"
-                        >
+                        <Grid Style="{StaticResource SettingsItemStyle}">
                             <TextBlock
                                 Style="{StaticResource SummaryTextStyle}"
                                 VerticalAlignment="Top"
@@ -237,35 +216,7 @@
                             </StackPanel>
                         </Grid>
 
-                        <Grid Style="{StaticResource SettingsItemStyle}"
-                        >
-                            <TextBlock
-                                Style="{StaticResource SummaryTextStyle}"
-                                VerticalAlignment="Top"
-                                Text="{x:Static res:Resources.uTheme}"
-                                FontSize="18">
-                            </TextBlock>
-
-                            <StackPanel
-                                Height="32"
-                                Width="400"
-                                VerticalAlignment="Bottom"
-                                HorizontalAlignment="Left"
-                                Orientation="Horizontal">
-
-                                <ComboBox
-                                    Style="{StaticResource SettingComboBoxStyle}"
-                                    x:Name="WindowTheme"
-                                    SelectionChanged="WindowTheme_OnSelectionChanged">
-                                
-                                    <TextBlock Text="{x:Static res:Resources.uLight}"></TextBlock>
-                                    <TextBlock Text="{x:Static res:Resources.uDark}"></TextBlock>
-                                </ComboBox>
-                            </StackPanel>
-                        </Grid>
-
-                        <Grid Style="{StaticResource SettingsItemStyle}"
-                              >
+                        <Grid Style="{StaticResource SettingsItemStyle}">
                             <TextBlock
                                 Style="{StaticResource SummaryTextStyle}"
                                 VerticalAlignment="Top"
@@ -292,6 +243,70 @@
                                     Style="{StaticResource ColorPickButtonStyle}"
                                     x:Name="MainColorButton"
                                     Click="MainColorButton_OnClick">
+                                    🖌
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Style="{StaticResource SettingsItemStyle}">
+                            <TextBlock
+                                Style="{StaticResource SummaryTextStyle}"
+                                VerticalAlignment="Top"
+                                Text="{x:Static res:Resources.uSettAccentColor}"
+                                FontSize="18">
+                            </TextBlock>
+
+                            <StackPanel
+                                Height="32"
+                                Width="400"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                Orientation="Horizontal">
+
+                                <TextBox
+                                    x:Name="AccentColorTextBox"
+                                    TextChanged="AccentColorTextBox_OnTextChanged"
+                                
+                                    Style="{StaticResource SettingTextBoxStyle}"
+                                    Text="{Binding Path=HighlightColor ,Source={x:Static prop:Settings.Default}}">
+                                </TextBox>
+
+                                <Button 
+                                    Style="{StaticResource ColorPickButtonStyle}"
+                                    x:Name="AccentColorButton"
+                                    Click="AccentColorButton_OnClick">
+                                    🖌
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Style="{StaticResource SettingsItemStyle}">
+                            <TextBlock
+                                Style="{StaticResource SummaryTextStyle}"
+                                VerticalAlignment="Top"
+                                Text="{x:Static res:Resources.uSettBordersColor}"
+                                FontSize="18">
+                            </TextBlock>
+
+                            <StackPanel
+                                Height="32"
+                                Width="400"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                Orientation="Horizontal">
+
+                                <TextBox
+                                    x:Name="BordersColorTextBox"
+                                    TextChanged="BordersColorTextBox_OnTextChanged"
+                                
+                                    Style="{StaticResource SettingTextBoxStyle}"
+                                    Text="{Binding Path=BordersColor ,Source={x:Static prop:Settings.Default}}">
+                                </TextBox>
+
+                                <Button 
+                                    Style="{StaticResource ColorPickButtonStyle}"
+                                    x:Name="BordersColorButton"
+                                    Click="BordersColorButton_OnClick">
                                     🖌
                                 </Button>
                             </StackPanel>
@@ -380,17 +395,10 @@
                                 Orientation="Horizontal">
 
                                 <TextBox
-                                    FontSize="18"
-                                    Height="32"
-                                    Width="350"
-                                    VerticalAlignment="Bottom"
-                                    HorizontalAlignment="Left"
-                                
-                                    Background="{Binding ThirdBackground, Source={x:Static prop:Settings.Default}}"
-                                    FontFamily="{Binding SummaryFont, Source={x:Static prop:Settings.Default}}"
-                                    BorderBrush="#121212"
                                     x:Name="SecondMenuColorTextBox"
                                     TextChanged="SecondMenuColorTextBox_OnTextChanged"
+                                    
+                                    Style="{StaticResource SettingTextBoxStyle}"
                                     Text="{Binding Path=ThirdSecBackground ,Source={x:Static prop:Settings.Default}}">
                                 </TextBox>
 
@@ -1273,6 +1281,84 @@
                             </StackPanel>
                         </Grid>
 
+                        <Grid Style="{StaticResource SettingsItemStyle}">
+                            <TextBlock
+                                Style="{StaticResource SummaryTextStyle}"
+                                VerticalAlignment="Top"
+                                Text="{x:Static res:Resources.uSettKbCornerRadius}"
+                                FontSize="18">
+                            </TextBlock>
+
+                            <StackPanel
+                                Height="32"
+                                Width="400"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                Orientation="Horizontal">
+
+                                <TextBox
+                                    Width="100"
+                                    VerticalAlignment="Bottom"
+                                    HorizontalAlignment="Left"
+                                
+                                    Text="{Binding KeyboardCornerRadius, Source={x:Static prop:Settings.Default}}"
+                                    Style="{StaticResource StandardTextBoxStyle}"
+                                
+                                    x:Name="KeysCornerRadiusTextBox">
+                                </TextBox>
+
+                                <Slider
+                                    x:Name="KeysCornerRadiusSlider"
+                                    Margin="10 0 50 0"
+                                    Width="240"
+                                    Value="{Binding Path=KeyboardCornerRadius, Source={x:Static prop:Settings.Default}}"
+                                    Minimum="0"
+                                    Maximum="100" TickFrequency="1"
+                                    ValueChanged="KeyCornerRadiusSlider_ValueChanged"
+                                    PreviewMouseUp="Page_MouseUp">
+                                </Slider>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Style="{StaticResource SettingsItemStyle}">
+                            <TextBlock
+                                Style="{StaticResource SummaryTextStyle}"
+                                VerticalAlignment="Top"
+                                Text="{x:Static res:Resources.uSettKbBorderThickness}"
+                                FontSize="18">
+                            </TextBlock>
+
+                            <StackPanel
+                                Height="32"
+                                Width="400"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left"
+                                Orientation="Horizontal">
+
+                                <TextBox
+                                    Width="100"
+                                    VerticalAlignment="Bottom"
+                                    HorizontalAlignment="Left"
+                                
+                                    Text="{Binding KeyboardBorderThickness, Source={x:Static prop:Settings.Default}}"
+                                    Style="{StaticResource StandardTextBoxStyle}"
+                                
+                                    x:Name="KeyBorderThicknessTextBox">
+                                </TextBox>
+
+                                <Slider
+                                    x:Name="KeyBorderThicknessSlider"
+                                    Margin="10 0 50 0"
+                                    Width="240"
+                                    Value="{Binding Path=KeyboardBorderThickness, Source={x:Static prop:Settings.Default}}"
+                                    Minimum="0"
+                                    Maximum="100" TickFrequency="1"
+                                    ValueChanged="KeyBorderThicknessSlider_ValueChanged"
+                                    PreviewMouseUp="Page_MouseUp">
+                                </Slider>
+                            </StackPanel>
+                        </Grid>
+
                         <Grid Style="{StaticResource SettingsItemStyle}"
                               >
                             <TextBlock
@@ -1665,7 +1751,8 @@
                 Height="0"
                 Background="#202020"
                 Foreground="Black"
-                UsingAlphaChannel="True"
+                UsingAlphaChannel="True" 
+                ColorMode="ColorCanvas"
                 x:Name="SetupColorPicker"
                 SelectedColorChanged="SetupColorPicker_OnSelectedColorChanged"
                 HorizontalAlignment="Center"
@@ -1674,11 +1761,16 @@
             </ext:ColorPicker>
 
 
-            <Grid Grid.Row="0"
-                  Background="{Binding Path=SecondBackground ,Source={x:Static prop:Settings.Default}}">
+            <Grid Grid.Row="0">
+                
                 <Grid.Effect>
                     <DropShadowEffect BlurRadius="30"></DropShadowEffect>
                 </Grid.Effect>
+
+                <Rectangle
+                    Fill="{DynamicResource SecondColor}"
+                    RadiusX="8" RadiusY="8">
+                </Rectangle>
 
                 <TextBlock 
                     Style="{StaticResource SummaryTextStyle}"
@@ -1719,7 +1811,6 @@
                         x:Name="DiscardButton" 
                         Click="DiscardButton_Click"
                         Content="&#xF78A;">
-                        
                     </Button>
                 </StackPanel>
             </Grid>
