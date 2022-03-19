@@ -192,6 +192,7 @@
 
         <Setter Property="Width" Value="50"></Setter>
         <Setter Property="FontSize" Value="14"></Setter>
+        <Setter Property="FontFamily" Value="{Binding Path=SummaryFont ,Source={x:Static prop:Settings.Default}}"></Setter>
         <Setter Property="Background" Value="{Binding Path=MainBackground ,Source={x:Static prop:Settings.Default}}"></Setter>
     </Style>
 
