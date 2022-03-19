@@ -84,6 +84,9 @@ namespace WPFMeteroWindow.Controls.TextInputControls.Competitive
                 {
                     try
                     {
+                        if (HighlightingRunIndex == _chacacterRuns.Count)
+                            return;
+
                         var point = RunPosition(_chacacterRuns[HighlightingRunIndex], _textBlocks[HighlightingTextBlockIndex], TextInputWrapPanel);
                         Canvas.SetLeft(ErrorInputTextBlock, point.X);
                         Canvas.SetTop(ErrorInputTextBlock, point.Y);
@@ -117,8 +120,6 @@ namespace WPFMeteroWindow.Controls.TextInputControls.Competitive
                 Settings.Default.IsFirstTextInputOpen = false;
                 AppManager.InitializeApplication();
             }
-
-            Intermediary.App.RestartLesson();
         }
 
         public void LoadText(string text)
@@ -197,29 +198,23 @@ namespace WPFMeteroWindow.Controls.TextInputControls.Competitive
             }
 
             int textBlockIndex = 0, runIndex = 0;
-            
-            try
+            foreach (var word in words)
             {
-                foreach (var word in words)
+                foreach (var character in word)
                 {
-                    foreach (var character in word)
-                    {
-                        _chacacterRuns[runIndex].Text = character.ToString();
-                        _textBlocks[textBlockIndex].Inlines.Add(_chacacterRuns[runIndex]);
-                        runIndex++;
-                    }
-
-                    _chacacterRuns[runIndex].Text = " ";
+                    _chacacterRuns[runIndex].Text = character.ToString();
                     _textBlocks[textBlockIndex].Inlines.Add(_chacacterRuns[runIndex]);
-
                     runIndex++;
-                    textBlockIndex++;
                 }
-            } 
-            
-            catch
-            {
 
+                if (runIndex == _chacacterRuns.Count)
+                    return;
+
+                _chacacterRuns[runIndex].Text = " ";
+                _textBlocks[textBlockIndex].Inlines.Add(_chacacterRuns[runIndex]);
+
+                runIndex++;
+                textBlockIndex++;
             }
         }
 
