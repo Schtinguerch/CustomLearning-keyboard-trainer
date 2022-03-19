@@ -92,7 +92,7 @@ namespace WPFMeteroWindow
                 if (Settings.Default.IsCourseOpened)
                 {
                     errorIndex++;
-                    CourseManager.LoadCourse(Settings.Default.LoadedCourseFile);
+                    CourseManager.LoadCourse(Settings.Default.LoadedCourseFile);   
                 }
                 else
                     LessonManager.LoadLesson(Settings.Default.LoadedLessonFile);

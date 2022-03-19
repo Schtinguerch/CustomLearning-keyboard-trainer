@@ -105,15 +105,11 @@ namespace WPFMeteroWindow
                 var wordCpm = (_wordLength + 1) / (float)wordTime * _millisecondsInMinute;
 
                 WordSpeeds.Add(wordCpm);
+                var spaceIndex = LessonManager.LeftRoad.IndexOf(' ');
 
-                try
+                if (spaceIndex > -1)
                 {
-                    _currentWord = LessonManager.LeftRoad.Substring(0, LessonManager.LeftRoad.IndexOf(' '));
-                }
-
-                catch
-                {
-                    //Do nothing, cuz it's the end of lesson
+                    _currentWord = LessonManager.LeftRoad.Substring(0, spaceIndex);
                 }
 
                 _wordLength = 0;
